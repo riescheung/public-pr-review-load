@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T03:55:09Z",
+  "title": "Design System: Weave Engineering Impact",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Evidence Teal",
+        "canonical": "#177a6c"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#f5f3ed"
+      },
+      "attention": {
+        "role": "warning",
+        "displayName": "Investigation Amber",
+        "canonical": "#a75b21"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial Heading",
+        "purpose": "Report titles and evidence-panel subject"
+      },
+      "data": {
+        "displayName": "Measured Data",
+        "purpose": "Dates, scores, and review-load figures"
+      }
+    },
+    "shadows": [
+      {
+        "name": "evidence-drawer",
+        "value": "-12px 0 45px rgb(19 31 26 / 13%)",
+        "purpose": "Distinguish the temporary source-detail layer"
+      }
+    ],
+    "motion": [
+      {
+        "name": "drawer-enter",
+        "value": "200ms ease-out",
+        "purpose": "Reveal evidence without delaying the main task"
+      }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "1100px" },
+      { "name": "mobile", "value": "650px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Supported Period",
+      "kind": "button",
+      "refersTo": "period-cell",
+      "description": "Compact evidence cell in a 14-day interval",
+      "html": "<button class=\"ds-period-cell\">8.0 pts<br><small>3 outcomes</small></button>",
+      "css": ".ds-period-cell { background: #e8f4ed; color: #202a28; border: 1px solid transparent; border-radius: 6px; padding: 7px 10px; font: 500 12px 'DM Sans', sans-serif; text-align: left; } .ds-period-cell:hover, .ds-period-cell:focus-visible { border-color: #177a6c; outline: 2px solid #177a6c; outline-offset: 2px; }"
+    },
+    {
+      "name": "Search",
+      "kind": "input",
+      "description": "Contributor filter above the leaderboard",
+      "html": "<input class=\"ds-search\" placeholder=\"Find contributor\" aria-label=\"Find contributor\">",
+      "css": ".ds-search { background: white; border: 1px solid #d5ddd4; border-radius: 6px; padding: 8px 10px; color: #202a28; font: 400 12px 'DM Sans', sans-serif; } .ds-search:focus-visible { outline: 2px solid #177a6c; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Evidence Index",
+    "overview": "A working leaderboard, not a decorative infographic. Register-like density enables comparison of seven periods, with source-linked details one click away.",
+    "keyCharacteristics": [
+      "Compact 14-day columns",
+      "Quiet warm ground",
+      "Source-first explanations"
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Rule",
+        "body": "Reserve teal fills for supported outcomes; never use amber as a negative performance grade.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Keep the strongest visible source links close to every claim.",
+      "Show unscored contributions without equating them to no impact."
+    ],
+    "donts": [
+      "Use review load in the impact score.",
+      "Present the attention mark as an employee-performance verdict."
+    ]
+  }
+}

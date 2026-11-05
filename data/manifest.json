@@ -1,0 +1,14 @@
+{
+  "repository": "PostHog/posthog",
+  "window_start": "2026-07-29",
+  "window_end": "2026-11-03",
+  "retrieved_at": "2026-11-04T03:28:48.991462+00:00",
+  "days": 98,
+  "merged_prs": 19827,
+  "source": "GitHub GraphQL merged PR search, UTC-day pagination",
+  "limitations": [
+    "GitHub search may be updated after this snapshot.",
+    "Reviews are latest per reviewer; earlier review rounds are not captured.",
+    "Private work, usage analytics, and unlinked deployment results are unavailable."
+  ]
+}
