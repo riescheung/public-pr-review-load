@@ -2,7 +2,7 @@ name: Deploy dashboard
 
 on:
   push:
-    branches: [main, publish-review-load]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
