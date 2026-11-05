@@ -12,44 +12,45 @@ React (user choice). Build tooling and hosting provider are not yet decided.
 
 ## Users
 
-Busy PostHog engineering leaders who need to understand which engineers have
-demonstrated impact without reading every PR or issue.
+PostHog engineering leaders inspecting estimated public contributions without
+treating documentation coverage or review load as verified individual impact.
 
 ## Product Purpose
 
-Analyze at least 90 days of public PostHog/posthog GitHub evidence and explain
-the five highest-ranked contributors, while allowing exploration of every
-observed human contributor.
+Show WPR review-load estimates across at least 90 days of public
+PostHog/posthog work; leave the outcome metric unassigned.
 
 ## Operating Context
 
 The dashboard is a single-page, laptop-screen-first report. It uses seven
-adjacent, non-overlapping 14-day periods (98 days total) to show when distinct
-outcomes were realized. Every person remains accessible through a compact,
-paginated list, with the top five easy to scan.
+adjacent, non-overlapping 14-day periods (98 days total) to show WPR
+and a blank outcome field. Every person remains accessible through a
+compact, paginated list, with the top five WPR totals first.
 
 ## Capabilities and Constraints
 
-- Base impact on distinct, evidence-linked outcomes, not lines changed, commit
-  volume, or PR counts.
-- Group PRs serving one outcome; do not count a feature once per PR.
-- No arbitrary cap on a person's outcome count.
-- Distinguish merged, shipped, and result-verified evidence; show uncertainty.
+- Group related PRs before scoring; do not reward PR splitting.
+- Keep the historical contribution rubric for research, not the public grid.
+- Keep all merged PRs inspectable, including work with no additional public link.
+- Label release inclusion and closing-issue relationships without awarding
+  extra points or claiming independently verified user benefit.
+- Show WPR as the primary review-load proxy, not author effort or value.
 - Include all observed human contributors in the paginated list, including
-  external contributors. Exclude bot accounts from rankings, and do not infer
+  external contributors. Exclude bot accounts from the index, and do not infer
   employment where public evidence does not establish it.
-- Show the evidence, rubric, data window, and coverage limits behind rankings.
+- Show source PR links, WPR breakdowns, data window and coverage limits.
 - Data acquisition from public GitHub is approved. External publication has not
   yet been approved.
 
 ## Evidence on Hand
 
-The user supplied the assignment and the analysis framework, but no downloaded
-PostHog data or verified engineer rankings. These must not be fabricated.
+The 98-day public GitHub snapshot is available, but user benefit and individual
+impact are not independently verified.
 
 ## Product Principles
 
-1. Make each ranking challengeable through direct source links.
-2. Prefer observed outcomes to activity proxies and unverified claims.
+1. Make each WPR total traceable through direct PR links.
+2. Do not equate activity proxies, documentation, or unverified claims with
+   measured user impact.
 3. Show repeated contributions without rewarding PR splitting.
 4. Say what public GitHub cannot establish.

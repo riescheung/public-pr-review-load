@@ -1,0 +1,142 @@
+[
+  {
+    "index": 270,
+    "score": 1,
+    "reason": "A review-bot setting stops generated summaries from editing PR descriptions. This is a narrow team-workflow configuration change, not evidence of user benefit.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "    high_level_summary: false"
+  },
+  {
+    "index": 220,
+    "score": 2,
+    "reason": "The filter cleanup excludes behavioral filters from the generic exact-operator default, preserving the no-count-comparison behavior with a regression test. This is a bounded query correctness improvement.",
+    "hunk": "P1.F2.H1",
+    "code_quote": "    if (isPropertyWithOperator(property) && property['type'] !== 'behavioral' && property['operator'] === undefined) {"
+  },
+  {
+    "index": 785,
+    "score": 1,
+    "reason": "The GeoIP database download now times out on slow or stalled transfers. It improves one maintenance command's failure handling without establishing a broader capability.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "        --connect-timeout 10 \\"
+  },
+  {
+    "index": 713,
+    "score": 2,
+    "reason": "The content-safety classifier switches model and explicitly selects a supported thinking level, with a test of the request configuration. This is a bounded reliability correction, not proof of improved classification quality.",
+    "hunk": "P1.F1.H2",
+    "code_quote": "                        thinking_config=types.ThinkingConfig(thinking_level=types.ThinkingLevel.MINIMAL),"
+  },
+  {
+    "index": 1389,
+    "score": 2,
+    "reason": "The Honeybadger connector resolves root-relative pagination URLs before checking the API origin and fetching the next page; a regression test covers the relative link. This is bounded ingestion correctness with the origin guard retained.",
+    "hunk": "P1.F1.H2",
+    "code_quote": "    resolved_url = urljoin(HONEYBADGER_BASE_URL, url)"
+  },
+  {
+    "index": 1051,
+    "score": 1,
+    "reason": "A single SDK initialization flag enables strict script versioning, but this diff does not show its effect or validation. It is a narrow configuration change.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "            strict_script_versioning: true,"
+  },
+  {
+    "index": 624,
+    "score": 1,
+    "reason": "The local-development guide adds managed-install and minimum-version instructions for Flox. This is useful documentation rather than an implemented product capability.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "   Use Flox 1.18.2 or newer. To upgrade an existing Homebrew installation, run `brew update && brew upgrade flox`. For other installation methods, follow the [Flox upgrade instructions](https://flox.dev/docs/install-flox/install). Check the installed version with `flox --version`."
+  },
+  {
+    "index": 1468,
+    "score": 1,
+    "reason": "A report-only CSP image directive accepts all HTTPS hosts for OAuth icons. The patch does not enforce a new safeguard and the broader allowance cannot establish a product or security benefit.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "                f\"img-src 'self' data: https: {resource_url} https://posthog.com https://www.gravatar.com https://res.cloudinary.com https://platform.slack-edge.com https://raw.githubusercontent.com\","
+  },
+  {
+    "index": 1629,
+    "score": 2,
+    "reason": "The metrics formula parser now accepts scientific notation, with tests for positive and negative exponents and rejection of non-finite values. This adds a bounded expression capability, not a general query-engine change.",
+    "hunk": "P1.F1.H2",
+    "code_quote": "    r\"\\s*(?:(?P<ident>[A-Za-z_][A-Za-z0-9_]*)|(?P<number>\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?)|(?P<op>[()+\\-*/]))\""
+  },
+  {
+    "index": 1687,
+    "score": 1,
+    "reason": "The metrics-name picker omits non-finite sparkline values before serialisation, with a test for an overflowing average. This is a narrow display-data correction.",
+    "hunk": "P1.F1.H2",
+    "code_quote": "            if math.isfinite(value):"
+  },
+  {
+    "index": 1359,
+    "score": 1,
+    "reason": "A new database index supports symbol-set cleanup buckets and is installed concurrently. The diff does not show a changed cleanup query or plan, so broader performance benefit remains unverified.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "        SafeAddIndexConcurrently("
+  },
+  {
+    "index": 1492,
+    "score": 2,
+    "reason": "The desktop tab strip now closes a tab on middle click without selecting it, covering pinned and unpinned tabs with interaction tests. This is a bounded user-facing capability.",
+    "hunk": "P1.F3.H1",
+    "code_quote": "      onAuxClick={(event) => {"
+  },
+  {
+    "index": 511,
+    "score": 1,
+    "reason": "Only the Twilio connector release-status flag changes from alpha to general availability. The diff does not demonstrate new connector functionality or adoption.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "            releaseStatus=ReleaseStatus.GA,"
+  },
+  {
+    "index": 1236,
+    "score": 1,
+    "reason": "A skill document explains querying live task tables and the limits of those queries; it does not implement new task-query functionality. This is documentation for a team workflow.",
+    "hunk": "P1.F1.H1",
+    "code_quote": "## Live Tasks data"
+  },
+  {
+    "index": 1604,
+    "score": 1,
+    "reason": "Two push-action schema fields stop requiring UUID format, and a test accepts one UUIDT-shaped example. This is a narrow compatibility change; broader correctness or safety is not established.",
+    "hunk": "P1.F2.H1",
+    "code_quote": "            message_category_id: z.string().optional(),"
+  },
+  {
+    "index": 1748,
+    "score": 2,
+    "reason": "Managed-warehouse status now filters for warehouse-access sources instead of including direct sources, with an access-control regression test. This is a bounded correctness improvement in the status view.",
+    "hunk": "P1.F1.H2",
+    "code_quote": "        \"access_method\": ExternalDataSource.AccessMethod.WAREHOUSE,"
+  },
+  {
+    "index": 229,
+    "score": 2,
+    "reason": "The worker command registers separate evaluation and delivery queues for an Alerts workflow and tests child execution. It establishes a bounded workflow skeleton, but the changed activities still perform no real notification delivery.",
+    "hunk": "P1.F2.H2",
+    "code_quote": "        settings.ALERTS_PRODUCT_EVALUATION_TASK_QUEUE,"
+  },
+  {
+    "index": 466,
+    "score": 2,
+    "reason": "A new organization-provisioning record constrains partner/application combinations in the schema, migration and model tests. This provides bounded data-integrity support for partner provisioning; the diff does not show the account-creation flow.",
+    "hunk": "P1.F5.H1",
+    "code_quote": "                | Q(partner__in=[\"provisioning_api\", \"stripe_projects\"], application__isnull=False),"
+  },
+  {
+    "index": 246,
+    "score": 2,
+    "reason": "HogQL constant simplification gains typed JSON helper folding and corrects one-based array path indexing, with tests across several types and functions. This is substantive but bounded query-correctness work; the diff does not establish broad user outcomes.",
+    "hunk": "P1.F2.H4",
+    "code_quote": "        elif isinstance(current, list) and isinstance(component, int) and 0 < component <= len(current):"
+  },
+  {
+    "index": 249,
+    "score": 3,
+    "reason": "The shared usage-ingestion client now retries transient gRPC failures in both synchronous and asynchronous reporting, distinguishes accepted from rejected records and emits failure/retry metrics with tests for exhaustion and partial acceptance. The shared producer boundary demonstrates a broader reliability safeguard, not measured billing accuracy.",
+    "hunk": "P1.F1.H3",
+    "code_quote": "            for attempt in range(MAX_ATTEMPTS):"
+  }
+]

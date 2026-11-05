@@ -1,0 +1,44 @@
+{
+  "scope": "PostHog/posthog 98-day snapshot",
+  "total_groups": 17220,
+  "pilot_groups": 50,
+  "catalog_groups": 17220,
+  "cached_diff_groups": 3541,
+  "ai_reviewed_groups": 0,
+  "awaiting_ai_review": 17220,
+  "pending_flags": 0,
+  "flags": [],
+  "calibrations": [
+    {
+      "index": 36,
+      "prs": [
+        103592
+      ],
+      "wpr": 2,
+      "tier": 1,
+      "reason": "Narrow insight-edit state preservation fix; code change remains local",
+      "reviewer": "posthog-expert"
+    },
+    {
+      "index": 19,
+      "prs": [
+        116718
+      ],
+      "wpr": 2,
+      "tier": 2,
+      "reason": "Named CSP style and font hosts are enforced, but the change is bounded to this policy path",
+      "reviewer": "posthog-expert"
+    },
+    {
+      "index": 38,
+      "prs": [
+        117287
+      ],
+      "wpr": 3,
+      "tier": 3,
+      "reason": "Webhook idempotency guards duplicate workflow execution across the queue boundary",
+      "reviewer": "posthog-expert"
+    }
+  ],
+  "score_source": "The contributor grid ranks WPR review-load estimates. Outcome scores are blank; AI tiers are not applied."
+}

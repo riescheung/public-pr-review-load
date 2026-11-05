@@ -1,8 +1,17 @@
 node_modules/
+.venv/
 dist/
 __pycache__/
 data/raw/
 data/raw_files/
+data/ai_pilot/diffs/
+data/ai_pilot/harness/
+data/ai_pilot/*.log
+data/ai_review/diffs/
+data/ai_review/harness/
+data/ai_review/model/
+data/ai_review/lora/
+data/ai_review/fetch.log
 data/releases.json
 .DS_Store
 .impeccable/review/

@@ -1,10 +1,10 @@
-# Engineering impact, with receipts
+# Public PR review load
 
-An evidence-constrained, single-page React report for the public
-[`PostHog/posthog`](https://github.com/PostHog/posthog) repository. It shows the
-five highest-ranked people first, then all observed human contributors in
-five-person pages. Each row has seven adjacent 14-day intervals and links to
-the underlying PRs, issues, and release notes.
+The [`PostHog/posthog`](https://github.com/PostHog/posthog) dashboard shows
+weighted PR (WPR) as its primary metric across seven 14-day intervals.
+WPR estimates review load from public file changes; it is **not** author effort,
+engineering impact or verified customer benefit. The outcome field stays
+**blank / not assessed**, not zero. Top-five insignia mark WPR order only.
 
 ## Snapshot
 
@@ -12,17 +12,16 @@ the underlying PRs, issues, and release notes.
 - **19,827** merged PRs collected across all 98 UTC days; 17,344 authored by
   GitHub `User` accounts, 2,479 by `Bot` accounts, and 4 without an author.
 - **214** observed human accounts (PR authors or latest reviewers), including
-  contributors whose review participation has no scored outcome.
-- **1,513** of 17,234 conservative change groups meet the scoring evidence
-  threshold. Most groups have only a merged PR and remain unscored.
+  review-only contributors with no authored PR review-load total.
+- **17,220** of 17,234 conservative change groups have substantive changed
+  files. Only **1,447** have an extra release or closing-issue link; links do
+  not determine WPR.
 - **19,827** complete PR file lists were collected for estimated review load.
   The client bundle includes only the compact report, not raw PR bodies/diffs.
 
-This is a ranking of **publicly corroborated outcomes**, not a claim about
-individual employee performance. Release notes in this repo are dominated by
-Desktop; uneven publication systematically favors that area. Impact from
-private repos, mentorship, incidents, reviews, and long-running work is
-largely invisible. A zero means *no qualifying evidence here*, not no impact.
+The public snapshot does not establish lasting benefit or individual
+ownership. WPR totals grow with PR volume; a zero or missing public PR
+does not mean zero impact. This index is not a personnel assessment.
 
 ## Method
 
@@ -30,51 +29,35 @@ largely invisible. A zero means *no qualifying evidence here*, not no impact.
    count matches its results. Collect title, PR text, GitHub actor type, linked
    closing issues, labels, and latest review per reviewer. Separately fetch
    repo releases and every PR's changed files.
-2. Group PRs closing the same issue, or with the same specific normalized
-   title and author. Otherwise keep them separate. This deliberately avoids
-   collapsing unrelated work in a product area; it can miss related stacked
-   PRs without an explicit common reference.
-3. Score only when a group has an independent linked issue or release note,
-   or an explicit numerical improvement reported in the PR. The latter is a
-   *claim*, not an independently verified result. A PR-only narrative does not
-   automatically become impact.
-4. Use a problem-oriented rubric: **1** documented maintenance/enabling work;
-   **2** a bounded defect fix or capability with evidence; **3** a substantial
-   user capability or quantitative performance claim; **4** a corroborated
-   high-severity correctness/availability risk addressed; **5** reserved for
-   independently measured major outcomes (none assigned automatically here).
-   The deterministic classification is a screening estimate, not a human
-   judgment of actual business impact. Inspect linked sources before making
-   personnel decisions.
-5. Multiply rubric points by evidence strength: `0.5` for a PR-reported metric,
-   `0.75` for a linked issue or published release note. No item gets `1.0`
-   without independently observed results. Split an issue cluster equally
-   among its PR owners, marking this as a provisional ownership allocation.
-   Reviews without a traceable change of outcome are not assigned fake credit.
-   Sum **all** supported outcomes; there is no top-five-outcomes cap.
-   The contributor drawer shows five highlights, while clicking an interval
-   exposes its complete set of scored outcomes and each person's credited
-   share. Individual credit can differ from the outcome's full value when
-   multiple PR owners share it. Grid totals round to one decimal.
-6. Attribute an outcome to the period in which the earliest linked release
-   appeared, otherwise its last PR merge. Each outcome enters one interval.
-   GitHub release inclusion confirms publication, not availability to every
-   customer or usage. The dashboard does not claim verified results.
-   Review load belongs to the PR's merge period instead: an interval may show
-   merged PRs and WPR but zero supported outcomes. Each period's PR list
-   reconciles the estimated WPR total independently of outcome points.
+2. Estimate each PR's 0–10 WPR from changed-file type, size and density;
+   discount trivial/generated files and assign net reverts zero. Sum WPR
+   for authored merged PRs by merge interval and contributor. The sum is
+   review-load scope, not a contribution point or outcome score.
+3. Show the PRs behind each total. Release and issue links do not add WPR
+   and do not verify adoption or benefit. The old title-derived point
+   fields remain in the frozen report for historical reproducibility but
+   are **not displayed** or used to order contributors.
+4. Keep the outcome field unassigned until an independently validated
+   method exists. PR code reviews alone cannot prove customer outcomes.
 
-The "worth a closer look" symbol is **not** part of impact. It selects authors
-with at least 10 merged PRs whose estimated review load on PRs 28+ days old is
-in the upper quartile, while their public-evidence outcome score through that
-cutoff is in the lower half of the same cohort. This is a prompt to investigate
-missing evidence or a review-to-outcome mismatch, **not** a quality or employee
-performance judgment. The panel shows the cohort cutoffs and examples of
-high-WPR PRs without qualifying links; those examples do not prove that the
-changes were unimportant or unshipped. The signal uses 121 eligible authors
-in this snapshot, a 410-WPR upper-quartile threshold and a 1.75-point
-lower-half threshold through 2026-10-06. Uneven release coverage, delayed
-outcomes, heuristic WPR, and arbitrary cohort thresholds create false alarms.
+Grouping and the old title-based point rubric are retained in the research
+pipeline, not the visible index. This WPR ranking cannot capture private work,
+reviews, mentorship or delayed effects.
+
+### Code-review pilot (not in the dashboard)
+
+`AI_RUBRIC.md` defines a diff-grounded base tier (1, 2 or 3) with an
+abstention option. The 50-group pilot selection and first-pass AI review
+are in `data/ai_pilot/selection.json` and `data/ai_pilot/reviews.json`.
+Of 50 groups, 45 were scored and five abstained; the review found both
+title-heuristic overestimates and underestimates. The selection is not
+representative, large patches need chunked review and metadata-gaming
+resistance has not yet been tested blind. **The dashboard uses WPR, not
+the pilot tiers or historical title-derived point fields.**
+The opening dashboard-status sentence in `AI_RUBRIC.md` describes the
+historical point display. Its review-contract text is hash-frozen to
+preserve the three existing calibration records; this README and the
+dashboard describe the current WPR-only display.
 
 Estimated WPR follows the supplied file-weighted review-cost rubric: adjusted
 changes by language density, file type, and change type; generated/trivial
@@ -82,7 +65,8 @@ files excluded; config-only promotion; nonlinear file-count factor; 0–10
 clamp; net reverts zero. Unlike the full V13 implementation, this snapshot does
 **not** subtract direct child PR overlap from slush parents. WPR measures an
 estimate of review load borne by reviewers, *not* the author's engineering
-effort. It never changes the impact score.
+effort. A historical, unpublished point calculation capped WPR's
+scope adjustment at one point; the visible index does not use it.
 
 ## Run and refresh
 
@@ -93,6 +77,200 @@ npm ci
 npm run dev
 python3 -m unittest discover -s tests -v
 ```
+
+To inspect the pilot with an authenticated GitHub CLI, run
+`python3 scripts/ai_pilot.py --fetch`. This caches public diffs under
+the ignored `data/ai_pilot/diffs/` directory; it does not invoke an AI
+model or modify the report. The checked-in reviews were performed in
+this conversation, and cached diff hashes are validated by the tests
+when the diffs are available locally.
+
+### PostHog-aware scoring harness (offline until configured)
+
+The review orientation in `POSTHOG_REVIEW_CONTEXT.md` maps the paths in
+this public snapshot to PostHog product and operational mechanisms. It
+does not assign a tier to paths or claim official product priorities.
+`scripts/score_harness.py` takes the frozen rubric plus that orientation,
+verifies cached patch hashes and hunk completeness, and writes blinded
+model packets that omit authors, titles, links, WPR and old scores:
+
+```bash
+python3 scripts/score_harness.py prepare --index 2
+# data/ai_pilot/harness/packets/02.json
+python3 scripts/score_harness.py prepare  # all 50 groups, without model calls
+```
+
+For actual AI review, supply an executable adapter that reads a JSON object
+`{"messages":[{"role":"system","content":"..."},{"role":"user","content":"..."}]}`
+from stdin and writes **one JSON object** to stdout. The harness calls it
+once per complete diff chunk for code-backed observations, then once for
+a group-level 1–3 decision or abstention. Each observation must cite a
+hunk ID and quote a literal changed line; scored decisions must explain
+their PostHog mechanism and flag ambiguous multi-PR grouping. For
+example, after approving the chosen model/runtime and any network access:
+
+```bash
+python3 scripts/score_harness.py run --index 2 --reviewer-id reviewer-a \
+  --model-id your-model-version \
+  --model-command /path/to/your-review-adapter
+# Repeat with --reviewer-id reviewer-b and an independent model review.
+python3 scripts/review_queue.py queue
+```
+
+Runs are stored separately under ignored
+`data/ai_pilot/harness/runs/<index>/<reviewer-id>.json` with instruction
+and diff hashes, model label, observations and decision. Reusing a reviewer
+ID for the same group fails rather than overwriting its prior decision.
+The queue is refreshed after each reviewer run or human answer; rerun
+`review_queue.py queue` to inspect it at any time. Flagged cases live in ignored
+`data/ai_pilot/harness/review_queue.json`. It flags reviewer disagreement
+(including an abstention), grouping issues, abstentions and *scope
+tensions*: WPR >= 7 with a 1-point base tier, or WPR < 3 with a 3-point
+base tier. The latter can be a perfectly valid small but critical fix;
+WPR is never a correction factor or proof the AI is wrong.
+
+After a human inspects the cited diff, record the decision. Omit
+`--manual` for an automatically flagged case:
+
+```bash
+python3 scripts/review_queue.py answer --index 2 --score 1 --manual \
+  --reviewer posthog-expert --reason "Narrow release-status change only"
+```
+
+Human answers are appended to tracked `data/ai_pilot/calibration.json`
+with the PR diff hashes, rubric/context hash, AI votes and explanation.
+The queue compares later AI reviews with that human tier and flags any
+mismatch; a changed diff or rubric needs a fresh calibration. The three
+expert judgments previously given in conversation are recorded as
+manual calibrations (no machine-readable AI runs existed then).
+These answers are a benchmark for rubric improvement and reviewer
+evaluation, **not** automatic model training or live score overrides.
+The caller's adapter is responsible for model access and isolation; this
+script does not sandbox it or make network requests on its own. Invalid
+JSON, uncited evidence, stale patches and incomplete group diffs fail
+closed. A model's explanation of PostHog relevance is still a judgment,
+not verified user impact; the model can still misunderstand a valid hunk
+or claim independence it did not achieve. Review 3-point cases and
+disagreements independently before promoting scores into `data/report.json`.
+
+### Full-snapshot review (separate from the dashboard)
+
+`build_review_catalog.py` creates a deterministic catalog of the 17,220
+eligible groups from the existing 98-day snapshot, retaining WPR as a
+separate review-load proxy. Fetching the public diffs is resumable and can
+be batched; a full fetch makes over 17,000 public PR-diff requests. The
+`--fetch-limit` option is a useful cost/availability check before `--all`.
+The tracked catalog stores PR identifiers and diff hashes; cached diffs
+and model runs are ignored by git.
+
+```bash
+python3 scripts/build_review_catalog.py
+python3 scripts/build_review_catalog.py --fetch-limit 25
+# Once ready for the full public-diff fetch:
+python3 scripts/build_review_catalog.py --all
+```
+
+For the local Codex SDK adapter, install `cursor-sdk` in your own Python
+environment and set `CURSOR_API_KEY` (never commit it). This adapter chooses
+the local runtime, creates an isolated temporary working directory per
+review, asks for JSON-only output and does not grant a sandbox: model
+permissions and network access still need to be governed separately.
+Specify a model available to your account with `WEAVE_REVIEW_MODEL` or
+leave it at `auto`. Model runs may incur significant cost; no automatic
+full run is started by the app.
+
+```bash
+python3 scripts/score_harness.py run --scope full --index 1 \
+  --reviewer-id pass-a --model-id auto \
+  --model-command python3 scripts/codex_review_adapter.py
+python3 scripts/score_harness.py run --scope full --index 1 \
+  --reviewer-id pass-b --model-id auto \
+  --model-command python3 scripts/codex_review_adapter.py
+python3 scripts/review_queue.py queue --scope full
+python3 scripts/build_review_status.py
+```
+
+The second run is a fresh review, not a different model by default.
+`data/review_status.json` preserves research progress and calibration
+offline; the public index does not display its incomplete model counts.
+Only a validated and adjudicated set of code-grounded tiers could be
+shown as a *separate* classifier. A 1–3 tier estimates visible engineering
+work, **not** a measured outcome score.
+
+### Paused SWE-2 experiment and proposed local Qwen follow-up
+
+The prototype can use SWE-2 through a **local, signed-in Devin CLI**, but
+the full run was stopped for this presentation. No full-snapshot SWE-2
+score is used in the index.
+This is not the Codex SDK adapter above, a Devin Cloud session, or a
+locally trained model. It requires `devin auth login` by the account owner,
+then `devin models list` to confirm the exact SWE-2 ID available to that
+account. The runner requires `--execute` and an explicit attempt limit;
+it will not silently switch to a different model if SWE-2 is unavailable.
+The adapter runs in a temporary workspace with a read-only permission
+mode, checks that the CLI prints one JSON object, and passes that answer
+through the diff citation validator. Each successful review is recorded
+with its model ID and exact diff/rubric hashes, never overwritten on
+resume. An unavailable, malformed or incomplete patch gets **no invented
+model result**. Large groups still require one model call per chunk plus
+a group-level decision, so all-group inference is substantial work.
+
+```bash
+devin auth status
+devin models list
+python3 scripts/run_full_swe_review.py --model-id swe-2
+# After confirming that SWE-2 is available, try one complete group:
+python3 scripts/run_full_swe_review.py --model-id swe-2 --index 2 --limit 1 --execute
+# Resume every remaining group with a complete cached diff:
+python3 scripts/run_full_swe_review.py --model-id swe-2 --limit 0 --execute
+```
+
+Substitute the **exact catalog ID** if it differs from `swe-2`. The
+public diff fetch is paused; resume it only if a full run is warranted.
+The runner does not fetch patches. Free SWE-2 CLI use is a plan offer,
+not proof of unlimited batch throughput or availability indefinitely.
+Check the current offer and account billing before a large run. Model
+votes remain **off the contributor dashboard**. A future design would
+train *two independent local Qwen reviewers* on reviewed labels prepared
+by GPT-6 Sol, then hold out the three human calibration cases and
+additional adversarial examples. Independent votes expose disagreement,
+but two Qwen models trained on the same labels can share mistakes. The
+existing review queue flags disagreements and large WPR/tier tensions
+(group WPR >= 7 with tier 1 or WPR < 3 with tier 3). A human would inspect
+each flag, choose the final tier or abstain and save the reason as
+calibration; the flag never automatically overrides a model or publishes
+an outcome. WPR stays a separate review-load proxy; outcome remains blank.
+
+For a future free local-Qwen training experiment, the MLX dataset builder
+`scripts/prepare_lora_data.py` produces reproducible `train`, `valid`,
+`test` JSONL plus a hash/provenance manifest under the ignored
+`data/ai_review/lora/data/`. It separates three PostHog-expert calibration
+cases into the test split. The remaining labels are weak AI-generated
+judgments (including earlier AI-assisted pilot work), **not independent
+ground truth**; this small dataset is not sufficient to claim a validated
+replacement. MLX/LoRA changes local adapter weights; Ollama is for
+inference and cannot train weights itself. Any later Qwen model must be
+trained, tested against the held-out expert decisions and adversarial
+diffs, and explicitly approved before it replaces SWE-2 reviews.
+Once more diverse verified labels exist, the local training setup is:
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install mlx-lm
+.venv/bin/hf download mlx-community/Qwen2.5-Coder-3B-Instruct-4bit \
+  --local-dir data/ai_review/model/qwen2.5-coder-3b-4bit
+python3 scripts/prepare_lora_data.py
+.venv/bin/mlx_lm.lora --train \
+  --model data/ai_review/model/qwen2.5-coder-3b-4bit \
+  --data data/ai_review/lora/data --fine-tune-type lora \
+  --mask-prompt --num-layers 8 --batch-size 1 --max-seq-length 8192 \
+  --iters 80 --adapter-path data/ai_review/lora/adapter
+```
+
+The download and training were **not completed**. These are
+experimental starting settings, not proof that a model trained on the
+current small dataset will generalize; compare a held-out base model
+before deploying an adapter.
 
 To rebuild the evidence snapshot, run these in order:
 

@@ -6,7 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from build_report import cluster_key, periods, score_outcome
+from build_report import cluster_key, evidence_source, periods, score_group
 from weighted_pr import weighted_pr
 
 
@@ -49,13 +49,65 @@ class AnalysisTests(unittest.TestCase):
         second = pr(2, "fix(replay): keep scrubber selection after reload")
         self.assertNotEqual(cluster_key(first), cluster_key(second))
 
-    def test_pr_only_description_does_not_prove_an_outcome(self):
-        value, confidence, _ = score_outcome([pr()], None)
-        self.assertEqual((value, confidence), (0, 0.5))
+    def test_pr_only_description_is_not_a_linked_group(self):
+        self.assertIsNone(evidence_source([pr()], None))
 
-    def test_issue_supported_fix_gets_credit(self):
-        value, confidence, _ = score_outcome([pr(issue=42)], None)
-        self.assertEqual((value, confidence), (2, 0.75))
+    def test_issue_and_release_are_sources_not_impact_points(self):
+        self.assertEqual(evidence_source([pr(issue=42)], None), "Closing issue")
+        self.assertEqual(evidence_source([pr()], {"tag": "v1"}), "Release note")
+
+    def test_linked_and_unlinked_changes_get_the_same_estimate(self):
+        plain = pr()
+        linked = pr(issue=42)
+        files = {1: [file("replay.py", 20)]}
+        self.assertEqual(
+            score_group([plain], files, {1: 2})[:3],
+            score_group([linked], files, {1: 2})[:3],
+        )
+        self.assertEqual(score_group([plain], files, {1: 2})[:3], (2, 0, 2))
+
+    def test_scope_proxy_is_bounded_and_pr_splitting_does_not_stack_it(self):
+        changes = [pr(1, title="feat: add a useful capability", issue=42),
+                   pr(2, title="feat: add a useful capability", issue=42)]
+        files = {1: [file("feature.py", 100)],
+                 2: [file("feature.py", 100)]}
+        self.assertEqual(score_group(changes, files, {1: 8, 2: 9})[:3],
+                         (2, 1, 9))
+        self.assertEqual(score_group(changes, files, {1: 3, 2: 6})[:3],
+                         (2, 0.5, 6))
+
+    def test_high_risk_title_still_needs_review_not_link_bonus(self):
+        risk = pr(title="fix: prevent data loss on ingest")
+        self.assertEqual(
+            score_group([risk], {1: [file("ingest.py", 400)]}, {1: 10})[:3],
+            (3, 1, 10),
+        )
+
+    def test_docs_are_not_zero_just_because_wpr_is_zero(self):
+        self.assertEqual(
+            score_group([pr(title="docs: explain install")],
+                        {1: [file("docs/setup.md", 20)]}, {1: 0})[:3],
+            (1, 0, 0),
+        )
+
+    def test_generated_only_and_reverts_are_not_automatic_credit(self):
+        self.assertEqual(score_group(
+            [pr()], {1: [file("package-lock.json", 3000)]}, {1: 0}
+        )[0], 0)
+        self.assertEqual(score_group(
+            [pr(title='Revert "Add feature"', issue=42)],
+            {1: [file("feature.py", 100)]}, {1: 0}
+        )[0], 0)
+
+    def test_pr_claim_does_not_create_an_independent_reference(self):
+        claimed = pr(2)
+        claimed["bodyText"] = "Performance improved from 600 s to 180 s."
+        self.assertIsNone(evidence_source([pr(), claimed], None))
+
+    def test_revert_is_not_a_new_linked_group(self):
+        self.assertIsNone(evidence_source(
+            [pr(title='Revert "Add feature"', issue=42)], None
+        ))
 
     def test_generated_files_are_not_review_load(self):
         self.assertEqual(weighted_pr([file("package-lock.json", 3000)], "chore: deps"), 0)
@@ -77,23 +129,47 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(weighted_pr(files, 'Revert "Add feature"'), 0)
         self.assertGreater(weighted_pr(files, 'Revert "Revert Add feature"'), 0)
 
-    def test_every_interval_can_reconcile_to_the_visible_outcomes(self):
+    def test_every_interval_reconciles_to_scored_groups(self):
         report = json.loads(
             (Path(__file__).resolve().parents[1] / "data/report.json").read_text()
         )
+        self.assertEqual(
+            [p["score"] for p in report["people"]],
+            sorted((p["score"] for p in report["people"]), reverse=True),
+        )
+        self.assertNotIn("attention_cohort", report["manifest"])
         for person in report["people"]:
+            self.assertNotIn("attention", person)
+            self.assertEqual(
+                sum(cell["groups"] for cell in person["periods"]),
+                person["group_count"],
+            )
+            self.assertEqual(
+                sum(cell["linked_count"] for cell in person["periods"]),
+                person["linked_count"],
+            )
             for cell in person["periods"]:
-                self.assertEqual(len(cell["examples"]), cell["outcomes"])
+                self.assertEqual(len(cell["examples"]), cell["groups"])
                 self.assertAlmostEqual(
                     sum(item["credited_points"] for item in cell["examples"]),
                     cell["score"],
                     delta=0.051,
                 )
                 for item in cell["examples"]:
+                    self.assertIn(person["login"], item["owners"])
+                    self.assertEqual(item["points"],
+                                     item["base"] + item["scope_bonus"])
                     self.assertEqual(
                         item["credited_points"],
                         round(item["points"] / len(item["owners"]), 3),
                     )
+                    self.assertEqual(
+                        sum(link["type"] == "PR" for link in item["evidence"]),
+                        item["pr_count"],
+                    )
+                    self.assertIn(item["source"], (
+                        "Closing issue", "Release note", "PR only"
+                    ))
 
     def test_period_prs_reconcile_to_review_load(self):
         report = json.loads(
@@ -113,25 +189,19 @@ class AnalysisTests(unittest.TestCase):
             person for person in report["people"] if person["login"] == "dmarchuk"
         )
         first = dmarchuk["periods"][0]
-        self.assertEqual((len(first["prs"]), first["wpr"], first["outcomes"]),
+        self.assertEqual((len(first["prs"]), first["wpr"], first["linked_count"]),
                          (19, 58, 0))
+        self.assertGreater(first["score"], 0)
 
-    def test_attention_signal_includes_audit_context(self):
+    def test_unlinked_work_remains_inspectable_without_negative_label(self):
         report = json.loads(
             (Path(__file__).resolve().parents[1] / "data/report.json").read_text()
         )
-        cohort = report["manifest"]["attention_cohort"]
-        self.assertEqual(cohort["as_of"], "2026-10-06")
-        for person in report["people"]:
-            if not person["attention"]:
-                continue
-            context = person["attention_context"]
-            self.assertGreaterEqual(context["mature_wpr"], cohort["wpr_cutoff"])
-            self.assertLessEqual(context["mature_score"], cohort["impact_cutoff"])
-            self.assertGreaterEqual(person["merged_prs"], cohort["minimum_merges"])
-            self.assertTrue(context["unscored_examples"])
-            for example in context["unscored_examples"]:
-                self.assertTrue(example["url"].startswith("https://github.com/"))
+        person = next(p for p in report["people"] if p["login"] == "dmarchuk")
+        cell = person["periods"][0]
+        self.assertEqual(cell["linked_count"], 0)
+        self.assertGreater(cell["wpr"], 0)
+        self.assertTrue(cell["prs"])
 
 
 if __name__ == "__main__":

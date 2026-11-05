@@ -1,6 +1,7 @@
 """Estimated review load based on the supplied weighted-PR rubric.
 
-This is a review-effort context measure, never a component of impact.
+This estimates review load, not impact. The report uses it only as a capped
+scope proxy alongside a separate, provisional work-type rubric.
 """
 
 import math

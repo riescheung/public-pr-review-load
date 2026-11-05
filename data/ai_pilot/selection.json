@@ -1,0 +1,812 @@
+[
+  {
+    "id": "title:Gilbert09:deprecate hookdeck api version 2025 07 01",
+    "prs": [
+      113218
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 69,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "113218": "7c8b2bf4b96a992a4c15e7228f3c3eb287c3d5851d45b4f35c6b7a9d441fdde6"
+    }
+  },
+  {
+    "id": "title:Gilbert09:promote the mailerlite source to ga",
+    "prs": [
+      99617
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 2,
+    "wpr": 0,
+    "old_points": 1,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "99617": "647862d076a09203ac590f5a85a311af2c0b995ab485c0a82ec34240e0c112e7"
+    }
+  },
+  {
+    "id": "title:Gilbert09:catch a scheme less url pasted into the host field",
+    "prs": [
+      95741
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 7,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "95741": "6dada4c92f8c9ef50965628f618227c0a82a288f1ed5ebecbc0e4c39ee51270d"
+    }
+  },
+  {
+    "id": "title:Gilbert09:explain depleted api credits when connecting an x account",
+    "prs": [
+      113734
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 14,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "113734": "b211e93dce20d2f1c14235486bcb097bbfff6a1d8966629a740d2bffd6337b4b"
+    }
+  },
+  {
+    "id": "title:Gilbert09:stop retrying a 422 from the reporting events sync",
+    "prs": [
+      123352
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 23,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "123352": "54ffbcbd7036d4ef6857ba8f2175a273b5e58567cc2855c73cb500b304aa52a7"
+    }
+  },
+  {
+    "id": "title:Gilbert09:capture sqlstate for unclassified cdc failures",
+    "prs": [
+      87438
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 67,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "87438": "c57fcca069938dba9822f9095eb6bc8b01e690a4c436e0044ec3a8ef037d9547"
+    }
+  },
+  {
+    "id": "title:Gilbert09:support autumn api version 2 4 0",
+    "prs": [
+      112586
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 134,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "112586": "d02722da274e64a55250e9563d657b1cdf4164698a49578ef0f861fd8e7f1cc4"
+    }
+  },
+  {
+    "id": "title:Gilbert09:treat a missing bigquery iam permission as non retryable",
+    "prs": [
+      115481
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 47,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "115481": "dad1851f642cfbee72f031badea827bfd762b6992dcfc2efb16d1f4b4c8dc75e"
+    }
+  },
+  {
+    "id": "title:Gilbert09:stop retrying a sync after its dataset is deleted",
+    "prs": [
+      80688
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 31,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "80688": "107bc0564738c62108a7981d6d3f38b614566f6b4cb5b6bcb1522eb666692204"
+    }
+  },
+  {
+    "id": "title:Gilbert09:skip webhook files already consumed by another run",
+    "prs": [
+      80206
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 49,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "80206": "5e03547c3074090c5d6db7eaa0d687a3f5dc2c9337c5658f8aed014b09e8e7bf"
+    }
+  },
+  {
+    "id": "title:Gilbert09:map legacy bigquery type names in alter table ddl",
+    "prs": [
+      125192
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 72,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "125192": "a86a6ae117648fa8745a9b7fe5e669d775fd041f62e1b5e7a99d8186afca8c31"
+    }
+  },
+  {
+    "id": "title:Gilbert09:stop reporting delta watermark fd exhaustion as a bug",
+    "prs": [
+      102806
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 36,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "high_volume",
+    "diff_sha256": {
+      "102806": "e6ac86e6eb231f9a0cb360edbc5a4aecdf4acdfc156fb71361a276cba69c27c6"
+    }
+  },
+  {
+    "id": "title:pawel-cebula:send today s usage for limit updates",
+    "prs": [
+      89222
+    ],
+    "authors": [
+      "pawel-cebula"
+    ],
+    "changed_lines": 113,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "89222": "6659db676c8c373193a0586ed86f7163619648d644bbb81f090e69d1654a7371"
+    }
+  },
+  {
+    "id": "title:sakce:export database build duration metric",
+    "prs": [
+      114014
+    ],
+    "authors": [
+      "sakce"
+    ],
+    "changed_lines": 27,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "114014": "9ca20f6c30b6e4e7e71e9c6b6258a1fdf0eb7120ded34c77945cffc39fc79981"
+    }
+  },
+  {
+    "id": "pr:78311",
+    "prs": [
+      78311
+    ],
+    "authors": [
+      "puemos"
+    ],
+    "changed_lines": 151,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "78311": "93077da1cfbbb351006d07a9c20bbb8e6d223c68b9c32e3de7859bf8a27d9aed"
+    }
+  },
+  {
+    "id": "pr:120617",
+    "prs": [
+      120617
+    ],
+    "authors": [
+      "puemos"
+    ],
+    "changed_lines": 25,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "120617": "27f1a4fbee7a98e3e73abc428486f2a705f4a4791082a20d10d9de305b4e6af0"
+    }
+  },
+  {
+    "id": "title:charlesvien:pin the compose project in ci wait for docker",
+    "prs": [
+      120803
+    ],
+    "authors": [
+      "charlesvien"
+    ],
+    "changed_lines": 9,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "120803": "0be055c0dbe8192b69d7b834b9239cc465852051f87c9ca63f9a8f2eb420532b"
+    }
+  },
+  {
+    "id": "title:tpgilmore:reconcile metrics2 timestamp index in hcl golden",
+    "prs": [
+      102640
+    ],
+    "authors": [
+      "tpgilmore"
+    ],
+    "changed_lines": 35,
+    "wpr": 0,
+    "old_points": 1,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "102640": "8275064928fc3c5c45ff48210b73ee4d2eb34beb3aefd3c51bc1f3ebf2c8629e"
+    }
+  },
+  {
+    "id": "title:Piccirello:name the posthog hosts in style src and font src",
+    "prs": [
+      116718
+    ],
+    "authors": [
+      "Piccirello"
+    ],
+    "changed_lines": 78,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "116718": "0e2045f9ace7e3ca4716e08003bcf4aface00ce22b626eb11ca97fa2a8af2e13"
+    }
+  },
+  {
+    "id": "title:EDsCODE:gate ducklake registration on a provisioned duckgres server",
+    "prs": [
+      76982
+    ],
+    "authors": [
+      "EDsCODE"
+    ],
+    "changed_lines": 41,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "76982": "9f5a243606ec0f11e2b8e3e5d6e38aba4087e5f07a14e286bc54db6102061cd8"
+    }
+  },
+  {
+    "id": "pr:97806",
+    "prs": [
+      97806
+    ],
+    "authors": [
+      "sampennington"
+    ],
+    "changed_lines": 159,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "97806": "643fde5b1ea1b9a7aa8422ded0d2aee41d13742a91c9b45a2f2058c5044edb95"
+    }
+  },
+  {
+    "id": "title:tatoalo:let people select the text in a toast",
+    "prs": [
+      86284
+    ],
+    "authors": [
+      "tatoalo"
+    ],
+    "changed_lines": 36,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "86284": "ef989034c0ed8638e525018c342b8a350fb1c8a3b34bb86290be732228172674"
+    }
+  },
+  {
+    "id": "title:webjunkie:let the absorbed row read skip exact matches",
+    "prs": [
+      104935
+    ],
+    "authors": [
+      "webjunkie"
+    ],
+    "changed_lines": 150,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "104935": "3783fc9b8965226df2e8788e8391d9066355010c6d13c750c5aff93008e1e379"
+    }
+  },
+  {
+    "id": "title:georgemunyoro:offer a quick fix for a misspelled field name",
+    "prs": [
+      86017
+    ],
+    "authors": [
+      "georgemunyoro"
+    ],
+    "changed_lines": 74,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "other_small",
+    "diff_sha256": {
+      "86017": "3ac758fd8f48b4caa154001c713e2953f1b5661fe103c048ec7505e280a74b20"
+    }
+  },
+  {
+    "id": "title:VojtechBartos:check granted slack scopes alongside rollout flags",
+    "prs": [
+      78389
+    ],
+    "authors": [
+      "VojtechBartos"
+    ],
+    "changed_lines": 326,
+    "wpr": 4,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "78389": "7def104a94e646e54dc5bbd12d7f83b7928f80f78ad5daa76e18863c1859f5e8"
+    }
+  },
+  {
+    "id": "title:arthurdedeus:rematch meetings after matching updates",
+    "prs": [
+      80468
+    ],
+    "authors": [
+      "arthurdedeus"
+    ],
+    "changed_lines": 246,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "80468": "90b01afeb455bc00b85d8f4507db7f3e68d7d3ad78afedce8579151c09ebfc50"
+    }
+  },
+  {
+    "id": "title:jurajmajerik:manage the cleanup default repository in settings",
+    "prs": [
+      79534
+    ],
+    "authors": [
+      "jurajmajerik"
+    ],
+    "changed_lines": 259,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "79534": "74156d4a12001ae53501edaa611e61f37a25a7f38ca117f96cbfe455a1671f4d"
+    }
+  },
+  {
+    "id": "title:DanielVisca:link a log to its trace and a service to its metrics",
+    "prs": [
+      89776
+    ],
+    "authors": [
+      "DanielVisca"
+    ],
+    "changed_lines": 353,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "89776": "b385211de7112f92475f914bdeeeb500b15fafd81920e9205e32547d58f802ca"
+    }
+  },
+  {
+    "id": "title:feliperalmeida:read warehouse files in chdb with an explicit codec",
+    "prs": [
+      123070
+    ],
+    "authors": [
+      "feliperalmeida"
+    ],
+    "changed_lines": 223,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "123070": "23b72d620317430c85af0b74904dd4b689ca62969d3b2c6b95ec75645128742d"
+    }
+  },
+  {
+    "id": "title:charlesvien:re land explicit oauth scopes now ceilings are seeded",
+    "prs": [
+      76812
+    ],
+    "authors": [
+      "charlesvien"
+    ],
+    "changed_lines": 271,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "76812": "9be2915ab721a7a8dedeed0cf988d91b55056a60ac6766f3fa58234f27b27836"
+    }
+  },
+  {
+    "id": "issue:104939",
+    "prs": [
+      117239
+    ],
+    "authors": [
+      "eli-r-ph"
+    ],
+    "changed_lines": 287,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "117239": "e71569db247cd6e0ef449795e61abd37e3964b4155f667c6834f3fda3db9d5b0"
+    }
+  },
+  {
+    "id": "title:rodrigoi:add admin tools for experiment metric recalculations",
+    "prs": [
+      74345
+    ],
+    "authors": [
+      "rodrigoi"
+    ],
+    "changed_lines": 260,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "74345": "e7cb7c2e11d74bdc6ec2904b306d48eb0753265aa67b0e8389d938a75ffc4f39"
+    }
+  },
+  {
+    "id": "title:danielcarletti:record why an incremental sync is blocked",
+    "prs": [
+      91162
+    ],
+    "authors": [
+      "danielcarletti"
+    ],
+    "changed_lines": 323,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "91162": "abcc9a78b4c7224a998cc956179c62ebc4c67d2929a0d451d6cf1cb17c5476c3"
+    }
+  },
+  {
+    "id": "title:VojtechBartos:answer commands privately and move help to posthog",
+    "prs": [
+      86457
+    ],
+    "authors": [
+      "VojtechBartos"
+    ],
+    "changed_lines": 296,
+    "wpr": 4,
+    "old_points": 2.5,
+    "stratum": "other_medium",
+    "diff_sha256": {
+      "86457": "c9a34add7ecb920336fffc80e651df19ea819e2a7e2052888b6add527a12cc7d"
+    }
+  },
+  {
+    "id": "issue:44622",
+    "prs": [
+      117743
+    ],
+    "authors": [
+      "sakce"
+    ],
+    "changed_lines": 93,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "linked",
+    "diff_sha256": {
+      "117743": "6c6fc3a5bca3911bf6c8a8ee1bb70deb1f23ec4962e71ab47ed21d35fdce9d21"
+    }
+  },
+  {
+    "id": "issue:103374",
+    "prs": [
+      103592
+    ],
+    "authors": [
+      "thmsobrmlr"
+    ],
+    "changed_lines": 80,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "linked",
+    "diff_sha256": {
+      "103592": "b32325ecadc56d382de2bb57c06f4ad2d05ad69016773e527935a187a09df19f"
+    }
+  },
+  {
+    "id": "issue:80154",
+    "prs": [
+      80186
+    ],
+    "authors": [
+      "jakesciotto"
+    ],
+    "changed_lines": 99,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "linked",
+    "diff_sha256": {
+      "80186": "3e46edf26f41a0850982c85eb794abd94280720f8075b1a279ef5cdc1aab8ba9"
+    }
+  },
+  {
+    "id": "issue:117285",
+    "prs": [
+      117287
+    ],
+    "authors": [
+      "jakesciotto"
+    ],
+    "changed_lines": 205,
+    "wpr": 3,
+    "old_points": 2.5,
+    "stratum": "linked",
+    "diff_sha256": {
+      "117287": "98de3841a20b2b4ec790cf1db25d13358e1a8b0d13c69b4e27d8e22831b200bf"
+    }
+  },
+  {
+    "id": "issue:109650",
+    "prs": [
+      109661
+    ],
+    "authors": [
+      "puemos"
+    ],
+    "changed_lines": 136,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "linked",
+    "diff_sha256": {
+      "109661": "f2450fb7b03c8619b858e92cfcfa5d64d8459ae6aea779f2f321b011a6a5dc26"
+    }
+  },
+  {
+    "id": "issue:58066",
+    "prs": [
+      80570
+    ],
+    "authors": [
+      "GeneralistDev"
+    ],
+    "changed_lines": 192,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "linked",
+    "diff_sha256": {
+      "80570": "1379ead9fbcdcf00552f65d60d3af170f0a2cfa8f100b56f5014e13160f90f07"
+    }
+  },
+  {
+    "id": "issue:90191",
+    "prs": [
+      90192
+    ],
+    "authors": [
+      "gantoine"
+    ],
+    "changed_lines": 91,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "linked",
+    "diff_sha256": {
+      "90192": "ed547e82b46e592aec21109b2a352fcd0f716046fdd67f75cb73f5f1e66597d9"
+    }
+  },
+  {
+    "id": "issue:76914",
+    "prs": [
+      77474
+    ],
+    "authors": [
+      "fercgomes"
+    ],
+    "changed_lines": 190,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "linked",
+    "diff_sha256": {
+      "77474": "3ed32aba010ac04f255c9b45aa11a82ac3f2789d12b3755d439041c6fd5e5ddf"
+    }
+  },
+  {
+    "id": "title:frankh:allow custom retention in whole months behind a flag",
+    "prs": [
+      101531
+    ],
+    "authors": [
+      "frankh"
+    ],
+    "changed_lines": 952,
+    "wpr": 8,
+    "old_points": 3,
+    "stratum": "large",
+    "diff_sha256": {
+      "101531": "35cf4faac77a4b959cfda300013e681c4676e2ea58593c802ba5c0dd1d2b9949"
+    }
+  },
+  {
+    "id": "pr:77080",
+    "prs": [
+      77080
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 1187,
+    "wpr": 9,
+    "old_points": 3,
+    "stratum": "large",
+    "diff_sha256": {
+      "77080": "963bd7b6f414ff9ce70caaaa61d91ab15f533e078571dc4fb1e736ff6024c1cd"
+    }
+  },
+  {
+    "id": "title:brandonleung:route hosted reviews and the digest through the ai gateway",
+    "prs": [
+      93846
+    ],
+    "authors": [
+      "brandonleung"
+    ],
+    "changed_lines": 876,
+    "wpr": 8,
+    "old_points": 3,
+    "stratum": "large",
+    "diff_sha256": {
+      "93846": "50bde8463b1449fd9662e466789e2356a391ff03f4b7db49a2e751957033fff2"
+    }
+  },
+  {
+    "id": "title:thmsobrmlr:remove leftovers of the legacy filter classes",
+    "prs": [
+      124221
+    ],
+    "authors": [
+      "thmsobrmlr"
+    ],
+    "changed_lines": 2195,
+    "wpr": 10,
+    "old_points": 2,
+    "stratum": "large",
+    "diff_sha256": {
+      "124221": "b159bd700f6175ff2a88ddc6e7212b25c6c2da352eb9144c455671de370e6ca0"
+    }
+  },
+  {
+    "id": "title:VojtechBartos:app home model picker writes the central tasks config",
+    "prs": [
+      98292,
+      98354
+    ],
+    "authors": [
+      "VojtechBartos"
+    ],
+    "changed_lines": 363,
+    "wpr": 4,
+    "old_points": 2.5,
+    "stratum": "multi_pr",
+    "diff_sha256": {
+      "98354": "1c24adafbff39da935a9a7a661088a891d8e631f5fa2c714257a1f59ca3fd18d"
+    },
+    "fetch_errors": {
+      "98292": "GitHub returned no usable diff"
+    }
+  },
+  {
+    "id": "title:Gilbert09:say why the api key failed instead of calling it invalid",
+    "prs": [
+      107226,
+      127929
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 168,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "multi_pr",
+    "diff_sha256": {
+      "107226": "b22e99127b493ceea2ecac17d1e9c79ba1480fb057b492d42a8ebdd47d99d6a6",
+      "127929": "5d5012806c5f7e2db054032005cdad1b08c5a74f21c4169611683a2ddb9d2c1b"
+    }
+  },
+  {
+    "id": "title:Gilbert09:treat exhausted read timeout retries as transient",
+    "prs": [
+      114839,
+      114785
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 37,
+    "wpr": 1,
+    "old_points": 2,
+    "stratum": "multi_pr",
+    "diff_sha256": {
+      "114839": "9ba9f71c6326c12bd5d396530e39c21188fd4c96c7f515b5067b6541dae3c956",
+      "114785": "90d87c3bccfde920fe34daae2b87875471bf25d987c61e3506ae3f39881628cc"
+    }
+  },
+  {
+    "id": "title:Gilbert09:add 2 missing tables to the systeme io source",
+    "prs": [
+      119143,
+      124921
+    ],
+    "authors": [
+      "Gilbert09"
+    ],
+    "changed_lines": 226,
+    "wpr": 2,
+    "old_points": 2,
+    "stratum": "multi_pr",
+    "diff_sha256": {
+      "119143": "72cf26d046c1c3aa053988933684c3c90bb68932742b4b8348670f32287e464c",
+      "124921": "e5689fd489d383e4668d9ea2842de71e16d112bc47a8e9aab494b557e33779d1"
+    }
+  }
+]

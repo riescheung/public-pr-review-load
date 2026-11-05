@@ -1,6 +1,6 @@
 ---
-name: Weave Engineering Impact
-description: An evidence-led leaderboard for public engineering outcomes
+name: Weave Public PR Review Load
+description: A source-linked WPR review-load estimate with outcome unassigned
 colors:
   primary: "#177a6c"
   primary-deep: "#075c51"
@@ -10,7 +10,6 @@ colors:
   muted: "#65716d"
   line: "#dce1d9"
   evidence-wash: "#e8f4ed"
-  attention: "#a75b21"
 typography:
   display:
     fontFamily: "Newsreader, Georgia, serif"
@@ -42,41 +41,41 @@ components:
     padding: "7px 10px"
 ---
 
-# Design System: Weave Engineering Impact
+# Design System: Weave Public PR Review Load
 
 ## Overview
 
 **Creative North Star: "The Evidence Index"**
 
-A working leaderboard, not a decorative infographic. The register-like density
+A working estimate, not a decorative infographic. The register-like density
 lets a leader compare seven periods at a glance; source-linked details are one
-click away. The interface uses restrained typographic hierarchy and rules,
-while a single small rank insignia gives the top five an unmistakable place.
+click away. The interface uses restrained typographic hierarchy and rules
+without ranking people by link availability.
 
 **Key Characteristics:** compact 14-day columns, quiet warm ground, precise
-data figures, source-first explanations, and a non-accusatory attention mark.
+data figures, and source-first explanations.
 
 ## Colors
 
 The paper surface and deep ink keep a dense table calm. Teal identifies
-supported evidence and active controls; amber appears only on the investigation
-symbol. A tinted evidence cell is a status cue, not a claim of verified impact.
+WPR-bearing work and active controls. A tinted cell is not proof
+of independently verified impact.
 
-**The Evidence Rule.** Reserve teal fills for supported outcomes; never use
-amber as a negative performance grade.
+**The Evidence Rule.** WPR comes from changed files, not title or link
+availability. Outcome stays visibly unassigned.
 
 ## Typography
 
 Newsreader carries the report title and evidence-panel subject. DM Sans is the
-working interface voice. IBM Plex Mono is limited to dates, point values,
-rank figures, and review-load measurements.
+working interface voice. IBM Plex Mono is limited to dates, counts, estimated
+WPR and review-load measurements.
 
 ## Layout
 
-The leaderboard has a separate rank column, a contributor column, and seven
-equal 14-day columns. At narrower widths the rank and contributor columns stay
-visible while the interval grid scrolls horizontally. Search, sort, filter,
-and five-person pagination preserve the single-page report.
+The WPR index has a rank column, contributor column, and seven equal
+14-day columns. At narrower widths rank and contributor stay visible while
+intervals scroll horizontally. Search, WPR/name sorting and five-person
+pagination preserve the single-page report.
 
 ## Elevation & Depth
 
@@ -85,12 +84,11 @@ receives a soft offset shadow, distinguishing a temporary detail layer.
 
 ## Shapes
 
-Small 5–11px radii belong to controls and panels. A custom vector seal marks
-ranks 1–5; the amber diamond is a separate investigation mark.
+Small 5–11px radii belong to controls and panels.
 
 ## Components
 
-Period cells show evidence points, qualifying outcomes, and WPR in that order.
+Period cells show WPR, merged PRs and an unassigned outcome field.
 Contributor names open a source-linked evidence drawer. Controls keep visible
 hover and keyboard-focus states. Empty intervals show a dash, never a false
 zero-result claim about the person's work.
@@ -98,6 +96,5 @@ zero-result claim about the person's work.
 ## Do's and Don'ts
 
 - **Do** keep the strongest visible source links close to every claim.
-- **Do** show unscored contributions without equating them to no impact.
-- **Don't** use review load in the impact score.
-- **Don't** present the attention mark as an employee-performance verdict.
+- **Do** leave outcomes blank rather than replacing them with WPR.
+- **Don't** call the provisional ranking verified user impact.

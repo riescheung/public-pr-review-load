@@ -1,0 +1,50 @@
+[
+  {
+    "index": 36,
+    "prs": [
+      103592
+    ],
+    "diff_sha256": {
+      "103592": "b32325ecadc56d382de2bb57c06f4ad2d05ad69016773e527935a187a09df19f"
+    },
+    "instructions_sha256": "bf0521051a772ed2c3ecda139287f06364a0822766b40c8e3c67442d9b311dfb",
+    "review_votes": [],
+    "flags": [],
+    "human_score": 1,
+    "reason": "Narrow insight-edit state preservation fix; code change remains local",
+    "reviewer": "posthog-expert",
+    "created_at": "2026-11-05T01:09:38.059937+00:00"
+  },
+  {
+    "index": 19,
+    "prs": [
+      116718
+    ],
+    "diff_sha256": {
+      "116718": "0e2045f9ace7e3ca4716e08003bcf4aface00ce22b626eb11ca97fa2a8af2e13"
+    },
+    "instructions_sha256": "bf0521051a772ed2c3ecda139287f06364a0822766b40c8e3c67442d9b311dfb",
+    "review_votes": [],
+    "flags": [],
+    "human_score": 2,
+    "reason": "Named CSP style and font hosts are enforced, but the change is bounded to this policy path",
+    "reviewer": "posthog-expert",
+    "created_at": "2026-11-05T01:09:38.109845+00:00"
+  },
+  {
+    "index": 38,
+    "prs": [
+      117287
+    ],
+    "diff_sha256": {
+      "117287": "98de3841a20b2b4ec790cf1db25d13358e1a8b0d13c69b4e27d8e22831b200bf"
+    },
+    "instructions_sha256": "bf0521051a772ed2c3ecda139287f06364a0822766b40c8e3c67442d9b311dfb",
+    "review_votes": [],
+    "flags": [],
+    "human_score": 3,
+    "reason": "Webhook idempotency guards duplicate workflow execution across the queue boundary",
+    "reviewer": "posthog-expert",
+    "created_at": "2026-11-05T01:09:38.159600+00:00"
+  }
+]
