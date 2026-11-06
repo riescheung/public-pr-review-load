@@ -71,7 +71,7 @@ def build_status(report, selection, calibrations, run_root, full_selection=(), f
             + sum(case["status"] == "pending" for case in cases if case["flags"]),
         "flags": flags,
         "calibrations": calibrated,
-        "score_source": "The contributor grid ranks WPR review-load estimates. Outcome scores are blank; AI tiers are not applied.",
+        "score_source": "The contributor grid ranks WPR. A separate contribution_estimates.json publication shows cited Qwen mean tiers with partial coverage, not measured outcomes.",
     }
 
 

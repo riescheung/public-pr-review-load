@@ -62,6 +62,7 @@ a:hover { color: var(--teal-dark); }
 .review-desk-state { flex: none; color: var(--teal-dark); background: var(--wash); padding: 5px 8px; border-radius: 5px; font-size: 10px; font-weight: 700; }
 .review-plan { margin: 14px 0 11px; padding-top: 12px; border-top: 1px solid var(--line); }
 .review-plan strong { font-size: 11px; color: var(--teal-dark); }
+.review-plan summary { cursor: pointer; font-size: 12px; font-weight: 600; color: var(--teal-dark); margin-bottom: 8px; }
 .review-plan p { max-width: 88ch; margin: 5px 0 0; color: var(--ink); font-size: 12px; line-height: 1.5; }
 
 .review-queue { scroll-margin-top: 20px; }
@@ -132,7 +133,7 @@ tbody .person-column { padding-right: 9px; vertical-align: middle; }
 .person-name { display: flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .person-sub { color: #79857e; font-size: 10px; white-space: nowrap; }
 .timeline-td { padding: 4px; border-left: 1px solid #e7ece4; }
-.period-cell { display: flex; flex-direction: column; justify-content: center; width: 100%; height: 86px; background: #fafbf7; border: 1px solid transparent; border-radius: 5px; padding: 5px 9px; color: var(--ink); }
+.period-cell { display: flex; flex-direction: column; justify-content: center; width: 100%; height: 106px; background: #fafbf7; border: 1px solid transparent; border-radius: 5px; padding: 5px 9px; color: var(--ink); }
 .period-cell.has-evidence { background: #e9f5ee; }
 .period-cell:hover, .period-cell:focus-within { border-color: var(--teal); }
 .period-cell-current { border-color: #91c8b6; background: #eff8f1; }
@@ -142,8 +143,20 @@ tbody .person-column { padding-right: 9px; vertical-align: middle; }
 .cell-score { font: 600 17px/1 'IBM Plex Mono', monospace; letter-spacing: -0.02em; }
 .cell-score small { font: 500 10px 'DM Sans', sans-serif; letter-spacing: 0; color: #5e7169; }
 .cell-merged { font-size: 10px; color: #5e7169; }
-.period-outcome { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #dce7dc; margin-top: 5px; padding-top: 5px; color: #60746a; font-size: 10px; }
-.period-outcome strong { font: 500 13px/1 'IBM Plex Mono', monospace; }
+.period-estimate { display: grid; gap: 3px; width: 100%; border: 0; border-top: 1px solid var(--line); margin-top: 5px; padding: 5px 0 0; background: transparent; color: var(--muted); text-align: left; font-size: 10px; }
+.period-estimate > span { display: flex; justify-content: space-between; align-items: center; gap: 4px; }
+.period-estimate strong { font: 500 10px/1.3 'DM Sans', sans-serif; }
+.period-estimate.has-estimate strong { font: 500 13px/1.3 'IBM Plex Mono', monospace; color: var(--teal-dark); }
+.period-estimate small { font-size: 9px; }
+.period-estimate:hover { color: var(--teal-dark); }
+.contribution-evidence details { border-top: 1px solid var(--line); padding: 12px 0; }
+.contribution-evidence summary { cursor: pointer; font-weight: 600; color: var(--teal-dark); }
+.contribution-evidence p { font-size: 12px; line-height: 1.55; }
+.contribution-evidence .estimate-source { color: var(--muted); font-size: 10px; overflow-wrap: anywhere; }
+.contribution-evidence a { color: var(--teal-dark); text-decoration: underline; }
+.estimate-citation { padding-left: 10px; border-left: 2px solid var(--line); margin-top: 14px; }
+.estimate-citation strong { font: 11px 'IBM Plex Mono', monospace; }
+.estimate-citation pre { overflow-x: auto; padding: 8px; background: var(--wash); font: 11px/1.5 'IBM Plex Mono', monospace; }
 .empty-results { color: var(--muted); padding: 32px; margin: 0; font-size: 13px; text-align: center; }
 .board-footer { min-height: 51px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; border-top: 1px solid #e5eae2; gap: 14px; }
 .board-footer p { margin: 0; display: flex; align-items: center; gap: 7px; font-size: 10px; color: #738077; flex-wrap: wrap; }
@@ -183,7 +196,7 @@ tbody .person-column { padding-right: 9px; vertical-align: middle; }
 
 @media (max-width: 1100px) {
   .app-shell { padding: 0 18px; }
-  .table-scroll { position: relative; }
+  .table-scroll { position: relative; scroll-padding-inline-start: 282px; }
   .rank-column, .person-column { position: sticky; z-index: 2; background: var(--surface); }
   .rank-column { left: 0; }
   .person-column { left: 75px; box-shadow: 1px 0 0 #e1e7df; }
@@ -214,6 +227,7 @@ tbody .person-column { padding-right: 9px; vertical-align: middle; }
   .board-filterbar { padding: 8px 14px; gap: 10px; }
   .board-filterbar > span { max-width: 130px; }
   table { min-width: 1170px; }
+  .table-scroll { scroll-padding-inline-start: 225px; }
   .rank-column { width: 55px; padding-left: 5px; }
   .person-column { width: 170px; left: 55px; }
   .person-name { max-width: 145px; font-size: 12px; }

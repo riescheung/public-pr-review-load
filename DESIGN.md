@@ -1,6 +1,6 @@
 ---
 name: Weave Public PR Review Load
-description: A source-linked WPR review-load estimate with outcome unassigned
+description: Source-linked WPR and AI-estimated contribution with review coverage
 colors:
   primary: "#177a6c"
   primary-deep: "#075c51"
@@ -62,13 +62,14 @@ WPR-bearing work and active controls. A tinted cell is not proof
 of independently verified impact.
 
 **The Evidence Rule.** WPR comes from changed files, not title or link
-availability. Outcome stays visibly unassigned.
+availability. AI estimates come only from cited model reviews, never WPR.
+Pending, abstained and reserved work must not look like zero contribution.
 
 ## Typography
 
 Newsreader carries the report title and evidence-panel subject. DM Sans is the
 working interface voice. IBM Plex Mono is limited to dates, counts, estimated
-WPR and review-load measurements.
+WPR, mean AI tiers and review-load measurements.
 
 ## Layout
 
@@ -88,7 +89,8 @@ Small 5–11px radii belong to controls and panels.
 
 ## Components
 
-Period cells show WPR, merged PRs and an unassigned outcome field.
+Period cells show WPR, merged PRs and an AI-estimated mean tier with
+scored/total grouped-change coverage. AI estimates open source-linked reviews.
 Contributor names open a source-linked evidence drawer. Controls keep visible
 hover and keyboard-focus states. Empty intervals show a dash, never a false
 zero-result claim about the person's work.
@@ -96,5 +98,6 @@ zero-result claim about the person's work.
 ## Do's and Don'ts
 
 - **Do** keep the strongest visible source links close to every claim.
-- **Do** leave outcomes blank rather than replacing them with WPR.
+- **Do** label AI-estimated contribution separately from measured outcomes.
+- **Do** expose model identity, citations and coverage beside every estimate.
 - **Don't** call the provisional ranking verified user impact.

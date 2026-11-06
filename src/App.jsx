@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import report from '../data/report.json'
 import ReviewQueue from './ReviewQueue.jsx'
 import referenceProgress from '../data/reference_progress.json'
+import { ContributionCell, ContributionEvidence, contributionSummary, estimates } from './ContributionEstimate.jsx'
+import { estimateValue } from './contributionEstimates.js'
 
 const PAGE_SIZE = 5
 const people = [...report.people].sort((a, b) => b.wpr - a.wpr || a.login.localeCompare(b.login))
@@ -28,12 +30,12 @@ function PeriodCell({ cell, person, index, onOpen }) {
         type="button"
         className="period-metric"
         onClick={() => onOpen(person, index)}
-        aria-label={`${person.login}, period ending ${label}: ${number.format(cell.wpr)} WPR across ${cell.prs.length} merged PRs. View PR list. Outcome not assessed.`}
+        aria-label={`${person.login}, period ending ${label}: ${number.format(cell.wpr)} WPR across ${cell.prs.length} merged PRs. View PR list and AI estimates.`}
       >
         <span className="cell-score">{cell.prs.length ? number.format(cell.wpr) : '—'}<small> WPR</small></span>
         <span className="cell-merged">{cell.prs.length} merged PRs</span>
       </button>
-      <div className="period-outcome"><span>Outcome</span><strong>—</strong></div>
+      <ContributionCell login={person.login} index={index} onOpen={() => onOpen(person, index)} />
     </div>
   )
 }
@@ -74,18 +76,18 @@ function ReviewDesk() {
     <section className="review-desk" aria-labelledby="review-desk-title">
       <div className="review-desk-header">
         <div>
-          <h2 id="review-desk-title">Outcome score: reserved</h2>
-          <p>No outcome metric is assigned in this snapshot. WPR cannot fill that gap.</p>
+          <h2 id="review-desk-title">AI-estimated contribution</h2>
+          <p>{number.format(estimates.overall.scored)} of {number.format(estimates.overall.groups)} change groups have scored Qwen reviews. Coverage is partial; unreviewed work is not zero.</p>
         </div>
-        <span className="review-desk-state">Not assessed</span>
+        <span className="review-desk-state">Partial coverage</span>
       </div>
-      <div className="review-plan">
+      <details className="review-plan"><summary>Models, training and reference agreement</summary>
         <strong>Frontier estimates first · corrections improve later versions</strong>
         <p>Qwen processed all 40 development cases: 38 reviews passed validation, one case failed evidence preflight and one response violated the review contract. A matching-base LoRA experiment completed 40 training steps on historical AI proposals, not human-approved labels.</p>
         <p>Sol supplied {referenceProgress.reference_labels} valid development references; {referenceProgress.reference_errors} responses failed the review contract and {referenceProgress.reference_preflight} case failed evidence preflight. Qwen agreed with {Math.round(referenceProgress.metrics_against_frontier_estimates.model_exact_accuracy * referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts)} of {referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts} reference decisions. This measures agreement with Sol, not objective accuracy. The 60 reserved final-test cases remain untouched.</p>
         <p>GPT-6.1 Sol High now supplies estimated reference answers for development. The queue compares those estimates with Qwen and accepts your code-checked corrections for later tuning rounds. A disagreement never changes a score automatically. <a href="https://github.com/riescheung/public-pr-review-load/blob/main/BENCHMARK.md" target="_blank" rel="noopener noreferrer">Review method and measured results</a>.</p>
-      </div>
-      <p className="review-desk-caveat">These are estimated code-change tiers, not human-verified truth or customer outcomes. Evaluation measures agreement with the frontier reference. Model tiers stay separate from WPR; outcome scores remain blank.</p>
+      </details>
+      <p className="review-desk-caveat">The table now shows the mean 1–3 tier among scored groups, with coverage and cited evidence. Saved base-Qwen reviews and experimental fine-tuned reviews are identified separately in the evidence panel. These are estimates, not verified customer outcomes or a performance ranking.</p>
     </section>
   )
 }
@@ -111,7 +113,7 @@ function EvidencePanel({ selected, onClose }) {
           <div>
             <p className="panel-context">{index == null ? 'Contributor file' : `${periods[index].start} to ${periods[index].end}`}</p>
             <h2>{person.login}</h2>
-            <p>{number.format(cell ? cell.wpr : person.wpr)} WPR across {prs.length} authored merged PRs · outcome not assessed</p>
+            <p>{number.format(cell ? cell.wpr : person.wpr)} WPR across {prs.length} authored merged PRs · AI estimate {estimateValue(contributionSummary(person.login, index))}</p>
           </div>
           <button className="icon-button" onClick={onClose} aria-label="Close panel">×</button>
         </div>
@@ -119,14 +121,15 @@ function EvidencePanel({ selected, onClose }) {
           {cell ? <>
             <span>{cell.prs.length} merged PRs in interval</span>
             <span>{number.format(cell.wpr)} WPR on those PRs</span>
-            <span>Outcome — not assessed</span>
+            <span>AI estimate {estimateValue(contributionSummary(person.login, index))}</span>
           </> : <>
             <span>{number.format(person.merged_prs)} merged PRs</span>
             <span>{number.format(person.reviewed_prs)} PRs reviewed</span>
             <span>{number.format(person.wpr)} WPR on authored PRs</span>
-            <span>Outcome — not assessed</span>
+            <span>AI estimate {estimateValue(contributionSummary(person.login))}</span>
           </>}
         </div>
+        <ContributionEvidence key={`estimate:${index ?? 'all'}`} login={person.login} index={index} />
         <PeriodPrBreakdown key={index ?? 'all'} prs={prs} wpr={cell ? cell.wpr : person.wpr} />
       </aside>
     </>
@@ -169,7 +172,7 @@ export default function App() {
         <section className="intro" aria-label="Report overview">
           <div className="intro-copy">
             <h1>Review load, estimated.</h1>
-            <p>Weighted PR (WPR) is a public-code proxy for review scope. Outcome scores are intentionally unassigned.</p>
+            <p>Public-code review load and AI-estimated contribution, with source evidence and review coverage.</p>
           </div>
           <div className="snapshot">
             <span className="snapshot-indicator" />
@@ -189,7 +192,7 @@ export default function App() {
 
         {methodOpen && <section className="method-panel" aria-label="WPR methodology">
           <div><h2>What is WPR?</h2><p>Each merged PR gets a 0–10 weighted review-load estimate from its changed files. Trivial and generated files are discounted; a net revert receives zero. The table sums PR WPR by author and merge period.</p></div>
-          <div><h2>What is left blank?</h2><p>The outcome field is unassigned, not zero. A code-reviewed 1–3 tier could describe visible work later, but even that would not prove a real user outcome. No title-based points or AI tiers contribute to this display.</p></div>
+          <div><h2>What is the AI estimate?</h2><p>The mean 1–3 code-change tier among scored groups. Each related-PR group counts once per contributor, in their latest member-PR interval. Missing, invalid and reserved reviews never become zero. Titles, WPR and legacy heuristic points do not supply an AI tier.</p></div>
           <div><h2>What is missing?</h2><p>Public GitHub cannot verify private work, reviews, mentorship, deployments, user adoption or individual ownership. Slush-branch PR overlap is not subtracted in this snapshot. WPR is not an effort or performance measure.</p></div>
         </section>}
 
@@ -210,10 +213,10 @@ export default function App() {
           </div>
           <div className="board-filterbar">
             <span>Showing {filtered.length} of {people.length} contributors</span>
-            <span>Outcome score: not assessed</span>
+            <span>{number.format(estimates.overall.scored)}/{number.format(estimates.overall.groups)} changes scored by Qwen</span>
           </div>
 
-          <div className="table-scroll">
+          <div className="table-scroll" role="region" aria-label="Review load and AI estimates by period" tabIndex={0}>
             <table>
               <thead><tr><th className="rank-column" scope="col">WPR rank</th><th className="person-column" scope="col">Contributor</th>{periods.map((period, index) => <th key={period.end} className={`period-heading ${index === 6 ? 'current-heading' : ''}`} scope="col"><span>{period.label}</span><small>{index === 6 ? 'LATEST' : `${period.start.slice(5)} – ${period.end.slice(5)}`}</small></th>)}</tr></thead>
               <tbody>{visible.map((person) => <tr key={person.login}>
@@ -225,7 +228,7 @@ export default function App() {
           </div>
           {!visible.length && <p className="empty-results">No contributors match this name. Try another search.</p>}
           <div className="board-footer">
-            <p><span className="legend-swatch" /> WPR estimates review load <span className="legend-current" /> Latest interval · outcome deliberately blank</p>
+            <p><span className="legend-swatch" /> WPR estimates review load <span className="legend-current" /> Latest interval · AI estimate = mean scored tier, not impact</p>
             <nav className="pagination" aria-label="Contributor pages"><button onClick={() => setPage(Math.max(1, page - 1))} disabled={page === 1} aria-label="Previous page">←</button><span>Page <strong>{page}</strong> of {pages}</span><button onClick={() => setPage(Math.min(pages, page + 1))} disabled={page === pages} aria-label="Next page">→</button></nav>
           </div>
         </section>

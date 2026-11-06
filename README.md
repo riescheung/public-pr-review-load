@@ -230,7 +230,9 @@ public diff fetch is paused; resume it only if a full run is warranted.
 The runner does not fetch patches. Free SWE-2 CLI use is a plan offer,
 not proof of unlimited batch throughput or availability indefinitely.
 Check the current offer and account billing before a large run. Model
-votes remain **off the contributor dashboard**. The current development path
+SWE-2 votes remain off the contributor dashboard. Validated Qwen reviews now
+appear as explicitly labelled AI estimates with partial coverage and source
+citations, separate from WPR. The current development path
 uses local Qwen reviews, frontier-model estimates and versioned user feedback.
 Independent votes expose disagreement, but two Qwen models trained on
 the same labels can share mistakes. The existing review queue flags
@@ -239,6 +241,45 @@ disagreements and large WPR/tier tensions
 each flag, choose the final tier or abstain and save the reason as
 calibration; the flag never automatically overrides a model or publishes
 an outcome. WPR stays a separate review-load proxy; outcome remains blank.
+
+### AI-estimated contribution
+
+The table's former blank outcome placeholder now shows **AI-estimated
+contribution**: the mean 1-3 code-change tier among scored change groups.
+Coverage is always visible. This is neither a sum of PR points nor a claim
+about customer outcomes or individual performance. WPR and WPR ordering stay
+unchanged; no legacy title-based `score` field is used.
+
+`scripts/contribution_estimates.py` validates and exports existing Qwen runs
+to `data/contribution_estimates.json`. The initial publication has 39 scored
+groups out of 17,220. Base-Qwen and experimental LoRA reviews are identified
+separately, including the three previously inspected calibration examples.
+No Sol teacher answers are silently substituted for Qwen predictions.
+Click an AI estimate to inspect the model, PRs, explanation and literal code
+citations. Pending, abstained, failed and reserved work never becomes zero.
+
+Each group counts once per contributor, in their latest interval containing a
+member PR. A shared group describes associated work, not individual ownership.
+The 60 held-out test families, including PR and patch aliases, are excluded.
+
+```bash
+# Export existing validated reviews without invoking a model.
+python3 scripts/contribution_estimates.py
+# Freeze the current eligible cached groups once; do not overwrite the manifest.
+python3 scripts/run_contribution_reviews.py prepare
+# Review a bounded batch with the completed experimental Qwen adapter.
+# Requires AC power on macOS; interrupted and prior runs remain preserved.
+python3 scripts/run_contribution_reviews.py run --limit 5 --execute
+```
+
+The prepared manifest contains 3,481 cached, non-test groups. Other groups
+still need their public diff cache; do not infer a tier from titles or WPR.
+Resume the same batch command to skip existing attempts. A changed snapshot,
+model or protocol requires a new manifest/run version. Each finished batch
+refreshes the local publication file; tests, build and a direct-to-main push
+are still required to update Pages.
+`AI_RUBRIC.md` retains its frozen pilot wording because changing its prompt
+prefix would invalidate existing packet and prediction hashes.
 
 ### Blind Qwen benchmark
 

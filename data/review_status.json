@@ -40,5 +40,5 @@
       "reviewer": "posthog-expert"
     }
   ],
-  "score_source": "The contributor grid ranks WPR review-load estimates. Outcome scores are blank; AI tiers are not applied."
+  "score_source": "The contributor grid ranks WPR. A separate contribution_estimates.json publication shows cited Qwen mean tiers with partial coverage, not measured outcomes."
 }

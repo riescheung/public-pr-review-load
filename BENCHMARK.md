@@ -3,6 +3,12 @@
 This experiment classifies visible code changes as tier 1, 2, 3 or unassessed.
 It does not measure customer outcomes, individual performance or merge safety.
 The dashboard still shows WPR; this pipeline does not modify `data/report.json`.
+Validated Qwen predictions can also be exported as provisional
+**AI-estimated contribution**, separate from WPR and the human-gold promotion
+gate. This publication is user-approved estimation, not a certification of
+model accuracy. `contribution_estimates.py` exports mean tiers and coverage;
+`run_contribution_reviews.py` freezes and resumes cached non-test groups.
+See the README for the publication and batching commands.
 
 ## Current state
 
