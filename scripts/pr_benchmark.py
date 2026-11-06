@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -52,12 +53,21 @@ def installed_mlx_model(base, adapter=None):
         "implementation_sha256": digest({
             path.name: file_sha256(path)
             for path in (MLX_ADAPTER, ROOT / "scripts" / "mlx_qwen_loader.py",
-                         ROOT / "scripts" / "local_review_protocol.py")
+                         ROOT / "scripts" / "local_review_protocol.py",
+                         ROOT / "scripts" / "mlx_json_decoder.py",
+                         ROOT / "scripts" / "mlx_review_schema.py")
         }),
         "contract_attempts": 3,
+        "structured_decoding": "schema-hunk-quote-v1",
+        "runtime_environment": {
+            name: os.environ.get(name) for name in (
+                "AGX_RELAX_CDM_CTXSTORE_TIMEOUT", "MLX_MAX_OPS_PER_BUFFER",
+                "MLX_MAX_MB_PER_BUFFER",
+            )
+        },
         "experimental_ai_labels": False,
         "versions": {name: importlib.metadata.version(name)
-                     for name in ("mlx", "mlx-lm", "transformers")},
+                     for name in ("mlx", "mlx-lm", "transformers", "outlines-core")},
     }
     if adapter is not None:
         result = json.loads((adapter / "result.json").read_text())
@@ -162,6 +172,8 @@ def evaluation_identity(spec):
             "implementation": model.get("implementation_sha256", model.get("adapter_sha256")),
             "versions": model.get("versions", model.get("ollama_version")),
             "contract_attempts": model.get("contract_attempts", 1),
+            **{key: model[key] for key in ("structured_decoding", "runtime_environment")
+               if key in model},
         }),
     }
 

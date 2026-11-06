@@ -103,6 +103,7 @@ def train_experiment(base, dataset, output, iters, max_length, layers):
             name: os.environ.get(name)
             for name in ("MLX_MAX_OPS_PER_BUFFER", "MLX_MAX_MB_PER_BUFFER")
         },
+        "metal_context_store_timeout": os.environ.get("AGX_RELAX_CDM_CTXSTORE_TIMEOUT"),
         "implementation_sha256": {
             name: file_sha256(Path(__file__).with_name(name))
             for name in ("train_experimental_qwen.py", "mlx_qwen_loader.py", "mlx_training_loss.py")

@@ -10,7 +10,9 @@ from mlx_lm import generate
 from mlx_lm.sample_utils import make_sampler
 
 from local_review_protocol import review_with_feedback
+from mlx_json_decoder import JSONLogitsProcessor
 from mlx_qwen_loader import load_local_model as load
+from mlx_review_schema import review_schema
 
 
 def main():
@@ -20,12 +22,15 @@ def main():
         raise ValueError("Only local model and adapter paths are accepted")
     messages = json.load(sys.stdin)["messages"]
     model, tokenizer = load(base, adapter_path=adapter)
+    decoder = JSONLogitsProcessor(tokenizer, review_schema(messages))
+
     def infer(conversation):
+        decoder.reset()
         prompt = tokenizer.apply_chat_template(
             conversation, tokenize=False, add_generation_prompt=True, enable_thinking=False,
         )
         return generate(model, tokenizer, prompt=prompt, max_tokens=1200,
-                        sampler=make_sampler(temp=0), verbose=False)
+                        sampler=make_sampler(temp=0), logits_processors=[decoder], verbose=False)
 
     reply = review_with_feedback(messages, infer, attempts=3)
     print(json.dumps(reply))

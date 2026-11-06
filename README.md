@@ -269,9 +269,18 @@ The human-supervised training path stays blocked until enough adjudications
 exist. A separate, explicitly experimental path can distill the 20 historical
 AI teacher proposals. It excludes every benchmark case and cannot qualify
 for promotion. See `BENCHMARK.md` for local-weight import and training commands.
-The evaluated step-10 adapter lowered weak-label validation loss but failed
-citation checks on all three calibration packets. Full 40-step attempts hit
-local Metal GPU errors. No candidate is promoted.
+The initial step-10 adapter lowered weak-label validation loss but failed
+citation checks on all three calibration packets. A process-scoped workaround
+for the upstream Metal GPU watchdog error now lets the full 40-step run
+finish on all 20 proposals. Its validation loss falls from 1.24557 to 0.53401;
+that measures teacher imitation, not expert accuracy.
+The MLX inference path now constrains JSON syntax and hunk/quote pairs before
+running the existing citation validator. Correct literal citations do not
+prove correct explanations. Both models now pass the citation contract on
+all three calibration cases but choose tiers 2, 2, 2, matching only one of
+the three historical expert decisions. The adapter shows no tier improvement.
+No candidate is promoted. `data/benchmark/runtime_recovery.json` records the
+measured run and the development-only reviewer handoff bundle.
 The installed Ollama MLX tensors and tokenizer can be repackaged without
 downloads; their content hashes pin the exact inference base. The older 3B
 model is not a substitute. New model downloads need separate approval.

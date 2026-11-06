@@ -1,0 +1,98 @@
+{
+  "purpose": "Completed training and constrained-inference mechanics, not validated PR-judgement accuracy",
+  "benchmark_sha256": "cacdbb70e9fc06c3cbd637ba1398a6750ad1c1fca459d998608840920e049a5c",
+  "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+  "human_gold": false,
+  "eligible_for_promotion": false,
+  "promoted": false,
+  "runtime_fix": {
+    "upstream": "https://github.com/ml-explore/mlx/issues/3267",
+    "environment": {
+      "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1"
+    },
+    "scope": "Training and inference processes only; no global shell or OS settings changed"
+  },
+  "training": {
+    "run": "adapter-experimental-v6",
+    "source": "Historical AI teacher proposals; all benchmark cases excluded",
+    "train_groups": 17,
+    "validation_groups": 3,
+    "excluded_overlength_groups": 0,
+    "max_sequence_tokens": 8192,
+    "tier3_training_groups": 1,
+    "semantic_abstention_training_groups": 0,
+    "train_tiers": {"1": 8, "2": 8, "3": 1, "abstain": 0},
+    "validation_tiers": {"1": 2, "2": 1, "3": 0, "abstain": 0},
+    "planned_iterations": 40,
+    "completed_iterations": 40,
+    "training_completed": true,
+    "selected_checkpoint": "Planned final step 40, not selected against calibration answers",
+    "initial_weak_label_validation_loss": 1.2455673217773438,
+    "final_weak_label_validation_loss": 0.5340149998664856,
+    "peak_memory_bytes": 10507850276,
+    "dataset_manifest_sha256": "4b949ade4f7bede9e5f7212055a51ee3c459dcc9dc54ea396913ae46fd7ef296",
+    "result_sha256": "4a1f7230f1b22992d4e2721f9e9fd3a19bb661c4e62ce26611cef33bbd657780",
+    "adapter_sha256": "c7f454579e31ed0826b71a279260c4b1bb04140fed8955d406036240342b0dd8"
+  },
+  "decoder": {
+    "protocol": "schema-hunk-quote-v1",
+    "outlines_core_version": "0.2.14",
+    "contract_attempts": 3,
+    "decoding": "Greedy, non-thinking, local ByteLevel vocabulary",
+    "constraints": "JSON shape, literal hunk/quote pairs, tier/confidence/abstention consistency",
+    "remaining_validation": "Combined decisions must cite actually observed hunks; independent humans must check explanation semantics",
+    "integration_failure": "The first v3 diagnostic hit a decoder EOS lookahead bug. Failed artifacts are retained; v4 fixes terminal EOS handling with a regression test."
+  },
+  "matched_mlx_calibration": {
+    "cases": 3,
+    "source": "Historical public calibrations, not a fresh accuracy sample",
+    "evaluation_protocol_sha256": "289202932f5f1a5b1c005ca4a01c1aed389945587b768da1282a860c1f6c471e",
+    "case_ids": [
+      "C306072669213",
+      "Cbb6763fc3816",
+      "Cc5ffe42b51af"
+    ],
+    "historical_expert_tiers": [1, 2, 3],
+    "baseline": {
+      "run": "mlx-base-v4",
+      "spec_sha256": "d2081d8eddb87193f1c39f4e05aa60699f6bf36f1736fb9838a9bbc93d71404f",
+      "accepted_reviews": 3,
+      "errors": 0,
+      "tiers": [2, 2, 2],
+      "historical_decisions_matched": 1,
+      "prediction_sha256": {
+        "C306072669213": "e18119965a0286091d6f5f285a50787957a8ebddf5579302ba97bffb2ec8ba62",
+        "Cbb6763fc3816": "480a089a3a2406cc43a41c52b16414e1cf9ff23346f6c6dced06d33d54be1b19",
+        "Cc5ffe42b51af": "eb2800798e944f76e58f7c3f881b9dd9f0adcda6aba2ce94553ba268c3457a7d"
+      }
+    },
+    "candidate": {
+      "run": "mlx-distilled-v4",
+      "spec_sha256": "bf1f993ae2dae578b55f10b3cf8ff6a534b26221c6cfd2fdfbee7ff904890a4e",
+      "accepted_reviews": 3,
+      "errors": 0,
+      "tiers": [2, 2, 2],
+      "historical_decisions_matched": 1,
+      "prediction_sha256": {
+        "C306072669213": "fd9e7fad72902e6c23af5827bb30ce2bfcf7aa2b2544d1d25a5061bdb70cae0e",
+        "Cbb6763fc3816": "dd7f668bbde0c926b1c9100608bc32861a425111ff207b6d43fbda1545abe2b3",
+        "Cc5ffe42b51af": "06211dbaf86021ef8fdba3a797a32d667919f0fb788b8313d4f19a0efedb157e"
+      }
+    },
+    "independent_semantic_audits": 0,
+    "interpretation": "Literal citations now validate, but the adapter shows no tier improvement on these known cases. This is not a fresh or held-out accuracy estimate."
+  },
+  "human_handoff": {
+    "archive": "data/benchmark/packets/development-review-v1.zip",
+    "sha256": "fc95229d7e846976993007ad0cf93796544d373ec18f36e4e061a2a8ee2af844",
+    "bytes": 454938,
+    "cases": 40,
+    "contents": "Blind development packets, review instructions and deliberately invalid blank answer templates only",
+    "reserved_test_cases": 0,
+    "model_predictions": 0,
+    "fresh_expert_labels_received": 0
+  },
+  "reserved_test_predictions": 0,
+  "previous_probe": "data/benchmark/distillation_probe.json",
+  "decision": "Do not promote. Training and literal-citation serving work, but expert adjudications, semantic audits and a genuinely improved held-out comparison are still required."
+}

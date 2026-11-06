@@ -6,7 +6,7 @@ import re
 from score_harness import validate_decision, validate_observations
 
 
-def validate_reply(messages, reply):
+def review_inputs(messages):
     prompt = messages[-1]["content"]
     observation = prompt.startswith("Inspect every hunk in this chunk")
     combined = prompt.startswith("Review this one complete code-diff chunk")
@@ -20,12 +20,21 @@ def validate_reply(messages, reply):
                 r"<hunk id=([^\s]+) path=[^>]+>\n(.*?)</hunk>", prompt, flags=re.DOTALL,
             )
         }
+        return "observation" if observation else "combined", allowed
+    observations = json.loads(prompt.split("Observations:\n", 1)[1])
+    return "decision", {
+        item["hunk"]: [] for chunk in observations for item in chunk["observations"]
+    }
+
+
+def validate_reply(messages, reply):
+    mode, allowed = review_inputs(messages)
+    if mode != "decision":
         validate_observations(reply, allowed)
         observed = {item["hunk"] for item in reply["observations"]}
     else:
-        observations = json.loads(prompt.split("Observations:\n", 1)[1])
-        observed = {item["hunk"] for chunk in observations for item in chunk["observations"]}
-    if not observation:
+        observed = set(allowed)
+    if mode != "observation":
         validate_decision(reply, observed)
     return reply
 

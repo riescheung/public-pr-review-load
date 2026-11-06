@@ -22,9 +22,10 @@ The dashboard still shows WPR; this pipeline does not modify `data/report.json`.
   There are no fresh expert labels or independent semantic audits, so tier
   accuracy remains unmeasured. `data/benchmark/development_baseline.json`
   records the operational results and prompt-token budget check.
-- An experimental same-base LoRA checkpoint exists, separate from the
-  human-supervised path. Its first matched MLX diagnostic failed citation
-  validation; see the isolated experiment below. No adapter is promoted.
+- A same-base experimental LoRA run now completes all 40 planned updates
+  using the full 20 historical AI proposals. A process-scoped Metal watchdog
+  workaround resolved the earlier crashes. This is still separate from
+  human-supervised training; no adapter is promoted.
 - The reserved final test has not been run. Human-supervised training remains
   blocked on fresh human adjudications.
 
@@ -64,6 +65,12 @@ It must not be given to the human reviewer alongside the packets.
 Give the reviewer `data/benchmark/packets/development.json` and the listed
 case IDs' `.md` files for the first labelling batch. These readable packets
 contain the same code as the machine JSON, without operator metadata.
+The local `data/benchmark/packets/development-review-v1.zip` bundles those
+40 development documents, instructions and blank answer templates. It contains
+no test cases, operator manifest, model predictions or existing labels.
+Templates are deliberately invalid until a human fills them in; no quote,
+hunk or tier is selected on the reviewer's behalf. The archive stays local
+and ignored by git; its hash is recorded in `runtime_recovery.json`.
 
 Run a finite batch against an already installed local model:
 
@@ -206,7 +213,9 @@ over 3,072 tokens, leaving 13 training groups and three validation groups.
 It has no tier-3 examples or semantic abstentions. This is a training-mechanics
 probe, not a reliable judge.
 The optional Python 3.12 packages are pinned in `requirements-mlx.txt`.
-No packages or model weights were downloaded for this experiment.
+The initial training attempts reused installed packages and weights. The
+later constrained-decoding work adds `outlines-core` and JSON schema test
+dependencies in an isolated local directory; it downloads no model weights.
 
 `import_ollama_mlx.py` verifies the installed model manifest and tensor hashes,
 copies packed text-tensor bytes unchanged, and renames their scale keys for
@@ -295,12 +304,82 @@ The installed Ollama version also rejects direct adapter import with
 therefore unavailable here. This experiment does not claim an Ollama-ready
 fine-tuned model; serving one would need a separately validated fused export
 or another inference runtime with the same strict citation contract.
-A final attempt on all 20 proposals used MLX's native
+The next attempt on all 20 proposals used MLX's native
 `MLX_MAX_OPS_PER_BUFFER=1` and `MLX_MAX_MB_PER_BUFFER=16` limits. It hit the
 same Metal error before completing its first update and saved no checkpoint.
-The runtime issue remains unresolved on this machine; no full 40-step
-training run is claimed. Failed attempts now retain a `failure.json` with
+That attempt did not complete. Failed attempts retain a `failure.json` with
 the error and hashes of any saved checkpoints.
+
+### Metal watchdog recovery
+
+The exact interactivity error is documented in
+[MLX issue 3267](https://github.com/ml-explore/mlx/issues/3267).
+A maintainer recommended `AGX_RELAX_CDM_CTXSTORE_TIMEOUT=1`, and the reporter
+confirmed that it resolved the crash. Unlike command-buffer size limits,
+this changes the Metal driver's context-store timeout for the process.
+Use it only for the bounded command, not as a global shell or OS setting.
+It can reduce desktop responsiveness while the GPU is busy.
+
+The local `adapter-experimental-v6` run used that variable and completed
+40/40 updates on all 17 training and three validation proposals, with an
+8,192-token limit, no exclusions and no truncation. Initial weak-label
+validation loss was 1.24557; final step-40 loss was 0.53401. Peak MLX memory
+was 10,507,850,276 bytes. Earlier failed runs remain unchanged.
+The full training split has eight tier-1 proposals, eight tier-2 proposals
+and one tier-3 proposal. Validation has two tier-1 and one tier-2 proposals,
+with no tier-3 or semantic abstention examples. This is not sufficient class
+coverage for the human-supervised path.
+The diagnostic uses the planned final checkpoint, not a checkpoint selected
+against calibration or final-test answers.
+
+```bash
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 AGX_RELAX_CDM_CTXSTORE_TIMEOUT=1 python \
+  scripts/train_experimental_qwen.py --execute --experimental-ai-labels \
+  --base-model data/ai_review/model/qwen3.5-9b-ollama \
+  --dataset data/ai_review/lora/experimental-v1 \
+  --output data/ai_review/lora/adapter-experimental-v6 \
+  --iters 40 --num-layers 1 --max-seq-length 8192
+```
+
+Those paths identify the recorded run. Do not overwrite them on a rerun.
+The full dataset can be exported with `experimental_distillation.py
+--experimental-ai-labels --max-tokens 8192` using the same base and a fresh
+output directory. The trainer records the watchdog variable alongside its
+weight, dataset and implementation hashes.
+
+### Constrained local inference
+
+The current MLX adapter uses `outlines-core` to mask invalid next tokens.
+The schema permits all three tiers and abstention. Observation quotes are
+chosen by the model from literal changed lines paired with their hunk ID.
+It does not assign supporting quotes on the model's behalf or turn an
+inference error into an abstention.
+
+The decoder reads the existing local ByteLevel vocabulary, preserving raw
+UTF-8 bytes and suppressing special tokens except the terminating EOS.
+The schema and decoder implementation, dependency versions and Metal
+environment are part of the run identity. Base and candidate use the same
+decoder, greedy sampling and three-attempt contract-feedback budget.
+Use new run IDs; these are not comparable to the earlier unconstrained
+MLX runs as a controlled pair.
+
+The existing validator still rejects decisions that cite unobserved hunks.
+In a combined response, the grammar restricts evidence IDs to supplied hunks;
+the validator separately checks that the model actually observed each one.
+A literal quote can still support a wrong explanation. Neither the grammar
+nor a successful validation replaces an independent semantic evidence audit.
+Human gold labels and the untouched final test remain required for promotion.
+
+The completed `mlx-base-v4` and `mlx-distilled-v4` diagnostic runs each accepted
+all three calibration reviews without errors. Both predicted tiers 2, 2, 2,
+while the historical expert tiers are 1, 2, 3. The adapter does not improve
+those tier decisions. These known cases do not establish fresh accuracy,
+and the explanations still have no independent semantic audits.
+`data/benchmark/runtime_recovery.json` records the full training run, matched
+protocol and prediction hashes, reviewer bundle and unchanged promotion block.
+The initial `v3` decoder integration failed on MLX's one-token lookahead after
+EOS; those artifacts remain available. `v4` fixes that handling and adds a
+regression test that still rejects premature EOS.
 
 ## Final comparison
 

@@ -42,6 +42,14 @@ class MLXBenchmarkTests(unittest.TestCase):
                     "harness_sha256": "harness"}
             self.assertEqual(evaluation_identity({**spec, "model": original}),
                              evaluation_identity({**spec, "model": candidate}))
+            self.assertEqual(original["structured_decoding"], "schema-hunk-quote-v1")
+            changed_environment = {
+                **candidate, "runtime_environment": {"AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "0"},
+            }
+            self.assertNotEqual(
+                evaluation_identity({**spec, "model": original}),
+                evaluation_identity({**spec, "model": changed_environment}),
+            )
             other_runtime = {"digest": original["base_ollama_digest"],
                              "adapter_sha256": "ollama implementation", "ollama_version": "test"}
             self.assertNotEqual(
