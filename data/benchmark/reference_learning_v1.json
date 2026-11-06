@@ -187,7 +187,10 @@
     "run": "adapter-reference-v1",
     "planned_iterations": 40,
     "result_available_at_report": false,
-    "status_at_report": "running; no new training completion or comparison claimed",
+    "status_at_report": "Interrupted by the battery safety guard at 10% charge; no new training completion or comparison claimed",
+    "interrupted_at": "2026-11-06T16:14:44.065779+00:00",
+    "saved_checkpoints": {},
+    "initial_reference_validation_loss_observed": 1.85711,
     "battery_safety": "Process-scoped guard interrupts this attempt at <=10% on battery and records a failure receipt"
   },
   "user_corrections_imported": 0,

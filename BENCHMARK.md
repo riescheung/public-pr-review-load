@@ -48,9 +48,12 @@ test result or expert accuracy. The queue contains all 35 valid references.
 The first reference dataset contains 24 training groups (86 rows) and seven
 validation groups (24 rows). Four other groups are excluded whole because at
 least one row exceeds the sequence or completion budget. No code or answer
-is truncated. A new 40-step adapter attempt uses that frozen dataset; no
-completion or improved agreement is claimed until its result and paired
-inference checks exist.
+is truncated. A new 40-step adapter attempt used that frozen dataset but was
+interrupted by a process-scoped battery safety guard at 10% charge.
+Initial reference-validation loss was 1.85711; no checkpoint was saved.
+The failure receipt preserves that interruption. Connect power and choose a
+fresh adapter output directory for the next attempt; do not overwrite it.
+No completion or improved agreement is claimed.
 
 The 60 final-test cases are reserved PR diffs, not existing teacher answers.
 Neither those cases nor the historical calibrations enter the new queue or
