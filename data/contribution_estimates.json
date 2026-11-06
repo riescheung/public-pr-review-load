@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-06T17:45:26.569786+00:00",
+  "generated_at": "2026-11-06T18:14:30.453426+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -38,22 +38,51 @@
       "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
       "experiment_sha256": "4a1f7230f1b22992d4e2721f9e9fd3a19bb661c4e62ce26611cef33bbd657780",
       "digest": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
+    },
+    "qwen-contributions-v1": {
+      "name": "mlx-qwen3.5-9b+experimental-lora",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "5addc6f5c69b00a18cb578d1505ac8252f1c3954fc62927b1e1abb4299d83239",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "c7f454579e31ed0826b71a279260c4b1bb04140fed8955d406036240342b0dd8",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "4a1f7230f1b22992d4e2721f9e9fd3a19bb661c4e62ce26611cef33bbd657780",
+      "digest": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 39,
+    "scored": 40,
     "abstained": 1,
-    "failed": 2,
+    "failed": 6,
     "reserved": 60,
-    "pending": 17118,
-    "mean_tier": 1.3846153846153846,
+    "pending": 17113,
+    "mean_tier": 1.4,
     "tiers": {
       "1": 24,
-      "2": 15,
+      "2": 16,
       "3": 0
     },
     "review_ids": [
+      "issue:1",
+      "issue:100265",
+      "issue:101512",
+      "issue:101758",
+      "issue:102012",
       "issue:103374",
       "issue:109331",
       "issue:117285",
@@ -106,16 +135,18 @@
           "groups": 453,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 453,
+          "pending": 452,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:1"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -232,9 +263,9 @@
         "groups": 3127,
         "scored": 8,
         "abstained": 0,
-        "failed": 1,
+        "failed": 2,
         "reserved": 7,
-        "pending": 3111,
+        "pending": 3110,
         "mean_tier": 1.5,
         "tiers": {
           "1": 4,
@@ -242,6 +273,7 @@
           "3": 0
         },
         "review_ids": [
+          "issue:1",
           "pr:78842",
           "pr:84436",
           "title:Gilbert09:add 4 missing tables to the recurly source",
@@ -725,16 +757,18 @@
           "groups": 47,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 47,
+          "pending": 46,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:100265"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -790,9 +824,9 @@
         "groups": 358,
         "scored": 1,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 357,
+        "pending": 356,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -800,6 +834,7 @@
           "3": 0
         },
         "review_ids": [
+          "issue:100265",
           "pr:88274"
         ],
         "unmapped_prs": 0
@@ -1565,18 +1600,20 @@
         },
         {
           "groups": 38,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 38,
-          "mean_tier": null,
+          "pending": 37,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:102012"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -1598,18 +1635,20 @@
       ],
       "total": {
         "groups": 260,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 1,
-        "pending": 259,
-        "mean_tier": null,
+        "pending": 258,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:102012"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -3399,16 +3438,18 @@
           "groups": 25,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 25,
+          "pending": 24,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:101512"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -3464,16 +3505,18 @@
         "groups": 183,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 183,
+        "pending": 182,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:101512"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -8768,16 +8811,18 @@
           "groups": 19,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 19,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:101758"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -8785,16 +8830,18 @@
         "groups": 83,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 83,
+        "pending": 82,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:101758"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -32145,7 +32192,116 @@
       "known_calibration": true,
       "packet_sha256": "62adf6a37f1882bdc23002b36e575f03464842c67ea267166139289fd277214c",
       "prediction_sha256": "06211dbaf86021ef8fdba3a797a32d667919f0fb788b8313d4f19a0efedb157e"
+    },
+    "issue:102012": {
+      "id": "issue:102012",
+      "prs": [
+        117703
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F2.H2",
+                "code_quote": "        animation: none;",
+                "behavior": "The CSS selector for the static snapshot mode now disables the entire animation block rather than setting zero-duration timers, and the reduced-motion media query now covers all relevant child elements with the same directive.",
+                "posthog_connection": "The snapshot tests for the sample data state now omit the looping animation entirely. This prevents the CI screenshot tests from capturing a partial keyframe of the animation, which would hide the placeholder content and cause the tests to fail."
+              },
+              {
+                "hunk": "P1.F2.H2",
+                "code_quote": "        animation: none;",
+                "behavior": "The reduced-motion media query now explicitly disables the animation for the chart and row elements in addition to the viz element, not just the viz element.",
+                "posthog_connection": "The reduced-motion media query now explicitly disables the animation for the chart and row elements in addition to the viz element, not just the viz element."
+              },
+              {
+                "hunk": "P1.F3.H1",
+                "code_quote": "        <div className=\"InsightVizDisplay border rounded w-160\">",
+                "behavior": "A new story for the sample data state now renders the component inside the real TrendsInsight container rather than a fixed-height div.",
+                "posthog_connection": "The new story tests the sample data state in the real TrendsInsight container, which allows the tests to catch height regressions that the other stories cannot."
+              }
+            ],
+            "limitations": "The snapshot tests may not cover all the new story variants. The new story may not cover all the new story variants. The new story may not cover all the new story variants."
+          }
+        ],
+        "limitations": "The snapshot tests may not cover all the new story variants. The new story may not cover all the new story variants. The new story may not cover all the new story variants.",
+        "score": 2,
+        "reason": "The new story tests the sample data state in the real TrendsInsight container, which allows the tests to catch height regressions that the other stories cannot.",
+        "posthog_relevance": "The new story tests the sample data state in the real TrendsInsight container, which allows the tests to catch height regressions that the other stories cannot.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F2.H2"
+        ],
+        "uncertainty": "Historical AI proposal; not independently validated; no measured outcomes.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "model_id": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
+      },
+      "run": "qwen-contributions-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "7565b70fdfbe73737a9408994051c03884fb356be940b57e374836484b8df718",
+      "prediction_sha256": "655a6f91547e8fc724ff5dc02a4026ddbe223a0fddeeecd4bfd2cce509c921f6"
+    },
+    "issue:101512": {
+      "id": "issue:101512",
+      "prs": [
+        101685
+      ],
+      "status": "error",
+      "tier": null,
+      "review": null,
+      "run": "qwen-contributions-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "74e9b6f76cedfd8c5d70c94de92baae2399c0570e6e030fe1fa82daaabf00674",
+      "prediction_sha256": "0467d617f33cb1266628ccefe92b723ce0af0bc844b7b63409418c824684789d"
+    },
+    "issue:100265": {
+      "id": "issue:100265",
+      "prs": [
+        102378
+      ],
+      "status": "error",
+      "tier": null,
+      "review": null,
+      "run": "qwen-contributions-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "9ab5f9fb8349c31c6981af7610b56f53f6930a098810580e64daabf40797a49b",
+      "prediction_sha256": "b8f115ffc49a7f3cd6d04c1730c5a76af704c6fc19618d9ed295acb31211f154"
+    },
+    "issue:101758": {
+      "id": "issue:101758",
+      "prs": [
+        128195
+      ],
+      "status": "error",
+      "tier": null,
+      "review": null,
+      "run": "qwen-contributions-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "f8bb774b80976c21857f57c2c00b554c64c05f2a9c555a6cfaf160cea10d2536",
+      "prediction_sha256": "e0e46d6cdcaa4715d16aa4c778224ed2994ac0afdcf2885befc4c025716054f2"
+    },
+    "issue:1": {
+      "id": "issue:1",
+      "prs": [
+        78791
+      ],
+      "status": "error",
+      "tier": null,
+      "review": null,
+      "run": "qwen-contributions-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "8c1b243fa09b195ab94c96d85bb6bbfedc996ff9277ce0c69b2f977cee4f301f",
+      "prediction_sha256": "321b74cf9b6ebaa3be20929e3500eb4d3c0b4bbed6edeb62450c63b9d78c5317"
     }
   },
-  "sha256": "61cfea41057d32ab3877bd3d85f584618a059144f6679079fdc2ed38b734a277"
+  "sha256": "17f5d818516373fc1ba94e8cc371b5ac232bbd5452ebefd0fb8b2dfe524c6b7c"
 }
