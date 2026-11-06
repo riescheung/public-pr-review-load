@@ -487,6 +487,36 @@ regression test that still rejects premature EOS.
 
 ## Final comparison
 
+### Sol-reference continuation and publication checks
+
+`adapter-reference-v4` reused the verified 20-update checkpoint from the
+interrupted Sol-reference attempt and added 20 new updates. It uses the same
+Qwen 3.5 9B base, 86 training rows and 24 family-separated validation rows
+from 31 usable Sol references. The continuation uses a fresh Adam optimiser
+and a new deterministic seed; it is not an uninterrupted 40-update run.
+Full validation before and after the continuation changed its teacher-target
+loss from 1.63797 to 1.62099. This measures imitation, not judgement accuracy.
+The public receipt is in `data/reference_progress.json`.
+
+The matched `mlx-reference-v1` calibration run accepted all three reviews and
+predicted 2, 2, 2, just like `mlx-base-v4`. Both match one of the three
+historical reference tiers. There is no demonstrated tier improvement and
+the 60 final-test families remain unopened.
+
+The first publication probe with this adapter recovered one prior JSON
+failure. Another still produced truncated JSON. The multi-chunk observation
+schema was missing the three-item limit already present for single-chunk
+reviews. Applying that same limit recovered the second case without bounding
+or truncating literal code quotes. Text-length limits from the unsuccessful
+earlier experiment remain disabled.
+
+`qwen-reference-observations-v2` then re-ran all five original publication
+cases under the updated decoder: five passed format and citation checks,
+versus one in the first trained-adapter batch. This is a combined pipeline
+check, not an isolated training comparison or an accuracy measurement.
+Publication now contains 44 scored groups. The full-snapshot rollout is
+still incomplete.
+
 After choosing one candidate, run the baseline and candidate against the
 same reserved test cases with `--unlock-test`, then independently label and
 audit the predictions. Give the candidate a new run ID and retain its base,
@@ -510,5 +540,7 @@ protocol and implementation. An Ollama run and a standalone MLX run are not
 a controlled baseline/candidate pair, even if their source tensors match.
 
 Passing makes the candidate eligible for human approval, not automatically
-promoted. There is no code path here that writes model tiers into the
-contributor dashboard or turns them into outcome scores.
+promoted. Dashboard publication is a separate provisional path through
+`scripts/run_contribution_reviews.py`: it displays validated mean tiers with
+coverage, model identity and citations. It does not certify the model or turn
+its tiers into verified outcome scores.

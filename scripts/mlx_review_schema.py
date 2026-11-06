@@ -31,8 +31,7 @@ def review_schema(messages):
         observations = {
             "type": "array", "items": {"anyOf": choices}, "minItems": 1,
         }
-        if mode == "combined":
-            observations["maxItems"] = 3
+        observations["maxItems"] = 3
         observation_fields = {"observations": observations, "limitations": TEXT}
         if mode == "observation":
             return closed_object(observation_fields)

@@ -2,17 +2,22 @@
 """Publish cited Qwen estimates separately from WPR and measured outcomes."""
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import re
 
 from benchmark_data import BENCHMARK, digest, load_manifest, timestamp, write_new
-from import_ollama_mlx import file_sha256
 from pr_benchmark import predictions
 from review_contract import FULL, ROOT
 
 
 PUBLICATION_MANIFESTS = FULL / "harness" / "publication_manifests"
+
+
+def json_snapshot(path):
+    raw = path.read_bytes()
+    return json.loads(raw), hashlib.sha256(raw).hexdigest()
 
 
 def reserved(group, benchmark):
@@ -180,10 +185,11 @@ def publish(benchmark, runs, destination, publication_manifest=None, publication
         if any(row["source"] == "publication" for row in old.get("reviews", {}).values()):
             raise ValueError("Preserve expanded coverage: supply its publication manifest and run")
     report_path, catalog_path = ROOT / "data" / "report.json", FULL / "selection.json"
-    report, catalog = json.loads(report_path.read_text()), json.loads(catalog_path.read_text())
+    report, report_hash = json_snapshot(report_path)
+    catalog, catalog_hash = json_snapshot(catalog_path)
     if publication_manifest:
         validate_publication(publication_manifest, benchmark, catalog,
-                             file_sha256(catalog_path), file_sha256(report_path))
+                             catalog_hash, report_hash)
         archive_publication(publication_manifest)
     records, models = collect_reviews(benchmark, runs, catalog, publication_manifest, publication_run)
     people, overall = aggregate(report, catalog, records, benchmark)
@@ -191,8 +197,8 @@ def publish(benchmark, runs, destination, publication_manifest=None, publication
         "version": 1, "generated_at": timestamp(), "label": "AI-estimated contribution",
         "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
         "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
-        "human_gold": False, "report_sha256": file_sha256(report_path),
-        "catalog_sha256": file_sha256(catalog_path), "benchmark_sha256": benchmark["sha256"],
+        "human_gold": False, "report_sha256": report_hash,
+        "catalog_sha256": catalog_hash, "benchmark_sha256": benchmark["sha256"],
         "models": models, "overall": overall, "people": people, "reviews": records,
     }
     # This file is a generated publication, not an immutable experiment receipt.

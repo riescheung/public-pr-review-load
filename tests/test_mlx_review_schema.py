@@ -87,6 +87,18 @@ class ReviewSchemaTests(unittest.TestCase):
         answer["observations"][0]["code_quote"] = quote
         self.validator(observation_prompt(chunk)).validate(answer)
 
+    def test_multi_chunk_observations_share_the_single_chunk_item_budget(self):
+        expected = review()
+        observed = expected["observations"][0]
+        item = observed["observations"][0]
+        for prompt, answer in (
+            (observation_prompt(packet()["chunks"][0]), observed),
+            (one_pass_prompt(packet()["chunks"][0]), {**expected, **observed}),
+        ):
+            validator = self.validator(prompt)
+            validator.validate({**answer, "observations": [item] * 3})
+            self.assertFalse(validator.is_valid({**answer, "observations": [item] * 4}))
+
 
 if __name__ == "__main__":
     unittest.main()

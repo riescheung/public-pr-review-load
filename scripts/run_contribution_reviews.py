@@ -12,7 +12,7 @@ import sys
 import time
 
 from benchmark_data import digest, load_manifest, seal, write_new
-from contribution_estimates import archive_publication, publish, reserved, validate_publication
+from contribution_estimates import archive_publication, json_snapshot, publish, reserved, validate_publication
 from import_ollama_mlx import file_sha256
 from pr_benchmark import run_cases
 from review_contract import FULL, ROOT
@@ -45,6 +45,12 @@ def prepare(catalog, benchmark, catalog_hash, report_hash):
     })
 
 
+def retained_publication_runs(publication):
+    selected = {row["run"] for row in publication["reviews"].values()
+                if row["source"] == "publication"}
+    return [run for run in publication["models"] if run in selected]
+
+
 def require_safe_power(minimum_battery=20):
     if sys.platform == "darwin":
         power = subprocess.run(
@@ -70,6 +76,7 @@ def main():
     parser.add_argument("--previous-run", action="append",
                         help="Retain an earlier run on the same manifest; defaults to published runs")
     parser.add_argument("--limit", type=int, default=5)
+    parser.add_argument("--only-case", action="append", help="Restrict a diagnostic run to a case ID")
     parser.add_argument("--max-chunks", type=int, default=8)
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
@@ -79,8 +86,8 @@ def main():
         parser.error("Use a safe, explicit run name")
     benchmark = load_manifest()
     catalog_path, report_path = FULL / "selection.json", ROOT / "data" / "report.json"
-    catalog = json.loads(catalog_path.read_text())
-    hashes = file_sha256(catalog_path), file_sha256(report_path)
+    catalog, catalog_hash = json_snapshot(catalog_path)
+    hashes = catalog_hash, file_sha256(report_path)
     if args.action == "prepare":
         manifest = prepare(catalog, benchmark, *hashes)
         write_new(args.manifest, manifest)
@@ -88,6 +95,8 @@ def main():
         print(f"Prepared {len(manifest['cases'])} cached groups; reserved test families excluded.")
         return
     manifest = load_manifest(args.manifest)
+    if args.only_case and set(args.only_case) - {case["id"] for case in manifest["cases"]}:
+        parser.error("--only-case must name a case in the supplied manifest")
     validate_publication(manifest, benchmark, catalog, *hashes)
     if not args.execute:
         print(f"Plan: {len(manifest['cases'])} eligible cached groups, "
@@ -115,7 +124,7 @@ def main():
         raise SystemExit(process.returncode)
     try:
         run_cases(manifest, args.run, "qwen3.5:9b", "publication", args.limit,
-                  args.max_chunks, BASE, args.adapter)
+                  args.max_chunks, BASE, args.adapter, args.only_case)
     finally:
         # Publish completed records even if a later case fails or the batch ends.
         spec = ROOT / "data" / "benchmark" / "runs" / args.run / "spec.json"
@@ -123,8 +132,7 @@ def main():
             publication = ROOT / "data" / "contribution_estimates.json"
             previous = args.previous_run
             if previous is None and publication.exists():
-                previous = [row["run"] for row in json.loads(publication.read_text())["reviews"].values()
-                            if row["source"] == "publication"]
+                previous = retained_publication_runs(json.loads(publication.read_text()))
             runs = list(dict.fromkeys([*(previous or []), args.run]))
             publish(benchmark, ["qwen-base-v2", "mlx-distilled-v4"],
                     publication, manifest, runs)

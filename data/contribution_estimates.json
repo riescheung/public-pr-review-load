@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-06T19:16:11.317269+00:00",
+  "generated_at": "2026-11-06T20:14:02.629410+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -63,11 +63,11 @@
       "experiment_sha256": "4a1f7230f1b22992d4e2721f9e9fd3a19bb661c4e62ce26611cef33bbd657780",
       "digest": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
     },
-    "qwen-contributions-v2": {
+    "qwen-reference-contributions-v1": {
       "name": "mlx-qwen3.5-9b+experimental-lora",
       "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
       "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
-      "implementation_sha256": "9509675ef36e18ac778c6e4ec2550e02ca123e8ad375ee8616c4a733786dc9c1",
+      "implementation_sha256": "5addc6f5c69b00a18cb578d1505ac8252f1c3954fc62927b1e1abb4299d83239",
       "contract_attempts": 3,
       "structured_decoding": "schema-hunk-quote-v1",
       "runtime_environment": {
@@ -82,22 +82,70 @@
         "transformers": "5.22.1",
         "outlines-core": "0.2.14"
       },
-      "adapter_sha256": "c7f454579e31ed0826b71a279260c4b1bb04140fed8955d406036240342b0dd8",
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
       "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
-      "experiment_sha256": "4a1f7230f1b22992d4e2721f9e9fd3a19bb661c4e62ce26611cef33bbd657780",
-      "digest": "1baefef9f969037a04d140b4110c19e2a602d8be167bc59870ab5d0349f08339"
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "digest": "395e9e466ce47c5f134d88db112a647bb5339b641b09329f4e940f2616a82d10"
+    },
+    "qwen-reference-observations-v1": {
+      "name": "mlx-qwen3.5-9b+experimental-lora",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "786391ead2fb26d7ca25bc98d6f4da84779c4de51eff109bf4bf2886ca32f8ae",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "digest": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+    },
+    "qwen-reference-observations-v2": {
+      "name": "mlx-qwen3.5-9b+experimental-lora",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "786391ead2fb26d7ca25bc98d6f4da84779c4de51eff109bf4bf2886ca32f8ae",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "digest": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 40,
+    "scored": 44,
     "abstained": 1,
-    "failed": 6,
+    "failed": 2,
     "reserved": 60,
     "pending": 17113,
-    "mean_tier": 1.4,
+    "mean_tier": 1.3636363636363635,
     "tiers": {
-      "1": 24,
+      "1": 28,
       "2": 16,
       "3": 0
     },
@@ -157,14 +205,14 @@
       "periods": [
         {
           "groups": 453,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 0,
           "reserved": 0,
           "pending": 452,
-          "mean_tier": null,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
@@ -285,14 +333,14 @@
       ],
       "total": {
         "groups": 3127,
-        "scored": 8,
+        "scored": 9,
         "abstained": 0,
-        "failed": 2,
+        "failed": 1,
         "reserved": 7,
         "pending": 3110,
-        "mean_tier": 1.5,
+        "mean_tier": 1.4444444444444444,
         "tiers": {
-          "1": 4,
+          "1": 5,
           "2": 4,
           "3": 0
         },
@@ -779,14 +827,14 @@
         },
         {
           "groups": 47,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 0,
           "reserved": 0,
           "pending": 46,
-          "mean_tier": null,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
@@ -846,14 +894,14 @@
       ],
       "total": {
         "groups": 358,
-        "scored": 1,
+        "scored": 2,
         "abstained": 0,
-        "failed": 1,
+        "failed": 0,
         "reserved": 0,
         "pending": 356,
-        "mean_tier": 2.0,
+        "mean_tier": 1.5,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 1,
           "3": 0
         },
@@ -1629,10 +1677,10 @@
           "failed": 0,
           "reserved": 0,
           "pending": 37,
-          "mean_tier": 2.0,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
-            "2": 1,
+            "1": 1,
+            "2": 0,
             "3": 0
           },
           "review_ids": [
@@ -1664,10 +1712,10 @@
         "failed": 0,
         "reserved": 1,
         "pending": 258,
-        "mean_tier": 2.0,
+        "mean_tier": 1.0,
         "tiers": {
-          "1": 0,
-          "2": 1,
+          "1": 1,
+          "2": 0,
           "3": 0
         },
         "review_ids": [
@@ -3460,14 +3508,14 @@
         },
         {
           "groups": 25,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 0,
           "reserved": 0,
           "pending": 24,
-          "mean_tier": null,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
@@ -3527,14 +3575,14 @@
       ],
       "total": {
         "groups": 183,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
-        "failed": 1,
+        "failed": 0,
         "reserved": 0,
         "pending": 182,
-        "mean_tier": null,
+        "mean_tier": 1.0,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 0,
           "3": 0
         },
@@ -8833,15 +8881,15 @@
         },
         {
           "groups": 19,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 0,
           "reserved": 0,
           "pending": 18,
-          "mean_tier": null,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
@@ -8852,15 +8900,15 @@
       ],
       "total": {
         "groups": 83,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
-        "failed": 1,
+        "failed": 0,
         "reserved": 0,
         "pending": 82,
-        "mean_tier": null,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
         "review_ids": [
@@ -32223,109 +32271,388 @@
         117703
       ],
       "status": "ok",
-      "tier": 2,
+      "tier": 1,
       "review": {
         "observations": [
           {
             "observations": [
               {
-                "hunk": "P1.F2.H2",
-                "code_quote": "        animation: none;",
-                "behavior": "The CSS selector for the static snapshot mode now disables the entire animation block rather than setting zero-duration timers, and the reduced-motion media query now covers all relevant child elements with the same directive.",
-                "posthog_connection": "The snapshot tests for the sample data state now omit the looping animation entirely. This prevents the CI screenshot tests from capturing a partial keyframe of the animation, which would hide the placeholder content and cause the tests to fail."
+                "hunk": "P1.F1.H1",
+                "code_quote": "        hash: v1.k794b7964.e3d6fad2d4fe34560cac1ef28978c867941094f2c9576488c08731694152821b.OJEdHAzePZmVzaGzV9ZwEAN1wmOjSLQ0MdFX3IfvolY",
+                "behavior": "Adds snapshot hashes for the 'in-trends-insight-container' variant, while updating hashes for other variants.",
+                "posthog_connection": "Adds visual regression coverage for the SampleDataState component when rendered inside the TrendsInsight container, potentially catching layout regressions specific to that context."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "        align-self: stretch;",
+                "behavior": "Adds a CSS property to the SampleDataState container, while removing a fixed height constraint.",
+                "posthog_connection": "Changes the layout behavior of the sample data state component, potentially allowing it to fill available space rather than maintaining a fixed height."
               },
               {
                 "hunk": "P1.F2.H2",
                 "code_quote": "        animation: none;",
-                "behavior": "The reduced-motion media query now explicitly disables the animation for the chart and row elements in addition to the viz element, not just the viz element.",
-                "posthog_connection": "The reduced-motion media query now explicitly disables the animation for the chart and row elements in addition to the viz element, not just the viz element."
-              },
-              {
-                "hunk": "P1.F3.H1",
-                "code_quote": "        <div className=\"InsightVizDisplay border rounded w-160\">",
-                "behavior": "A new story for the sample data state now renders the component inside the real TrendsInsight container rather than a fixed-height div.",
-                "posthog_connection": "The new story tests the sample data state in the real TrendsInsight container, which allows the tests to catch height regressions that the other stories cannot."
+                "behavior": "Replaces zero-duration animation properties with complete animation removal for static and reduced-motion variants.",
+                "posthog_connection": "Changes the animation behavior of sample data state components, potentially removing animations entirely for static or reduced-motion contexts."
               }
             ],
-            "limitations": "The snapshot tests may not cover all the new story variants. The new story may not cover all the new story variants. The new story may not cover all the new story variants."
+            "limitations": "The change is limited to sample data state snapshots and styling, without broader system or backend changes."
           }
         ],
-        "limitations": "The snapshot tests may not cover all the new story variants. The new story may not cover all the new story variants. The new story may not cover all the new story variants.",
-        "score": 2,
-        "reason": "The new story tests the sample data state in the real TrendsInsight container, which allows the tests to catch height regressions that the other stories cannot.",
-        "posthog_relevance": "The new story tests the sample data state in the real TrendsInsight container, which allows the tests to catch height regressions that the other stories cannot.",
-        "confidence": "low",
+        "limitations": "The change is limited to sample data state snapshots and styling, without broader system or backend changes.",
+        "score": 1,
+        "reason": "Adds snapshot hashes and minor styling changes, without broader system or backend changes.",
+        "posthog_relevance": "Adds visual regression coverage and minor layout changes, without broader system or backend changes.",
+        "confidence": "medium",
         "evidence": [
+          "P1.F1.H1",
+          "P1.F2.H1",
           "P1.F2.H2"
         ],
-        "uncertainty": "Historical AI proposal; not independently validated; no measured outcomes.",
+        "uncertainty": "medium",
         "metadata_dependency": false,
         "grouping_issue": false,
         "abstention_reason": null,
-        "model_id": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
       },
-      "run": "qwen-contributions-v1",
+      "run": "qwen-reference-observations-v2",
       "source": "publication",
       "known_calibration": false,
       "packet_sha256": "7565b70fdfbe73737a9408994051c03884fb356be940b57e374836484b8df718",
-      "prediction_sha256": "655a6f91547e8fc724ff5dc02a4026ddbe223a0fddeeecd4bfd2cce509c921f6"
+      "prediction_sha256": "dd9ef1cdd5cf624cd4960a95569a75a960bf90179f5be3a4e65125f999acb4aa"
     },
     "issue:101512": {
       "id": "issue:101512",
       "prs": [
         101685
       ],
-      "status": "error",
-      "tier": null,
-      "review": null,
-      "run": "qwen-contributions-v1",
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "The observed changes are exclusively documentation and configuration updates. While P1.F5.H6 and P1.F5.H7 show implementation-like code, the observations explicitly classify this chunk as 'test-only' and note that no implementation or production behavior is demonstrated. P1.F1, P1.F2, P1.F4, and P1.F7 are identified as documentation or comment-only. No tier can be assigned without evidence of the actual execution or implementation of the described behavior.",
+        "posthog_relevance": "Clarifies the training population and example selection strategy for the inbox ranking model, potentially changing the balance between tabular and embedding-based signal families.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F2.H1",
+          "P1.F4.H3",
+          "P1.F5.H6",
+          "P1.F7.H2"
+        ],
+        "uncertainty": "The score is assigned at tier 1 because the observations explicitly state that no implementation, tests, or execution behavior is shown, and the chunk is dominated by documentation and test changes. The tier cannot be raised to 2 or 3 without evidence of the actual behavior.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "The tabular and report-embedding ranking families use one example per report per head, from the report's birth-day snapshot.",
+                "behavior": "Documentation establishes a training example selection strategy: one row per report at its creation day, rather than one row per report per daily snapshot.",
+                "posthog_connection": "Clarifies the training population for inbox ranking models, potentially changing the balance between tabular and embedding-based signal families and the effective sample size per report."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "BIRTH_GRAIN = \"birth\"",
+                "behavior": "Adds a named constant for the report grain, changing the default from scoring-moment to birth.",
+                "posthog_connection": "Changes the default training example grain, potentially reducing the number of training rows per report and changing the temporal alignment between report and label."
+              },
+              {
+                "hunk": "P1.F2.H2",
+                "code_quote": "    without declaring it. `example_grain` defaults to one birth-day row per report so the fit does",
+                "behavior": "Updates documentation and comments to reflect the new default grain and its effect on report weighting.",
+                "posthog_connection": "Reinforces that the model fitting no longer weights reports by their lifetime, potentially changing the learned ranking behavior."
+              }
+            ],
+            "limitations": "This chunk is documentation and configuration changes. No implementation, tests, or execution behavior is shown. The score cannot be assigned."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F4.H3",
+                "code_quote": "- **Examples are one row per report at its birth, by default.** For partition `dt=D` the examples asset reads the report-state and labels snapshots `dt=D-lookback..D` and emits one row per report, on the snapshot of the day it was created, labeled from the snapshot `horizon_days` later (3 for open, 7 for action / pr_created / discuss, 14 for dismiss_wrong / pr_merged / refund). Features are built by the feature set from that snapshot's state columns plus `age_hours`, the report's age at the snapshot. Labels are aligned to the state spine, so a report with no label event is a negative (all-zero labels), not absent. Label-only rows (no Postgres state) are skipped, as are state rows read long after their snapshot day (backfills carry current Postgres state; see `features_observed_at`) and, for the `dismiss_wrong` head, rows whose status telemetry fails the dataset's `label_provenance_ok` check. Birth is the moment serving scores a report, and the label that comes out is a per-report probability, which is what the inbox ordering needs. A report born before the window, or one whose birth-day snapshot is missing from it, is no example; `reports_missing_birth_snapshot` on the asset counts the second case, which is a gap in the partitions.",
+                "behavior": "Documentation change: the README is updated to describe a new default behavior where the inbox ranking training examples use a report-grain (one row per report at its birth) instead of the previous moment-grain (one row per report, snapshot). This change also clarifies the handling of birth-day outcomes and the exclusion of reports missing their birth snapshot.",
+                "posthog_connection": "This documentation update accompanies a change to the inbox ranking training pipeline, which could affect the signal quality and calibration of the ranking model used for the inbox ranking feature. The change could help users understand the new training behavior and its implications for model performance and interpretation. However, this is a documentation-only change and does not demonstrate the implementation or its effects on the actual model or user experience."
+              },
+              {
+                "hunk": "P1.F5.H1",
+                "code_quote": "import copy",
+                "behavior": "Adds an import for the `copy` module, which is likely used for deep copying objects in the test setup.",
+                "posthog_connection": "This is a minor change to the test file, adding a dependency that could be used for creating copies of test fixtures or objects. It does not demonstrate a substantive change to the training or ranking functionality."
+              },
+              {
+                "hunk": "P1.F5.H2",
+                "code_quote": "    BIRTH_GRAIN,",
+                "behavior": "Adds an import for the `BIRTH_GRAIN` constant, which is likely used to specify the report-grain behavior in the training examples.",
+                "posthog_connection": "This change could support the implementation of the report-grain behavior described in the README. It could help distinguish between the report-grain and moment-grain behaviors in the training examples, potentially improving the signal quality and calibration of the ranking model."
+              }
+            ],
+            "limitations": "This chunk is dominated by documentation and test changes, with no implementation changes. The documentation change could accompany an implementation change, but the implementation is not shown. The test changes could support the implementation, but the implementation is not shown. Therefore, the tier and score cannot be determined. The chunk also does not demonstrate the actual behavior or effects of the change on the PostHog system."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F5.H6",
+                "code_quote": "        partner = day + datetime.timedelta(days=head.horizon_days)",
+                "behavior": "Adds a partner snapshot date for each daily snapshot, offset by the head's horizon days, and assigns a future label.",
+                "posthog_connection": "Supports the inbox ranking training DAG by generating paired snapshots for each report, where the partner snapshot carries a future outcome label. This could help the model learn from delayed outcomes without requiring a separate future-query path."
+              },
+              {
+                "hunk": "P1.F5.H7",
+                "code_quote": "        later + datetime.timedelta(days=1): Snapshot(date=later, state=state, labels=_labels(ids)),",
+                "behavior": "Adds a snapshot with no horizon partner, which contributes nothing to the training examples.",
+                "posthog_connection": "Clarifies that not every snapshot is used for scoring; this could help avoid unnecessary computation or incorrect labeling in edge cases where no future outcome is available."
+              },
+              {
+                "hunk": "P1.F5.H8",
+                "code_quote": "    wrong_head = HEADS_BY_NAME[\"dismiss_wrong\"]",
+                "behavior": "Adds a test assertion and a new head reference for a dismissal-related scoring moment.",
+                "posthog_connection": "Could help distinguish between different scoring moments, such as one that checks for dismissals rather than merges, potentially supporting more nuanced inbox ranking signals."
+              }
+            ],
+            "limitations": "This chunk is a test-only change. No implementation, configuration, or production behavior is demonstrated. No score can be assigned."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F7.H1",
+                "code_quote": "The default grain is the report's birth: one example = one report as the snapshot of the day it",
+                "behavior": "Documentation change clarifying that the training grain is report birth rather than scoring moment, and that birth-day outcomes do not censor the moment.",
+                "posthog_connection": "Clarifies the training example construction for inbox ranking, potentially affecting documentation or future implementation understanding of the birth grain. No code change, only comments. No score assigned."
+              },
+              {
+                "hunk": "P1.F7.H2",
+                "code_quote": "from products.signals.backend.ranking.features import BIRTH_GRAIN, NO_EXTRAS, REPORT_GRAIN, Extras, FeatureSet",
+                "behavior": "Adds BIRTH_GRAIN to imports and documentation, while retaining REPORT_GRAIN. No implementation change, only documentation and import addition.",
+                "posthog_connection": "Adds a new grain type to the feature set configuration, potentially enabling birth-grain training. No score assigned."
+              },
+              {
+                "hunk": "P1.F7.H3",
+                "code_quote": "    features. One row per report at the birth grain, on the snapshot of the day it was created; one",
+                "behavior": "Documentation change clarifying the birth grain and report grain behavior. No implementation change.",
+                "posthog_connection": "Clarifies the training example construction for inbox ranking. No score assigned."
+              }
+            ],
+            "limitations": "Only documentation and import changes are present. No score assigned."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-observations-v2",
       "source": "publication",
       "known_calibration": false,
       "packet_sha256": "74e9b6f76cedfd8c5d70c94de92baae2399c0570e6e030fe1fa82daaabf00674",
-      "prediction_sha256": "0467d617f33cb1266628ccefe92b723ce0af0bc844b7b63409418c824684789d"
+      "prediction_sha256": "0c5d81e6352d4e86ee115b5c4b63e27ad4ba2cb0ccbc4388c8c3ddc8c841b415"
     },
     "issue:100265": {
       "id": "issue:100265",
       "prs": [
         102378
       ],
-      "status": "error",
-      "tier": null,
-      "review": null,
-      "run": "qwen-contributions-v2",
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "Adds documentation and a public API export for idle-resume detection, with supporting type imports; no production implementation or behavior change is demonstrated.",
+        "posthog_relevance": "Clarifies expected behavior for PostHog AI sandbox agents; no change to event processing or notification suppression.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F2.H1",
+          "P1.F3.H1",
+          "P1.F10.H6",
+          "P1.F10.H7",
+          "P1.F11.H1"
+        ],
+        "uncertainty": "Chunk lacks complete implementation and production behavior changes; score assigned only to documented and exported API additions.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "An idle sandbox resume does not run an agent turn, so it does not send a finished notification or mark the run's activity completed.",
+                "behavior": "Adds documentation clarifying that idle sandbox resumes do not trigger completion notifications or activity updates.",
+                "posthog_connection": "Clarifies expected behavior for PostHog AI sandbox agents, distinguishing idle resumes from completed turns. No implementation change, only documentation."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "    is_idle_resume_turn_complete,",
+                "behavior": "Adds a new exported function and constant to the sandbox module's public API.",
+                "posthog_connection": "Makes the idle-resume detection function available for use by other components, supporting the new behavior."
+              },
+              {
+                "hunk": "P1.F3.H1",
+                "code_quote": "from collections.abc import Mapping",
+                "behavior": "Adds an import for the Mapping type, used for stricter typing of event dictionaries.",
+                "posthog_connection": "Supports the implementation of the new idle-resume detection and safer event handling."
+              }
+            ],
+            "limitations": "This chunk does not include the full implementation of the idle-resume detection or the complete push-dispatcher changes. The tier cannot be assigned without seeing the complete change, including the actual event processing and notification suppression. No score assigned."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F10.H6",
+                "code_quote": "        dispatch_done = asyncio.Event()",
+                "behavior": "Adds an asyncio.Event and a synchronous wrapper to support testing of the relay sandbox SSE loop, including a mock for the push dispatcher notification.",
+                "posthog_connection": "Changes the test implementation for relay sandbox event processing, not production behavior. No change to the relay or push dispatcher implementation is shown; this hunk only adds test scaffolding."
+              },
+              {
+                "hunk": "P1.F10.H7",
+                "code_quote": "        if turn_failed:",
+                "behavior": "Adds conditional assertions and a metric check for the relay sandbox event processing, including a Prometheus metric for suppressed turn completions.",
+                "posthog_connection": "Adds assertions and a metric check for the relay sandbox event processing, not production behavior. No change to the relay or push dispatcher implementation is shown; this hunk only adds test assertions and a metric check."
+              },
+              {
+                "hunk": "P1.F11.H1",
+                "code_quote": "from prometheus_client import REGISTRY",
+                "behavior": "Adds an import for the Prometheus client registry, used to read a metric value in tests.",
+                "posthog_connection": "Adds an import for the Prometheus client registry, used to read a metric value in tests. No change to the relay or push dispatcher implementation is shown; this hunk only adds an import."
+              }
+            ],
+            "limitations": "This chunk is dominated by test and helper implementation. No production implementation changes are shown. No score can be assigned."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-observations-v2",
       "source": "publication",
       "known_calibration": false,
       "packet_sha256": "9ab5f9fb8349c31c6981af7610b56f53f6930a098810580e64daabf40797a49b",
-      "prediction_sha256": "4291f8f1536ca8289298ffb10c87684a899e3de32017d99eb0377cc0c21586f3"
+      "prediction_sha256": "4183b6b72f83b7e0024ac50aae0c700f8e51f712f4b2e442742242117ce3281c"
     },
     "issue:101758": {
       "id": "issue:101758",
       "prs": [
         128195
       ],
-      "status": "error",
-      "tier": null,
-      "review": null,
-      "run": "qwen-contributions-v1",
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F2.H4",
+                "code_quote": "            select: ['uuid', 'event', 'timestamp', 'properties', 'distinct_id'],",
+                "behavior": "Adds 'distinct_id' to the HogQL query selection for event details.",
+                "posthog_connection": "Retrieving the user's distinct ID alongside event metadata, which could support session attribution or identity display in the UI."
+              },
+              {
+                "hunk": "P1.F2.H3",
+                "code_quote": "        distinct_id: String(distinctId),",
+                "behavior": "Assigns the retrieved distinct_id to the event record object.",
+                "posthog_connection": "Makes the distinct ID available for display or use within the event details component."
+              },
+              {
+                "hunk": "P1.F3.H2",
+                "code_quote": "            return [String(uuid), [uuid, eventName, ts, properties, 'story-user-distinct-id']]",
+                "behavior": "Updates story parameters to include a placeholder distinct ID for exception card stories.",
+                "posthog_connection": "Supports story rendering, not production behavior, but indicates the distinct ID is expected in the data structure."
+              }
+            ],
+            "limitations": "The change is limited to adding a field to an existing query and its downstream usage. No complex query optimization, schema migration, or systemic behavior change is demonstrated. The tier is not raised despite the path being relevant, because the implementation is a bounded, additive change."
+          }
+        ],
+        "limitations": "The change is limited to adding a field to an existing query and its downstream usage. No complex query optimization, schema migration, or systemic behavior change is demonstrated. The tier is not raised despite the path being relevant, because the implementation is a bounded, additive change.",
+        "score": 2,
+        "reason": "Adds a bounded, substantive capability: retrieving and displaying the user's distinct ID in event details. The implementation and relevant checks are visible. No broader systemic change or critical-path risk reduction is demonstrated.",
+        "posthog_relevance": "Allows the Session Timeline and Exception Card views to display the user's distinct ID, supporting identity and session attribution.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F2.H4",
+          "P1.F2.H3",
+          "P1.F3.H2"
+        ],
+        "uncertainty": "The tier is not raised to 3 because the change is additive and bounded, not systemic. No tier 3 is warranted.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-observations-v2",
       "source": "publication",
       "known_calibration": false,
       "packet_sha256": "f8bb774b80976c21857f57c2c00b554c64c05f2a9c555a6cfaf160cea10d2536",
-      "prediction_sha256": "e0e46d6cdcaa4715d16aa4c778224ed2994ac0afdcf2885befc4c025716054f2"
+      "prediction_sha256": "74242825a4e2677abb64c0fc7867bf8aa1d96347e43d50b6191120cb362f483f"
     },
     "issue:1": {
       "id": "issue:1",
       "prs": [
         78791
       ],
-      "status": "error",
-      "tier": null,
-      "review": null,
-      "run": "qwen-contributions-v2",
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "The change consists of dependency version bumps for deltalite (Python and Cargo.lock) and documentation clarification regarding unsupported concurrent transaction scenarios. No implementation changes, tests, or behavioral modifications are demonstrated.",
+        "posthog_relevance": "Dependency compatibility and build reproducibility for warehouse ingestion or query execution.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F2.H1",
+          "P1.F3.H1",
+          "P1.F10.H1",
+          "P1.F10.H2"
+        ],
+        "uncertainty": "The actual benefit relies on unverified compatibility fixes or compatibility-related behavior; no substantive implementation or tests are shown.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "    \"deltalite==0.1.5\",",
+                "behavior": "Dependency version bump for deltalite from 0.1.3 to 0.1.5.",
+                "posthog_connection": "Updates the deltalite-python dependency, potentially including compatibility or dependency compatibility fixes."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "version = \"0.1.5\"",
+                "behavior": "Cargo.lock version bump for deltalite-python, matching the pyproject.toml change.",
+                "posthog_connection": "Locks the dependency version for the Rust crate, ensuring reproducible builds."
+              },
+              {
+                "hunk": "P1.F3.H1",
+                "code_quote": "    /// column mapping, multiple partition columns), or a concurrent transaction changed",
+                "behavior": "Adds documentation and a rationale for the Unsupported error, mentioning concurrent transaction changes.",
+                "posthog_connection": "Clarifies error handling for concurrent schema changes, potentially improving diagnostics."
+              }
+            ],
+            "limitations": "This chunk does not include the full implementation or tests, so the actual benefit and reliability improvements cannot be fully assessed."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F10.H1",
+                "code_quote": "version = \"0.1.5\"",
+                "behavior": "Dependency version update for deltalite from 0.1.3 to 0.1.5, including updated sdist and wheel URLs and hashes.",
+                "posthog_connection": "Changes the dependency resolution and compatibility for deltalite, potentially affecting compatibility or compatibility-related behavior, but does not demonstrate a substantive implementation or benefit. No score assigned."
+              },
+              {
+                "hunk": "P1.F10.H2",
+                "code_quote": "    { name = \"deltalite\", specifier = \"==0.1.5\" },",
+                "behavior": "Dependency version specifier update for deltalite from 0.1.3 to 0.1.5.",
+                "posthog_connection": "Changes the dependency resolution and compatibility for deltalite, potentially affecting compatibility or compatibility-related behavior, but does not demonstrate a substantive implementation or benefit. No score assigned."
+              }
+            ],
+            "limitations": "This chunk only shows dependency version updates. No score assigned."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-observations-v2",
       "source": "publication",
       "known_calibration": false,
       "packet_sha256": "8c1b243fa09b195ab94c96d85bb6bbfedc996ff9277ce0c69b2f977cee4f301f",
-      "prediction_sha256": "bb95cd9092f7e30a5791e5c19255e0f04c43592d0bf187f5f047596fe532c86e"
+      "prediction_sha256": "261d6eee884922ab5256a592cf80e8b3a65cf0f3da0395a6ae3666917c9a2ef7"
     }
   },
-  "sha256": "31dbc38ebbbf74f718d82a092c6aba76061b9800886a8876dd656990463e2332"
+  "sha256": "82e5bbcc7b0def06fc454284c75985450e882da35ab17d045843dd2428e6ac1b"
 }

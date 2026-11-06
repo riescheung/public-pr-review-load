@@ -1,10 +1,11 @@
 import copy
+import hashlib
 import json
 from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,7 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from benchmark_data import digest, seal
 import contribution_estimates as estimates
-from run_contribution_reviews import prepare, require_safe_power
+from run_contribution_reviews import prepare, require_safe_power, retained_publication_runs
 
 
 def group(identifier="change", prs=None, hashes=None):
@@ -35,6 +36,14 @@ def record(g, score=2, status="ok"):
 
 
 class ContributionTests(unittest.TestCase):
+    def test_snapshot_hash_and_data_come_from_one_file_version(self):
+        first = b'[{"id":"first"}]'
+        path = Mock()
+        path.read_bytes.side_effect = [first, b'[{"id":"later"}]']
+        data, identity = estimates.json_snapshot(path)
+        self.assertEqual((data, identity, path.read_bytes.call_count),
+                         ([{"id": "first"}], hashlib.sha256(first).hexdigest(), 1))
+
     def test_mean_uses_scored_groups_only_and_never_legacy_points(self):
         catalog = [group(), group("pending", [43])]
         people, total = estimates.aggregate(report(), catalog, {"change": record(catalog[0])},
@@ -235,6 +244,18 @@ class ContributionTests(unittest.TestCase):
                                                     expanded, ["old", "new"])
         self.assertEqual(seen, [(original["sha256"], "old"), (expanded["sha256"], "new")])
         self.assertEqual(set(rows), {"change", "other"})
+
+    def test_resume_keeps_run_priority_instead_of_the_order_of_published_groups(self):
+        publication = {
+            "models": {"old": {}, "middle": {}, "new": {}, "benchmark": {}},
+            "reviews": {
+                "first-group": {"run": "new", "source": "publication"},
+                "second-group": {"run": "old", "source": "publication"},
+                "third-group": {"run": "middle", "source": "publication"},
+                "benchmark-group": {"run": "benchmark", "source": "benchmark"},
+            },
+        }
+        self.assertEqual(retained_publication_runs(publication), ["old", "middle", "new"])
 
 
 if __name__ == "__main__":

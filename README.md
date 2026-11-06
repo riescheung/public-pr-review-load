@@ -295,6 +295,13 @@ two failures, but both timed out. That experiment was not adopted as the
 default. The published total is 40 scored groups; bulk scoring is not complete.
 Earlier publication runs stay included unless explicitly replaced; the latest
 selected review wins for a group, including an abstention or failure.
+Continuation now uses the completed Sol-reference adapter explicitly. With
+the missing three-observation limit added to the multi-chunk stage, all five
+original publication cases passed validation, bringing publication to 44
+scored groups. This checks the combined pipeline, not judgement accuracy.
+`--only-case CASE_ID` can pin a diagnostic subset; changing that subset needs
+a new run ID. Resumption keeps model/run replacement order rather than the
+order in which contributor groups happen to appear.
 `AI_RUBRIC.md` retains its frozen pilot wording because changing its prompt
 prefix would invalidate existing packet and prediction hashes.
 
