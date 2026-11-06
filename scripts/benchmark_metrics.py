@@ -60,6 +60,8 @@ def compare(baseline, candidate):
             or baseline["case_ids"] != candidate["case_ids"]):
         raise ValueError("Comparison must be paired on the same frozen cases")
     blockers = []
+    if candidate.get("experimental_ai_labels"):
+        blockers.append("This isolated AI-distillation experiment is not eligible for promotion")
     if (not baseline.get("harness_sha256")
             or baseline.get("harness_sha256") != candidate.get("harness_sha256")):
         blockers.append("Both test runs must pin the same harness implementation")

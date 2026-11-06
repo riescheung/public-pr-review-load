@@ -184,8 +184,98 @@ Before running MLX LoRA:
    development errors against the untrained model. Keep final-test feedback
    out of checkpoint and prompt selection.
 
-No matching training-weight download or training run has been started.
 Ollama serves inference; it does not perform this fine-tuning step.
+
+### Isolated AI-distillation experiment
+
+This path tests local training mechanics without pretending that AI proposals
+are expert labels. It uses the 20 historical teacher proposals already in the
+repository, never development, calibration or final-test cases. The full
+stratified split has 17 training groups and three validation groups, all under
+8,192 tokens. Long-sequence training repeatedly hit the local Metal GPU
+interactivity limit. The bounded retry explicitly excludes four proposals
+over 3,072 tokens, leaving 13 training groups and three validation groups.
+It has no tier-3 examples or semantic abstentions. This is a training-mechanics
+probe, not a reliable judge.
+The optional Python 3.12 packages are pinned in `requirements-mlx.txt`.
+No packages or model weights were downloaded for this experiment.
+
+`import_ollama_mlx.py` verifies the installed model manifest and tensor hashes,
+copies packed text-tensor bytes unchanged, and renames their scale keys for
+MLX-LM. Vision and speculative multi-token-prediction tensors are not used.
+It preserves the tokenizer and records conversion hashes. The installed
+MLX-LM version does not apply Ollama's NVFP4 tensor-global scales itself;
+`mlx_qwen_loader.py` retains those scales in a tested quantized linear layer.
+The base and adapter use the same loader and non-thinking chat formatter.
+
+```bash
+python3 scripts/import_ollama_mlx.py \
+  --digest d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911 \
+  --output data/ai_review/model/qwen3.5-9b-ollama
+
+# Use an existing Python environment containing mlx, mlx-lm and transformers.
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python \
+  scripts/experimental_distillation.py --experimental-ai-labels \
+  --base-model data/ai_review/model/qwen3.5-9b-ollama \
+  --output data/ai_review/lora/experimental-v2 --max-tokens 3072
+
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python \
+  scripts/train_experimental_qwen.py --execute --experimental-ai-labels \
+  --base-model data/ai_review/model/qwen3.5-9b-ollama \
+  --dataset data/ai_review/lora/experimental-v2 \
+  --output data/ai_review/lora/adapter-experimental-v4 \
+  --iters 40 --num-layers 1 --max-seq-length 3072
+```
+
+Output locations are immutable: choose another version after a failed attempt.
+The trainer checks weight and dataset hashes, masks the exact inference prefix,
+rejects overlength answers rather than truncating them, and records both
+initial and final weak-label validation loss. Lower loss means better teacher
+imitation, not more accurate expert judgement.
+
+Use `pr_benchmark.py run --mlx-model LOCAL_BASE` for the MLX baseline and add
+`--mlx-adapter LOCAL_ADAPTER` for its candidate. Give each a separate run ID.
+The adapter must have a completed matching-base result and unchanged weights.
+The comparison gate rejects this weak-label experiment even if its measured
+metrics improve. Gold-label and final-test protections remain in place.
+Three attempts hit Metal GPU interactivity errors on long-sequence training.
+The current runner limits LoRA to the final attention block, keeps the frozen
+recurrent prefix in inference mode, and disables the monolithic compiled step.
+It also avoids computing a 248,320-way vocabulary projection for every masked
+prompt token. `mlx_training_loss.py` projects only completion positions; tests
+check loss and gradient equivalence against full projection. Complete prompts
+still reach the transformer. Targets over 512 tokens are rejected, not clipped.
+Failed outputs are preserved.
+
+The bounded attempt saved step 10, then stopped at step 18 with the same Metal
+error. Its planned 40 steps did not finish. The saved checkpoint is evaluated
+separately and marked `training_completed: false`:
+
+```bash
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python \
+  scripts/evaluate_experimental_checkpoint.py \
+  --base-model data/ai_review/model/qwen3.5-9b-ollama \
+  --dataset data/ai_review/lora/experimental-v2 \
+  --source data/ai_review/lora/adapter-experimental-v4 \
+  --checkpoint 0000010_adapters.safetensors \
+  --interruption "Metal GPU interactivity error at step 18; saved step 10 only" \
+  --output data/ai_review/lora/adapter-experimental-v4-checkpoint10
+```
+
+On its three weak-label validation examples, the independently remeasured
+base loss was 1.22872 and checkpoint loss was 0.55363. This confirms that local
+training changed the model toward those teacher answers. It does not measure
+PR-judgement accuracy, tier-3 performance or abstention quality.
+
+Ollama and standalone MLX differ in inference implementation and JSON
+constraints even with the same packed weights. Compare the adapter against
+the standalone MLX base, not directly against the Ollama result.
+The first raw-MLX diagnostic produced invalid citations or decision fields
+on all three calibration packets, for both models. Those failed runs remain
+as `mlx-base-v1` and `mlx-distilled-v1`. The subsequent `v2` protocol allows
+three fixed contract-feedback attempts for both models. Feedback names only
+format or citation violations, never a target tier or expert answer.
+Replies that still fail validation remain errors, not accepted scores.
 
 ## Final comparison
 

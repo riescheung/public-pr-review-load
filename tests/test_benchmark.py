@@ -142,6 +142,8 @@ class BenchmarkTests(unittest.TestCase):
                       {"a": {"score": 2}}, {}),
         }
         self.assertFalse(compare(report, report)["eligible_for_human_approval"])
+        experimental = compare(report, {**report, "experimental_ai_labels": True})
+        self.assertTrue(any("distillation" in item for item in experimental["blockers"]))
         with self.assertRaisesRegex(ValueError, "paired"):
             compare(report, {**report, "case_ids": ["other"]})
         with self.assertRaisesRegex(ValueError, "test"):

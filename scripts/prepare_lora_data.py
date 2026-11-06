@@ -9,7 +9,7 @@ from pathlib import Path
 import random
 
 from benchmark_data import (
-    BENCHMARK, case_packet, digest, load_manifest, load_records, validate_label,
+    BENCHMARK, case_packet, digest, load_manifest, load_records, validate_label, validate_review,
 )
 from review_contract import FULL
 from score_harness import decision_prompt, observation_prompt, one_pass_prompt
@@ -25,6 +25,12 @@ def approved_examples(case, packet, label):
     if "review" not in label:
         raise ValueError("A complete human-approved review is required; never invent quotes")
     validate_label(label, packet)
+    return review_examples(case, packet, label)
+
+
+def review_examples(case, packet, label):
+    """Serialize a structurally checked review; this function does not confer approval."""
+    validate_review(label["review"], packet)
     if packet["abstention_reason"]:
         return []  # Operational missing-evidence checks do not need learned weights.
     review = label["review"]

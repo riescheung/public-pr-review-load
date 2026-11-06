@@ -3,6 +3,7 @@
 
 import argparse
 import hashlib
+import importlib.metadata
 import json
 from pathlib import Path
 import re
@@ -15,12 +16,14 @@ from benchmark_data import (
     prepare, timestamp, validate_audit, validate_label, validate_review, write_new,
 )
 from benchmark_metrics import compare, metrics
+from import_ollama_mlx import file_sha256
 from review_contract import ROOT
 from score_harness import run_review
 
 
 ADAPTER = ROOT / "scripts" / "ollama_review_adapter.py"
 HARNESS_SHA256 = hashlib.sha256((ROOT / "scripts" / "score_harness.py").read_bytes()).hexdigest()
+MLX_ADAPTER = ROOT / "scripts" / "mlx_review_adapter.py"
 
 
 def installed_model(name):
@@ -37,9 +40,55 @@ def installed_model(name):
     raise ValueError(f"{name} is not installed; no model download was attempted")
 
 
-def run_cases(manifest, run_id, model, split, limit, max_chunks):
+def installed_mlx_model(base, adapter=None):
+    receipt_path = base / "conversion_receipt.json"
+    receipt = json.loads(receipt_path.read_text())
+    for filename, expected in receipt["output_files"].items():
+        if file_sha256(base / filename) != expected:
+            raise ValueError(f"MLX base changed: {filename}")
+    identity = {
+        "name": "mlx-qwen3.5-9b", "base_ollama_digest": receipt["ollama_model_digest"],
+        "base_receipt_sha256": file_sha256(receipt_path),
+        "implementation_sha256": digest({
+            path.name: file_sha256(path)
+            for path in (MLX_ADAPTER, ROOT / "scripts" / "mlx_qwen_loader.py",
+                         ROOT / "scripts" / "local_review_protocol.py")
+        }),
+        "contract_attempts": 3,
+        "experimental_ai_labels": False,
+        "versions": {name: importlib.metadata.version(name)
+                     for name in ("mlx", "mlx-lm", "transformers")},
+    }
+    if adapter is not None:
+        result = json.loads((adapter / "result.json").read_text())
+        if (result.get("completed") is not True
+                or result["base_ollama_digest"] != receipt["ollama_model_digest"]
+                or file_sha256(adapter / "adapters.safetensors") != result["adapter_sha256"]):
+            raise ValueError("Incomplete, changed or mismatched MLX adapter")
+        identity.update(
+            name="mlx-qwen3.5-9b+experimental-lora",
+            adapter_sha256=result["adapter_sha256"],
+            adapter_config_sha256=file_sha256(adapter / "adapter_config.json"),
+            experiment_sha256=file_sha256(adapter / "result.json"),
+            experimental_ai_labels=result.get("human_gold") is not True,
+        )
+    return {**identity, "digest": digest(identity)}
+
+
+def run_cases(manifest, run_id, model, split, limit, max_chunks, mlx_model=None, mlx_adapter=None):
+    if mlx_model is None:
+        identity = installed_model(model)
+        command = ["/usr/bin/env", f"WEAVE_REVIEW_MODEL={model}", sys.executable, str(ADAPTER)]
+    else:
+        identity = installed_mlx_model(mlx_model, mlx_adapter)
+        command = [
+            "/usr/bin/env", "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1",
+            f"WEAVE_MLX_BASE={mlx_model.resolve()}",
+            f"WEAVE_MLX_ADAPTER={mlx_adapter.resolve() if mlx_adapter else ''}",
+            sys.executable, str(MLX_ADAPTER),
+        ]
     spec = {
-        "manifest_sha256": manifest["sha256"], "model": installed_model(model),
+        "manifest_sha256": manifest["sha256"], "model": identity,
         "harness_sha256": HARNESS_SHA256,
         "protocol": "one-pass-single; observations-then-decision-for-multi",
         "max_chunks": max_chunks, "timeout_per_call": 360,
@@ -71,9 +120,7 @@ def run_cases(manifest, run_id, model, split, limit, max_chunks):
             attempted += 1
             try:
                 review = run_review(
-                    packet,
-                    ["/usr/bin/env", f"WEAVE_REVIEW_MODEL={model}",
-                     sys.executable, str(ADAPTER)],
+                    packet, command,
                     spec["model"]["digest"], one_pass=True, timeout=360,
                 )
                 validate_review(review, packet)
@@ -116,11 +163,11 @@ def evaluate(manifest, run_id, split):
         if audit.get("prediction_sha256") != digest(runs.get(identifier)):
             raise ValueError("Semantic audit is not for this exact prediction")
     cases = [c for c in manifest["cases"] if c["split"] == split]
+    spec = json.loads((BENCHMARK / "runs" / run_id / "spec.json").read_text())
     return {
         "manifest_sha256": manifest["sha256"], "run": run_id, "split": split,
-        "harness_sha256": json.loads(
-            (BENCHMARK / "runs" / run_id / "spec.json").read_text()
-        ).get("harness_sha256"),
+        "harness_sha256": spec.get("harness_sha256"),
+        "experimental_ai_labels": spec["model"].get("experimental_ai_labels", False),
         "case_ids": [c["id"] for c in cases], **metrics(cases, runs, labels, audits),
     }
 
@@ -131,6 +178,8 @@ def main():
     parser.add_argument("--count", type=int, default=100)
     parser.add_argument("--development", type=int, default=40)
     parser.add_argument("--model", default="qwen3.5:9b")
+    parser.add_argument("--mlx-model", type=Path, help="Verified local MLX text-weight conversion")
+    parser.add_argument("--mlx-adapter", type=Path, help="Completed experimental adapter directory")
     parser.add_argument("--run", help="Immutable run name, e.g. qwen-base-v2")
     parser.add_argument("--baseline-run", help="Frozen baseline run for paired test comparison")
     parser.add_argument("--split", choices=("development", "test", "calibration"), default="development")
@@ -142,6 +191,8 @@ def main():
     parser.add_argument("--answer", type=Path, help="Human JSON label or evidence audit")
     parser.add_argument("--output", type=Path, help="New file for an evaluation report")
     args = parser.parse_args()
+    if args.mlx_adapter and not args.mlx_model:
+        parser.error("--mlx-adapter requires --mlx-model")
     if args.action == "prepare":
         manifest = prepare(args.count, args.development)
         print(f"Frozen {len(manifest['cases'])} cases: {MANIFEST}")
@@ -167,7 +218,8 @@ def main():
     elif args.action == "run":
         if args.limit < 1 or args.max_chunks < 1:
             parser.error("Use a positive, explicit inference budget")
-        run_cases(manifest, args.run, args.model, args.split, args.limit, args.max_chunks)
+        run_cases(manifest, args.run, args.model, args.split, args.limit, args.max_chunks,
+                  args.mlx_model, args.mlx_adapter)
     elif args.action in ("label", "audit"):
         case = next((c for c in manifest["cases"] if c["id"] == args.case), None)
         if case is None or not args.answer:

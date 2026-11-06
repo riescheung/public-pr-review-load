@@ -1,0 +1,4 @@
+# Optional Apple Silicon training environment; observed with Python 3.12.
+mlx==0.32.4
+mlx-lm==0.32.2
+transformers==5.22.1

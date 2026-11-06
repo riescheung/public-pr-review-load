@@ -262,9 +262,13 @@ reviews, preserves semantic abstentions and supports chunked changes.
 It exports only `train` and `valid`; reserved test/calibration cases cannot
 enter training. The old automatically selected training quotes and weak
 teacher labels are not used by default.
-Training is blocked until enough adjudications exist. No adapter has been
-trained. A later MLX run must use the matching Qwen 3.5 9B base revision and
-tokenizer, not the previous 3B example. Model downloads need separate approval.
+The human-supervised training path stays blocked until enough adjudications
+exist. A separate, explicitly experimental path can distill the 20 historical
+AI teacher proposals. It excludes every benchmark case and cannot qualify
+for promotion. See `BENCHMARK.md` for local-weight import and training commands.
+The installed Ollama MLX tensors and tokenizer can be repackaged without
+downloads; their content hashes pin the exact inference base. The older 3B
+model is not a substitute. New model downloads need separate approval.
 
 To rebuild the evidence snapshot, run these in order:
 
