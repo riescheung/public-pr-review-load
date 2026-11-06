@@ -278,6 +278,12 @@ Resume the same batch command to skip existing attempts. A changed snapshot,
 model or protocol requires a new manifest/run version. Each finished batch
 refreshes the local publication file; tests, build and a direct-to-main push
 are still required to update Pages.
+The first trained-adapter batch added one valid score; four replies failed the
+JSON contract. A bounded-response experiment (`qwen-contributions-v2`) retried
+two failures, but both timed out. That experiment was not adopted as the
+default. The published total is 40 scored groups; bulk scoring is not complete.
+Earlier publication runs stay included unless explicitly replaced; the latest
+selected review wins for a group, including an abstention or failure.
 `AI_RUBRIC.md` retains its frozen pilot wording because changing its prompt
 prefix would invalidate existing packet and prediction hashes.
 

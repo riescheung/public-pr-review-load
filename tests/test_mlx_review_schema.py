@@ -80,6 +80,13 @@ class ReviewSchemaTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "citable"):
             review_schema([{"content": observation_prompt(chunk)}])
 
+    def test_summary_limits_do_not_truncate_literal_code_evidence(self):
+        quote = "return " + "x" * 400
+        chunk = {"text": f'<hunk id=P1.F1.H1 path="a.py">\n+{quote}\n</hunk>'}
+        answer = copy.deepcopy(review()["observations"][0])
+        answer["observations"][0]["code_quote"] = quote
+        self.validator(observation_prompt(chunk)).validate(answer)
+
 
 if __name__ == "__main__":
     unittest.main()

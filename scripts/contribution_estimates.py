@@ -49,7 +49,8 @@ def collect_reviews(benchmark, runs, catalog, publication_manifest=None, publica
     result, models = {}, {}
     sources = [(benchmark, run, "benchmark") for run in runs]
     if publication_manifest and publication_run:
-        sources.append((publication_manifest, publication_run, "publication"))
+        publication_runs = [publication_run] if isinstance(publication_run, str) else publication_run
+        sources.extend((publication_manifest, run, "publication") for run in publication_runs)
     for manifest, run, source in sources:
         spec = json.loads((BENCHMARK / "runs" / run / "spec.json").read_text())
         model = spec["model"]
@@ -180,13 +181,13 @@ def main():
     parser.add_argument("--benchmark-run", action="append",
                         help="Explicit Qwen run; repeat in replacement priority order")
     parser.add_argument("--publication-manifest", type=Path)
-    parser.add_argument("--publication-run")
+    parser.add_argument("--publication-run", action="append")
     parser.add_argument("--output", type=Path, default=ROOT / "data" / "contribution_estimates.json")
     args = parser.parse_args()
     runs = args.benchmark_run or ["qwen-base-v2", "mlx-distilled-v4"]
     if bool(args.publication_manifest) != bool(args.publication_run):
         parser.error("Supply both publication manifest and run")
-    for name in runs + ([args.publication_run] if args.publication_run else []):
+    for name in runs + (args.publication_run or []):
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}", name):
             parser.error("Use safe, explicit run names")
     publication = load_manifest(args.publication_manifest) if args.publication_manifest else None

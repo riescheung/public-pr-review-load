@@ -160,6 +160,29 @@ class ContributionTests(unittest.TestCase):
                 estimates.publish({}, [], output)
             self.assertEqual(output.read_text(), original)
 
+    def test_multiple_publication_runs_preserve_prior_coverage_and_use_latest_review(self):
+        first, second = group(), group("other", [43])
+        manifest = {"cases": [{
+            "id": str(i), "group": g, "split": "publication", "packet_sha256": "packet",
+        } for i, g in enumerate((first, second))]}
+        replies = [
+            {str(i): {"status": "ok", "review": {"score": 1, "grouping_issue": False}}
+             for i in (0, 1)},
+            {"0": {"status": "ok", "review": {"score": 2, "grouping_issue": False}}},
+        ]
+        with tempfile.TemporaryDirectory() as directory:
+            for run in ("previous", "current"):
+                root = Path(directory) / "runs" / run
+                root.mkdir(parents=True)
+                (root / "spec.json").write_text(json.dumps({"model": {"name": "qwen"}}))
+            with patch.object(estimates, "BENCHMARK", Path(directory)), \
+                    patch.object(estimates, "predictions", side_effect=replies):
+                rows, models = estimates.collect_reviews({"cases": []}, [], [first, second],
+                    manifest, ["previous", "current"])
+        self.assertEqual((rows["change"]["tier"], rows["change"]["run"]), (2, "current"))
+        self.assertEqual((rows["other"]["tier"], rows["other"]["run"]), (1, "previous"))
+        self.assertEqual(set(models), {"previous", "current"})
+
 
 if __name__ == "__main__":
     unittest.main()

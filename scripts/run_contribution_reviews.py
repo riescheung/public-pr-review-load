@@ -59,12 +59,15 @@ def main():
     parser.add_argument("action", choices=("prepare", "run"))
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--run", default="qwen-contributions-v1")
+    parser.add_argument("--previous-run", action="append",
+                        help="Retain an earlier run on the same manifest; defaults to published runs")
     parser.add_argument("--limit", type=int, default=5)
     parser.add_argument("--max-chunks", type=int, default=8)
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--worker", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
-    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}", args.run):
+    if any(not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}", name)
+           for name in [args.run, *(args.previous_run or [])]):
         parser.error("Use a safe, explicit run name")
     benchmark = load_manifest()
     catalog_path, report_path = FULL / "selection.json", ROOT / "data" / "report.json"
@@ -107,8 +110,14 @@ def main():
         # Publish completed records even if a later case fails or the batch ends.
         spec = ROOT / "data" / "benchmark" / "runs" / args.run / "spec.json"
         if spec.exists():
+            publication = ROOT / "data" / "contribution_estimates.json"
+            previous = args.previous_run
+            if previous is None and publication.exists():
+                previous = [row["run"] for row in json.loads(publication.read_text())["reviews"].values()
+                            if row["source"] == "publication"]
+            runs = list(dict.fromkeys([*(previous or []), args.run]))
             publish(benchmark, ["qwen-base-v2", "mlx-distilled-v4"],
-                    ROOT / "data" / "contribution_estimates.json", manifest, args.run)
+                    publication, manifest, runs)
 
 
 if __name__ == "__main__":
