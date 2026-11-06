@@ -1,0 +1,1771 @@
+{
+  "version": 1,
+  "repository": "PostHog/posthog",
+  "seed": "posthog-benchmark-v1",
+  "instructions_sha256": "bf0521051a772ed2c3ecda139287f06364a0822766b40c8e3c67442d9b311dfb",
+  "population": "Diversity sample of locally cached diffs, not a population estimate",
+  "cases": [
+    {
+      "group": {
+        "id": "title:Gilbert09:continue an import only when the source proves its row order",
+        "prs": [
+          114359
+        ],
+        "diff_sha256": {
+          "114359": "4ab30327612daefea6ad65cb9066f1c5186102f10d5a95535a769d6a60cf15c1"
+        }
+      },
+      "source": "full",
+      "index": 2884,
+      "stratum": "large/.agents",
+      "packet_sha256": "1e6a700c7b6b4765d2fb3173a4f8f1037e3995111e8f0e88e91088bd56307f00",
+      "split": "development",
+      "id": "Caf3bcaa55ce7"
+    },
+    {
+      "group": {
+        "id": "pr:95170",
+        "prs": [
+          95170
+        ],
+        "diff_sha256": {
+          "95170": "6abab1abfd589fc2ebdaaad574323b83a288b7f25c5431521ebd90578dac700e"
+        }
+      },
+      "source": "full",
+      "index": 1488,
+      "stratum": "large/.depot",
+      "packet_sha256": "7cb70061d2fe4b1af0248b90cdce9616f42fd8c13226850960c99d1dd5766a21",
+      "split": "development",
+      "id": "C7d662cb50fc9"
+    },
+    {
+      "group": {
+        "id": "pr:80848",
+        "prs": [
+          80848
+        ],
+        "diff_sha256": {
+          "80848": "5def64d16ad8660d651cefcd6287d66e89b54dd6b4719db7b1a662d47f7e2d47"
+        }
+      },
+      "source": "full",
+      "index": 1074,
+      "stratum": "large/.env.example",
+      "packet_sha256": "658253fd7e5a3a4c5ac252b85223c112fb470ed1badff78fe8dea9e82c01afb5",
+      "split": "development",
+      "id": "Cece3416595bc"
+    },
+    {
+      "group": {
+        "id": "pr:100887",
+        "prs": [
+          100887
+        ],
+        "diff_sha256": {
+          "100887": "2410e8299bf4eb479ca7defdc76f9cf98d7546c4e2fd2a21cd8a8478282e66d7"
+        }
+      },
+      "source": "full",
+      "index": 266,
+      "stratum": "large/.env.services",
+      "packet_sha256": "f4e53b27e6603aee5ce899dd7ca4769042364f28bd3d01da2c708dac398553bd",
+      "split": "development",
+      "id": "C61b89674a33a"
+    },
+    {
+      "group": {
+        "id": "pr:98777",
+        "prs": [
+          98777
+        ],
+        "diff_sha256": {
+          "98777": "7401b4943e6cbfc801c7c1e52581e65ccc9e1d476d249d1c5f77374561c024d3"
+        }
+      },
+      "source": "full",
+      "index": 1577,
+      "stratum": "large/.flox",
+      "packet_sha256": "8d93e204951a5c4d98905e10ade7f4f9b80ba7355a99bbd0cbe97a4d40e23b40",
+      "split": "development",
+      "id": "C08477b5a7c6b"
+    },
+    {
+      "group": {
+        "id": "pr:89004",
+        "prs": [
+          89004
+        ],
+        "diff_sha256": {
+          "89004": "b71ed8c62e601bd68a522654f46acc37ec46d14b0c37337139e8285bfcb76ff9"
+        }
+      },
+      "source": "full",
+      "index": 1331,
+      "stratum": "large/.github",
+      "packet_sha256": "e28f8147bc4c9e6c2dc642bd5a2f9a8ab67897b4a8e0fcc7a8e25d5f88d576ce",
+      "split": "development",
+      "id": "C8f7ab3a6345f"
+    },
+    {
+      "group": {
+        "id": "pr:118747",
+        "prs": [
+          118747
+        ],
+        "diff_sha256": {
+          "118747": "e033256bb500cb6f9ef92f1d68d7f54f03df66350b577739ee0d746120dc8c44"
+        }
+      },
+      "source": "full",
+      "index": 671,
+      "stratum": "large/.semgrep",
+      "packet_sha256": "3d9b34aadd56fd95cbd471b688b1482461c4716d8400e948e26a106c1c4c319d",
+      "split": "development",
+      "id": "Cd552f7b343f1"
+    },
+    {
+      "group": {
+        "id": "pr:84436",
+        "prs": [
+          84436
+        ],
+        "diff_sha256": {
+          "84436": "0d01bbc659363e9f7197c9b2579292b1fbffc4849bf29759bfbab0e6f6939053"
+        }
+      },
+      "source": "full",
+      "index": 1204,
+      "stratum": "large/.test_quarantine.json",
+      "packet_sha256": "93a974130748196913ec4426c2a2332bf38e16e092c61f9a50c61bb59fdf01ac",
+      "split": "development",
+      "id": "C17c33f1f62a7"
+    },
+    {
+      "group": {
+        "id": "pr:76531",
+        "prs": [
+          76531
+        ],
+        "diff_sha256": {
+          "76531": "bc38b1405f2a528930c33f01ee7a85f5518b831eafd9c895823759bcf0e117be"
+        }
+      },
+      "source": "full",
+      "index": 931,
+      "stratum": "large/bin",
+      "packet_sha256": "1a234ebae472bde0c20dc0b9c96e7824c595c5b90e7b7c63f5a341d439a20cf0",
+      "split": "development",
+      "id": "C1799962dfaba"
+    },
+    {
+      "group": {
+        "id": "issue:87775",
+        "prs": [
+          87810
+        ],
+        "diff_sha256": {
+          "87810": "49e18ef09d87c39a2d8e4cb384ea2a335da91490a3dc38264e94204d756a20fe"
+        }
+      },
+      "source": "full",
+      "index": 199,
+      "stratum": "large/cli",
+      "packet_sha256": "4d3ea0725134a0aa553296655a3a99c1d2c4c8c9f3a5fcbc85e55237c9df4d60",
+      "split": "development",
+      "id": "Ca92a593e0ee5"
+    },
+    {
+      "group": {
+        "id": "issue:92144",
+        "prs": [
+          94400
+        ],
+        "diff_sha256": {
+          "94400": "c1e61fa854ad03172f88cadf2abcee819be14136028ec7fc1e3fb8c95a7fff8a"
+        }
+      },
+      "source": "full",
+      "index": 219,
+      "stratum": "large/common",
+      "packet_sha256": "410ea89ca7293aa06ac3ae0ced43e300fd7a85156f2e5bdb4ce49dfff9e14f56",
+      "split": "development",
+      "id": "Cd63d8d5dc806"
+    },
+    {
+      "group": {
+        "id": "pr:116508",
+        "prs": [
+          116508
+        ],
+        "diff_sha256": {
+          "116508": "d059a8ea22198a19bbb9c45ab71dfa1122a46cd48935683ed6d505bef7f5439d"
+        }
+      },
+      "source": "full",
+      "index": 613,
+      "stratum": "large/docs",
+      "packet_sha256": "9c5dcb1e65b3b15a0553bf95cc34384063311e53dc50c33029a1246dfb759b34",
+      "split": "development",
+      "id": "C8e6fddcdfa5a"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:make row tracking survive redis and billing blips",
+        "prs": [
+          104528
+        ],
+        "diff_sha256": {
+          "104528": "8020fc3ca91162af580466557d1299054db282c169e7934c5bbbcb572011faa7"
+        }
+      },
+      "source": "full",
+      "index": 3376,
+      "stratum": "large/ee",
+      "packet_sha256": "74b59498e88bb714752704a4f63cbcdcb3753dbf8b0638209e9371f4004e4bae",
+      "split": "development",
+      "id": "Cc4e2a00a2221"
+    },
+    {
+      "group": {
+        "id": "issue:109331",
+        "prs": [
+          109579
+        ],
+        "diff_sha256": {
+          "109579": "d0bdae210a848dbe7b4a137b37362c9a9f4f2b63e297f98a2362c6c05730a281"
+        }
+      },
+      "source": "full",
+      "index": 23,
+      "stratum": "large/frontend",
+      "packet_sha256": "529f0f1ffb6a794e93cf0d485b0a08161622823617a5c740527814f4ae5216c7",
+      "split": "development",
+      "id": "C153b074d0acc"
+    },
+    {
+      "group": {
+        "id": "pr:125526",
+        "prs": [
+          125526
+        ],
+        "diff_sha256": {
+          "125526": "239d2667129a82dab2860e632eb3caf8af0b9ea862a5c21dbc08397b384c52e8"
+        }
+      },
+      "source": "full",
+      "index": 806,
+      "stratum": "large/hog",
+      "packet_sha256": "7b7125421e08ff306c5682ba030d17819ecea960cd09e1faef73632fff242de9",
+      "split": "development",
+      "id": "Cf8cc3819e9a1"
+    },
+    {
+      "group": {
+        "id": "pr:108135",
+        "prs": [
+          108135
+        ],
+        "diff_sha256": {
+          "108135": "6f8b41a1665a2bc38e8987453fd0e9ce55e66381682fe51f18240295a309aa6c"
+        }
+      },
+      "source": "full",
+      "index": 474,
+      "stratum": "large/livestream",
+      "packet_sha256": "ec577e5b6321cfaef3e60f7b2cf89af18d637a28bca1ee185305870f3c4ab2e6",
+      "split": "development",
+      "id": "C05e067f4298a"
+    },
+    {
+      "group": {
+        "id": "pr:92855",
+        "prs": [
+          92855
+        ],
+        "diff_sha256": {
+          "92855": "845c7dcfd569b7a2f236a9c7e17d7be488130f993f2e9468324b4db8d693d0a4"
+        }
+      },
+      "source": "full",
+      "index": 1427,
+      "stratum": "large/nodejs",
+      "packet_sha256": "050c61cbefeb26d3278d7c85d93842463c10d8f8298a54e72ec56c5679f6b094",
+      "split": "development",
+      "id": "C5883c16459dc"
+    },
+    {
+      "group": {
+        "id": "pr:99351",
+        "prs": [
+          99351
+        ],
+        "diff_sha256": {
+          "99351": "373040218e44945947cbe9deb6e34c407c6e42adc5e2224cac851c848797b3a6"
+        }
+      },
+      "source": "full",
+      "index": 1591,
+      "stratum": "large/packages",
+      "packet_sha256": "28d08b91e011af95d4d223a3dae9d127bd7cdb03ae066d23ff23a0cba1a56a1e",
+      "split": "development",
+      "id": "C068c62744973"
+    },
+    {
+      "group": {
+        "id": "pr:113390",
+        "prs": [
+          113390
+        ],
+        "diff_sha256": {
+          "113390": "1c1ed06faed957ad38d25a68740b16b308ba61848f9b7ac82b8310c5314a92ec"
+        }
+      },
+      "source": "full",
+      "index": 571,
+      "stratum": "large/playwright",
+      "packet_sha256": "a2366ee78e11f7580e0f449f36e2cc96f6235bc79a67b88c8167f55f53634acc",
+      "split": "development",
+      "id": "Cf3aebe1f713f"
+    },
+    {
+      "group": {
+        "id": "pr:113126",
+        "prs": [
+          113126
+        ],
+        "diff_sha256": {
+          "113126": "bae16351043ac8192d85cb1ab59a28627682a4de6b516112da017b0759edd0ed"
+        }
+      },
+      "source": "full",
+      "index": 558,
+      "stratum": "large/pnpm-lock.yaml",
+      "packet_sha256": "97027f8f625254c77eaf84320dc379694ff7fb535568d5f181bd609bba331361",
+      "split": "development",
+      "id": "C824d95f3d532"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:add firstpromoter report and referral link tables",
+        "prs": [
+          120222
+        ],
+        "diff_sha256": {
+          "120222": "d1b17ecfe6ae95faeac65dd89057a73f9266deda903bceb73009987ee4413919"
+        }
+      },
+      "source": "full",
+      "index": 2312,
+      "stratum": "large/posthog",
+      "packet_sha256": "5188c7af96ba807b7943da0d4776ee2d61c9921e738b3ec3f4718f88d8794e9b",
+      "split": "development",
+      "id": "Cedc2d072a390"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:add 4 missing tables to the recurly source",
+        "prs": [
+          118306
+        ],
+        "diff_sha256": {
+          "118306": "a8cc480ae472b7705d0c0e9637be54d85715eed2275799af01006379e2c93ee2"
+        }
+      },
+      "source": "full",
+      "index": 2022,
+      "stratum": "large/products",
+      "packet_sha256": "bfb2e8d2a0b2cbe288f69c210d2762a03b506bbabd2e53729ca0f548b62eed32",
+      "split": "development",
+      "id": "C304df8569873"
+    },
+    {
+      "group": {
+        "id": "pr:87830",
+        "prs": [
+          87830
+        ],
+        "diff_sha256": {
+          "87830": "6fd2ed4919ae9a407b905f742992b665b37bd76f6e49621f18073454b3bc5831"
+        }
+      },
+      "source": "full",
+      "index": 1295,
+      "stratum": "large/pyproject.toml",
+      "packet_sha256": "a558024eef73a3264497f40b07a744f339282d087fec4cde653444c75bf48711",
+      "split": "development",
+      "id": "C93f11e10da3a"
+    },
+    {
+      "group": {
+        "id": "pr:117080",
+        "prs": [
+          117080
+        ],
+        "diff_sha256": {
+          "117080": "731df70df830dfd51d63466f7e8de863c40e0f3cc832754c2a5c31ff4965291c"
+        }
+      },
+      "source": "full",
+      "index": 621,
+      "stratum": "large/rust",
+      "packet_sha256": "c1f3f14677a89d7b3a05dd20347af03e2b6b9d29bbc15759f006b7e4575c9ef8",
+      "split": "development",
+      "id": "Ceccb296419f6"
+    },
+    {
+      "group": {
+        "id": "pr:102051",
+        "prs": [
+          102051
+        ],
+        "diff_sha256": {
+          "102051": "ab2393bec4f1c87824d17b05e2843edbc8e47ca6299336349921c1ceae752a57"
+        }
+      },
+      "source": "full",
+      "index": 304,
+      "stratum": "large/services",
+      "packet_sha256": "dfdc83fe6e5a50f431ad634510538d5921700fcf6af0806abb87d61c9a070bd5",
+      "split": "development",
+      "id": "C1ab0df0fff3a"
+    },
+    {
+      "group": {
+        "id": "pr:76630",
+        "prs": [
+          76630
+        ],
+        "diff_sha256": {
+          "76630": "818e1092ebe6c15a64996f304ec8a7540f2c0e83ed727a936ecda5ce8ffff07f"
+        }
+      },
+      "source": "full",
+      "index": 937,
+      "stratum": "large/tools",
+      "packet_sha256": "1710408df1ee6a382f4c878ee0233c6257b9a19bb69c4b1385a68bcdc5028981",
+      "split": "development",
+      "id": "C425e8b233938"
+    },
+    {
+      "group": {
+        "id": "title:DanielVisca:wire hog log transformations into logs ingestion default off",
+        "prs": [
+          67610,
+          75142
+        ],
+        "diff_sha256": {
+          "67610": "53fca3e83c4f0ad2774c8eafec233ca9f21b83b71b53d3be1ade52f5bdf6b2c4",
+          "75142": "6710291b4a692c4c0bcc8a2ff8ace7109babd74a2184ca0c67a2aa64db537375"
+        }
+      },
+      "source": "full",
+      "index": 1728,
+      "stratum": "multi_pr/nodejs",
+      "packet_sha256": "48f756f7ac3be502c501d07727f3f7c4cee71e67b67450340562a5019e40c9fe",
+      "split": "development",
+      "id": "Caf3354ff3432"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:add 4 missing tables to the xmatters source",
+        "prs": [
+          118507,
+          124591
+        ],
+        "diff_sha256": {
+          "118507": "71e7a06309efcb2681c2c20a01be1cda39e289a1e938becd521b4c88e4b25ffd",
+          "124591": "9edc1faf40c05bda1bf244dbe3bb2cb82d75be945114bc4c40cfbbe08ef10d07"
+        }
+      },
+      "source": "full",
+      "index": 2051,
+      "stratum": "multi_pr/posthog",
+      "packet_sha256": "f1a42df6109dfa8dd15069bca54af8b33f3959ac4ade924635a3c992bd7eb31e",
+      "split": "development",
+      "id": "Ce5985d495f9b"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
+        "prs": [
+          83632,
+          83428
+        ],
+        "diff_sha256": {
+          "83632": "81e53fd2509355d421972aea151f29bd63cb609a11efdb5ba628130655e6255c",
+          "83428": "83610b81f7d56760af667b3d2788b558b5c012f1550ad7ea1ad4fc25103b91b5"
+        }
+      },
+      "source": "full",
+      "index": 3296,
+      "stratum": "multi_pr/products",
+      "packet_sha256": "1657ff45fe45eea5a8f5ab1d14d9b53479435054f034ab07b766b174e9cc1e9e",
+      "split": "development",
+      "id": "C0e143ed252f3"
+    },
+    {
+      "group": {
+        "id": "pr:78842",
+        "prs": [
+          78842
+        ],
+        "diff_sha256": {
+          "78842": "14b6922f28218f86af0623bad3a699210b9f3c97415a128c108dd9528f14ffa8"
+        }
+      },
+      "source": "full",
+      "index": 1029,
+      "stratum": "preflight/unreadable",
+      "packet_sha256": "74eb814c03dd73749dd48fb42c4e84cee26c7bbdcb02b1a97b57c16b9d3ac68d",
+      "split": "development",
+      "id": "Ce4713e640c02"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:point source test guidance at the shared driver",
+        "prs": [
+          114595
+        ],
+        "diff_sha256": {
+          "114595": "0465a6edd439735a551ea71626d116c3fb42bd106cb213d9d17b54c8850c5376"
+        }
+      },
+      "source": "full",
+      "index": 3506,
+      "stratum": "single/.agents",
+      "packet_sha256": "4b313edcbabfeae9f591234cb834ef81b95edede5944c3596c8378ea8ce78814",
+      "split": "development",
+      "id": "C0f8445ef8d83"
+    },
+    {
+      "group": {
+        "id": "pr:100461",
+        "prs": [
+          100461
+        ],
+        "diff_sha256": {
+          "100461": "76a3570f6785d16da4ca3eade004f0799169cd39a2a4f930199d78626e81947a"
+        }
+      },
+      "source": "full",
+      "index": 255,
+      "stratum": "single/.coderabbit.yaml",
+      "packet_sha256": "fed854a991586a91f6f69910f1abb4508af3d6e4ed1b0f2fe1ed1ca21191bf7a",
+      "split": "development",
+      "id": "C81d9d5e83510"
+    },
+    {
+      "group": {
+        "id": "pr:77464",
+        "prs": [
+          77464
+        ],
+        "diff_sha256": {
+          "77464": "20345fe1a59fb948a7de3a0893c1f93cb1f0239eaa1697f82163599153f307c0"
+        }
+      },
+      "source": "full",
+      "index": 989,
+      "stratum": "single/.codex",
+      "packet_sha256": "4c216407c298fbf0b6d386dcaedf1378e42810d3a2bdbdb2b03981974a2a4a17",
+      "split": "development",
+      "id": "C7fdd78e06ae7"
+    },
+    {
+      "group": {
+        "id": "pr:96867",
+        "prs": [
+          96867
+        ],
+        "diff_sha256": {
+          "96867": "8bceb4dad13441ea21a8da9766d4dc723af8dab553787a210b235a83b6a45811"
+        }
+      },
+      "source": "full",
+      "index": 1540,
+      "stratum": "single/.depot",
+      "packet_sha256": "3cc56e2b5372262d760be309f8350ee43fef92d81a4bb759ac9f41883d48b353",
+      "split": "development",
+      "id": "Ccfaed3a53298"
+    },
+    {
+      "group": {
+        "id": "pr:88274",
+        "prs": [
+          88274
+        ],
+        "diff_sha256": {
+          "88274": "41d12c339fc967f1bbf15e51c9f381542334b5dd79d89d8c4503ea217e37685b"
+        }
+      },
+      "source": "full",
+      "index": 1310,
+      "stratum": "single/.dockerignore",
+      "packet_sha256": "0a22e3a63bf3a46aea8d493b4d7a38ea8d2ee58cc6b4dc37d325e862f441df18",
+      "split": "development",
+      "id": "C72ac0cfa15d5"
+    },
+    {
+      "group": {
+        "id": "pr:116166",
+        "prs": [
+          116166
+        ],
+        "diff_sha256": {
+          "116166": "c91f9f3f90059f9c196338f1e804814f07cb20a4ee1ecaa579f815f671d46504"
+        }
+      },
+      "source": "full",
+      "index": 609,
+      "stratum": "single/.envrc",
+      "packet_sha256": "2ce2b85bad91af93ff4fb90615e9f35ade6d7dbcb44c7f7511bf0e69d4608a0a",
+      "split": "development",
+      "id": "C0c0f881e1001"
+    },
+    {
+      "group": {
+        "id": "pr:122254",
+        "prs": [
+          122254
+        ],
+        "diff_sha256": {
+          "122254": "d2b158082c1f06c00165e7dd3b36b117b0d2e272447d64de71f52833902d3b66"
+        }
+      },
+      "source": "full",
+      "index": 732,
+      "stratum": "single/.flox",
+      "packet_sha256": "af46455df42f88db292600fa9491c5f35cfe05d42f0dbfa493e61bc21f49513b",
+      "split": "development",
+      "id": "C41d974570821"
+    },
+    {
+      "group": {
+        "id": "issue:61109",
+        "prs": [
+          82259
+        ],
+        "diff_sha256": {
+          "82259": "a1ddfac985aa4bf8f7d1733659077a171a04ee7c1b9eafea69d5884b9e37e1f3"
+        }
+      },
+      "source": "full",
+      "index": 86,
+      "stratum": "single/.github",
+      "packet_sha256": "cb1c2ee7170cfa423bfe49668c756a628705542e87e9eb62ec15818b0816f6db",
+      "split": "development",
+      "id": "Cbd3d2cf63323"
+    },
+    {
+      "group": {
+        "id": "pr:120228",
+        "prs": [
+          120228
+        ],
+        "diff_sha256": {
+          "120228": "47d379c6dfbab79616fc9533bdbc832540d11bf79b10f1055e3ff73b2bef6cd0"
+        }
+      },
+      "source": "full",
+      "index": 703,
+      "stratum": "single/.greptile",
+      "packet_sha256": "903466c3260a3303c8d97c3a3a7fecc9f79193c918328e122ac8045dfd7f8cd0",
+      "split": "development",
+      "id": "Cfcbba091e67d"
+    },
+    {
+      "group": {
+        "id": "pr:121580",
+        "prs": [
+          121580
+        ],
+        "diff_sha256": {
+          "121580": "a5a8918fd5c5f0fc1a19253cf9010396ba9c4bac007b450e6f90e083d1a86ef3"
+        }
+      },
+      "source": "full",
+      "index": 719,
+      "stratum": "single/.nvmrc",
+      "packet_sha256": "0889b2ff5adc612a892ce944e795c3dc5747fc34449cce491e5355bc835d9139",
+      "split": "development",
+      "id": "C827815797589"
+    },
+    {
+      "group": {
+        "id": "pr:115803",
+        "prs": [
+          115803
+        ],
+        "diff_sha256": {
+          "115803": "32fcdd35ba4fe8ee88203d9164b48413016b0873c0d9b7de6de00368a0e9b829"
+        }
+      },
+      "source": "full",
+      "index": 606,
+      "stratum": "single/.semgrep",
+      "packet_sha256": "84d465079d19d0b3f744a384eb436cc2cd9b9c9bbc10bc74414dcd3692ad08b6",
+      "split": "test",
+      "id": "C39c3a334009c"
+    },
+    {
+      "group": {
+        "id": "pr:96139",
+        "prs": [
+          96139
+        ],
+        "diff_sha256": {
+          "96139": "b859523f00854670405a4cc32875b3bc0502938f8bd9e1a96d11e40281cbb017"
+        }
+      },
+      "source": "full",
+      "index": 1519,
+      "stratum": "single/.test_quarantine.json",
+      "packet_sha256": "e27a2910c36085c1bbfd4e7e346bb6f98d27c9404f5f29c46a7d70a50eef696e",
+      "split": "test",
+      "id": "C722af82bce20"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:add agents rule for when to use instance settings",
+        "prs": [
+          122136
+        ],
+        "diff_sha256": {
+          "122136": "a7ef9930b9aa4223f977f0bb4bca6588cec03db9d53a59ea84aee7e886c839f4"
+        }
+      },
+      "source": "full",
+      "index": 2126,
+      "stratum": "single/AGENTS.md",
+      "packet_sha256": "526d05ad2a5cd5f86910f9dedb5051447484cc2ce4e4fe3092e5b10e6f32d8ed",
+      "split": "test",
+      "id": "C30f38b690cf3"
+    },
+    {
+      "group": {
+        "id": "pr:94686",
+        "prs": [
+          94686
+        ],
+        "diff_sha256": {
+          "94686": "9b8768b6dfa24227928d84bc59d24f12c8bccf6f71fa40cfc87f0cc01124e94f"
+        }
+      },
+      "source": "full",
+      "index": 1474,
+      "stratum": "single/Dockerfile",
+      "packet_sha256": "4425428cb6a0c3b6b860e86a06e762862dece609726715cd1e4900f7f0ed7330",
+      "split": "test",
+      "id": "C67ed04a2a7e0"
+    },
+    {
+      "group": {
+        "id": "issue:38621",
+        "prs": [
+          114017
+        ],
+        "diff_sha256": {
+          "114017": "a30cd6a0d5f4777f23e00e56cb817c98e276a8e6768f94c3d21bb9ea6b08fae3"
+        }
+      },
+      "source": "full",
+      "index": 67,
+      "stratum": "single/bin",
+      "packet_sha256": "279c9fb78c8ec907b985316f61ae44cb7af3d1b1d32c0f2fd216c63d6851f264",
+      "split": "test",
+      "id": "Cf6c5ffb6d004"
+    },
+    {
+      "group": {
+        "id": "pr:83231",
+        "prs": [
+          83231
+        ],
+        "diff_sha256": {
+          "83231": "6d810b3201b0276c175bdc946e9b018d01325215c7bf94777d9290a97130801d"
+        }
+      },
+      "source": "full",
+      "index": 1153,
+      "stratum": "single/cli",
+      "packet_sha256": "e501293c0a194c472b65c31b2d9a16ffef2ebce8be3d4f62f33d5b241d419201",
+      "split": "test",
+      "id": "Cec2ae3cd6f7f"
+    },
+    {
+      "group": {
+        "id": "issue:802",
+        "prs": [
+          103703
+        ],
+        "diff_sha256": {
+          "103703": "e19bd3a4181516d16a907eee01d8c367ac20831d509b94072ad8afdf87d0bb5e"
+        }
+      },
+      "source": "full",
+      "index": 155,
+      "stratum": "single/common",
+      "packet_sha256": "b9e9f3f8a4e9c64ce2aadb64f1d9bc1b0c33aea0a6d4dd1288f4a0e2c0e60078",
+      "split": "test",
+      "id": "Cf3888a9411a1"
+    },
+    {
+      "group": {
+        "id": "title:DanielVisca:point ingestion logs at cdp redis in dev compose",
+        "prs": [
+          68048
+        ],
+        "diff_sha256": {
+          "68048": "96cbe95b00f4137409f083308f7dc1aa5fe9e99ec67d3fbd1347c4d1a2fc71b1"
+        }
+      },
+      "source": "full",
+      "index": 1693,
+      "stratum": "single/docker-compose.base.yml",
+      "packet_sha256": "1a2d1bb346f6e40e659f00e9eaec82d781b3c251d1a8a92ef20640f6f86fe0da",
+      "split": "test",
+      "id": "C63b16bf95187"
+    },
+    {
+      "group": {
+        "id": "issue:91393",
+        "prs": [
+          114018
+        ],
+        "diff_sha256": {
+          "114018": "e3e35a90961312b0269a0d000047efd417dd21a6bbfce4d33f5b6c02bf42b686"
+        }
+      },
+      "source": "full",
+      "index": 216,
+      "stratum": "single/docker-compose.hobby.yml",
+      "packet_sha256": "c8f8f6a238b8e723b0abc7dc70cd4bf1239344deea35069ae30b07a2936e4c54",
+      "split": "test",
+      "id": "C9f144d524449"
+    },
+    {
+      "group": {
+        "id": "pr:103967",
+        "prs": [
+          103967
+        ],
+        "diff_sha256": {
+          "103967": "b157d1e87aed9c1e2cf10188c5daf233fe20f6210389bef682c5647731ff6832"
+        }
+      },
+      "source": "full",
+      "index": 366,
+      "stratum": "single/docs",
+      "packet_sha256": "4f42640a3993991d1e21dbc756d9872e61049cd9690a86b9de3895668a6864cb",
+      "split": "test",
+      "id": "Caa9071afd483"
+    },
+    {
+      "group": {
+        "id": "pr:78509",
+        "prs": [
+          78509
+        ],
+        "diff_sha256": {
+          "78509": "a0cd59fa80a390ca2974d210f65e07e38946ea042c7b500eb0c80450fb32d03f"
+        }
+      },
+      "source": "full",
+      "index": 1015,
+      "stratum": "single/ee",
+      "packet_sha256": "1a866842872e86ce802531f9417b75780f7ae8ea6b34be338324ed575fda5111",
+      "split": "test",
+      "id": "C9dc7a6d8cf6f"
+    },
+    {
+      "group": {
+        "id": "pr:76058",
+        "prs": [
+          76058
+        ],
+        "diff_sha256": {
+          "76058": "9430dbd6ab8ae96f34e889bf394789c6c47e03a0ab1521b2c30c66fec7a027c8"
+        }
+      },
+      "source": "full",
+      "index": 922,
+      "stratum": "single/frontend",
+      "packet_sha256": "a3a816686992bac1d7736c0c607a3aa7d347c947e9ac6cade9e73e7eba29c220",
+      "split": "test",
+      "id": "Cf26684f2e06a"
+    },
+    {
+      "group": {
+        "id": "pr:101221",
+        "prs": [
+          101221
+        ],
+        "diff_sha256": {
+          "101221": "a0f8d6babb3914668a4172a4ea65f777ba5e9896124d9c035330e75d8db46666"
+        }
+      },
+      "source": "full",
+      "index": 276,
+      "stratum": "single/hogli.yaml",
+      "packet_sha256": "81095d17c79cac6df1e28e15e86fb3ce55dc293567e98928078ac6477995df30",
+      "split": "test",
+      "id": "Cd83c66832a03"
+    },
+    {
+      "group": {
+        "id": "pr:93939",
+        "prs": [
+          93939
+        ],
+        "diff_sha256": {
+          "93939": "aff8c11a5bedb9d3fbf800193b4abd72c5785340debeb144d30bc0584b5e6185"
+        }
+      },
+      "source": "full",
+      "index": 1446,
+      "stratum": "single/nodejs",
+      "packet_sha256": "7887563e0191b72ed2def29190c4f91eb2ef30505eb80104e86b5f753abd600f",
+      "split": "test",
+      "id": "C84dc3f68ddaf"
+    },
+    {
+      "group": {
+        "id": "pr:126551",
+        "prs": [
+          126551
+        ],
+        "diff_sha256": {
+          "126551": "ce5bceb1da17231f53bb5bd5378a720c926c155ccc59699693171bbd5e3a773d"
+        }
+      },
+      "source": "full",
+      "index": 818,
+      "stratum": "single/packages",
+      "packet_sha256": "67bc87cec2e5494af6ce51b5f153c8120125bcd1a47335bf7fdb27d71e6df8b6",
+      "split": "test",
+      "id": "Cc15c53f4ef8e"
+    },
+    {
+      "group": {
+        "id": "pr:82452",
+        "prs": [
+          82452
+        ],
+        "diff_sha256": {
+          "82452": "e7922e3140978c2dc0a7f0fb93497aa9e39c74ea0f24097ebac7bf141126a57b"
+        }
+      },
+      "source": "full",
+      "index": 1124,
+      "stratum": "single/playwright",
+      "packet_sha256": "af870149b890cff88bbc1f55d22e0b98733991da1042845ba17ae1eec326a46d",
+      "split": "test",
+      "id": "Cab0e6e5267f2"
+    },
+    {
+      "group": {
+        "id": "pr:92861",
+        "prs": [
+          92861
+        ],
+        "diff_sha256": {
+          "92861": "7d0030178dbcd8e4af0e7e90c8978cfa2f744a873931fd153a0ce4a31aed8ca6"
+        }
+      },
+      "source": "full",
+      "index": 1432,
+      "stratum": "single/pnpm-lock.yaml",
+      "packet_sha256": "815b93a6b7acd7cc4e214657426612c32bbbf00ba5521c44d1c7dff9355ca582",
+      "split": "test",
+      "id": "Cca4763f5f6e4"
+    },
+    {
+      "group": {
+        "id": "issue:42539",
+        "prs": [
+          117385
+        ],
+        "diff_sha256": {
+          "117385": "c9b893ed180fea649a6bd69604444e1a2e3a684955bac6397c5b9d4a1c99950f"
+        }
+      },
+      "source": "full",
+      "index": 70,
+      "stratum": "single/posthog",
+      "packet_sha256": "5842e201f72fc49da7b19f60febaa8d2964889ca8dfaafb4cd7f42b4adcaeab5",
+      "split": "test",
+      "id": "Cb9770d9bdb8a"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:classify queue db connect timeouts as transient",
+        "prs": [
+          81543
+        ],
+        "diff_sha256": {
+          "81543": "6e7b4d2854bdc7069668d9ae15d45e0d3da08b4a3e144a92aeaccda274c0deb0"
+        }
+      },
+      "source": "full",
+      "index": 2835,
+      "stratum": "single/products",
+      "packet_sha256": "60d21f9da5fcd85bc37f8b1baa34a7ed63114da74e57f56785549fea0d850ceb",
+      "split": "test",
+      "id": "C3da1b7149d95"
+    },
+    {
+      "group": {
+        "id": "pr:98771",
+        "prs": [
+          98771
+        ],
+        "diff_sha256": {
+          "98771": "33d31d9d25f215fba97ac1186cfd0f63605a72214f6879b745ee792814fac737"
+        }
+      },
+      "source": "full",
+      "index": 1576,
+      "stratum": "single/pyproject.toml",
+      "packet_sha256": "46b69672f901121ecbc05dcb4d9aa95b270a41946543f53efc22448be2188a97",
+      "split": "test",
+      "id": "Cd956a7883e26"
+    },
+    {
+      "group": {
+        "id": "pr:81913",
+        "prs": [
+          81913
+        ],
+        "diff_sha256": {
+          "81913": "cd0c25bcd7851cc8c55ef048d0eac2b3e75dcf0f45d4ac23d665a246e3cf6133"
+        }
+      },
+      "source": "full",
+      "index": 1110,
+      "stratum": "single/rust",
+      "packet_sha256": "781f8878c7586a5d8924b8181428019d7bcd2c2cc0969f2e46d3d2ca781665d7",
+      "split": "test",
+      "id": "Ca2e365c0380f"
+    },
+    {
+      "group": {
+        "id": "title:GeneralistDev:hint typed query runners after simple sql aggregates",
+        "prs": [
+          126255
+        ],
+        "diff_sha256": {
+          "126255": "fbf59fd2ec874032c097fc97476e9dd8d11bbb46a8bd74a35ef3664f5b7f5b6a"
+        }
+      },
+      "source": "full",
+      "index": 1799,
+      "stratum": "single/services",
+      "packet_sha256": "20cb9e8ea5087e6e06f0119a50316c880b78a5b564407f5854625b184713796b",
+      "split": "test",
+      "id": "Cfd4546ac81b7"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:commit a resume cursor only after its rows reach the pipeline",
+        "prs": [
+          113488
+        ],
+        "diff_sha256": {
+          "113488": "9802bb5bc5a45aa7b4f6a04b4d305d01eae99434ab6b3f3bb9a4b76e9a32a347"
+        }
+      },
+      "source": "full",
+      "index": 2877,
+      "stratum": "large/.agents",
+      "packet_sha256": "6322a83fc952219ae83c7d7cbc7fd26eb0320bc1e6212cf904ee1a37bf794b46",
+      "split": "test",
+      "id": "C7179ecec7f70"
+    },
+    {
+      "group": {
+        "id": "pr:76651",
+        "prs": [
+          76651
+        ],
+        "diff_sha256": {
+          "76651": "800a9c4c3008078b4ba5987bc3686a05cbe14a0b30af16becd694ec2f153c742"
+        }
+      },
+      "source": "full",
+      "index": 941,
+      "stratum": "large/.depot",
+      "packet_sha256": "87a1d474663bfbebc37d2edeabf439c5f126c7c53dd22a43f3fd4e7aa3696dfc",
+      "split": "test",
+      "id": "C78fbc9e627f4"
+    },
+    {
+      "group": {
+        "id": "pr:121235",
+        "prs": [
+          121235
+        ],
+        "diff_sha256": {
+          "121235": "754e5ce5f57d0b56c63e085f81f6265fc3d2277ea975650445e0adac20b7000d"
+        }
+      },
+      "source": "full",
+      "index": 714,
+      "stratum": "large/.flox",
+      "packet_sha256": "4d6eb1b1893b811b986dc715ef05ccae174bd832690b6446096dd7eb8fe5d587",
+      "split": "test",
+      "id": "C773ac99b7904"
+    },
+    {
+      "group": {
+        "id": "pr:104278",
+        "prs": [
+          104278
+        ],
+        "diff_sha256": {
+          "104278": "b208293d46ee9d9e854ced00804728a1e228373d62d21219be6720ca946102eb"
+        }
+      },
+      "source": "full",
+      "index": 373,
+      "stratum": "large/.github",
+      "packet_sha256": "4d493ffb3d86650cabbc7939348982554904236d30812845e7400133e0a78c76",
+      "split": "test",
+      "id": "Cd23eb6087b7f"
+    },
+    {
+      "group": {
+        "id": "title:EDsCODE:add tracked trino view translation",
+        "prs": [
+          92772
+        ],
+        "diff_sha256": {
+          "92772": "229d48ff8434388b12bcb5db7669ef5598bb41efe3c5b6cd17f55edaeff5bcd1"
+        }
+      },
+      "source": "full",
+      "index": 1734,
+      "stratum": "large/.semgrep",
+      "packet_sha256": "5cf4085e276a94736320c319b1edaf083533f86c93948bc3d920643c481ac0b6",
+      "split": "test",
+      "id": "C7e5f34a5bb5e"
+    },
+    {
+      "group": {
+        "id": "pr:82702",
+        "prs": [
+          82702
+        ],
+        "diff_sha256": {
+          "82702": "de5158d27c466cc8c6f8250f9f9f6728d505ad353bbbbe46b6e8b62aad7a8a56"
+        }
+      },
+      "source": "full",
+      "index": 1129,
+      "stratum": "large/.test_quarantine.json",
+      "packet_sha256": "668baa1122d6cbc77c51e6f1bf40a3fd40bbda0a5f6c2488149a7e895f35f729",
+      "split": "test",
+      "id": "C43d1244ac1aa"
+    },
+    {
+      "group": {
+        "id": "issue:97493",
+        "prs": [
+          104690
+        ],
+        "diff_sha256": {
+          "104690": "8062c22b4504f19451ad891275b6949b17492e18abc0f5b284a5ebb75e0374d6"
+        }
+      },
+      "source": "full",
+      "index": 232,
+      "stratum": "large/bin",
+      "packet_sha256": "d581863c1d5846c2558704d7d6fb18d40cb916bd06a3db127b0dcbb46e261ef6",
+      "split": "test",
+      "id": "C0cfd634060ee"
+    },
+    {
+      "group": {
+        "id": "issue:4546",
+        "prs": [
+          84034
+        ],
+        "diff_sha256": {
+          "84034": "a48bc6810ee88c1e20bfb15f958c54670f0811ff17861ce428cf073bdc3fc140"
+        }
+      },
+      "source": "full",
+      "index": 75,
+      "stratum": "large/cli",
+      "packet_sha256": "5d383a6c2106e48b1dab7ce5df436ee07e6f070522a696eeadf8cea8e42e575e",
+      "split": "test",
+      "id": "C6360c9aa8864"
+    },
+    {
+      "group": {
+        "id": "pr:126289",
+        "prs": [
+          126289
+        ],
+        "diff_sha256": {
+          "126289": "d5a394159470306b557ea7de3010e3641ed6149b3a9c99c2ffa586f1675c8d91"
+        }
+      },
+      "source": "full",
+      "index": 816,
+      "stratum": "large/common",
+      "packet_sha256": "f31b0b82f2e13efd24107677159c96849b5d2fe908477be288e6d91b1d940f9d",
+      "split": "test",
+      "id": "C51c6570263be"
+    },
+    {
+      "group": {
+        "id": "title:EDsCODE:build trino models and publish readable aliases",
+        "prs": [
+          102597
+        ],
+        "diff_sha256": {
+          "102597": "75b3850f5f246274f524749b69865bbdc6f7c14ea0081791c70442cde4e0a737"
+        }
+      },
+      "source": "full",
+      "index": 1742,
+      "stratum": "large/docs",
+      "packet_sha256": "ec9026e34e55bb31fc67ef5bba4295d6967ca40563802d2da8dd9497e98162ed",
+      "split": "test",
+      "id": "Cea1920bb2f03"
+    },
+    {
+      "group": {
+        "id": "pr:96024",
+        "prs": [
+          96024
+        ],
+        "diff_sha256": {
+          "96024": "8d3bba3bcfa812d84217bae0f48ef3d3dfc85761cc34facc90104158cd7d3269"
+        }
+      },
+      "source": "full",
+      "index": 1516,
+      "stratum": "large/ee",
+      "packet_sha256": "30e9cafdc740c47f6b2356de793699cbf7034a69b47649477f01140f5a9fe810",
+      "split": "test",
+      "id": "C4170e7480a06"
+    },
+    {
+      "group": {
+        "id": "pr:117201",
+        "prs": [
+          117201
+        ],
+        "diff_sha256": {
+          "117201": "8477ff42b4510095230a2a075b7e94190e6fee68162556520bf13b6597335453"
+        }
+      },
+      "source": "full",
+      "index": 628,
+      "stratum": "large/frontend",
+      "packet_sha256": "297c59c04f235884dd13b9232c80b2b8c514deccb3c991105e2544f12ae2efab",
+      "split": "test",
+      "id": "C65493d4590ff"
+    },
+    {
+      "group": {
+        "id": "pr:85150",
+        "prs": [
+          85150
+        ],
+        "diff_sha256": {
+          "85150": "240570d73c86782fc4a736036b7c19158e399ce80c768d0ae2ab4dc7dc990559"
+        }
+      },
+      "source": "full",
+      "index": 1225,
+      "stratum": "large/nodejs",
+      "packet_sha256": "fe9371182a907cbc8532370f832f9d28f9ec2c3830ef074409819ce485535d5c",
+      "split": "test",
+      "id": "Cfdf72d350de6"
+    },
+    {
+      "group": {
+        "id": "pr:120118",
+        "prs": [
+          120118
+        ],
+        "diff_sha256": {
+          "120118": "4a7fc0cdacec38ae89602d6077a28086cafcd301f6ad7da5172079262c4680df"
+        }
+      },
+      "source": "full",
+      "index": 699,
+      "stratum": "large/packages",
+      "packet_sha256": "748e46b94dc236120b59eab1ee9701eeac64a789484b8553cf27f93bd6b1b81b",
+      "split": "test",
+      "id": "Ca131b4842983"
+    },
+    {
+      "group": {
+        "id": "title:DanielVisca:add a service map tab to application observability",
+        "prs": [
+          123559
+        ],
+        "diff_sha256": {
+          "123559": "1d3643bedaf280e47985787a4608fbe85edcc7c7827a6aec912e1b090545184c"
+        }
+      },
+      "source": "full",
+      "index": 1637,
+      "stratum": "large/pnpm-lock.yaml",
+      "packet_sha256": "da3e4d86acf2b6da05937e1ec81fa0b71d6bb17a782c064dd082a40cc3fb8acb",
+      "split": "test",
+      "id": "C43b082cd6b5b"
+    },
+    {
+      "group": {
+        "id": "pr:75290",
+        "prs": [
+          75290
+        ],
+        "diff_sha256": {
+          "75290": "4e158390c9601de33a3833496e26cf6770ee218de4847e337bc201a2845cd055"
+        }
+      },
+      "source": "full",
+      "index": 898,
+      "stratum": "large/posthog",
+      "packet_sha256": "201fd5114a555ac099500a55ae63a6857d0735033f8416f0760de8e01c679b8c",
+      "split": "test",
+      "id": "Cd5dfc2b0c341"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:add revolut merchant disputes payouts and subscription tables",
+        "prs": [
+          127360
+        ],
+        "diff_sha256": {
+          "127360": "3729dc0c9aa7f79944e92e8253e8c121520cdfe3db2c36a75f7a02aea2dce648"
+        }
+      },
+      "source": "full",
+      "index": 2635,
+      "stratum": "large/products",
+      "packet_sha256": "14e41399e48a9795714e35d78034e2ca8878bab2270338f8f1d23d2ae9167348",
+      "split": "test",
+      "id": "C087bb63e686f"
+    },
+    {
+      "group": {
+        "id": "pr:122255",
+        "prs": [
+          122255
+        ],
+        "diff_sha256": {
+          "122255": "fbb4f51a9d8918875f5b5668cd9c29ac643e9edb011fa14a452593a9f6ec0fdb"
+        }
+      },
+      "source": "full",
+      "index": 733,
+      "stratum": "large/pyproject.toml",
+      "packet_sha256": "9b518603c972db07b1e8400cef9bd4366a10a2ce08080aef1c2eb8a4b2833a7b",
+      "split": "test",
+      "id": "C81ce33b3290d"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:bound deltalite s3 calls and permit waits",
+        "prs": [
+          124040
+        ],
+        "diff_sha256": {
+          "124040": "9989ce5caf94a046accd2d617a62c2874eac3c3b5115c516c6802c2903c2917b"
+        }
+      },
+      "source": "full",
+      "index": 2729,
+      "stratum": "large/rust",
+      "packet_sha256": "9a81829b34d4202465053de5e4f1540683ffe25bb1825064749249a8efc4c233",
+      "split": "test",
+      "id": "C61c6043be4b5"
+    },
+    {
+      "group": {
+        "id": "issue:100028",
+        "prs": [
+          101408
+        ],
+        "diff_sha256": {
+          "101408": "4be913db2108a5e1d065ad86276536d918c923b6b11647b148cca16df20f28bc"
+        }
+      },
+      "source": "full",
+      "index": 2,
+      "stratum": "large/services",
+      "packet_sha256": "ef7ade5566235c40d495059cbc64f423a0b669bf8fedf93ad5df3929d256c8d1",
+      "split": "test",
+      "id": "Ced1f5009a8f4"
+    },
+    {
+      "group": {
+        "id": "pr:83713",
+        "prs": [
+          83713
+        ],
+        "diff_sha256": {
+          "83713": "2910bf6d39dc21ee2535b11002d13c595a78533f83c02b1f2d0e3bed82bbcda6"
+        }
+      },
+      "source": "full",
+      "index": 1167,
+      "stratum": "large/tools",
+      "packet_sha256": "263c914e3654e95548491373e18e7c525017084327922f818716db618aa05379",
+      "split": "test",
+      "id": "C5d6ac487eb48"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:add 4 missing tables to the picqer source",
+        "prs": [
+          120875,
+          125425
+        ],
+        "diff_sha256": {
+          "120875": "570339f69e5bcd53bfc5e533d7de7556db41552e12a801a94dc4c3a28f102180",
+          "125425": "f48000bcfd895c48578f3f8f632d804eef34f1ffdfea1e07726eb5ba829dfef8"
+        }
+      },
+      "source": "full",
+      "index": 2013,
+      "stratum": "multi_pr/posthog",
+      "packet_sha256": "1d8c2330ebde751cf9825d06e49064e79a2940a3c04fbf89c6d123e9eed1046f",
+      "split": "test",
+      "id": "C2e91b7e7e456"
+    },
+    {
+      "group": {
+        "id": "title:Gilbert09:add 4 missing tables to the rocketlane source",
+        "prs": [
+          118860,
+          128352
+        ],
+        "diff_sha256": {
+          "118860": "b698e1003722ce5493963bbafe69229ba27c3754c37b0013a8e21fc336d018c6",
+          "128352": "abdeb50bb15ae9f11bafbd2cc7e8f05f0de6ac8d9782177bdc87baa8416f1914"
+        }
+      },
+      "source": "full",
+      "index": 2026,
+      "stratum": "multi_pr/products",
+      "packet_sha256": "7c613c530d7c17dbe8651b172f0c5fd506a1974e52d4dea170e43c38949671a9",
+      "split": "test",
+      "id": "Cdf55482fa890"
+    },
+    {
+      "group": {
+        "id": "pr:105563",
+        "prs": [
+          105563
+        ],
+        "diff_sha256": {
+          "105563": "6c9ce3c0a9bc585e7d6b82025e5180e87963296593dbc0a7fdb70a4b3c9ae7f9"
+        }
+      },
+      "source": "full",
+      "index": 402,
+      "stratum": "preflight/unreadable",
+      "packet_sha256": "2c5d0a59e1ba5ef422d72a8f0be88369034ce236e798ae62072e5328aefb57b4",
+      "split": "test",
+      "id": "Cdb783e0543bc"
+    },
+    {
+      "group": {
+        "id": "pr:84749",
+        "prs": [
+          84749
+        ],
+        "diff_sha256": {
+          "84749": "0da6436992ff8e3b9e14f230bf65df2b814a1e6e2b16538da7750cb61ce597e8"
+        }
+      },
+      "source": "full",
+      "index": 1222,
+      "stratum": "single/.agents",
+      "packet_sha256": "e695b7126bfaf4aa690de7e0e09792025755bcd70f3b8d8f342c39cd06279568",
+      "split": "test",
+      "id": "C084df6e5a795"
+    },
+    {
+      "group": {
+        "id": "pr:118806",
+        "prs": [
+          118806
+        ],
+        "diff_sha256": {
+          "118806": "94bbdb102e7ab1fe623eae816050764b1708cda8658be3d03e8d3f49b82ebe6c"
+        }
+      },
+      "source": "full",
+      "index": 674,
+      "stratum": "single/.depot",
+      "packet_sha256": "2b6588d712023dc17da19ea233b38f9ec5cb64e2b808ceabfb8dbbb20d54f48f",
+      "split": "test",
+      "id": "C92f04571086d"
+    },
+    {
+      "group": {
+        "id": "pr:117082",
+        "prs": [
+          117082
+        ],
+        "diff_sha256": {
+          "117082": "e76019bc84c3b87eabb321c3e83f990aec7cd9a6f920b2758411d5080024d8ac"
+        }
+      },
+      "source": "full",
+      "index": 622,
+      "stratum": "single/.flox",
+      "packet_sha256": "bab653b2cf11ef1effd77924e5b33ea77c5fe9e36f4b0684f4e97de28be79ecd",
+      "split": "test",
+      "id": "C0f679f4d21b3"
+    },
+    {
+      "group": {
+        "id": "pr:80332",
+        "prs": [
+          80332
+        ],
+        "diff_sha256": {
+          "80332": "42aefb1f47fb8eb1060f16eb36e768a0b934589a4e254ea7577368a8d1cafeaa"
+        }
+      },
+      "source": "full",
+      "index": 1061,
+      "stratum": "single/.github",
+      "packet_sha256": "678832f1ce25600f036ccd5022fdc49c3f22d01067ce95aebceb1b50e2ea4dd6",
+      "split": "test",
+      "id": "C7ef7fda821fb"
+    },
+    {
+      "group": {
+        "id": "pr:92856",
+        "prs": [
+          92856
+        ],
+        "diff_sha256": {
+          "92856": "2daf32d2242eb57811d5d427a2cc7045e2f9a9e825baa18dda8adbbc3eb95197"
+        }
+      },
+      "source": "full",
+      "index": 1428,
+      "stratum": "single/.semgrep",
+      "packet_sha256": "2a564fe94b6e6ed27b04ebf6d09f351d69ee6cd63ec180f14fb12fe8e0f08bdb",
+      "split": "test",
+      "id": "Cd2b9448c34a6"
+    },
+    {
+      "group": {
+        "id": "pr:75873",
+        "prs": [
+          75873
+        ],
+        "diff_sha256": {
+          "75873": "881bea52fea059006c139ecf7d4c670480d12325688919c5f87884f9f5964f72"
+        }
+      },
+      "source": "full",
+      "index": 911,
+      "stratum": "single/AGENTS.md",
+      "packet_sha256": "f830dea66dfcfb31cef1478150f96d305d89b5b28fdb0ebbe6b53d0ae5803135",
+      "split": "test",
+      "id": "Cf373d2bd87c5"
+    },
+    {
+      "group": {
+        "id": "pr:83034",
+        "prs": [
+          83034
+        ],
+        "diff_sha256": {
+          "83034": "cef109db3ccf5dd6877e1da0a521425b2f2371b1347e967be91083944a0b0d74"
+        }
+      },
+      "source": "full",
+      "index": 1140,
+      "stratum": "single/Dockerfile",
+      "packet_sha256": "6df357c21e6e2d1995278f5c6e225b8c270741785fa08f9fc566e76fb0f54206",
+      "split": "test",
+      "id": "Cc4ecaaf4d67b"
+    },
+    {
+      "group": {
+        "id": "pr:82282",
+        "prs": [
+          82282
+        ],
+        "diff_sha256": {
+          "82282": "86bec62a911bc504904b46a524c93bb2d64b8f94d7ac585a300b1aca43d17b9a"
+        }
+      },
+      "source": "full",
+      "index": 1121,
+      "stratum": "single/bin",
+      "packet_sha256": "720a854f470d4bbd709e87f1eba706dd216d685b55cc4ed50e6cf518353e0130",
+      "split": "test",
+      "id": "Cad5fb471070b"
+    },
+    {
+      "group": {
+        "id": "pr:75297",
+        "prs": [
+          75297
+        ],
+        "diff_sha256": {
+          "75297": "2d0c7b6d09caf53edeb20c8841fec0b8fd05e478c3e44b266fa234f3d8b79165"
+        }
+      },
+      "source": "full",
+      "index": 899,
+      "stratum": "single/cli",
+      "packet_sha256": "ad965e61e59f1f9f858fa25233c80e26bc833a0fc52bddfb252f8b0dfdff0b23",
+      "split": "test",
+      "id": "C5d68c39dcbde"
+    },
+    {
+      "group": {
+        "id": "pr:81785",
+        "prs": [
+          81785
+        ],
+        "diff_sha256": {
+          "81785": "a90bcf79b5e98cfc29e240bb389f241adbb75b5546770a524b7a1b752ad0bfbc"
+        }
+      },
+      "source": "full",
+      "index": 1107,
+      "stratum": "single/common",
+      "packet_sha256": "abbb1770acf25492f075a01a424cb3e7145318a5f94b87a53ab751b29068b12a",
+      "split": "test",
+      "id": "C59597302bcaa"
+    },
+    {
+      "group": {
+        "id": "issue:55167",
+        "prs": [
+          123069
+        ],
+        "diff_sha256": {
+          "123069": "cd3b62d050319f8ba353ace445c4141fdc4ca968b6f893e9b2b0bbc1029e82b7"
+        }
+      },
+      "source": "full",
+      "index": 83,
+      "stratum": "single/docker-compose.hobby.yml",
+      "packet_sha256": "571eb193bf60d86d8f8a2169d1cc6b5fb2e0c430a7a7948c04a58b29a999da22",
+      "split": "test",
+      "id": "Ce273b0760c84"
+    },
+    {
+      "group": {
+        "id": "pr:117753",
+        "prs": [
+          117753
+        ],
+        "diff_sha256": {
+          "117753": "5241ba9bd263bd1ea1ada39e4182415f6b31ef63cdd3a2e36409a223c2bf9ceb"
+        }
+      },
+      "source": "full",
+      "index": 634,
+      "stratum": "single/docs",
+      "packet_sha256": "59fead17adec09d85234c505fbcc5a2483d115f507c35f734bf995e010e89faf",
+      "split": "test",
+      "id": "Cfa976cea9d64"
+    },
+    {
+      "group": {
+        "id": "title:GeneralistDev:support sql queries in create insight",
+        "prs": [
+          101198
+        ],
+        "diff_sha256": {
+          "101198": "6ed190d5f56f9e065bbc2dfd2f8bbbd1b7a63a1ff229c20f11fece831039f955"
+        }
+      },
+      "source": "full",
+      "index": 1835,
+      "stratum": "single/ee",
+      "packet_sha256": "1c34d8600b966646a06b0cb2c32131b0c8687587c26281eba5a5ae849a0876c2",
+      "split": "test",
+      "id": "Ca51aab24e3db"
+    },
+    {
+      "group": {
+        "id": "pr:115233",
+        "prs": [
+          115233
+        ],
+        "diff_sha256": {
+          "115233": "d4b99aeae5e85f72f3b5698082a3c474206085738e20abe51ccd95ff9c670730"
+        }
+      },
+      "source": "full",
+      "index": 600,
+      "stratum": "single/frontend",
+      "packet_sha256": "814ac97178f9e9ea3144ac9121b362c8078a58be6b59eb82cb4c98ba6136f604",
+      "split": "test",
+      "id": "C4504b47d6898"
+    },
+    {
+      "group": {
+        "id": "issue:103374",
+        "prs": [
+          103592
+        ],
+        "diff_sha256": {
+          "103592": "b32325ecadc56d382de2bb57c06f4ad2d05ad69016773e527935a187a09df19f"
+        }
+      },
+      "source": "pilot",
+      "index": 36,
+      "stratum": "historical",
+      "packet_sha256": "e28aced8da19dfa037574ca8cc9eaddd3e7d40216698363c25dced292eab6003",
+      "split": "calibration",
+      "id": "C306072669213"
+    },
+    {
+      "group": {
+        "id": "title:Piccirello:name the posthog hosts in style src and font src",
+        "prs": [
+          116718
+        ],
+        "diff_sha256": {
+          "116718": "0e2045f9ace7e3ca4716e08003bcf4aface00ce22b626eb11ca97fa2a8af2e13"
+        }
+      },
+      "source": "pilot",
+      "index": 19,
+      "stratum": "historical",
+      "packet_sha256": "0c9eb84ed240d1207798d459c5b3c460e1928143788bd83153f0d83c3dc8d6d0",
+      "split": "calibration",
+      "id": "Cbb6763fc3816"
+    },
+    {
+      "group": {
+        "id": "issue:117285",
+        "prs": [
+          117287
+        ],
+        "diff_sha256": {
+          "117287": "98de3841a20b2b4ec790cf1db25d13358e1a8b0d13c69b4e27d8e22831b200bf"
+        }
+      },
+      "source": "pilot",
+      "index": 38,
+      "stratum": "historical",
+      "packet_sha256": "62adf6a37f1882bdc23002b36e575f03464842c67ea267166139289fd277214c",
+      "split": "calibration",
+      "id": "Cc5ffe42b51af"
+    }
+  ],
+  "sha256": "cacdbb70e9fc06c3cbd637ba1398a6750ad1c1fca459d998608840920e049a5c"
+}

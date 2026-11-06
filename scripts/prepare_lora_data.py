@@ -1,166 +1,151 @@
 #!/usr/bin/env python3
-"""Build a provenance-labelled local fine-tuning set from reviewed public diffs."""
+"""Export only human-approved development examples; never export the locked test."""
 
+import argparse
+from collections import Counter
 import hashlib
 import json
 from pathlib import Path
 import random
 
-from review_contract import FULL, PILOT
-from score_harness import make_packet, one_pass_prompt
+from benchmark_data import (
+    BENCHMARK, case_packet, digest, load_manifest, load_records, validate_label,
+)
+from review_contract import FULL
+from score_harness import decision_prompt, observation_prompt, one_pass_prompt
 
 
-ROOT = Path(__file__).resolve().parents[1]
 DATASET = FULL / "lora" / "data"
 SEED = 20261104
-LIMIT = 18000
 
 
-def example(index, group, score, reason, source, diff_dir, hunk=None, quote=None,
-            evidence_paths=(), max_chars=LIMIT):
-    packet = make_packet(group, diff_dir=diff_dir)
-    if packet["abstention_reason"] or len(packet["chunks"]) != 1:
-        return None
-    chunk = packet["chunks"][0]
-    if len(chunk["text"]) > max_chars:
-        return None
-    allowed = chunk["changed_lines"]
-    if hunk is None:
-        paths = [path.strip() for path in evidence_paths if path.strip()]
-        for hunk_id, path in [
-            (identifier, part.split(" path=", 1)[1].split(">", 1)[0].strip('"'))
-            for part in chunk["text"].split("<hunk id=")[1:]
-            for identifier in [part.split(" ", 1)[0]]
-        ]:
-            candidates = allowed[hunk_id]
-            if path in paths and candidates:
-                hunk = hunk_id
-                quote = next(
-                    (line for line in candidates if len(line.strip()) >= 8
-                     and not line.strip().startswith(("#", "//", "import", "from "))),
-                    next((line for line in candidates if len(line.strip()) >= 8), None),
-                )
-                if quote is not None:
-                    break
-    if (hunk not in allowed or quote not in allowed[hunk]
-            or len(quote.strip()) < 8 or score not in (1, 2, 3)):
-        return None
-    answer = {
-        "observations": [{
-            "hunk": hunk,
-            "behavior": reason,
-            "posthog_connection": reason,
-            "code_quote": quote,
-        }],
-        "limitations": "The public diff does not prove adoption or measured user benefit.",
-        "score": score, "reason": reason,
-        "posthog_relevance": reason,
-        "confidence": "medium" if source != "historical_ai_assisted" else "low",
-        "evidence": [hunk],
-        "uncertainty": "The public diff does not prove adoption or avoided incidents.",
-        "metadata_dependency": False,
-        "grouping_issue": False,
-        "abstention_reason": None,
-    }
-    return {
-        "source": source, "index": index, "prs": group["prs"],
-        "diff_sha256": group["diff_sha256"],
+def approved_examples(case, packet, label):
+    if label.get("source") != "human_adjudicated":
+        raise ValueError("Only explicit human adjudications may enter training")
+    if "review" not in label:
+        raise ValueError("A complete human-approved review is required; never invent quotes")
+    validate_label(label, packet)
+    if packet["abstention_reason"]:
+        return []  # Operational missing-evidence checks do not need learned weights.
+    review = label["review"]
+    rows = []
+    if len(packet["chunks"]) == 1:
+        answer = {
+            **{k: v for k, v in review.items() if k not in ("observations", "model_id")},
+            **review["observations"][0],
+        }
+        rows.append(("combined", one_pass_prompt(packet["chunks"][0]), answer))
+    else:
+        for chunk, observations in zip(packet["chunks"], review["observations"]):
+            rows.append(("observation", observation_prompt(chunk), observations))
+        answer = {k: v for k, v in review.items() if k not in ("observations", "model_id")}
+        rows.append(("decision", decision_prompt(review["observations"]), answer))
+    return [{
+        "source": label["source"], "index": case["id"], "prs": case["group"]["prs"],
+        "diff_sha256": case["group"]["diff_sha256"],
         "instructions_sha256": packet["instructions_sha256"],
+        "label_sha256": digest(label), "score": label["score"], "kind": kind,
         "row": {"messages": [
             {"role": "system", "content": packet["system"]},
-            {"role": "user", "content": one_pass_prompt(chunk)},
+            {"role": "user", "content": prompt},
             {"role": "assistant", "content": json.dumps(answer, separators=(",", ":"))},
         ]},
-    }
+    } for kind, prompt, answer in rows]
+
+
+def split_examples(cases, labels, packets=None):
+    reserved = [c["group"] for c in cases if c["split"] != "development"]
+    reserved_prs = {pr for g in reserved for pr in g["prs"]}
+    reserved_hashes = {h for g in reserved for h in g["diff_sha256"].values()}
+    reserved_families = {g["id"] for g in reserved}
+    eligible, prs, hashes = [], set(), set()
+    for case in cases:
+        if case["split"] != "development" or case["id"] not in labels:
+            continue
+        group = case["group"]
+        fingerprints = set(group["diff_sha256"].values())
+        if (reserved_prs.intersection(group["prs"]) or reserved_hashes.intersection(fingerprints)
+                or group["id"] in reserved_families):
+            raise ValueError("Development data overlaps held-out PRs, patches or change families")
+        if prs.intersection(group["prs"]) or hashes.intersection(fingerprints):
+            raise ValueError("Training groups overlap by PR or patch hash")
+        prs.update(group["prs"])
+        hashes.update(fingerprints)
+        eligible.append(case)
+    selected = []
+    for case in eligible:
+        packet = packets[case["id"]] if packets is not None else case_packet(case)
+        examples = approved_examples(case, packet, labels[case["id"]])
+        if examples:
+            selected.append((case["group"]["id"], examples))
+    # Split whole families before expanding observation/decision rows.
+    families = sorted({family for family, _ in selected})
+    rng = random.Random(SEED)
+    rng.shuffle(families)
+    holdout = max(1, len(families) // 5) if len(families) >= 2 else 0
+    validation = set(families[:holdout])
+    splits = {"train": [], "valid": []}
+    for family, examples in selected:
+        splits["valid" if family in validation else "train"].extend(examples)
+    return splits
 
 
 def build():
-    pilot = json.loads((PILOT / "selection.json").read_text())
-    old = json.loads((PILOT / "reviews.json").read_text())
-    expert = json.loads((PILOT / "calibration.json").read_text())
-    full = json.loads((FULL / "selection.json").read_text())
-    teacher = json.loads((FULL / "teacher_labels.json").read_text())
-    expert_indices = {answer["index"] for answer in expert}
-    samples = []
-    for answer in old:
-        index = answer["index"]
-        if index in expert_indices or answer["score"] is None:
-            continue
-        sample = example(
-            index, pilot[index - 1], answer["score"], answer["reason"],
-            "historical_ai_assisted", PILOT / "diffs",
-            evidence_paths=answer["evidence"].split(";"),
-        )
-        if sample:
-            samples.append(sample)
-    for answer in teacher:
-        index = answer["index"]
-        sample = example(
-            index, full[index - 1], answer["score"], answer["reason"],
-            "gpt6_sol_in_session", FULL / "diffs",
-            hunk=answer["hunk"], quote=answer["code_quote"],
-        )
-        if sample is None:
-            raise ValueError(f"GPT-6 Sol label {index} lacks a complete diff and exact quote")
-        samples.append(sample)
-    heldout = []
-    for answer in expert:
-        index = answer["index"]
-        group = pilot[index - 1]
-        if (answer["diff_sha256"] != group["diff_sha256"]
-                or answer["human_score"] not in (1, 2, 3)):
-            raise ValueError(f"Expert calibration {index} is stale or unassessed")
-        sample = example(
-            index, group, answer["human_score"], answer["reason"],
-            "human_expert", PILOT / "diffs",
-            evidence_paths=old[index - 1]["evidence"].split(";"),
-            max_chars=18000,
-        )
-        if sample is None or sample["instructions_sha256"] != answer["instructions_sha256"]:
-            raise ValueError(f"Expert calibration {index} no longer matches the rubric")
-        heldout.append(sample)
-    if len({tuple(sample["prs"]) for sample in samples + heldout}) != len(samples + heldout):
-        raise ValueError("A change group appears more than once")
-    rng = random.Random(SEED)
-    train, validation, test = [], [], []
-    for score in (1, 2, 3):
-        group = [
-            item for item in samples
-            if json.loads(item["row"]["messages"][-1]["content"])["score"] == score
-        ]
-        rng.shuffle(group)
-        holdout = max(1, len(group) // 8) if len(group) >= 3 else 0
-        validation.extend(group[:holdout])
-        test.extend(group[holdout:2 * holdout])
-        train.extend(group[2 * holdout:])
-    return {"train": train, "valid": validation, "test": test + heldout}
+    manifest = load_manifest()
+    labels = load_records(BENCHMARK / "labels", manifest)
+    return split_examples(manifest["cases"], labels)
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--min-groups", type=int, default=30)
+    parser.add_argument("--min-per-label", type=int, default=3)
+    parser.add_argument("--output", type=Path, default=DATASET)
+    args = parser.parse_args()
+    if args.min_groups < 2 or args.min_per_label < 1:
+        parser.error("Do not disable the minimum human-data checks")
     splits = build()
-    DATASET.mkdir(parents=True, exist_ok=True)
+    groups = {item["index"]: item["score"] for values in splits.values() for item in values}
+    counts = Counter(groups.values())
+    if (len(groups) < args.min_groups
+            or any(counts[label] < args.min_per_label for label in (1, 2, 3, None))):
+        parser.error(
+            f"Training blocked: {len(groups)} human-approved groups, "
+            f"labels={dict(counts)}. Need >= {args.min_groups} groups and "
+            f">= {args.min_per_label} of each tier and semantic abstentions. "
+            "These are experiment minimums, not proof of accuracy."
+        )
+    destination = args.output
+    destination.mkdir(parents=True, exist_ok=True)
+    if any(destination.glob("*.json*")):
+        parser.error("Dataset already exists; preserve it and choose a versioned location")
     for name, samples in splits.items():
-        path = DATASET / f"{name}.jsonl"
-        path.write_text("".join(json.dumps(item["row"]) + "\n" for item in samples))
+        path = destination / f"{name}.jsonl"
+        with path.open("x") as output:
+            output.write("".join(json.dumps(item["row"]) + "\n" for item in samples))
     manifest = {
-        "purpose": "Weak AI-to-local-model rubric distillation; not human-verified outcomes",
-        "seed": SEED, "max_diff_chars": LIMIT,
+        "purpose": "Human-adjudicated code tiers; not verified outcomes",
+        "benchmark_sha256": load_manifest()["sha256"],
+        "seed": SEED, "groups": len(groups),
+        "test_exported": False,
         "splits": {
             name: [{
                 "index": item["index"], "prs": item["prs"],
                 "source": item["source"], "diff_sha256": item["diff_sha256"],
                 "instructions_sha256": item["instructions_sha256"],
-                "score": json.loads(item["row"]["messages"][-1]["content"])["score"],
+                "label_sha256": item["label_sha256"], "kind": item["kind"],
+                "score": item["score"],
             } for item in samples] for name, samples in splits.items()
         },
         "dataset_sha256": {
-            name: hashlib.sha256((DATASET / f"{name}.jsonl").read_bytes()).hexdigest()
+            name: hashlib.sha256((destination / f"{name}.jsonl").read_bytes()).hexdigest()
             for name in splits
         },
     }
-    (DATASET / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    with (destination / "manifest.json").open("x") as output:
+        output.write(json.dumps(manifest, indent=2) + "\n")
     print({name: len(samples) for name, samples in splits.items()})
-    print("Weak AI labels are not independent expert validation.")
+    print("No test JSONL is exported. Training still requires a pinned matching Qwen base.")
 
 
 if __name__ == "__main__":

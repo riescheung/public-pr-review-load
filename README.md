@@ -231,46 +231,40 @@ The runner does not fetch patches. Free SWE-2 CLI use is a plan offer,
 not proof of unlimited batch throughput or availability indefinitely.
 Check the current offer and account billing before a large run. Model
 votes remain **off the contributor dashboard**. A future design would
-train *two independent local Qwen reviewers* on reviewed labels prepared
-by GPT-6 Sol, then hold out the three human calibration cases and
-additional adversarial examples. Independent votes expose disagreement,
-but two Qwen models trained on the same labels can share mistakes. The
-existing review queue flags disagreements and large WPR/tier tensions
+use local Qwen reviews and human-adjudicated training labels.
+Independent votes expose disagreement, but two Qwen models trained on
+the same labels can share mistakes. The existing review queue flags
+disagreements and large WPR/tier tensions
 (group WPR >= 7 with tier 1 or WPR < 3 with tier 3). A human would inspect
 each flag, choose the final tier or abstain and save the reason as
 calibration; the flag never automatically overrides a model or publishes
 an outcome. WPR stays a separate review-load proxy; outcome remains blank.
 
-For a future free local-Qwen training experiment, the MLX dataset builder
-`scripts/prepare_lora_data.py` produces reproducible `train`, `valid`,
-`test` JSONL plus a hash/provenance manifest under the ignored
-`data/ai_review/lora/data/`. It separates three PostHog-expert calibration
-cases into the test split. The remaining labels are weak AI-generated
-judgments (including earlier AI-assisted pilot work), **not independent
-ground truth**; this small dataset is not sufficient to claim a validated
-replacement. MLX/LoRA changes local adapter weights; Ollama is for
-inference and cannot train weights itself. Any later Qwen model must be
-trained, tested against the held-out expert decisions and adversarial
-diffs, and explicitly approved before it replaces SWE-2 reviews.
-Once more diverse verified labels exist, the local training setup is:
+### Blind Qwen benchmark
+
+`BENCHMARK.md` describes the current experiment. The frozen manifest reserves
+60 fresh final-test cases, alongside 40 development cases and three separate
+historical human calibrations. Earlier pilot/teacher PRs and identical patch
+hashes are excluded from the fresh cases. The installed Qwen 3.5 9B baseline
+matched two of the three historical decisions; that tiny public calibration
+set does not establish general accuracy. Fresh expert labels and semantic
+evidence audits are still required.
 
 ```bash
-python3.12 -m venv .venv
-.venv/bin/python -m pip install mlx-lm
-.venv/bin/hf download mlx-community/Qwen2.5-Coder-3B-Instruct-4bit \
-  --local-dir data/ai_review/model/qwen2.5-coder-3b-4bit
-python3 scripts/prepare_lora_data.py
-.venv/bin/mlx_lm.lora --train \
-  --model data/ai_review/model/qwen2.5-coder-3b-4bit \
-  --data data/ai_review/lora/data --fine-tune-type lora \
-  --mask-prompt --num-layers 8 --batch-size 1 --max-seq-length 8192 \
-  --iters 80 --adapter-path data/ai_review/lora/adapter
+python3 scripts/pr_benchmark.py export
+python3 scripts/pr_benchmark.py run --run qwen-base-v2 \
+  --split development --model qwen3.5:9b --limit 5 --max-chunks 8
+python3 scripts/pr_benchmark.py evaluate --run qwen-base-v2 --split development
 ```
 
-The download and training were **not completed**. These are
-experimental starting settings, not proof that a model trained on the
-current small dataset will generalize; compare a held-out base model
-before deploying an adapter.
+`prepare_lora_data.py` now requires complete human-approved development
+reviews, preserves semantic abstentions and supports chunked changes.
+It exports only `train` and `valid`; reserved test/calibration cases cannot
+enter training. The old automatically selected training quotes and weak
+teacher labels are not used by default.
+Training is blocked until enough adjudications exist. No adapter has been
+trained. A later MLX run must use the matching Qwen 3.5 9B base revision and
+tokenizer, not the previous 3B example. Model downloads need separate approval.
 
 To rebuild the evidence snapshot, run these in order:
 

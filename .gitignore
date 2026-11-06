@@ -12,6 +12,10 @@ data/ai_review/harness/
 data/ai_review/model/
 data/ai_review/lora/
 data/ai_review/fetch.log
+data/benchmark/packets/
+data/benchmark/labels/
+data/benchmark/runs/
+data/benchmark/reports/
 data/releases.json
 .DS_Store
 .impeccable/review/

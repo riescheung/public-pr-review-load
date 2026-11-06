@@ -169,9 +169,9 @@ def validate_observations(reply, allowed):
         require_text(item.get("behavior"), "behavior")
         require_text(item.get("posthog_connection"), "posthog_connection")
         require_text(item.get("code_quote"), "code_quote")
-        if len(item["code_quote"].strip()) < 8 or not any(
-            item["code_quote"] in line for line in allowed[item["hunk"]]
-        ):
+        if len(item["code_quote"].strip()) < 8 or item["code_quote"].strip() not in {
+            line.strip() for line in allowed[item["hunk"]]
+        }:
             raise ValueError("Code quote must match a changed line in the cited hunk")
     return reply
 
@@ -229,54 +229,24 @@ def one_pass_prompt(chunk):
     )
 
 
-def run_review(packet, command, model_id, one_pass=False):
-    if packet["abstention_reason"]:
-        return {
-            "score": None, "confidence": "none", "evidence": [],
-            "reason": "Incomplete code evidence; no model review was run.",
-            "posthog_relevance": "", "uncertainty": "Group not reviewed.",
-            "metadata_dependency": False,
-            "grouping_issue": False,
-            "abstention_reason": packet["abstention_reason"],
-            "observations": [],
-        }
-    if one_pass and len(packet["chunks"]) == 1:
-        chunk = packet["chunks"][0]
-        reply = call_model(command, [
-            {"role": "system", "content": packet["system"]},
-            {"role": "user", "content": one_pass_prompt(chunk)},
-        ])
-        validate_observations(reply, chunk["changed_lines"])
-        validate_decision(reply, {item["hunk"] for item in reply["observations"]})
-        observations = {
-            "observations": reply["observations"], "limitations": reply["limitations"],
-        }
-        return {**reply, "observations": [observations], "model_id": model_id}
-    observations = []
-    for chunk in packet["chunks"]:
-        prompt = (
-            "Inspect every hunk in this chunk as one part of a single change group. "
-            "Do not assign points yet. Return JSON only: "
-            '{"observations":[{"hunk":"P1.F1.H1","behavior":"observed code change",'
-            '"posthog_connection":"specific plausible PostHog mechanism",'
-            '"code_quote":"literal snippet from an added or removed line"}],'
-            '"limitations":"what cannot be inferred"}. '
-            "Cite only supplied hunk IDs. For code_quote, copy ONE literal changed "
-            "line of code, with no leading diff +/- and no adjacent lines. "
-            "Describe implementation, not claims in comments. "
-            "Where two PRs appear unrelated, flag that uncertainty. "
-            f"Chunk:\n{chunk['text']}"
-        )
-        reply = call_model(command, [
-            {"role": "system", "content": packet["system"]},
-            {"role": "user", "content": prompt},
-        ])
-        validate_observations(reply, chunk["changed_lines"])
-        observations.append(reply)
-    observed_ids = {
-        item["hunk"] for chunk in observations for item in chunk["observations"]
-    }
-    final_prompt = (
+def observation_prompt(chunk):
+    return (
+        "Inspect every hunk in this chunk as one part of a single change group. "
+        "Do not assign points yet. Return JSON only: "
+        '{"observations":[{"hunk":"P1.F1.H1","behavior":"observed code change",'
+        '"posthog_connection":"specific plausible PostHog mechanism",'
+        '"code_quote":"literal snippet from an added or removed line"}],'
+        '"limitations":"what cannot be inferred"}. '
+        "Cite only supplied hunk IDs. For code_quote, copy ONE literal changed "
+        "line of code, with no leading diff +/- and no adjacent lines. "
+        "Describe implementation, not claims in comments. "
+        "Where two PRs appear unrelated, flag that uncertainty. "
+        f"Chunk:\n{chunk['text']}"
+    )
+
+
+def decision_prompt(observations):
+    return (
         "These code-backed observations cover every chunk of one group. "
         "Decide a single base tier for the combined change. Do not add points "
         "for number of PRs, lines or paths. If the observations cannot justify "
@@ -294,10 +264,46 @@ def run_review(packet, command, model_id, one_pass=False):
         "Do not infer unobserved outcomes. "
         f"Observations:\n{json.dumps(observations)}"
     )
+
+
+def run_review(packet, command, model_id, one_pass=False, timeout=120):
+    if packet["abstention_reason"]:
+        return {
+            "score": None, "confidence": "none", "evidence": [],
+            "reason": "Incomplete code evidence; no model review was run.",
+            "posthog_relevance": "", "uncertainty": "Group not reviewed.",
+            "metadata_dependency": False,
+            "grouping_issue": False,
+            "abstention_reason": packet["abstention_reason"],
+            "observations": [],
+        }
+    if one_pass and len(packet["chunks"]) == 1:
+        chunk = packet["chunks"][0]
+        reply = call_model(command, [
+            {"role": "system", "content": packet["system"]},
+            {"role": "user", "content": one_pass_prompt(chunk)},
+        ], timeout=timeout)
+        validate_observations(reply, chunk["changed_lines"])
+        validate_decision(reply, {item["hunk"] for item in reply["observations"]})
+        observations = {
+            "observations": reply["observations"], "limitations": reply["limitations"],
+        }
+        return {**reply, "observations": [observations], "model_id": model_id}
+    observations = []
+    for chunk in packet["chunks"]:
+        reply = call_model(command, [
+            {"role": "system", "content": packet["system"]},
+            {"role": "user", "content": observation_prompt(chunk)},
+        ], timeout=timeout)
+        validate_observations(reply, chunk["changed_lines"])
+        observations.append(reply)
+    observed_ids = {
+        item["hunk"] for chunk in observations for item in chunk["observations"]
+    }
     decision = call_model(command, [
         {"role": "system", "content": packet["system"]},
-        {"role": "user", "content": final_prompt},
-    ])
+        {"role": "user", "content": decision_prompt(observations)},
+    ], timeout=timeout)
     validate_decision(decision, observed_ids)
     return {**decision, "observations": observations, "model_id": model_id}
 
