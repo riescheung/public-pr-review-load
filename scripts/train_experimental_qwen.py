@@ -4,6 +4,7 @@
 import argparse
 import importlib.metadata
 import json
+import os
 from pathlib import Path
 
 from benchmark_data import timestamp, write_new
@@ -40,6 +41,18 @@ def encoded_rows(rows, tokenizer, max_length):
             raise ValueError("Empty, malformed or overlength target; truncation is forbidden")
         encoded.append((tokens, len(prefix)))
     return encoded
+
+
+def record_failure(output, error, recorded_after_run=False):
+    failure = {
+        "completed": False, "failed_at": timestamp(), "error": str(error),
+        "recorded_after_run": recorded_after_run,
+        "saved_checkpoints": {
+            path.name: file_sha256(path) for path in sorted(output.glob("*_adapters.safetensors"))
+        },
+    }
+    write_new(output / "failure.json", failure)
+    return failure
 
 
 def train_experiment(base, dataset, output, iters, max_length, layers):
@@ -86,6 +99,10 @@ def train_experiment(base, dataset, output, iters, max_length, layers):
         "learning_rate": 1e-4, "optimizer": "adam", "lora_parameters": parameters,
         "seed": 20261105, "enable_thinking": False, "mask_prompt": True,
         "compiled_training_step": False, "completion_budget": COMPLETION_BUDGET,
+        "metal_command_buffer_limits": {
+            name: os.environ.get(name)
+            for name in ("MLX_MAX_OPS_PER_BUFFER", "MLX_MAX_MB_PER_BUFFER")
+        },
         "implementation_sha256": {
             name: file_sha256(Path(__file__).with_name(name))
             for name in ("train_experimental_qwen.py", "mlx_qwen_loader.py", "mlx_training_loss.py")
@@ -139,8 +156,14 @@ def main():
         parser.error("Only existing local weights and data are accepted")
     if not 1 <= args.iters <= 200 or not 1 <= args.num_layers <= 8:
         parser.error("Use a finite small local experiment budget")
-    train_experiment(args.base_model, args.dataset, args.output, args.iters,
-                     args.max_seq_length, args.num_layers)
+    try:
+        train_experiment(args.base_model, args.dataset, args.output, args.iters,
+                         args.max_seq_length, args.num_layers)
+    except RuntimeError as error:
+        if ((args.output / "experiment.json").is_file()
+                and not (args.output / "failure.json").exists()):
+            record_failure(args.output, error)
+        raise
 
 
 if __name__ == "__main__":

@@ -249,6 +249,9 @@ hashes are excluded from the fresh cases. The installed Qwen 3.5 9B baseline
 matched two of the three historical decisions; that tiny public calibration
 set does not establish general accuracy. Fresh expert labels and semantic
 evidence audits are still required.
+The full 40-case development baseline has also finished: 38 accepted reviews,
+one evidence-preflight rejection and one invalid abstention response.
+Those are operational counts, not accuracy; no fresh expert labels exist yet.
 
 ```bash
 python3 scripts/pr_benchmark.py export
@@ -266,6 +269,9 @@ The human-supervised training path stays blocked until enough adjudications
 exist. A separate, explicitly experimental path can distill the 20 historical
 AI teacher proposals. It excludes every benchmark case and cannot qualify
 for promotion. See `BENCHMARK.md` for local-weight import and training commands.
+The evaluated step-10 adapter lowered weak-label validation loss but failed
+citation checks on all three calibration packets. Full 40-step attempts hit
+local Metal GPU errors. No candidate is promoted.
 The installed Ollama MLX tensors and tokenizer can be repackaged without
 downloads; their content hashes pin the exact inference base. The older 3B
 model is not a substitute. New model downloads need separate approval.

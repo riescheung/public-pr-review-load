@@ -151,6 +151,21 @@ def predictions(manifest, run_id):
     return records
 
 
+def evaluation_identity(spec):
+    model = spec["model"]
+    return {
+        "base_model_sha256": model.get("base_ollama_digest", model["digest"]),
+        "evaluation_protocol_sha256": digest({
+            "harness": spec.get("harness_sha256"), "protocol": spec["protocol"],
+            "max_chunks": spec["max_chunks"], "timeout_per_call": spec["timeout_per_call"],
+            "runtime": "mlx" if "base_ollama_digest" in model else "ollama",
+            "implementation": model.get("implementation_sha256", model.get("adapter_sha256")),
+            "versions": model.get("versions", model.get("ollama_version")),
+            "contract_attempts": model.get("contract_attempts", 1),
+        }),
+    }
+
+
 def evaluate(manifest, run_id, split):
     labels = load_records(BENCHMARK / "labels", manifest)
     runs = predictions(manifest, run_id)
@@ -168,6 +183,7 @@ def evaluate(manifest, run_id, split):
         "manifest_sha256": manifest["sha256"], "run": run_id, "split": split,
         "harness_sha256": spec.get("harness_sha256"),
         "experimental_ai_labels": spec["model"].get("experimental_ai_labels", False),
+        **evaluation_identity(spec),
         "case_ids": [c["id"] for c in cases], **metrics(cases, runs, labels, audits),
     }
 

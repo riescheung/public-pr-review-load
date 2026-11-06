@@ -17,8 +17,16 @@ The dashboard still shows WPR; this pipeline does not modify `data/report.json`.
   Its tiers were 1, 2, 2; the expert tiers were 1, 2, 3.
   These three public, previously inspected examples are not a blind accuracy
   benchmark. Their explanations have not received an independent semantic audit.
-- No new benchmark gold labels or trained adapter exist yet. The reserved
-  final test has not been run. Training remains blocked on human adjudication.
+- All 40 development cases have been processed: 38 accepted model reviews,
+  one oversized-hunk preflight rejection and one invalid abstention response.
+  There are no fresh expert labels or independent semantic audits, so tier
+  accuracy remains unmeasured. `data/benchmark/development_baseline.json`
+  records the operational results and prompt-token budget check.
+- An experimental same-base LoRA checkpoint exists, separate from the
+  human-supervised path. Its first matched MLX diagnostic failed citation
+  validation; see the isolated experiment below. No adapter is promoted.
+- The reserved final test has not been run. Human-supervised training remains
+  blocked on fresh human adjudications.
 
 The baseline pins Ollama model digest
 `d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911`.
@@ -247,9 +255,9 @@ check loss and gradient equivalence against full projection. Complete prompts
 still reach the transformer. Targets over 512 tokens are rejected, not clipped.
 Failed outputs are preserved.
 
-The bounded attempt saved step 10, then stopped at step 18 with the same Metal
-error. Its planned 40 steps did not finish. The saved checkpoint is evaluated
-separately and marked `training_completed: false`:
+The bounded attempt saved step 10, then stopped after progress reached 18/40
+with the same Metal error. Its planned 40 steps did not finish. The saved
+checkpoint is evaluated separately and marked `training_completed: false`:
 
 ```bash
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python \
@@ -258,7 +266,7 @@ HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 python \
   --dataset data/ai_review/lora/experimental-v2 \
   --source data/ai_review/lora/adapter-experimental-v4 \
   --checkpoint 0000010_adapters.safetensors \
-  --interruption "Metal GPU interactivity error at step 18; saved step 10 only" \
+  --interruption "Metal GPU interactivity error after progress reached 18/40; saved step 10 only" \
   --output data/ai_review/lora/adapter-experimental-v4-checkpoint10
 ```
 
@@ -276,6 +284,23 @@ as `mlx-base-v1` and `mlx-distilled-v1`. The subsequent `v2` protocol allows
 three fixed contract-feedback attempts for both models. Feedback names only
 format or citation violations, never a target tier or expert answer.
 Replies that still fail validation remain errors, not accepted scores.
+The matched `v2` calibration finished with zero accepted reviews and three
+contract errors for each model. The candidate produced nonliteral quotes
+on two packets and unobserved hunk IDs on the third. Lower imitation loss did
+not make it a usable code-grounded reviewer. Do not promote it.
+`data/benchmark/distillation_probe.json` records the checkpoint, hashes,
+losses and failed comparison without publishing local model weights.
+The installed Ollama version also rejects direct adapter import with
+`LoRA adapters are no longer supported`. The native `ADAPTER` route is
+therefore unavailable here. This experiment does not claim an Ollama-ready
+fine-tuned model; serving one would need a separately validated fused export
+or another inference runtime with the same strict citation contract.
+A final attempt on all 20 proposals used MLX's native
+`MLX_MAX_OPS_PER_BUFFER=1` and `MLX_MAX_MB_PER_BUFFER=16` limits. It hit the
+same Metal error before completing its first update and saved no checkpoint.
+The runtime issue remains unresolved on this machine; no full 40-step
+training run is claimed. Failed attempts now retain a `failure.json` with
+the error and hashes of any saved checkpoints.
 
 ## Final comparison
 
@@ -297,6 +322,9 @@ at least 10 true tier-3 cases and 10 tier-3 predictions, at least 90% tier-3
 precision and 95% semantic-evidence accuracy. If the test lacks enough
 tier-3 cases, the experiment cannot establish that claim; do not relabel
 cases to make it pass. Report uncertainty around these small-sample results.
+Both reports must pin the same base weights, inference runtime, contract
+protocol and implementation. An Ollama run and a standalone MLX run are not
+a controlled baseline/candidate pair, even if their source tensors match.
 
 Passing makes the candidate eligible for human approval, not automatically
 promoted. There is no code path here that writes model tiers into the

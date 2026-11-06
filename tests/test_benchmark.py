@@ -144,6 +144,9 @@ class BenchmarkTests(unittest.TestCase):
         self.assertFalse(compare(report, report)["eligible_for_human_approval"])
         experimental = compare(report, {**report, "experimental_ai_labels": True})
         self.assertTrue(any("distillation" in item for item in experimental["blockers"]))
+        paired = {**report, "base_model_sha256": "base", "evaluation_protocol_sha256": "protocol"}
+        mismatched = compare(paired, {**paired, "evaluation_protocol_sha256": "other"})
+        self.assertTrue(any("evaluation_protocol" in item for item in mismatched["blockers"]))
         with self.assertRaisesRegex(ValueError, "paired"):
             compare(report, {**report, "case_ids": ["other"]})
         with self.assertRaisesRegex(ValueError, "test"):

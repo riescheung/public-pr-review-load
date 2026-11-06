@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from import_ollama_mlx import file_sha256
-from pr_benchmark import installed_mlx_model
+from pr_benchmark import evaluation_identity, installed_mlx_model
 
 
 class MLXBenchmarkTests(unittest.TestCase):
@@ -38,6 +38,16 @@ class MLXBenchmarkTests(unittest.TestCase):
             self.assertEqual(original["base_receipt_sha256"], candidate["base_receipt_sha256"])
             self.assertTrue(candidate["experimental_ai_labels"])
             self.assertNotEqual(original["digest"], candidate["digest"])
+            spec = {"protocol": "review", "max_chunks": 8, "timeout_per_call": 360,
+                    "harness_sha256": "harness"}
+            self.assertEqual(evaluation_identity({**spec, "model": original}),
+                             evaluation_identity({**spec, "model": candidate}))
+            other_runtime = {"digest": original["base_ollama_digest"],
+                             "adapter_sha256": "ollama implementation", "ollama_version": "test"}
+            self.assertNotEqual(
+                evaluation_identity({**spec, "model": original})["evaluation_protocol_sha256"],
+                evaluation_identity({**spec, "model": other_runtime})["evaluation_protocol_sha256"],
+            )
             (adapter / "adapters.safetensors").write_bytes(b"changed adapter")
             with self.assertRaisesRegex(ValueError, "changed"):
                 installed_mlx_model(base, adapter)

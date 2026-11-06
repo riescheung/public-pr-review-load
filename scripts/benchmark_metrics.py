@@ -65,6 +65,9 @@ def compare(baseline, candidate):
     if (not baseline.get("harness_sha256")
             or baseline.get("harness_sha256") != candidate.get("harness_sha256")):
         blockers.append("Both test runs must pin the same harness implementation")
+    for field in ("base_model_sha256", "evaluation_protocol_sha256"):
+        if not baseline.get(field) or baseline.get(field) != candidate.get(field):
+            blockers.append(f"Both test runs must pin the same {field}")
     for name, report in (("baseline", baseline), ("candidate", candidate)):
         if (report["labelled"] < 50 or report["unlabelled"]
                 or report["not_run"] or report["errors"] or report["deferred"]):

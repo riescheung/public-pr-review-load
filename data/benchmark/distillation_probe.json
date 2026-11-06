@@ -1,0 +1,58 @@
+{
+  "purpose": "Local training-mechanics probe, not validated PR-judgement accuracy",
+  "benchmark_sha256": "cacdbb70e9fc06c3cbd637ba1398a6750ad1c1fca459d998608840920e049a5c",
+  "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+  "human_gold": false,
+  "promoted": false,
+  "training": {
+    "source": "Historical AI teacher proposals; all benchmark cases excluded",
+    "train_groups": 13,
+    "validation_groups": 3,
+    "excluded_overlength_groups": 4,
+    "max_sequence_tokens": 3072,
+    "tier3_training_groups": 0,
+    "semantic_abstention_training_groups": 0,
+    "planned_iterations": 40,
+    "source_run_last_reported_step": 18,
+    "evaluated_checkpoint_step": 10,
+    "training_completed": false,
+    "interruption": "Metal GPU interactivity error",
+    "initial_weak_label_validation_loss": 1.2287167310714722,
+    "final_weak_label_validation_loss": 0.5536267161369324,
+    "peak_evaluation_memory_bytes": 7475087330,
+    "dataset_manifest_sha256": "c5934a4ab43a0dcc9abfce2e2b74f17619715c40aa17d03c811f6d6bd1627c53",
+    "adapter_sha256": "a9a1bbf379ff78803f729c228ee0e544f1da70d60d3aee50c38608fb83651c14"
+  },
+  "matched_mlx_calibration": {
+    "cases": 3,
+    "source": "Historical public calibrations, not a fresh accuracy sample",
+    "protocol": "Same local loader, formatter, greedy generation, and three fixed contract-feedback attempts",
+    "baseline_run": "mlx-base-v2",
+    "baseline_accepted_reviews": 0,
+    "baseline_contract_errors": 3,
+    "candidate_run": "mlx-distilled-v2",
+    "candidate_accepted_reviews": 0,
+    "candidate_contract_errors": 3,
+    "candidate_failures": [
+      "C306072669213: quote did not match a literal changed line",
+      "Cbb6763fc3816: quote did not match a literal changed line",
+      "Cc5ffe42b51af: decision evidence did not cite observed hunk IDs"
+    ]
+  },
+  "decision": "Reject promotion: lower teacher-imitation loss did not produce valid code-grounded reviews",
+  "final_training_attempt": {
+    "run": "adapter-experimental-v5",
+    "train_groups": 17,
+    "validation_groups": 3,
+    "max_sequence_tokens": 8192,
+    "planned_iterations": 40,
+    "completed_iterations": 0,
+    "saved_checkpoints": 0,
+    "metal_max_ops_per_buffer": 1,
+    "metal_max_mb_per_buffer": 16,
+    "status": "failed",
+    "error": "Metal GPU interactivity error persisted despite native command-buffer limits",
+    "promoted": false
+  },
+  "reserved_test_predictions": 0
+}
