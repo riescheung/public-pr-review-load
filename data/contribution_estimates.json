@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-11-06T20:14:02.629410+00:00",
+  "generated_at": "2026-11-06T21:07:40.453867+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
   "human_gold": false,
   "report_sha256": "16423847e828dca178cc7a8104511536b6e04b9ca044e9ea3652b7133a1e4060",
-  "catalog_sha256": "ed41519fdbaae2509e04afbbd0855eaaab11ec843cc5420b89c242c72191c900",
+  "catalog_sha256": "6d3b4dff680989411acc3d82afb1c98f13e589b5b6042309906fbe86e446f9ea",
   "benchmark_sha256": "cacdbb70e9fc06c3cbd637ba1398a6750ad1c1fca459d998608840920e049a5c",
   "models": {
     "qwen-base-v2": {
@@ -39,55 +39,7 @@
       "experiment_sha256": "4a1f7230f1b22992d4e2721f9e9fd3a19bb661c4e62ce26611cef33bbd657780",
       "digest": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
     },
-    "qwen-contributions-v1": {
-      "name": "mlx-qwen3.5-9b+experimental-lora",
-      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
-      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
-      "implementation_sha256": "5addc6f5c69b00a18cb578d1505ac8252f1c3954fc62927b1e1abb4299d83239",
-      "contract_attempts": 3,
-      "structured_decoding": "schema-hunk-quote-v1",
-      "runtime_environment": {
-        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
-        "MLX_MAX_OPS_PER_BUFFER": null,
-        "MLX_MAX_MB_PER_BUFFER": null
-      },
-      "experimental_ai_labels": true,
-      "versions": {
-        "mlx": "0.32.4",
-        "mlx-lm": "0.32.2",
-        "transformers": "5.22.1",
-        "outlines-core": "0.2.14"
-      },
-      "adapter_sha256": "c7f454579e31ed0826b71a279260c4b1bb04140fed8955d406036240342b0dd8",
-      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
-      "experiment_sha256": "4a1f7230f1b22992d4e2721f9e9fd3a19bb661c4e62ce26611cef33bbd657780",
-      "digest": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
-    },
-    "qwen-reference-contributions-v1": {
-      "name": "mlx-qwen3.5-9b+experimental-lora",
-      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
-      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
-      "implementation_sha256": "5addc6f5c69b00a18cb578d1505ac8252f1c3954fc62927b1e1abb4299d83239",
-      "contract_attempts": 3,
-      "structured_decoding": "schema-hunk-quote-v1",
-      "runtime_environment": {
-        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
-        "MLX_MAX_OPS_PER_BUFFER": null,
-        "MLX_MAX_MB_PER_BUFFER": null
-      },
-      "experimental_ai_labels": true,
-      "versions": {
-        "mlx": "0.32.4",
-        "mlx-lm": "0.32.2",
-        "transformers": "5.22.1",
-        "outlines-core": "0.2.14"
-      },
-      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
-      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
-      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
-      "digest": "395e9e466ce47c5f134d88db112a647bb5339b641b09329f4e940f2616a82d10"
-    },
-    "qwen-reference-observations-v1": {
+    "qwen-reference-observations-v2": {
       "name": "mlx-qwen3.5-9b+experimental-lora",
       "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
       "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
@@ -111,7 +63,7 @@
       "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
       "digest": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
     },
-    "qwen-reference-observations-v2": {
+    "qwen-reference-rollout-v1": {
       "name": "mlx-qwen3.5-9b+experimental-lora",
       "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
       "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
@@ -138,15 +90,15 @@
   },
   "overall": {
     "groups": 17220,
-    "scored": 44,
+    "scored": 56,
     "abstained": 1,
-    "failed": 2,
+    "failed": 9,
     "reserved": 60,
-    "pending": 17113,
-    "mean_tier": 1.3636363636363635,
+    "pending": 17094,
+    "mean_tier": 1.4107142857142858,
     "tiers": {
-      "1": 28,
-      "2": 16,
+      "1": 33,
+      "2": 23,
       "3": 0
     },
     "review_ids": [
@@ -155,8 +107,26 @@
       "issue:101512",
       "issue:101758",
       "issue:102012",
+      "issue:102624",
       "issue:103374",
+      "issue:103471",
+      "issue:103632",
+      "issue:104036",
+      "issue:104939",
+      "issue:106246",
+      "issue:106294",
+      "issue:106525",
+      "issue:106808",
+      "issue:109268",
+      "issue:109270",
+      "issue:109271",
+      "issue:109328",
+      "issue:109329",
+      "issue:109330",
       "issue:109331",
+      "issue:109332",
+      "issue:109333",
+      "issue:109559",
       "issue:117285",
       "issue:61109",
       "issue:87775",
@@ -196,7 +166,8 @@
       "title:Gilbert09:continue an import only when the source proves its row order",
       "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
       "title:Gilbert09:make row tracking survive redis and billing blips",
-      "title:Gilbert09:point source test guidance at the shared driver"
+      "title:Gilbert09:point source test guidance at the shared driver",
+      "title:Piccirello:name the posthog hosts in style src and font src"
     ],
     "unmapped_prs": 14
   },
@@ -566,19 +537,25 @@
         },
         {
           "groups": 216,
-          "scored": 1,
+          "scored": 5,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 215,
+          "pending": 209,
           "mean_tier": 1.0,
           "tiers": {
-            "1": 1,
+            "1": 5,
             "2": 0,
             "3": 0
           },
           "review_ids": [
-            "issue:109331"
+            "issue:109328",
+            "issue:109329",
+            "issue:109330",
+            "issue:109331",
+            "issue:109332",
+            "issue:109333",
+            "issue:109559"
           ],
           "unmapped_prs": 1
         },
@@ -617,19 +594,25 @@
       ],
       "total": {
         "groups": 479,
-        "scored": 1,
+        "scored": 5,
         "abstained": 0,
-        "failed": 0,
+        "failed": 2,
         "reserved": 0,
-        "pending": 478,
+        "pending": 472,
         "mean_tier": 1.0,
         "tiers": {
-          "1": 1,
+          "1": 5,
           "2": 0,
           "3": 0
         },
         "review_ids": [
-          "issue:109331"
+          "issue:109328",
+          "issue:109329",
+          "issue:109330",
+          "issue:109331",
+          "issue:109332",
+          "issue:109333",
+          "issue:109559"
         ],
         "unmapped_prs": 1
       }
@@ -1424,35 +1407,39 @@
         },
         {
           "groups": 61,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 61,
-          "mean_tier": null,
+          "pending": 60,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:106294"
+          ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 244,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 1,
-        "pending": 243,
-        "mean_tier": null,
+        "pending": 242,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:106294"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -2340,18 +2327,20 @@
         },
         {
           "groups": 36,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 36,
-          "mean_tier": null,
+          "pending": 35,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:106808"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -2373,18 +2362,20 @@
       ],
       "total": {
         "groups": 237,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 237,
-        "mean_tier": null,
+        "pending": 236,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:106808"
+        ],
         "unmapped_prs": 1
       }
     },
@@ -2576,32 +2567,36 @@
           "groups": 25,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 1,
-          "pending": 24,
+          "pending": 23,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:102624"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 22,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 22,
+          "pending": 21,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:109268"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -2622,35 +2617,42 @@
         },
         {
           "groups": 15,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 15,
-          "mean_tier": null,
+          "pending": 13,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:109270",
+            "issue:109271"
+          ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 189,
-        "scored": 1,
+        "scored": 2,
         "abstained": 0,
-        "failed": 0,
+        "failed": 3,
         "reserved": 3,
-        "pending": 185,
+        "pending": 181,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
+          "issue:102624",
+          "issue:109268",
+          "issue:109270",
+          "issue:109271",
           "pr:92855"
         ],
         "unmapped_prs": 0
@@ -4072,18 +4074,20 @@
         },
         {
           "groups": 32,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 32,
-          "mean_tier": null,
+          "pending": 31,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:104939"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -4105,18 +4109,20 @@
       ],
       "total": {
         "groups": 180,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 180,
-        "mean_tier": null,
+        "pending": 179,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:104939"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -4306,18 +4312,20 @@
         },
         {
           "groups": 19,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 19,
-          "mean_tier": null,
+          "pending": 18,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:103632"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -4371,18 +4379,19 @@
       ],
       "total": {
         "groups": 152,
-        "scored": 1,
+        "scored": 2,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 151,
-        "mean_tier": 1.0,
+        "pending": 150,
+        "mean_tier": 1.5,
         "tiers": {
           "1": 1,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
         "review_ids": [
+          "issue:103632",
           "pr:80848"
         ],
         "unmapped_prs": 0
@@ -4986,18 +4995,20 @@
         },
         {
           "groups": 23,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 23,
-          "mean_tier": null,
+          "pending": 22,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:106525"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -5035,18 +5046,19 @@
       ],
       "total": {
         "groups": 147,
-        "scored": 1,
+        "scored": 2,
         "abstained": 0,
         "failed": 0,
         "reserved": 4,
-        "pending": 142,
+        "pending": 141,
         "mean_tier": 1.0,
         "tiers": {
-          "1": 1,
+          "1": 2,
           "2": 0,
           "3": 0
         },
         "review_ids": [
+          "issue:106525",
           "pr:76531"
         ],
         "unmapped_prs": 1
@@ -5544,19 +5556,20 @@
         },
         {
           "groups": 22,
-          "scored": 1,
+          "scored": 2,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 21,
-          "mean_tier": 1.0,
+          "pending": 20,
+          "mean_tier": 1.5,
           "tiers": {
             "1": 1,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
-            "pr:113390"
+            "pr:113390",
+            "title:Piccirello:name the posthog hosts in style src and font src"
           ],
           "unmapped_prs": 0
         },
@@ -5581,22 +5594,23 @@
       ],
       "total": {
         "groups": 154,
-        "scored": 4,
+        "scored": 5,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 150,
-        "mean_tier": 1.25,
+        "pending": 149,
+        "mean_tier": 1.4,
         "tiers": {
           "1": 3,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
           "issue:92144",
           "pr:102051",
           "pr:113390",
-          "pr:121580"
+          "pr:121580",
+          "title:Piccirello:name the posthog hosts in style src and font src"
         ],
         "unmapped_prs": 1
       }
@@ -6449,18 +6463,20 @@
         },
         {
           "groups": 20,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 20,
-          "mean_tier": null,
+          "pending": 19,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:103471"
+          ],
           "unmapped_prs": 2
         },
         {
@@ -6516,18 +6532,19 @@
       ],
       "total": {
         "groups": 107,
-        "scored": 1,
+        "scored": 2,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 106,
+        "pending": 105,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
+          "issue:103471",
           "issue:117285"
         ],
         "unmapped_prs": 2
@@ -7675,9 +7692,9 @@
           "groups": 13,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 12,
+          "pending": 11,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -7685,6 +7702,7 @@
             "3": 0
           },
           "review_ids": [
+            "issue:106246",
             "pr:113126"
           ],
           "unmapped_prs": 0
@@ -7710,9 +7728,9 @@
         "groups": 102,
         "scored": 1,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 101,
+        "pending": 100,
         "mean_tier": 1.0,
         "tiers": {
           "1": 1,
@@ -7720,6 +7738,7 @@
           "3": 0
         },
         "review_ids": [
+          "issue:106246",
           "pr:113126"
         ],
         "unmapped_prs": 0
@@ -11111,16 +11130,18 @@
           "groups": 4,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 1,
-          "pending": 3,
+          "pending": 2,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:104036"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -11160,16 +11181,18 @@
         "groups": 51,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 1,
-        "pending": 50,
+        "pending": 49,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:104036"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -32218,6 +32241,59 @@
       "packet_sha256": "e28aced8da19dfa037574ca8cc9eaddd3e7d40216698363c25dced292eab6003",
       "prediction_sha256": "fd9e7fad72902e6c23af5827bb30ce2bfcf7aa2b2544d1d25a5061bdb70cae0e"
     },
+    "title:Piccirello:name the posthog hosts in style src and font src": {
+      "id": "title:Piccirello:name the posthog hosts in style src and font src",
+      "prs": [
+        116718
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F2.H2",
+                "code_quote": "    return [part for part in narrowed if part.split()[0] in (\"style-src\", \"font-src\")]",
+                "behavior": "The style_font_shadow_policy function generates a report-only CSP directive for style-src and font-src with named hosts, not wildcards.",
+                "posthog_connection": "The style_font_shadow_policy generates a report-only CSP directive for style-src and font-src with named hosts, not wildcards."
+              },
+              {
+                "hunk": "P1.F2.H3",
+                "code_quote": "                shadows = {IMG_SRC_SHADOW_REPORT_VERSION: img_src_shadow_policy(csp_parts)}",
+                "behavior": "The style_font_shadow_policy call and its shadow report generation for style-src and font-src are removed from the shadows dictionary.",
+                "posthog_connection": "The style_font_shadow_policy call and its shadow report generation for style-src and font-src are removed from the shadows dictionary."
+              },
+              {
+                "hunk": "P1.F3.H3",
+                "code_quote": "        assert [policy for policy in enforced + reported if _report_version(policy) == [\"6\"]] == []",
+                "behavior": "The test asserts that no report-only policy with version 6 should exist in the enforced or reported CSP directives.",
+                "posthog_connection": "The test asserts that no report-only policy with version 6 should exist in the enforced or reported CSP directives."
+              }
+            ],
+            "limitations": "A cited hunk may omit relevant behavior elsewhere in the group."
+          }
+        ],
+        "limitations": "A cited hunk may omit relevant behavior elsewhere in the group.",
+        "score": 2,
+        "reason": "A report-only CSP shadow report for style-src and font-src with named hosts is removed from the middleware and tests. This is a bounded correctness change: the shadow report generation and its tests are removed, not the shadow report generation for style-src and font-src. The group does not demonstrate a broader capability or systemic risk reduction.",
+        "posthog_relevance": "A report-only CSP shadow report for style-src and font-src with named hosts is removed from the middleware and tests. This is a bounded correctness change: the shadow report generation and its tests are removed, not the shadow report generation for style-src and font-src. The group does not demonstrate a broader capability or systemic risk reduction.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F2.H2"
+        ],
+        "uncertainty": "A cited hunk may omit relevant behavior elsewhere in the group.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "model_id": "f18243069a398d8f577f09dedd60eca5adb0a114d626e15f50bca8e284d3bf4b"
+      },
+      "run": "mlx-distilled-v4",
+      "source": "benchmark",
+      "known_calibration": true,
+      "packet_sha256": "0c9eb84ed240d1207798d459c5b3c460e1928143788bd83153f0d83c3dc8d6d0",
+      "prediction_sha256": "dd7f668bbde0c926b1c9100608bc32861a425111ff207b6d43fbda1545abe2b3"
+    },
     "issue:117285": {
       "id": "issue:117285",
       "prs": [
@@ -32652,7 +32728,945 @@
       "known_calibration": false,
       "packet_sha256": "8c1b243fa09b195ab94c96d85bb6bbfedc996ff9277ce0c69b2f977cee4f301f",
       "prediction_sha256": "261d6eee884922ab5256a592cf80e8b3a65cf0f3da0395a6ae3666917c9a2ef7"
+    },
+    "issue:109328": {
+      "id": "issue:109328",
+      "prs": [
+        109346
+      ],
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "Adds a localized UI component and shared state for workspace space management, including dropdown actions and star/unstar functionality, with accompanying layout adjustments and test mocks.",
+        "posthog_relevance": "Provides workspace space management actions and shared state synchronization for the desktop/web interface.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F2.H1",
+          "P1.F2.H2",
+          "P1.F8.H1",
+          "P1.F8.H2",
+          "P1.F8.H3"
+        ],
+        "uncertainty": "Assessment relies on a chunk that lacks complete implementation details, API integration, and end-to-end flow; the second chunk is explicitly identified as a test and implementation change without complete coverage, preventing a higher tier.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "        <div className=\"flex gap-0.5\">",
+                "behavior": "Adds a new TodaySpaceActions component with a dropdown menu and action buttons for space management.",
+                "posthog_connection": "Provides UI actions for workspace spaces, including creating new sessions, starring, copying links, and accessing settings, which could help users manage their workspace and start new sessions without leaving the current page."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "    actionCount?: 1 | 2",
+                "behavior": "Adds an actionCount prop to TodaySpacesRow to account for the number of action buttons.",
+                "posthog_connection": "Allows the row layout to adjust its padding and truncation behavior based on the number of action buttons, potentially improving the user experience by preventing overlapping or misaligned elements."
+              },
+              {
+                "hunk": "P1.F2.H2",
+                "code_quote": "                    action && !badge && (actionCount === 2 ? 'pr-12' : 'pr-8'),",
+                "behavior": "Changes the padding-right class of TodaySpacesRow based on the actionCount prop.",
+                "posthog_connection": "Adjusts the layout of the space row to accommodate the new action buttons, potentially improving the visual presentation and usability of the space row."
+              }
+            ],
+            "limitations": "The provided chunk does not include the complete implementation of the new space actions, such as the actual API calls, error handling, and the complete flow of creating a new session. This could affect the assessment of the overall benefit and reliability of the change."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F8.H1",
+                "code_quote": "import { spaceNewSessionUrl, todaySpacesLogic } from '~/layout/today/todaySpacesLogic'",
+                "behavior": "Adds imports for space navigation and shared space state logic, establishing dependency on the sidebar space management module.",
+                "posthog_connection": "Connects space scene behavior to the shared sidebar space state, allowing the space page to receive updates from sidebar actions."
+              },
+              {
+                "hunk": "P1.F8.H2",
+                "code_quote": "        starredIds = []",
+                "behavior": "Adds a shared state variable and its initialization, alongside a mock for the task channels API that returns space metadata including starred status.",
+                "posthog_connection": "Provides the shared state and mock implementation needed to support the sidebar's star/unstar actions and the space page's display of starred status."
+              },
+              {
+                "hunk": "P1.F8.H3",
+                "code_quote": "                        : starredIds.filter((id) => id !== params.id)",
+                "behavior": "Adds a mock handler for the star/unstar API endpoint, updating the shared starredIds state based on the request.",
+                "posthog_connection": "Allows the test to simulate the backend star/unstar behavior, which is required to verify that the space page correctly reflects starred status changes."
+              }
+            ],
+            "limitations": "This chunk is a test and implementation change. The score cannot be assigned without reviewing the complete implementation and its tests. The chunk does not demonstrate a complete, end-to-end change or a systemic improvement. No score is assigned."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "7f89144e52079f5664a4fb3141c4ddabb52ba4e9825e19350173ccf276f23a84",
+      "prediction_sha256": "1f9f6a988fd76d667c19bb8de357b9d2ecea61870ed2bafdf6983a2d5f884e0c"
+    },
+    "issue:104036": {
+      "id": "issue:104036",
+      "prs": [
+        104068
+      ],
+      "status": "error",
+      "tier": null,
+      "review": null,
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "ce18c02af391eb0179b73b956310c513487d08f620ad666b21721d646b8c795b",
+      "prediction_sha256": "ab1dafb15dabf47d0ad35e27d6507e07fede1dcf5b3663b41b0e77381e843d0d"
+    },
+    "issue:103632": {
+      "id": "issue:103632",
+      "prs": [
+        103900
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F3.H3",
+                "code_quote": " * Optional note, offered only once a rating is already recorded. It",
+                "behavior": "Documentation clarifies that notes are optional metadata accompanying ratings, not independent events.",
+                "posthog_connection": "Clarifies expected event structure for inbox report feedback, helping maintainers understand the relationship between ratings and notes."
+              },
+              {
+                "hunk": "P1.F3.H4",
+                "code_quote": "  note: string;",
+                "behavior": "Changes the feedback note property from a numeric length to the actual string content.",
+                "posthog_connection": "Allows PostHog to record the actual user feedback text rather than just its length, potentially improving qualitative analysis of report dismissals and refunds."
+              },
+              {
+                "hunk": "P1.F6.H1",
+                "code_quote": "        refund_note: \"The proposed change did not fix the issue\",",
+                "behavior": "Adds a refund note and reason to the analytics event when a report is refunded.",
+                "posthog_connection": "Records refund reasons and notes in PostHog, providing insight into why reports are suppressed and potentially identifying recurring false-positive patterns."
+              }
+            ],
+            "limitations": "Changes are localized to the Desktop product's inbox and refund workflows; no broader systemic or shared infrastructure changes are demonstrated. No tests or production behavior are shown, and no adoption or incident avoidance is established."
+          }
+        ],
+        "limitations": "Changes are localized to the Desktop product's inbox and refund workflows; no broader systemic or shared infrastructure changes are demonstrated. No tests or production behavior are shown, and no adoption or incident avoidance is established.",
+        "score": 2,
+        "reason": "Adds a bounded, substantive capability: recording refund reasons and notes alongside dismissals. The implementation and relevant checks are visible, and the change could help PostHog understand report suppression and feedback quality. No broader systemic or shared infrastructure changes are demonstrated, and no adoption or incident avoidance is established.",
+        "posthog_relevance": "Allows PostHog to record refund reasons and notes alongside dismissals, potentially improving qualitative analysis of report suppression and feedback quality.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F3.H3",
+          "P1.F3.H4",
+          "P1.F6.H1"
+        ],
+        "uncertainty": "Changes are localized to Desktop; no broader systemic or shared infrastructure changes are demonstrated. No adoption or incident avoidance is established.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "4cf6e147167464e96af6f343b8fe183efe98aaaa587204a80a43487a4ffb07c3",
+      "prediction_sha256": "13ffdc95b2ff3e0a1427ac6f3c3b4941d5492843ddd74d4b497642907719707e"
+    },
+    "issue:106246": {
+      "id": "issue:106246",
+      "prs": [
+        113916
+      ],
+      "status": "deferred",
+      "tier": null,
+      "review": null,
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "b0e5f12ec7f5309230e4d229c1d4f9dadf187ad30e7355e15d0b0227509e30cf",
+      "prediction_sha256": "35e915deda7a3cb45e7fa8cfc8d139af1e0e85779ab05f3db56981a050d5905f"
+    },
+    "issue:109559": {
+      "id": "issue:109559",
+      "prs": [
+        109592
+      ],
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "Changes are limited to frontend styling and documentation. P1.F1 and P1.F2 are Storybook examples and CSS overrides, while P1.F3 and P1.F7 are TypeScript and Tailwind class adjustments. No backend implementation, tests, or runtime behavior changes are demonstrated.",
+        "posthog_relevance": "Changes the visual layout and documentation of the workspace task space and AI task composer, potentially affecting the perceived hierarchy and spacing.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F2.H1",
+          "P1.F3.H1",
+          "P1.F7.H3"
+        ],
+        "uncertainty": "All hunks are either example data, CSS, or TypeScript-only changes. No implementation, tests, or runtime behavior are shown. No tier is assigned.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "            output: { pr_url: 'https://github.com/example-org/webapp/pull/421' },",
+                "behavior": "Adds a new `pr_urls` array alongside the single `pr_url` in the example session output, and adds a new example task entry.",
+                "posthog_connection": "Changes the example data used in Storybook for the Today homepage, not runtime behavior. No implementation or tests are shown, so no tier is assigned."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "[data-quill] .hover\\:bg-muted:hover {",
+                "behavior": "Adds a CSS rule to override the Tailwind hover variant for muted backgrounds on Quill-bridge elements.",
+                "posthog_connection": "Changes the compiled CSS for the Quill editor, not PostHog's own React components. No tier is assigned."
+              },
+              {
+                "hunk": "P1.F3.H1",
+                "code_quote": "export type EmbeddedTaskComposerProps = EmbeddedTaskComposerImplProps & {",
+                "behavior": "Adds a `fallback` optional property to the props type of the EmbeddedTaskComposer component.",
+                "posthog_connection": "Changes the TypeScript interface for the AI task composer, not runtime behavior. No tier is assigned."
+              }
+            ],
+            "limitations": "All hunks are either example data, CSS, or TypeScript-only changes. No implementation, tests, or runtime behavior are shown. No tier is assigned."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F7.H3",
+                "code_quote": "                    className=\"-mt-4\"",
+                "behavior": "Adds a negative margin to the Tabs component, pulling the tab bar closer to the page title.",
+                "posthog_connection": "Changes the visual layout of the workspace task space, potentially affecting the perceived hierarchy between the space title and the feed/settings tabs."
+              },
+              {
+                "hunk": "P1.F7.H3",
+                "code_quote": "                    <div className=\"-mx-4 border-b border-border px-4\">",
+                "behavior": "Wraps the TabsList in a new div with horizontal padding and a bottom border, while removing the previous TabsList wrapper.",
+                "posthog_connection": "Replaces the previous tab container with a new one, changing the border and padding behavior of the tab bar, which could affect the visual separation from the content below."
+              },
+              {
+                "hunk": "P1.F7.H3",
+                "code_quote": "                        <div className=\"mx-auto flex w-full max-w-165 flex-col pt-3\">",
+                "behavior": "Adds a top padding to the feed content container, creating a top inset.",
+                "posthog_connection": "Changes the spacing between the tab bar and the feed content, potentially creating a visual gap or inset at the top of the feed."
+              }
+            ],
+            "limitations": "This chunk only shows the frontend implementation. It does not demonstrate whether this change is adopted, whether it improves user experience, or whether it avoids any incidents. The score cannot be assigned without broader context."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "27adc95a6b7b8831dfb5516a0942ae4913e71d9c6a18dbda706f6430c0f717bc",
+      "prediction_sha256": "edb818d372355b52f61e927fd9f8c5a80d7b35c28a2fda61c552723b54f9c9a8"
+    },
+    "issue:106525": {
+      "id": "issue:106525",
+      "prs": [
+        107658
+      ],
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "Adds React imports, converts SceneStickyBar to forwardRef, and implements a custom hook using ResizeObserver to calculate offsets for sticky UI elements. This supports a sticky header implementation in the Error Tracking issues list, allowing row height adjustment based on the sticky bar's position.",
+        "posthog_relevance": "Frontend UI implementation for the Error Tracking issues list, specifically handling sticky header positioning and row height adjustments.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F1.H2",
+          "P1.F1.H3",
+          "P1.F7.H4"
+        ],
+        "uncertainty": "The chunk does not include the complete implementation of the LemonTable sticky header or the consuming components, so the full behavior and its actual benefit are not demonstrated. The score is based on the utility and its potential application, not a complete, tested feature.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "import { RefObject, forwardRef, useEffect, useState } from 'react'",
+                "behavior": "Adds React imports, including RefObject, forwardRef, useEffect, and useState, which are prerequisites for the subsequent ref and state management implementation.",
+                "posthog_connection": "These imports are required to support the new SceneStickyBar ref forwarding and the useSceneStickyBarBottom hook, which are not present without them."
+              },
+              {
+                "hunk": "P1.F1.H2",
+                "code_quote": "export const SceneStickyBar = forwardRef<HTMLDivElement, SceneStickyBarProps>(function SceneStickyBar(",
+                "behavior": "Changes SceneStickyBar from a regular function to a forwardRef, and adds a ref parameter. The ref is passed to the root div element.",
+                "posthog_connection": "Allows parent components to access the DOM element of the sticky bar, which is necessary for the useSceneStickyBarBottom hook to observe its size and position."
+              },
+              {
+                "hunk": "P1.F1.H3",
+                "code_quote": "export function useSceneStickyBarBottom(barRef: RefObject<HTMLElement>): number {",
+                "behavior": "Implements a custom hook that uses ResizeObserver to track the bottom position of a sticky bar, accounting for its pinned top position and its height. It also observes the parent container to account for breakpoint changes.",
+                "posthog_connection": "Provides a calculated offset for other sticky elements to position themselves correctly below the SceneStickyBar, preventing overlap or gaps when the bar is pinned."
+              }
+            ],
+            "limitations": "This chunk does not include the implementation of the LemonTable sticky header, the useTableFitsContainer hook, or the DataTable and QueryContext changes. While P1.F1.H3 provides the utility, its actual use and the complete implementation of the sticky header behavior are not demonstrated in this chunk. The chunk also does not show the complete implementation of the LemonTable sticky header, which is a significant part of the overall change."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F7.H4",
+                "code_quote": "            <SceneStickyBar ref={stickyBarRef} className=\"first:-mt-4\" showBorderBottom={false}>",
+                "behavior": "Adds a ref to SceneStickyBar and uses its value to dynamically set a CSS custom property on a parent row div.",
+                "posthog_connection": "This could support a sticky header behavior in the Error Tracking issues list, allowing the row height to adjust based on the sticky bar's position, potentially improving the user experience for error tracking dashboards. This is a UI implementation change, not a backend or query change."
+              }
+            ],
+            "limitations": "This chunk is a single hunk. No other hunks are provided, so no broader context or relationship to other changes can be established. No score is assigned."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "f8a0a177dbb036d9112ed5464aa5a7bb8d884c382b7359ddebcab9b95b1d8c85",
+      "prediction_sha256": "16aa2ecfa75f1b5bfa015db2b0e706d89fc76e131dd4f25606ebf1954013f905"
+    },
+    "issue:109330": {
+      "id": "issue:109330",
+      "prs": [
+        109349
+      ],
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "Adds TypeScript types, shared state dependencies, and client-side utility functions for an unread session tracking and read-marker API, along with corresponding tests. The implementation and backend API are not present, so the tier is limited.",
+        "posthog_relevance": "Adds a new capability for tracking and clearing unread status on task activity and session rows, potentially reducing redundant notifications.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F1.H2",
+          "P1.F3.H1",
+          "P1.F5.H1",
+          "P1.F5.H2",
+          "P1.F6.H1",
+          "P1.F12.H3",
+          "P1.F13.H1",
+          "P1.F14.H1"
+        ],
+        "uncertainty": "The tier cannot be raised to 2 or 3 without seeing the backend implementation, database migrations, and complete API responses, as the current chunk only shows wiring, types, and client-side helpers.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "import { todaySpacesLogic } from './todaySpacesLogic'",
+                "behavior": "Adds a new import for todaySpacesLogic, establishing a dependency on a new shared state and action management module.",
+                "posthog_connection": "Connects the TodaySessionRow component to a shared workspace activity and unread state management system, potentially unifying session and space contexts."
+              },
+              {
+                "hunk": "P1.F1.H2",
+                "code_quote": "    unread: boolean",
+                "behavior": "Adds an unread state property to the TodaySessionRowProps interface and the TodaySessionRow component, and imports the new logic to access it.",
+                "posthog_connection": "Allows the session row UI to display and react to an unread status, changing its appearance and potentially its behavior."
+              },
+              {
+                "hunk": "P1.F3.H1",
+                "code_quote": "        unreadSessionIds,",
+                "behavior": "Adds unreadSessionIds and unreadSpaceIds to the destructured values from todaySpacesLogic, exposing the computed unread state to the sidebar.",
+                "posthog_connection": "Makes the unread state available to the sidebar, allowing it to display indicators for unread sessions and spaces."
+              }
+            ],
+            "limitations": "This chunk does not show the implementation of the unread state calculation, the API calls, or the complete UI rendering. It only shows the wiring and the addition of the unread property. The tier cannot be assigned without seeing the complete implementation and its tests."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F5.H1",
+                "code_quote": "    TaskActivityDTOApi,",
+                "behavior": "Adds TaskActivityDTOApi and TaskActivityReadMarkerApi to the frontend API schema imports.",
+                "posthog_connection": "Provides the TypeScript types required for the new unread activity and read-marker request structures, supporting the implementation of the unread tracking and session read-request API."
+              },
+              {
+                "hunk": "P1.F5.H2",
+                "code_quote": "export function unreadSessionIds(activity: TaskActivityDTOApi[]): Set<string> {",
+                "behavior": "Adds utility functions to identify unread session and space activity, and to construct a request payload for marking a session as read.",
+                "posthog_connection": "Implements the client-side logic for the read-marker API, allowing the frontend to request clearing of unread markers for a session, which could reduce redundant notifications or update the UI state."
+              },
+              {
+                "hunk": "P1.F6.H1",
+                "code_quote": "                '/api/projects/:team_id/task_activity/': {",
+                "behavior": "Adds a mock API response for the task activity endpoint, including unread activity and a count.",
+                "posthog_connection": "Provides test coverage for the unread activity API, demonstrating the expected response structure and unread count, which could help verify the implementation of the unread tracking and clearing functionality."
+              }
+            ],
+            "limitations": "This chunk does not include the backend implementation, database migrations, or tests for the read-marker API, so the tier and benefit cannot be assessed. The chunk also does not include the implementation of the unread clearing API, so the tier and benefit cannot be assessed. The chunk also does not include the implementation of the unread clearing API, so the tier and benefit cannot be assessed."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F12.H3",
+                "code_quote": "        return prState && prState !== 'unknown' ? PR_STATUSES[prState] : PR_STATUSES.open",
+                "behavior": "Adds a second parameter to spaceFeedStatus, allowing the caller to supply a PR state; the function now returns a status derived from that supplied state rather than always returning PR_STATUSES.open.",
+                "posthog_connection": "Could support a workflow where the frontend explicitly requests and receives the current PR state from an API, rather than inferring it, potentially improving status accuracy for tasks with PRs."
+              },
+              {
+                "hunk": "P1.F13.H1",
+                "code_quote": "        const markReadBodies: unknown[] = []",
+                "behavior": "Adds a new test case and its implementation, including a mock for the mark_read API and assertions for unread session and space IDs after marking read.",
+                "posthog_connection": "Adds test coverage for the activity marking and unread session management behavior, potentially improving reliability of the unread tracking feature."
+              },
+              {
+                "hunk": "P1.F14.H1",
+                "code_quote": "import { sessionIdsWithPullRequests } from './taskPullRequests'",
+                "behavior": "Adds an import for a new utility function sessionIdsWithPullRequests.",
+                "posthog_connection": "Could support a workflow where the frontend explicitly requests and receives the current PR state from an API, rather than inferring it, potentially improving status accuracy for tasks with PRs."
+              }
+            ],
+            "limitations": "The provided chunk does not include the implementation of the imported function sessionIdsWithPullRequests, nor does it include the implementation of the loadPullRequestStates action or the API endpoint that would supply the prState. The chunk also does not include the implementation of the pullRequestStates function, which is imported in P1.F16.H2. Without these implementations, it is not possible to assess the complete behavior or the potential benefit of the change. The chunk also does not include the implementation of the loadTaskActivity action, which is imported in P1.F14.H3. Without these implementations, it is not possible to assess the complete behavior or the potential benefit of the change."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "fbc23bff223c7db0f850e713f7b7e8dfab4f221621c7285db3d6dd0dda8798ad",
+      "prediction_sha256": "95f470f219ad76f7406fc6d843deb8c3f2cdaf9cd6eaf045894bdc6701585630"
+    },
+    "issue:109268": {
+      "id": "issue:109268",
+      "prs": [
+        109512
+      ],
+      "status": "preflight",
+      "tier": null,
+      "review": {
+        "score": null,
+        "confidence": "none",
+        "evidence": [],
+        "reason": "Incomplete code evidence; no model review was run.",
+        "posthog_relevance": "",
+        "uncertainty": "Group not reviewed.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": "Binary, rename-only or incomplete file patch",
+        "observations": []
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "3a9c53f49ed5cc17985c077742430f7d246caaa41f40a620dfaaa80a04d372c3",
+      "prediction_sha256": "e2eb217e3984f81a9e8dc9e76855b714c81db471349ead7dda5ee0049694d92f"
+    },
+    "issue:109329": {
+      "id": "issue:109329",
+      "prs": [
+        109347
+      ],
+      "status": "ok",
+      "tier": 1,
+      "review": {
+        "score": 1,
+        "reason": "Adds creator identity and UI protection for space members, and defines frontend configuration presets for an auto-archive feature. P1.F1 changes the SpaceAccess UI to distinguish and protect the space creator, while P1.F4 establishes preset day values and permission-related imports.",
+        "posthog_relevance": "Supports the Space and potentially Warehouse access control and retention configuration.",
+        "confidence": "low",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F1.H2",
+          "P1.F1.H3",
+          "P1.F4.H1",
+          "P1.F4.H2",
+          "P1.F4.H3"
+        ],
+        "uncertainty": "Only frontend implementation is shown; backend enforcement, API compatibility, database migrations, and tests are absent, preventing assessment of end-to-end behavior or systemic impact.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "    const { space, savingSpace, members, membersLoading, creatorId } = useValues(spaceSceneLogic({ id }))",
+                "behavior": "Adds creatorId to the destructured values from spaceSceneLogic.",
+                "posthog_connection": "Provides the identity of the space creator, which is required for the subsequent UI changes in P1.F1.H2 and P1.F3.H4."
+              },
+              {
+                "hunk": "P1.F1.H2",
+                "code_quote": "                                                        <span>{names.get(userId) ?? ''}</span>{' '}",
+                "behavior": "Renders a special chip for the creator with a 'Creator' label and disables the remove option.",
+                "posthog_connection": "Changes the SpaceAccess UI to distinguish the creator and prevent their removal, supporting the business rule established in P1.F3.H4."
+              },
+              {
+                "hunk": "P1.F1.H3",
+                "code_quote": "                                        <ComboboxItem key={userId} value={userId} disabled={userId === creatorId}>",
+                "behavior": "Disables the creator from being selected in the member picker and updates the field description.",
+                "posthog_connection": "Reinforces the creator protection at the input level and documents the behavior for users."
+              }
+            ],
+            "limitations": "This chunk does not show the backend implementation, API changes, or database migrations. It does not demonstrate the complete end-to-end behavior, including the backend enforcement of the auto-archive settings and the creator protection. The score cannot be assigned without this context."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F4.H1",
+                "code_quote": "import { OrganizationMembershipLevel } from 'lib/constants'",
+                "behavior": "Adds an import for an organization membership level constant.",
+                "posthog_connection": "Provides a shared constant used to check user permission levels, potentially for access control or tiered features."
+              },
+              {
+                "hunk": "P1.F4.H2",
+                "code_quote": "import { Breadcrumb, TeamPublicType, TeamType } from '~/types'",
+                "behavior": "Adds Team type imports and removes a Breadcrumb-only import, while retaining Breadcrumb.",
+                "posthog_connection": "Brings team and public team type definitions into scope, supporting the use of team membership and identity checks."
+              },
+              {
+                "hunk": "P1.F4.H3",
+                "code_quote": "export const AUTO_ARCHIVE_PRESET_DAYS = [1, 3, 7, 14, 30]",
+                "behavior": "Defines a list of preset day values and helper functions for auto-archive configuration.",
+                "posthog_connection": "Establishes the configuration and validation rules for an auto-archive feature, including presets and error messages."
+              }
+            ],
+            "limitations": "This chunk is a single-file frontend implementation. It does not show backend API compatibility, database changes, or tests. It does not demonstrate actual user adoption or production behavior. No score assigned."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "6523127e93c3429efb610ef8c759e4dc6fef52dddba8d394b5e3680436d5dc6b",
+      "prediction_sha256": "c5fc926e94a2810c3f7fa19da9bf3a928167b4b1d6699e478bb37be8d137ea50"
+    },
+    "issue:104939": {
+      "id": "issue:104939",
+      "prs": [
+        117239
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "score": 2,
+        "reason": "Adds AND is_deleted = true to PostgreSQL queries and assertions, changing person record selection and update behavior during warehouse-side identity splitting; this could preserve identity consistency and prevent version drift or reuse of live person UUIDs.",
+        "posthog_relevance": "Warehouse identity replication and warehouse-side person splitting, potentially affecting identity consistency and warehouse-side version preservation.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F3.H1",
+          "P1.F4.H3",
+          "P1.F7.H4"
+        ],
+        "uncertainty": "Only SQL and test assertions are shown; implementation and test results are not demonstrated, so correctness and completeness are unverified.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "  \"query\": \"\\n                UPDATE posthog_person\\n                SET is_deleted = false,\\n                    version = GREATEST(COALESCE(version, 0) + 1, $3)\\n                WHERE team_id = $1 AND uuid = ANY($2) AND is_deleted = true\\n                RETURNING uuid as \\\"uuid!\\\", version as \\\"version!\\\"\\n                \",",
+                "behavior": "Adds AND is_deleted = true to the WHERE clause and removes the CASE expression, changing the update to only revive rows that are currently deleted.",
+                "posthog_connection": "Changes the PostgreSQL query used to resurrect a person record during a split, potentially affecting version assignment and row selection for reassignment."
+              },
+              {
+                "hunk": "P1.F3.H1",
+                "code_quote": "  \"query\": \"\\n            SELECT id::bigint as \\\"id!\\\", uuid as \\\"uuid!\\\", created_at as \\\"created_at!\\\"\\n            FROM posthog_person\\n            WHERE team_id = $1 AND uuid = ANY($2) AND is_deleted = true\\n            ORDER BY id\\n            FOR UPDATE\\n            \",",
+                "behavior": "Adds AND is_deleted = true and ORDER BY id to a SELECT query, while retaining FOR UPDATE.",
+                "posthog_connection": "Changes the PostgreSQL query used to select person records, potentially affecting row selection and ordering during a split."
+              },
+              {
+                "hunk": "P1.F4.H3",
+                "code_quote": "        // A live person here (the source itself, for the distinct id that created it) would absorb",
+                "behavior": "Adds a comment explaining that a live person would absorb the distinct ID, and P1.F4.H3 also adds AND is_deleted = true to a SELECT query.",
+                "posthog_connection": "Adds a comment explaining the behavior of live persons and changes the PostgreSQL query used to select person records, potentially affecting row selection and ordering during a split."
+              }
+            ],
+            "limitations": "The provided chunk only includes SQL query metadata and comments, not the full implementation or test results. It is not possible to determine if the changes are correct, complete, or have unintended side effects. The chunk does not include the full implementation or test results, so it is not possible to determine if the changes are correct, complete, or have unintended side effects."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F7.H4",
+                "code_quote": "    assert_eq!(results[0].new_person_version, 101); // source person version 0 + 101",
+                "behavior": "Adds and asserts version preservation and distinct ID mapping behavior in split_person, including tombstone handling and request-order preservation.",
+                "posthog_connection": "These assertions check that the Rust person identity layer correctly preserves version and created_at, and does not reuse live person UUIDs when splitting, which could prevent identity collisions and version drift in the warehouse replica. This could help maintain identity consistency and prevent potential identity reuse or version loss during warehouse-side person splitting. This could help maintain identity consistency and prevent potential identity reuse or version loss during warehouse-side person splitting."
+              }
+            ],
+            "limitations": "This chunk is a test file, not implementation. It does not demonstrate the actual implementation or behavior, only the expected behavior. No score can be assigned."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "acc00ddc54adadb83f713d44195578027a88f3fa2a4fe255de327cc73a2efdb7",
+      "prediction_sha256": "8460b00fbda4c7e4d93220a616eb529c41b31ec1dd174e768c83f55d0a3d17c5"
+    },
+    "issue:109333": {
+      "id": "issue:109333",
+      "prs": [
+        109611
+      ],
+      "status": "error",
+      "tier": null,
+      "review": null,
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "ccae2fb3c78a565cc27b49a108299c914fd3ca84c8a1a0ae81c064239a4710f5",
+      "prediction_sha256": "25669d36d773950050491c4c906cd3ab68f11ebd994e1f5d48f01b99ee345e16"
+    },
+    "issue:109270": {
+      "id": "issue:109270",
+      "prs": [
+        126590
+      ],
+      "status": "preflight",
+      "tier": null,
+      "review": {
+        "score": null,
+        "confidence": "none",
+        "evidence": [],
+        "reason": "Incomplete code evidence; no model review was run.",
+        "posthog_relevance": "",
+        "uncertainty": "Group not reviewed.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": "P1.F15.H1 exceeds the per-chunk limit",
+        "observations": []
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "215ec5b9385ed3e87487f4296365755822cc22a2c93e92ad82be1d43e27a585a",
+      "prediction_sha256": "74284b6c485c73d25a954b000fef1c61e78765c8f787f802e93577fdab4bdcb8"
+    },
+    "issue:102624": {
+      "id": "issue:102624",
+      "prs": [
+        102962
+      ],
+      "status": "preflight",
+      "tier": null,
+      "review": {
+        "score": null,
+        "confidence": "none",
+        "evidence": [],
+        "reason": "Incomplete code evidence; no model review was run.",
+        "posthog_relevance": "",
+        "uncertainty": "Group not reviewed.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": "Binary, rename-only or incomplete file patch",
+        "observations": []
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "d2bd56545f7dbb2478d8a8c7f317df315114db88a9db32ec6c009933131977ad",
+      "prediction_sha256": "acb2f7bf2f1494cbd800f268b476f87b6bc5cc8f14654fd81cb45c08d565d161"
+    },
+    "issue:106808": {
+      "id": "issue:106808",
+      "prs": [
+        113290
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F2.H6",
+                "code_quote": "        markdownRenderingPreference: [",
+                "behavior": "Adds a persistent preference state for markdown rendering, backed by storage, while keeping an override state for session-only behavior.",
+                "posthog_connection": "Allows users to retain their markdown rendering preference across different prompts and sessions, rather than resetting it every time a new prompt is opened or the mode changes."
+              },
+              {
+                "hunk": "P1.F2.H7",
+                "code_quote": "            (override: boolean | null, preference: boolean, mode: PromptMode, isNewPrompt: boolean): boolean =>",
+                "behavior": "Defines a selector that computes the current markdown rendering state by prioritizing an explicit override, then the stored preference, and finally a default for new prompts or edit mode.",
+                "posthog_connection": "Provides a consistent, predictable view of markdown rendering state to the UI, distinguishing between a temporary override and a stored user preference."
+              },
+              {
+                "hunk": "P1.F2.H8",
+                "code_quote": "        toggleMarkdownRendering: () => {",
+                "behavior": "Updates the override and preference states, but only updates the preference if not in edit mode or for a new prompt, preserving the preference across mode switches.",
+                "posthog_connection": "Implements the user-facing behavior of remembering markdown preference while allowing temporary overrides in edit mode, improving usability and reducing unexpected resets."
+              }
+            ],
+            "limitations": "This chunk is a frontend-only implementation. It does not show backend support, database changes, or tests for the preference persistence, which could affect reliability and compatibility."
+          }
+        ],
+        "limitations": "This chunk is a frontend-only implementation. It does not show backend support, database changes, or tests for the preference persistence, which could affect reliability and compatibility.",
+        "score": 2,
+        "reason": "Adds a bounded, substantive capability: persistent markdown rendering preference with session overrides. The implementation and relevant checks are visible, but the change is localized to the frontend and lacks broader systemic or backend support.",
+        "posthog_relevance": "Relevant to PostHog's AI observability and prompt management, potentially improving user experience and consistency.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F2.H6",
+          "P1.F2.H7",
+          "P1.F2.H8"
+        ],
+        "uncertainty": "medium",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "43f0195d3bce26bd6c21f1d9fd9b8c185bd7b67c3a75d6705e58af6afc596013",
+      "prediction_sha256": "c534ef58efca1242a9e554cb8f6cbd685ef96ec8260d20fbcc4baf786218c2fc"
+    },
+    "issue:109332": {
+      "id": "issue:109332",
+      "prs": [
+        109604
+      ],
+      "status": "error",
+      "tier": null,
+      "review": null,
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "60b9d11af780b7bf12c464851b25bb739fa79017efb88d79964e4a43036d5850",
+      "prediction_sha256": "fb9543ad29587d37ea952861529bfd5f04e58d52062427ae878e71e6b468e8a7"
+    },
+    "issue:106294": {
+      "id": "issue:106294",
+      "prs": [
+        122491
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "score": 2,
+        "reason": "The observed changes demonstrate a bounded correctness and reliability improvement: P1.F3.H8 explicitly filters out Slack destinations and pending notifications when the associated Slack workspace is unavailable, preventing failed notifications and queued alert failures. P1.F4.H1 adds tests for this destination grouping and labeling. P1.F1 changes are minor refactoring. This establishes a substantive, bounded capability improvement without requiring backend implementation or broader systemic changes.",
+        "posthog_relevance": "Replay Vision alert destination assignment and pending notification cleanup, specifically preventing failed Slack notifications when workspace availability changes.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F3.H8",
+          "P1.F4.H1"
+        ],
+        "uncertainty": "Assessment relies on frontend filtering and tests; backend implementation and database support are not shown, so complete end-to-end reliability cannot be verified.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "import { useEffect } from 'react'",
+                "behavior": "Removes a React import, indicating removal of a side-effect or lifecycle dependency.",
+                "posthog_connection": "Changes the ScannerAlertNotifications component, potentially removing a side-effect or initialization that was previously handled in the component body."
+              },
+              {
+                "hunk": "P1.F1.H2",
+                "code_quote": "function pendingDestinationView(notification: PendingVisionAlertNotification): {",
+                "behavior": "Removes a local helper function and its associated type, replacing it with an imported named export.",
+                "posthog_connection": "Replaces a local implementation of destination view formatting with a shared utility, suggesting a refactoring for reuse or consistency."
+              },
+              {
+                "hunk": "P1.F1.H3",
+                "code_quote": "        selectedSlackIntegration,",
+                "behavior": "Changes a prop or state value name from firstSlackIntegration to selectedSlackIntegration.",
+                "posthog_connection": "Updates the component's state or props to use a more descriptive name, potentially changing the selection behavior or API."
+              }
+            ],
+            "limitations": "This chunk does not include the implementation of the removed useEffect or the new setSelectedSlackIntegrationId action, so the complete behavior and its impact on PostHog cannot be assessed. No score is assigned."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F3.H8",
+                "code_quote": "            const availableSlackIntegrations = integrations.filter((integration) => integration.kind === 'slack')",
+                "behavior": "Checks Slack integrations and their workspace IDs before assigning destinations, removing Slack if no longer available.",
+                "posthog_connection": "Replay Vision alert destinations are assigned to Slack; this hunk prevents assigning a Slack destination to a workspace that no longer has a Slack integration, avoiding failed notifications."
+              },
+              {
+                "hunk": "P1.F3.H8",
+                "code_quote": "            if (stillValidPending.length !== values.pendingNotifications.length) {",
+                "behavior": "Filters pending notifications, removing Slack destinations whose workspace is no longer available.",
+                "posthog_connection": "Replay Vision pending notifications are cleaned up when the associated Slack workspace becomes unavailable, preventing queued alerts from failing at submission."
+              },
+              {
+                "hunk": "P1.F4.H1",
+                "code_quote": "        it('keeps the configured categories first and in configuration order', () => {",
+                "behavior": "Adds tests for HogFunction and PendingVisionAlertNotification, including workspace and channel grouping and Slack destination labeling.",
+                "posthog_connection": "Adds checks for Replay Vision alert destination grouping and Slack destination labeling, including workspace and channel information."
+              }
+            ],
+            "limitations": "This chunk does not show backend implementation, database changes, or tests for the backend, so it cannot establish that the backend supports the new Slack destination grouping and labeling. It also does not show tests for the backend, so it cannot establish that the backend supports the new Slack destination grouping and labeling. It also does not show tests for the backend, so it cannot establish that the backend supports the new Slack destination grouping and labeling."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "57490a8ad3c90ea32f43c929755f6e80897f510ca1929d6e7e56bcfa7112d08f",
+      "prediction_sha256": "9c3d5b54fadd4ab42d305af30e1a1b48f14ba2c9efa0936446b19eee67f3abdd"
+    },
+    "issue:109271": {
+      "id": "issue:109271",
+      "prs": [
+        124295
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "score": 2,
+        "reason": "Adds a scheduled Temporal workflow and activity-based backfill service for account membership, including batch processing, failure handling, and recovery assertions. This establishes a bounded, recoverable ingestion path for account metadata.",
+        "posthog_relevance": "Account membership backfill and scheduled account management operations.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F1.H1",
+          "P1.F1.H2",
+          "P1.F2.H1",
+          "P1.F8.H1",
+          "P1.F9.H1"
+        ],
+        "uncertainty": "Tests and registration are present, but complete end-to-end integration and warehouse-specific benefit are not demonstrated; score assigned based on implementation and recovery behavior.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H1",
+                "code_quote": "    create_membership_coordinator_schedule,",
+                "behavior": "Adds a new schedule registration for membership backfill in the customer analytics temporal schedule facade.",
+                "posthog_connection": "Establishes a scheduled workflow trigger for account membership backfill, a customer-facing account management capability."
+              },
+              {
+                "hunk": "P1.F1.H2",
+                "code_quote": "    create_membership_coordinator_schedule,",
+                "behavior": "Adds the membership backfill schedule registration alongside other warehouse and account-related schedules.",
+                "posthog_connection": "Connects the membership backfill workflow to the scheduled execution system, potentially enabling periodic account membership updates."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "from products.customer_analytics.backend.temporal.membership_backfill import create_membership_coordinator_schedule",
+                "behavior": "Adds the import for the membership backfill schedule creation function.",
+                "posthog_connection": "Makes the membership backfill schedule creation available in the customer analytics facade, supporting account management operations."
+              }
+            ],
+            "limitations": "This chunk does not include the implementation of the membership backfill workflow, the actual account membership data, or tests for account membership behavior. The score cannot be assigned without seeing the complete implementation and its relationship to account membership data and customer-facing account management. No score assigned."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F8.H1",
+                "code_quote": "        record_membership_operation(\"backfill\", result.status, rows=result.rows, lag_seconds=result.lag_seconds)",
+                "behavior": "Adds a new Temporal workflow and activity-based backfill service for customer membership data, including scheduled execution, batch processing, and failure handling.",
+                "posthog_connection": "This could establish a scheduled, recoverable ingestion path for customer membership metadata, potentially supporting warehouse or warehouse-like customer analytics. The implementation includes scheduled execution, batch processing, and failure handling, which could support warehouse or warehouse-like customer analytics."
+              }
+            ],
+            "limitations": "This chunk introduces a new Temporal workflow and activity-based backfill service. While the implementation details (scheduled execution, batch processing, failure handling) are visible, the chunk does not demonstrate the complete end-to-end integration, the specific warehouse or warehouse-like customer analytics use case, or the actual benefit to PostHog. The connection to PostHog is plausible but not fully established by this chunk alone."
+          },
+          {
+            "observations": [
+              {
+                "hunk": "P1.F9.H1",
+                "code_quote": "        assert sum(event.event_type == EventType.EVENT_TYPE_WORKFLOW_EXECUTION_STARTED for event in history.events) == 1",
+                "behavior": "Adds a test asserting that a workflow is not restarted after a failed run, while the failed run's cursor is preserved for resumption.",
+                "posthog_connection": "Checks the implementation of membership backfill recovery and cancellation, which could prevent unnecessary workflow restarts and preserve account-scoped state. No score assigned; this is a test, not implementation."
+              },
+              {
+                "hunk": "P1.F9.H1",
+                "code_quote": "        assert observations[-1] == \"completed\"",
+                "behavior": "Adds a test asserting that the observation stream ends with a completed event after successful resumption and completion.",
+                "posthog_connection": "Checks the implementation of membership backfill recovery and cancellation, which could prevent unnecessary workflow restarts and preserve account-scoped state. No score assigned; this is a test, not implementation."
+              },
+              {
+                "hunk": "P1.F9.H1",
+                "code_quote": "        assert attempts == 3",
+                "behavior": "Adds a test asserting that the backfill activity is retried a specific number of times before succeeding.",
+                "posthog_connection": "Checks the implementation of membership backfill recovery and cancellation, which could prevent unnecessary workflow restarts and preserve account-scoped state. No score assigned; this is a test, not implementation."
+              }
+            ],
+            "limitations": "This chunk contains only test code. While the tests describe recovery, cancellation, and retry behavior, no implementation changes are present. No score assigned; this is a test, not implementation."
+          }
+        ],
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "1d113ba15e9f99c6d22664acad9dc63d5a4776ba6eb5fb8ea15ad75397ea00fe",
+      "prediction_sha256": "afec6c94a79e7cf656c513b23d8ef54633dea938842fada7cfa34c7f4f9394e6"
+    },
+    "issue:103471": {
+      "id": "issue:103471",
+      "prs": [
+        103472
+      ],
+      "status": "ok",
+      "tier": 2,
+      "review": {
+        "observations": [
+          {
+            "observations": [
+              {
+                "hunk": "P1.F1.H4",
+                "code_quote": "        accounts.append((str(account_id), str(name) if name else None))",
+                "behavior": "Adds a new helper function `_blank_ad_account_message` and refactors `_readable_ad_accounts` to return account lists instead of a single concatenated string, enabling the caller to distinguish between no accounts, empty accounts, and multiple accounts.",
+                "posthog_connection": "This change improves the credential setup flow for Apple Search Ads warehouse ingestion by providing clearer, account-specific error messages rather than a generic 'missing ad account ID' message, helping users identify and enter the correct account ID. This could reduce support requests and setup friction for warehouse ingestion users. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling."
+              },
+              {
+                "hunk": "P1.F3.H1",
+                "code_quote": "        assert message.startswith(\"These credentials can read these ad accounts:\")",
+                "behavior": "Adds tests for the new credential validation behavior, including cases with multiple accounts, a single account, and account lookup failures, and checks that the error messages are informative and actionable.",
+                "posthog_connection": "These tests support the reliability and correctness of the credential setup flow. They do not demonstrate broader systemic benefits or tier 3 improvements; they are bounded to the Apple Search Ads credential handling. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling."
+              },
+              {
+                "hunk": "P1.F2.H1",
+                "code_quote": "5. Leave **Ad account ID** blank on the first connect. PostHog stops and shows the ad account IDs your credentials can read. That stop is the expected result of the first connect, not a credential failure. Enter one of the IDs and connect again. To look it up yourself, read `adAccount.id` from Apple's Get User ACL endpoint, `GET https://api.ads.apple.com/v1/acls`, with an access token signed by the credentials from step 4 \u2014 follow [Apple's OAuth guide](https://developer.apple.com/documentation/apple_ads/implementing-oauth-for-the-apple-search-ads-api) to exchange them for one. The ad account ID is not the same value as your organization ID.",
+                "behavior": "Updates documentation and field captions to clarify the credential setup flow, including the expected behavior of the first connection and the account lookup process.",
+                "posthog_connection": "This documentation and caption change could help users understand the credential setup flow and reduce confusion. It does not demonstrate broader systemic benefits or tier 3 improvements; it is localized to Apple Search Ads credential handling. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling."
+              }
+            ],
+            "limitations": "The change is localized to Apple Search Ads warehouse ingestion credential handling. No broader systemic benefits or tier 3 improvements are demonstrated. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling."
+          }
+        ],
+        "limitations": "The change is localized to Apple Search Ads warehouse ingestion credential handling. No broader systemic benefits or tier 3 improvements are demonstrated. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling.",
+        "score": 2,
+        "reason": "This is a substantive, bounded capability improvement: it refactors credential validation and error messaging for Apple Search Ads warehouse ingestion, adding account-specific error messages and tests. The implementation and relevant checks are visible in the diff. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling.",
+        "posthog_relevance": "This could help warehouse ingestion users set up Apple Search Ads connections with clearer, account-specific error messages, potentially reducing support requests and setup friction. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling.",
+        "confidence": "medium",
+        "evidence": [
+          "P1.F1.H4",
+          "P1.F3.H1",
+          "P1.F2.H1"
+        ],
+        "uncertainty": "The tier is bounded by the localized nature of the change; no broader systemic benefits are demonstrated. No tier 3 systemic benefit is demonstrated; the change is localized to Apple Search Ads credential handling.",
+        "metadata_dependency": false,
+        "grouping_issue": false,
+        "abstention_reason": null,
+        "model_id": "c5133aa110d4657b0061f86c7d20b86704e1c40ac5b8570fed50968a69915644"
+      },
+      "run": "qwen-reference-rollout-v1",
+      "source": "publication",
+      "known_calibration": false,
+      "packet_sha256": "54dde7dabfc51177ee10a0778b873e7ca852d80b82a508a1edcc86b25db1b53a",
+      "prediction_sha256": "f3a3cfd42b0d874fa37ccd22d24c12ca6ca1528bed420fbd7f9a560f16a0d808"
     }
   },
-  "sha256": "82e5bbcc7b0def06fc454284c75985450e882da35ab17d045843dd2428e6ac1b"
+  "sha256": "d29f141014ba9abffb1e1a5470fcc1c06f8d79ecffa9153dc0190a19bdf60ddf"
 }

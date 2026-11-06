@@ -105,25 +105,35 @@ class ContributionTests(unittest.TestCase):
         self.assertEqual(people["alice"]["total"]["mean_tier"], 2)
         self.assertEqual(people["bob"]["total"]["mean_tier"], 2)
 
-    def test_later_failed_model_does_not_fall_back_to_an_earlier_good_answer(self):
+    def test_replacement_requires_a_valid_response_not_a_new_run(self):
         g = group()
         manifest = {"cases": [{"id": "case", "group": g, "split": "development",
                                 "packet_sha256": "packet"}]}
-        replies = [
-            {"case": {"status": "ok", "review": {"score": 2, "grouping_issue": False}}},
-            {"case": {"status": "error"}},
-        ]
-        with tempfile.TemporaryDirectory() as directory:
-            for run in ("base", "trained"):
-                root = Path(directory) / "runs" / run
-                root.mkdir(parents=True)
-                (root / "spec.json").write_text(json.dumps({"model": {"name": "qwen"}}))
-            with patch.object(estimates, "BENCHMARK", Path(directory)), \
-                    patch.object(estimates, "predictions", side_effect=replies):
-                rows, _ = estimates.collect_reviews(manifest, ["base", "trained"], [g])
-        self.assertEqual(rows["change"]["run"], "trained")
-        self.assertIsNone(rows["change"]["tier"])
-        self.assertEqual(rows["change"]["status"], "error")
+        for earlier_score, candidate, expected in (
+            (2, {"status": "error"}, ("base", 2, "ok")),
+            (2, {"status": "deferred"}, ("base", 2, "ok")),
+            (None, {"status": "error"}, ("base", None, "abstained")),
+            (2, {"status": "ok", "review": {"score": None, "grouping_issue": False}},
+             ("trained", None, "abstained")),
+            (2, {"status": "ok", "review": {"score": 3, "grouping_issue": False}},
+             ("trained", 3, "ok")),
+        ):
+            with self.subTest(status=candidate["status"], expected=expected), \
+                    tempfile.TemporaryDirectory() as directory:
+                for run in ("base", "trained"):
+                    root = Path(directory) / "runs" / run
+                    root.mkdir(parents=True)
+                    (root / "spec.json").write_text(json.dumps({"model": {"name": "qwen"}}))
+                replies = [
+                    {"case": {"status": "ok", "review": {
+                        "score": earlier_score, "grouping_issue": False}}},
+                    {"case": candidate},
+                ]
+                with patch.object(estimates, "BENCHMARK", Path(directory)), \
+                        patch.object(estimates, "predictions", side_effect=replies):
+                    rows, _ = estimates.collect_reviews(manifest, ["base", "trained"], [g])
+                row = rows["change"]
+                self.assertEqual((row["run"], row["tier"], row["status"]), expected)
 
     def test_publication_manifest_refuses_changed_snapshot_and_reserved_cases(self):
         g = group()

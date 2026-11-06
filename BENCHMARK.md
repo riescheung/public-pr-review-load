@@ -514,8 +514,8 @@ earlier experiment remain disabled.
 cases under the updated decoder: five passed format and citation checks,
 versus one in the first trained-adapter batch. This is a combined pipeline
 check, not an isolated training comparison or an accuracy measurement.
-Publication now contains 44 scored groups. The full-snapshot rollout is
-still incomplete.
+That check brought publication to 44 scored groups before the larger rollout.
+The full-snapshot rollout is still incomplete.
 
 After choosing one candidate, run the baseline and candidate against the
 same reserved test cases with `--unlock-test`, then independently label and

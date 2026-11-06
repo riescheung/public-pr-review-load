@@ -292,13 +292,17 @@ its base digest and weights are checked before any inference.
 The first trained-adapter batch added one valid score; four replies failed the
 JSON contract. A bounded-response experiment (`qwen-contributions-v2`) retried
 two failures, but both timed out. That experiment was not adopted as the
-default. The published total is 40 scored groups; bulk scoring is not complete.
+default. That first batch brought publication to 40 scored groups; bulk
+scoring is not complete.
 Earlier publication runs stay included unless explicitly replaced; the latest
-selected review wins for a group, including an abstention or failure.
+validated review wins for a group, including an explicit abstention.
+Failed or deferred replacement attempts keep the prior valid review and its
+original model identity; their immutable failure records remain preserved.
 Continuation now uses the completed Sol-reference adapter explicitly. With
 the missing three-observation limit added to the multi-chunk stage, all five
 original publication cases passed validation, bringing publication to 44
-scored groups. This checks the combined pipeline, not judgement accuracy.
+scored groups before the larger rollout. This checks the combined pipeline,
+not judgement accuracy. Current coverage is in `data/contribution_estimates.json`.
 `--only-case CASE_ID` can pin a diagnostic subset; changing that subset needs
 a new run ID. Resumption keeps model/run replacement order rather than the
 order in which contributor groups happen to appear.

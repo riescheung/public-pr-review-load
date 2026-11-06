@@ -64,7 +64,7 @@ def archive_publication(manifest):
 
 
 def collect_reviews(benchmark, runs, catalog, publication_manifest=None, publication_run=None):
-    """Later explicitly selected runs replace earlier ones, including failures."""
+    """Valid later reviews replace earlier ones; failed attempts do not."""
     groups = {group_key(group): group["id"] for group in catalog}
     result, models = {}, {}
     sources = [(benchmark, run, "benchmark") for run in runs]
@@ -96,6 +96,10 @@ def collect_reviews(benchmark, runs, catalog, publication_manifest=None, publica
             status = record["status"]
             if status == "ok" and (review["score"] is None or review["grouping_issue"]):
                 status = "abstained"
+            previous = result.get(groups[key], {})
+            if (status in ("error", "deferred")
+                    and previous.get("status") in ("ok", "abstained", "preflight")):
+                continue
             result[groups[key]] = {
                 "id": groups[key], "prs": sorted(case["group"]["prs"]),
                 "status": status, "tier": review["score"] if status == "ok" else None,
