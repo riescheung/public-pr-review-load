@@ -78,11 +78,12 @@ function ReviewDesk() {
         <span className="review-desk-state">Not assessed</span>
       </div>
       <div className="review-plan">
-        <strong>Review queue ready · model run paused</strong>
-        <p>In a future run, two independent local Qwen reviewers would read complete PR diffs and each propose a 1–3 tier or abstain. GPT-6 Sol can supply provisional training labels; three separate human decisions are held out for calibration.</p>
-        <p>The existing queue flags reviewer disagreements, abstentions, grouping issues and large WPR–tier gaps: WPR ≥ 7 with tier 1, or WPR &lt; 3 with tier 3. A flag is not a score correction. A human inspects the code, makes the final tier call and saves the reason as calibration; nothing automatically changes the dashboard.</p>
+        <strong>Training complete · expert review required</strong>
+        <p>Qwen processed all 40 development cases: 38 reviews passed validation, one case failed evidence preflight and one response violated the review contract. A matching-base LoRA experiment completed 40 training steps on historical AI proposals, not human-approved labels.</p>
+        <p>With citation-constrained decoding, both the base and adapter passed the review contract on three historical calibration cases. Each matched only one expert tier decision; the adapter showed no tier improvement. These known cases do not establish accuracy. The 60 reserved final-test cases remain untouched.</p>
+        <p>The queue flags disagreements, abstentions, grouping issues and large WPR–tier gaps for human review. A flag never corrects a score automatically. <a href="https://github.com/riescheung/public-pr-review-load/blob/main/BENCHMARK.md" target="_blank" rel="noopener noreferrer">Review method and measured results</a>.</p>
       </div>
-      <p className="review-desk-caveat">No Qwen reviewer is trained or running. Even two agreeing reviewers cannot prove customer benefit.</p>
+      <p className="review-desk-caveat">No model is approved for dashboard scoring. Fresh expert labels and independent evidence audits are still required. Model tiers stay separate from WPR; outcome scores remain blank.</p>
     </section>
   )
 }
