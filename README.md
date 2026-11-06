@@ -268,16 +268,27 @@ python3 scripts/contribution_estimates.py
 # Freeze the current eligible cached groups once; do not overwrite the manifest.
 python3 scripts/run_contribution_reviews.py prepare
 # Review a bounded batch with the completed experimental Qwen adapter.
-# Requires AC power on macOS; interrupted and prior runs remain preserved.
+# A 20% battery floor protects macOS jobs; AC-status blips do not cancel them.
+# Interrupted and prior runs remain preserved.
 python3 scripts/run_contribution_reviews.py run --limit 5 --execute
 ```
 
 The prepared manifest contains 3,481 cached, non-test groups. Other groups
 still need their public diff cache; do not infer a tier from titles or WPR.
+The second cache batch increased complete diff groups to 3,783, with 3,723
+non-test groups in `contribution-manifest-v2.json`; it preserves the first
+manifest's predictions rather than relabelling them as a new run.
 Resume the same batch command to skip existing attempts. A changed snapshot,
 model or protocol requires a new manifest/run version. Each finished batch
 refreshes the local publication file; tests, build and a direct-to-main push
 are still required to update Pages.
+Adding cached diffs outside a frozen run's reviewed groups does not invalidate
+its predictions. Manifests are archived by hash so new cache batches retain
+earlier coverage without rebinding old predictions to a new manifest.
+Changes to a reviewed group, its patch or the report snapshot still fail closed.
+Use a new `--manifest` path when preparing additional cached groups, then a new
+`--run` version. `--adapter PATH` selects another completed same-base adapter;
+its base digest and weights are checked before any inference.
 The first trained-adapter batch added one valid score; four replies failed the
 JSON contract. A bounded-response experiment (`qwen-contributions-v2`) retried
 two failures, but both timed out. That experiment was not adopted as the
@@ -286,6 +297,15 @@ Earlier publication runs stay included unless explicitly replaced; the latest
 selected review wins for a group, including an abstention or failure.
 `AI_RUBRIC.md` retains its frozen pilot wording because changing its prompt
 prefix would invalidate existing packet and prediction hashes.
+
+Interrupted training can warm-start from a numbered checkpoint using
+`--warm-start PATH`. The checkpoint must match its preserved failure receipt,
+base, dataset and LoRA configuration. The new run records prior and new
+iteration counts separately, uses a fresh optimiser and a new deterministic
+seed, and never claims an uninterrupted resume. `--final-validation-only`
+keeps the complete validation set before and after training while avoiding
+duplicate intermediate passes. Previously failed runs and checkpoints are
+not overwritten.
 
 ### Blind Qwen benchmark
 

@@ -12,7 +12,7 @@ import sys
 import time
 
 from benchmark_data import digest, load_manifest, seal, write_new
-from contribution_estimates import publish, reserved, validate_publication
+from contribution_estimates import archive_publication, publish, reserved, validate_publication
 from import_ollama_mlx import file_sha256
 from pr_benchmark import run_cases
 from review_contract import FULL, ROOT
@@ -45,13 +45,19 @@ def prepare(catalog, benchmark, catalog_hash, report_hash):
     })
 
 
-def require_ac():
+def require_safe_power(minimum_battery=20):
     if sys.platform == "darwin":
         power = subprocess.run(
             ["/usr/bin/pmset", "-g", "batt"], capture_output=True, text=True, check=True,
         ).stdout
-        if "AC Power" not in power:
-            raise RuntimeError("Connect AC power before starting trained-Qwen inference")
+        battery = re.search(r"(\d+)%", power)
+        if battery and int(battery.group(1)) <= minimum_battery:
+            raise RuntimeError(
+                f"Battery at {battery.group(1)}%; GPU safety floor is {minimum_battery}%. "
+                "Allow the battery to charge before resuming."
+            )
+        if not battery and "AC Power" not in power:
+            raise RuntimeError("Cannot read macOS battery state; GPU work was paused")
 
 
 def main():
@@ -59,6 +65,8 @@ def main():
     parser.add_argument("action", choices=("prepare", "run"))
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--run", default="qwen-contributions-v1")
+    parser.add_argument("--adapter", type=Path, default=ADAPTER,
+                        help="Existing completed same-base adapter; verified before inference")
     parser.add_argument("--previous-run", action="append",
                         help="Retain an earlier run on the same manifest; defaults to published runs")
     parser.add_argument("--limit", type=int, default=5)
@@ -76,17 +84,19 @@ def main():
     if args.action == "prepare":
         manifest = prepare(catalog, benchmark, *hashes)
         write_new(args.manifest, manifest)
+        archive_publication(manifest)
         print(f"Prepared {len(manifest['cases'])} cached groups; reserved test families excluded.")
         return
     manifest = load_manifest(args.manifest)
     validate_publication(manifest, benchmark, catalog, *hashes)
     if not args.execute:
         print(f"Plan: {len(manifest['cases'])} eligible cached groups, "
-              f"at most {args.limit} new attempts using {ADAPTER.name}. No model calls.")
+              f"at most {args.limit} new attempts using {args.adapter.name}. No model calls.")
         return
     if not 1 <= args.limit <= 100 or not 1 <= args.max_chunks <= 8:
         parser.error("Use a finite batch: --limit 1..100 and --max-chunks 1..8")
-    require_ac()
+    require_safe_power()
+    archive_publication(manifest)
     if not args.worker:
         command = [sys.executable, str(Path(__file__).resolve()), *sys.argv[1:], "--worker"]
         if sys.platform == "darwin":
@@ -96,7 +106,7 @@ def main():
         process = subprocess.Popen(command, env=env, start_new_session=True)
         try:
             while process.poll() is None:
-                require_ac()
+                require_safe_power()
                 time.sleep(10)
         except (RuntimeError, KeyboardInterrupt):
             os.killpg(process.pid, signal.SIGTERM)
@@ -105,7 +115,7 @@ def main():
         raise SystemExit(process.returncode)
     try:
         run_cases(manifest, args.run, "qwen3.5:9b", "publication", args.limit,
-                  args.max_chunks, BASE, ADAPTER)
+                  args.max_chunks, BASE, args.adapter)
     finally:
         # Publish completed records even if a later case fails or the batch ends.
         spec = ROOT / "data" / "benchmark" / "runs" / args.run / "spec.json"

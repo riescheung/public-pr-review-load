@@ -10,9 +10,9 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from benchmark_data import digest
+from benchmark_data import digest, seal
 import contribution_estimates as estimates
-from run_contribution_reviews import prepare, require_ac
+from run_contribution_reviews import prepare, require_safe_power
 
 
 def group(identifier="change", prs=None, hashes=None):
@@ -124,8 +124,13 @@ class ContributionTests(unittest.TestCase):
         manifest = {"benchmark_sha256": "benchmark", "catalog_sha256": "catalog",
                     "report_sha256": "report", "cases": [case]}
         estimates.validate_publication(manifest, benchmark, [g], "catalog", "report")
+        estimates.validate_publication(manifest, benchmark, [g], "changed-cache", "report")
         with self.assertRaisesRegex(ValueError, "Snapshot"):
-            estimates.validate_publication(manifest, benchmark, [g], "changed", "report")
+            estimates.validate_publication(manifest, benchmark, [g], "catalog", "changed-report")
+        changed = copy.deepcopy(g)
+        changed["diff_sha256"]["42"] = "changed-reviewed-patch"
+        with self.assertRaisesRegex(ValueError, "foreign"):
+            estimates.validate_publication(manifest, benchmark, [changed], "catalog", "report")
         held_out = {**benchmark, "cases": [{"group": g, "split": "test"}]}
         with self.assertRaisesRegex(ValueError, "reserved"):
             estimates.validate_publication(manifest, held_out, [g], "catalog", "report")
@@ -142,14 +147,23 @@ class ContributionTests(unittest.TestCase):
         packet.assert_not_called()
         self.assertEqual(manifest["cases"], [])
 
-    def test_gpu_worker_requires_ac_power_on_macos(self):
+    def test_gpu_worker_preserves_a_battery_floor_on_macos(self):
         with patch("run_contribution_reviews.sys.platform", "darwin"), \
                 patch("run_contribution_reviews.subprocess.run") as power:
             power.return_value.stdout = "Now drawing from 'Battery Power' 5%"
-            with self.assertRaisesRegex(RuntimeError, "Connect AC"):
-                require_ac()
+            with self.assertRaisesRegex(RuntimeError, "safety floor"):
+                require_safe_power()
             power.return_value.stdout = "Now drawing from 'AC Power'"
-            require_ac()
+            require_safe_power()
+
+    def test_brief_ac_status_changes_above_the_battery_floor_do_not_cancel_jobs(self):
+        with patch("run_contribution_reviews.sys.platform", "darwin"), \
+                patch("run_contribution_reviews.subprocess.run") as power:
+            power.return_value.stdout = "Now drawing from 'Battery Power' 44%"
+            require_safe_power()
+            power.return_value.stdout = "Now drawing from 'Battery Power' 20%"
+            with self.assertRaisesRegex(RuntimeError, "20%"):
+                require_safe_power()
 
     def test_seed_export_cannot_silently_discard_completed_publication_reviews(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -182,6 +196,45 @@ class ContributionTests(unittest.TestCase):
         self.assertEqual((rows["change"]["tier"], rows["change"]["run"]), (2, "current"))
         self.assertEqual((rows["other"]["tier"], rows["other"]["run"]), (1, "previous"))
         self.assertEqual(set(models), {"previous", "current"})
+
+    def test_prior_manifest_survives_cache_growth_without_rebinding_predictions(self):
+        first, second = group(), group("other", [43])
+        cases = [{
+            "id": "E" + digest(g)[:16], "group": g, "source": "full",
+            "index": i, "split": "publication", "packet_sha256": "packet",
+        } for i, g in enumerate((first, second), 1)]
+        original = seal({"benchmark_sha256": "benchmark", "report_sha256": "report",
+                         "catalog_sha256": "old-cache", "cases": cases[:1]})
+        expanded = seal({**{k: v for k, v in original.items() if k != "sha256"},
+                         "catalog_sha256": "expanded-cache", "cases": cases})
+        benchmark = {"sha256": "benchmark", "cases": []}
+        seen = []
+
+        def read_predictions(manifest, run):
+            seen.append((manifest["sha256"], run))
+            case = manifest["cases"][-1]
+            return {case["id"]: {"status": "ok", "review": {
+                "score": 2, "grouping_issue": False,
+            }}}
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive = root / "manifests"
+            archive.mkdir()
+            (archive / f"{original['sha256']}.json").write_text(json.dumps(original))
+            for run, manifest in (("old", original), ("new", expanded)):
+                folder = root / "runs" / run
+                folder.mkdir(parents=True)
+                (folder / "spec.json").write_text(json.dumps({
+                    "model": {"name": "qwen"}, "manifest_sha256": manifest["sha256"],
+                }))
+            with patch.object(estimates, "BENCHMARK", root), \
+                    patch.object(estimates, "PUBLICATION_MANIFESTS", archive, create=True), \
+                    patch.object(estimates, "predictions", side_effect=read_predictions):
+                rows, _ = estimates.collect_reviews(benchmark, [], [first, second],
+                                                    expanded, ["old", "new"])
+        self.assertEqual(seen, [(original["sha256"], "old"), (expanded["sha256"], "new")])
+        self.assertEqual(set(rows), {"change", "other"})
 
 
 if __name__ == "__main__":

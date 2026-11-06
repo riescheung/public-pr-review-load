@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-11-06T18:36:48.827650+00:00",
+  "generated_at": "2026-11-06T19:16:11.317269+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
   "human_gold": false,
   "report_sha256": "16423847e828dca178cc7a8104511536b6e04b9ca044e9ea3652b7133a1e4060",
-  "catalog_sha256": "4b6ad9544ab74c7abbb5f8bf2578cb9267e01c04949943e2b15afe49c52543eb",
+  "catalog_sha256": "ed41519fdbaae2509e04afbbd0855eaaab11ec843cc5420b89c242c72191c900",
   "benchmark_sha256": "cacdbb70e9fc06c3cbd637ba1398a6750ad1c1fca459d998608840920e049a5c",
   "models": {
     "qwen-base-v2": {
@@ -32327,5 +32327,5 @@
       "prediction_sha256": "bb95cd9092f7e30a5791e5c19255e0f04c43592d0bf187f5f047596fe532c86e"
     }
   },
-  "sha256": "26749f24c11ad2f51b42606525831e6ca444c5e6a3001656e83d716a143c5c8a"
+  "sha256": "31dbc38ebbbf74f718d82a092c6aba76061b9800886a8876dd656990463e2332"
 }

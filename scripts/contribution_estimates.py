@@ -6,10 +6,13 @@ import json
 from pathlib import Path
 import re
 
-from benchmark_data import BENCHMARK, digest, load_manifest, timestamp
+from benchmark_data import BENCHMARK, digest, load_manifest, timestamp, write_new
 from import_ollama_mlx import file_sha256
 from pr_benchmark import predictions
 from review_contract import FULL, ROOT
+
+
+PUBLICATION_MANIFESTS = FULL / "harness" / "publication_manifests"
 
 
 def reserved(group, benchmark):
@@ -27,11 +30,11 @@ def group_key(group):
     return digest({"prs": sorted(group["prs"]), "diff_sha256": group["diff_sha256"]})
 
 
-def validate_publication(manifest, benchmark, catalog, catalog_hash, report_hash):
+def validate_publication(manifest, benchmark, catalog, _catalog_hash, report_hash):
     if (manifest["benchmark_sha256"] != benchmark["sha256"]
-            or manifest["catalog_sha256"] != catalog_hash
             or manifest["report_sha256"] != report_hash):
         raise ValueError("Snapshot or benchmark changed; use a new publication manifest and run")
+    # Bind each complete reviewed group, not unrelated cache entries that can grow.
     identifiers = set()
     for case in manifest["cases"]:
         index = case["index"]
@@ -41,6 +44,18 @@ def validate_publication(manifest, benchmark, catalog, catalog_hash, report_hash
                 or case["id"] in identifiers or reserved(case["group"], benchmark)):
             raise ValueError("Publication contains a reserved, duplicate or foreign case")
         identifiers.add(case["id"])
+
+
+def archive_publication(manifest):
+    if manifest.get("sha256") != digest({k: v for k, v in manifest.items() if k != "sha256"}):
+        raise ValueError("Cannot archive a changed publication manifest")
+    PUBLICATION_MANIFESTS.mkdir(parents=True, exist_ok=True)
+    path = PUBLICATION_MANIFESTS / f"{manifest['sha256']}.json"
+    if path.exists():
+        if load_manifest(path) != manifest:
+            raise ValueError("Publication manifest archive changed")
+    else:
+        write_new(path, manifest)
 
 
 def collect_reviews(benchmark, runs, catalog, publication_manifest=None, publication_run=None):
@@ -57,6 +72,15 @@ def collect_reviews(benchmark, runs, catalog, publication_manifest=None, publica
         if "qwen" not in model["name"].lower():
             raise ValueError("Contribution estimates require an explicitly identified Qwen run")
         models[run] = model
+        if source == "publication" and spec.get("manifest_sha256") != manifest.get("sha256"):
+            identity = spec["manifest_sha256"]
+            if not re.fullmatch(r"[0-9a-f]{64}", identity):
+                raise ValueError("Invalid publication manifest identity")
+            manifest = load_manifest(PUBLICATION_MANIFESTS / f"{identity}.json")
+            if manifest["sha256"] != identity:
+                raise ValueError("Publication archive does not match its run")
+            validate_publication(manifest, benchmark, catalog, None,
+                                 publication_manifest["report_sha256"])
         cases = {case["id"]: case for case in manifest["cases"]}
         for identifier, record in predictions(manifest, run).items():
             case = cases[identifier]
@@ -160,6 +184,7 @@ def publish(benchmark, runs, destination, publication_manifest=None, publication
     if publication_manifest:
         validate_publication(publication_manifest, benchmark, catalog,
                              file_sha256(catalog_path), file_sha256(report_path))
+        archive_publication(publication_manifest)
     records, models = collect_reviews(benchmark, runs, catalog, publication_manifest, publication_run)
     people, overall = aggregate(report, catalog, records, benchmark)
     body = {
@@ -173,7 +198,7 @@ def publish(benchmark, runs, destination, publication_manifest=None, publication
     # This file is a generated publication, not an immutable experiment receipt.
     destination.write_text(json.dumps({**body, "sha256": digest(body)}, indent=2) + "\n")
     print(f"Published {overall['scored']}/{overall['groups']} scored change groups; "
-          f"{overall['reserved']} test families remain excluded.")
+          f"{overall['reserved']} reserved groups remain excluded.")
 
 
 def main():

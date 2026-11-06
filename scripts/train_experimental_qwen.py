@@ -6,6 +6,7 @@ import importlib.metadata
 import json
 import os
 from pathlib import Path
+import re
 
 from benchmark_data import timestamp, write_new
 from import_ollama_mlx import file_sha256
@@ -16,6 +17,7 @@ try:
     import numpy as np
     from mlx_qwen_loader import load_local_model as load
     from mlx_training_loss import COMPLETION_BUDGET, completion_loss
+    from mlx.utils import tree_flatten
     from mlx_lm.tuner.trainer import TrainingArgs, evaluate, train
     from mlx_lm.tuner.utils import linear_to_lora_layers
 except ImportError:
@@ -55,7 +57,40 @@ def record_failure(output, error, recorded_after_run=False):
     return failure
 
 
-def train_experiment(base, dataset, output, iters, max_length, layers):
+def warm_start_identity(checkpoint, base_hash, dataset_hash, layers, parameters):
+    match = re.fullmatch(r"(\d+)_adapters\.safetensors", checkpoint.name)
+    failure_path = checkpoint.parent / "failure.json"
+    if not match or not failure_path.is_file():
+        raise ValueError("Warm start requires a preserved interrupted-run checkpoint")
+    source_path = checkpoint.parent / "experiment.json"
+    source = json.loads(source_path.read_text())
+    failure = json.loads(failure_path.read_text())
+    step = int(match.group(1))
+    if (source.get("human_gold") is not False
+            or source.get("eligible_for_promotion") is not False
+            or source.get("base_receipt_sha256") != base_hash
+            or source.get("dataset_manifest_sha256") != dataset_hash
+            or source.get("num_layers") != layers
+            or source.get("lora_parameters") != parameters
+            or not 0 < step <= source["iters"]):
+        raise ValueError("Checkpoint base, dataset, configuration or iteration provenance differs")
+    checkpoint_hash = file_sha256(checkpoint)
+    if failure.get("saved_checkpoints", {}).get(checkpoint.name) != checkpoint_hash:
+        raise ValueError("Checkpoint changed after the interruption was recorded")
+    previous = source.get("completed_iterations_before_run", 0)
+    if type(previous) is not int or previous < 0:
+        raise ValueError("Invalid prior iteration count")
+    return {
+        "checkpoint_sha256": checkpoint_hash,
+        "source_experiment_sha256": file_sha256(source_path),
+        "source_failure_sha256": file_sha256(failure_path),
+        "source_checkpoint_iterations": step, "previous_iterations": previous + step,
+        "optimizer_state_restored": False,
+    }
+
+
+def train_experiment(base, dataset, output, iters, max_length, layers,
+                     warm_start=None, final_validation_only=False):
     manifest = json.loads((dataset / "manifest.json").read_text())
     receipt = json.loads((base / "conversion_receipt.json").read_text())
     if (manifest.get("human_gold") is not False
@@ -75,8 +110,15 @@ def train_experiment(base, dataset, output, iters, max_length, layers):
         raise FileExistsError("Adapter output already exists; preserve previous experiments")
     if mx is None:
         raise RuntimeError("Run with the existing MLX-enabled Python environment")
-    mx.random.seed(20261105)
-    np.random.seed(20261105)
+    parameters = {"rank": 8, "scale": 8.0, "dropout": 0.05}
+    initialization = warm_start_identity(
+        warm_start, file_sha256(base / "conversion_receipt.json"),
+        file_sha256(dataset / "manifest.json"), layers, parameters,
+    ) if warm_start else None
+    previous = initialization["previous_iterations"] if initialization else 0
+    seed = 20261105 + previous
+    mx.random.seed(seed)
+    np.random.seed(seed)
     mx.set_memory_limit(24 * 1024 ** 3)
     mx.set_cache_limit(512 * 1024 ** 2)
     mx.disable_compile()
@@ -84,8 +126,14 @@ def train_experiment(base, dataset, output, iters, max_length, layers):
     model, tokenizer = load(base)
     data = {split: encoded_rows(values, tokenizer, max_length) for split, values in rows.items()}
     model.freeze()
-    parameters = {"rank": 8, "scale": 8.0, "dropout": 0.05}
     linear_to_lora_layers(model, layers, parameters)
+    if warm_start:
+        weights = mx.load(str(warm_start))
+        expected = dict(tree_flatten(model.trainable_parameters()))
+        if (set(weights) != set(expected)
+                or any(weights[key].shape != expected[key].shape for key in weights)):
+            raise ValueError("Checkpoint tensors do not exactly match the trainable adapter")
+        model.load_weights(list(weights.items()), strict=False)
     output.mkdir(parents=True)
     write_new(output / "adapter_config.json", {
         "fine_tune_type": "lora", "num_layers": layers, "lora_parameters": parameters,
@@ -97,7 +145,10 @@ def train_experiment(base, dataset, output, iters, max_length, layers):
         "dataset_manifest_sha256": file_sha256(dataset / "manifest.json"),
         "iters": iters, "max_seq_length": max_length, "num_layers": layers,
         "learning_rate": 1e-4, "optimizer": "adam", "lora_parameters": parameters,
-        "seed": 20261105, "enable_thinking": False, "mask_prompt": True,
+        "seed": seed, "enable_thinking": False, "mask_prompt": True,
+        "warm_start": initialization, "completed_iterations_before_run": previous,
+        "planned_total_iterations": previous + iters,
+        "intermediate_validation": not final_validation_only,
         "compiled_training_step": False, "completion_budget": COMPLETION_BUDGET,
         "metal_command_buffer_limits": {
             name: os.environ.get(name)
@@ -123,7 +174,8 @@ def train_experiment(base, dataset, output, iters, max_length, layers):
         grad_checkpoint=True,
     )
     train(model=model, optimizer=optim.Adam(learning_rate=1e-4),
-          train_dataset=data["train"], val_dataset=data["valid"], args=args,
+          train_dataset=data["train"],
+          val_dataset=None if final_validation_only else data["valid"], args=args,
           loss=completion_loss)
     model.eval()
     after = evaluate(model, data["valid"], batch_size=1,
@@ -131,6 +183,7 @@ def train_experiment(base, dataset, output, iters, max_length, layers):
                      loss=completion_loss)
     write_new(output / "result.json", {
         **run, "completed": True, "finished_at": timestamp(),
+        "completed_iterations": iters, "total_completed_iterations": previous + iters,
         "initial_weak_label_validation_loss": before,
         "final_weak_label_validation_loss": after,
         "adapter_sha256": file_sha256(output / "adapters.safetensors"),
@@ -148,6 +201,10 @@ def main():
     parser.add_argument("--iters", type=int, default=40)
     parser.add_argument("--max-seq-length", type=int, default=8192)
     parser.add_argument("--num-layers", type=int, default=1)
+    parser.add_argument("--warm-start", type=Path,
+                        help="Verified numbered checkpoint from an interrupted same-dataset run")
+    parser.add_argument("--final-validation-only", action="store_true",
+                        help="Keep full validation before/after training; skip intermediate repeats")
     parser.add_argument("--experimental-ai-labels", action="store_true")
     parser.add_argument("--execute", action="store_true")
     args = parser.parse_args()
@@ -159,7 +216,8 @@ def main():
         parser.error("Use a finite small local experiment budget")
     try:
         train_experiment(args.base_model, args.dataset, args.output, args.iters,
-                         args.max_seq_length, args.num_layers)
+                         args.max_seq_length, args.num_layers, args.warm_start,
+                         args.final_validation_only)
     except RuntimeError as error:
         if ((args.output / "experiment.json").is_file()
                 and not (args.output / "failure.json").exists()):
