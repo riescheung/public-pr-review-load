@@ -1,0 +1,67 @@
+{
+  "purpose": "Estimated frontier-reference agreement, not human accuracy",
+  "human_gold": false,
+  "promoted": false,
+  "run": "qwen-base-v2",
+  "teacher": {
+    "model_id": "gpt-6-1-sol-high",
+    "cli_version": "devin 3000.11.238 (9e593c73d4ca)"
+  },
+  "manifest_sha256": "cacdbb70e9fc06c3cbd637ba1398a6750ad1c1fca459d998608840920e049a5c",
+  "reference_spec_sha256": "b683da589d91bf876f6cf4120e9d496a3ebe200c1c5881910bebcb093458a50c",
+  "reference_labels": 35,
+  "reference_errors": 4,
+  "reference_preflight": 1,
+  "reference_running": 0,
+  "metrics_against_frontier_estimates": {
+    "cases": 40,
+    "labelled": 35,
+    "unlabelled": 5,
+    "completed": 38,
+    "errors": 1,
+    "deferred": 0,
+    "not_run": 0,
+    "preflight_rejections": 1,
+    "model_labelled_attempts": 35,
+    "model_exact_accuracy": 0.6285714285714286,
+    "selective_accuracy": 0.6666666666666666,
+    "coverage": 0.9428571428571428,
+    "per_tier": {
+      "1": {
+        "support": 15,
+        "predicted": 23,
+        "true_positives": 13,
+        "precision": 0.5652173913043478,
+        "recall": 0.8666666666666667,
+        "f1": 0.6842105263157895
+      },
+      "2": {
+        "support": 17,
+        "predicted": 10,
+        "true_positives": 9,
+        "precision": 0.9,
+        "recall": 0.5294117647058824,
+        "f1": 0.6666666666666666
+      },
+      "3": {
+        "support": 1,
+        "predicted": 0,
+        "true_positives": 0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "macro_f1": 0.4502923976608187,
+    "tier3": {
+      "precision": null,
+      "false_positives": 0
+    },
+    "abstention_precision": 0.0,
+    "abstention_recall": 0.0,
+    "semantic_audited": 0,
+    "semantic_unclear": 0,
+    "semantic_evidence_accuracy": null,
+    "promotion": "Not automatic: require a paired held-out comparison and human approval"
+  }
+}

@@ -230,8 +230,8 @@ public diff fetch is paused; resume it only if a full run is warranted.
 The runner does not fetch patches. Free SWE-2 CLI use is a plan offer,
 not proof of unlimited batch throughput or availability indefinitely.
 Check the current offer and account billing before a large run. Model
-votes remain **off the contributor dashboard**. A future design would
-use local Qwen reviews and human-adjudicated training labels.
+votes remain **off the contributor dashboard**. The current development path
+uses local Qwen reviews, frontier-model estimates and versioned user feedback.
 Independent votes expose disagreement, but two Qwen models trained on
 the same labels can share mistakes. The existing review queue flags
 disagreements and large WPR/tier tensions
@@ -247,8 +247,8 @@ an outcome. WPR stays a separate review-load proxy; outcome remains blank.
 historical human calibrations. Earlier pilot/teacher PRs and identical patch
 hashes are excluded from the fresh cases. The installed Qwen 3.5 9B baseline
 matched two of the three historical decisions; that tiny public calibration
-set does not establish general accuracy. Fresh expert labels and semantic
-evidence audits are still required.
+set does not establish general accuracy. GPT-6.1 Sol High now supplies estimated
+development reference answers; expert labels remain a separate source.
 The full 40-case development baseline has also finished: 38 accepted reviews,
 one evidence-preflight rejection and one invalid abstention response.
 Those are operational counts, not accuracy; no fresh expert labels exist yet.
@@ -266,7 +266,16 @@ It exports only `train` and `valid`; reserved test/calibration cases cannot
 enter training. The old automatically selected training quotes and weak
 teacher labels are not used by default.
 The human-supervised training path stays blocked until enough adjudications
-exist. A separate, explicitly experimental path can distill the 20 historical
+exist, but that does not block estimated-reference distillation.
+`frontier_reference.py` collects blinded GPT-6.1 Sol High reviews.
+`reference_learning.py` exports the browser queue, imports code-checked user
+corrections and builds versioned same-base training data. Feedback overrides
+the teacher estimate for that case; a fixed family split keeps validation
+out of training. The 60 final-test cases remain excluded. See the
+**Frontier references and queue feedback** section in `BENCHMARK.md` for the
+run/import/train loop. The static site saves locally and exports JSON; it
+does not claim to retrain Qwen in the browser.
+A separate, explicitly experimental path can distill the 20 historical
 AI teacher proposals. It excludes every benchmark case and cannot qualify
 for promotion. See `BENCHMARK.md` for local-weight import and training commands.
 The initial step-10 adapter lowered weak-label validation loss but failed

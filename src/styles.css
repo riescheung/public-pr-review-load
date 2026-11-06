@@ -64,6 +64,33 @@ a:hover { color: var(--teal-dark); }
 .review-plan strong { font-size: 11px; color: var(--teal-dark); }
 .review-plan p { max-width: 88ch; margin: 5px 0 0; color: var(--ink); font-size: 12px; line-height: 1.5; }
 
+.review-queue { scroll-margin-top: 20px; }
+.review-queue button { border: 1px solid var(--line); border-radius: 6px; background: var(--surface); padding: 8px 12px; color: var(--teal-dark); font-size: 12px; font-weight: 600; }
+.review-queue button:hover:not(:disabled) { background: var(--wash); border-color: var(--teal); }
+.review-queue button:disabled { opacity: .45; }
+.queue-editor { margin-top: 18px; }
+.queue-toolbar, .queue-navigation { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.queue-navigation { border-block: 1px solid var(--line); padding: 12px 0; margin: 12px 0 20px; }
+.queue-navigation span { font: 11px 'IBM Plex Mono', monospace; }
+.queue-editor h3 { font: 500 22px 'Newsreader', Georgia, serif; margin: 0 0 8px; }
+.queue-editor p { font-size: 12px; line-height: 1.55; max-width: 75ch; }
+.queue-estimates strong { color: var(--teal-dark); }
+.queue-editor details { border-top: 1px solid var(--line); padding: 12px 0; }
+.queue-editor summary { cursor: pointer; color: var(--teal-dark); font-size: 12px; font-weight: 600; }
+.queue-editor pre { max-height: 460px; overflow: auto; padding: 14px; background: #f1f3ec; font: 11px/1.6 'IBM Plex Mono', monospace; white-space: pre; }
+.queue-editor .queue-rubric { white-space: pre-wrap; }
+.queue-editor form { display: grid; gap: 15px; padding-top: 18px; border-top: 1px solid var(--line); }
+.queue-editor label { display: grid; gap: 6px; font-size: 12px; font-weight: 600; }
+.queue-editor input:not([type=checkbox]), .queue-editor textarea, .queue-editor select { min-width: 0; width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font: 13px/1.5 'DM Sans', sans-serif; }
+.queue-editor input:not([type=checkbox]), .queue-editor select { max-width: 380px; }
+.queue-editor textarea { resize: vertical; }
+.queue-editor .queue-json { font: 11px/1.6 'IBM Plex Mono', monospace; }
+.review-queue .queue-help { font-size: 11px; line-height: 1.55; color: var(--muted); font-weight: 400; max-width: 75ch; }
+.queue-editor .queue-check { display: flex; align-items: flex-start; gap: 8px; font-weight: 400; }
+.queue-check input { accent-color: var(--teal); }
+.queue-editor button[type=submit] { justify-self: start; color: var(--surface); background: var(--teal-dark); }
+.queue-message { min-height: 20px; color: var(--teal-dark); }
+
 .contributor-board { margin-top: 17px; background: var(--surface); border: 1px solid #dce2da; border-radius: 11px; overflow: hidden; }
 .board-heading { min-height: 77px; display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 14px 17px 12px; }
 .board-heading h2 { font-size: 19px; letter-spacing: -0.025em; margin: 0 0 2px; }

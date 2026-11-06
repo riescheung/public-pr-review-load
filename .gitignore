@@ -16,6 +16,8 @@ data/benchmark/packets/
 data/benchmark/labels/
 data/benchmark/runs/
 data/benchmark/reports/
+data/benchmark/references/
+data/benchmark/feedback/
 data/releases.json
 .DS_Store
 .impeccable/review/

@@ -85,7 +85,12 @@ def installed_mlx_model(base, adapter=None):
     return {**identity, "digest": digest(identity)}
 
 
-def run_cases(manifest, run_id, model, split, limit, max_chunks, mlx_model=None, mlx_adapter=None):
+def run_cases(manifest, run_id, model, split, limit, max_chunks, mlx_model=None, mlx_adapter=None,
+              only_cases=None):
+    if only_cases and not set(only_cases).issubset(
+        {case["id"] for case in manifest["cases"] if case["split"] == split}
+    ):
+        raise ValueError("Selected cases must belong to the requested benchmark split")
     if mlx_model is None:
         identity = installed_model(model)
         command = ["/usr/bin/env", f"WEAVE_REVIEW_MODEL={model}", sys.executable, str(ADAPTER)]
@@ -103,6 +108,8 @@ def run_cases(manifest, run_id, model, split, limit, max_chunks, mlx_model=None,
         "protocol": "one-pass-single; observations-then-decision-for-multi",
         "max_chunks": max_chunks, "timeout_per_call": 360,
     }
+    if only_cases:
+        spec["selected_case_ids"] = sorted(set(only_cases))
     directory = BENCHMARK / "runs" / run_id
     spec_path = directory / "spec.json"
     if spec_path.exists():
@@ -113,7 +120,8 @@ def run_cases(manifest, run_id, model, split, limit, max_chunks, mlx_model=None,
     attempted = 0
     for case in manifest["cases"]:
         path = directory / "predictions" / f"{case['id']}.json"
-        if case["split"] != split or path.exists():
+        if (case["split"] != split or path.exists()
+                or (only_cases and case["id"] not in only_cases)):
             continue
         if attempted >= limit:
             break
@@ -216,6 +224,8 @@ def main():
     parser.add_argument("--limit", type=int, default=5)
     parser.add_argument("--max-chunks", type=int, default=8)
     parser.add_argument("--case", help="Opaque case ID from the manifest")
+    parser.add_argument("--only-case", action="append",
+                        help="Run only this case in the requested split; repeatable")
     parser.add_argument("--answer", type=Path, help="Human JSON label or evidence audit")
     parser.add_argument("--output", type=Path, help="New file for an evaluation report")
     args = parser.parse_args()
@@ -247,7 +257,7 @@ def main():
         if args.limit < 1 or args.max_chunks < 1:
             parser.error("Use a positive, explicit inference budget")
         run_cases(manifest, args.run, args.model, args.split, args.limit, args.max_chunks,
-                  args.mlx_model, args.mlx_adapter)
+                  args.mlx_model, args.mlx_adapter, args.only_case)
     elif args.action in ("label", "audit"):
         case = next((c for c in manifest["cases"] if c["id"] == args.case), None)
         if case is None or not args.answer:

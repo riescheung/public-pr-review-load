@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import report from '../data/report.json'
+import ReviewQueue from './ReviewQueue.jsx'
+import referenceProgress from '../data/reference_progress.json'
 
 const PAGE_SIZE = 5
 const people = [...report.people].sort((a, b) => b.wpr - a.wpr || a.login.localeCompare(b.login))
@@ -78,12 +80,12 @@ function ReviewDesk() {
         <span className="review-desk-state">Not assessed</span>
       </div>
       <div className="review-plan">
-        <strong>Training complete · expert review required</strong>
+        <strong>Frontier estimates first · corrections improve later versions</strong>
         <p>Qwen processed all 40 development cases: 38 reviews passed validation, one case failed evidence preflight and one response violated the review contract. A matching-base LoRA experiment completed 40 training steps on historical AI proposals, not human-approved labels.</p>
-        <p>With citation-constrained decoding, both the base and adapter passed the review contract on three historical calibration cases. Each matched only one expert tier decision; the adapter showed no tier improvement. These known cases do not establish accuracy. The 60 reserved final-test cases remain untouched.</p>
-        <p>The queue flags disagreements, abstentions, grouping issues and large WPR–tier gaps for human review. A flag never corrects a score automatically. <a href="https://github.com/riescheung/public-pr-review-load/blob/main/BENCHMARK.md" target="_blank" rel="noopener noreferrer">Review method and measured results</a>.</p>
+        <p>Sol supplied {referenceProgress.reference_labels} valid development references; {referenceProgress.reference_errors} responses failed the review contract and {referenceProgress.reference_preflight} case failed evidence preflight. Qwen agreed with {Math.round(referenceProgress.metrics_against_frontier_estimates.model_exact_accuracy * referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts)} of {referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts} reference decisions. This measures agreement with Sol, not objective accuracy. The 60 reserved final-test cases remain untouched.</p>
+        <p>GPT-6.1 Sol High now supplies estimated reference answers for development. The queue compares those estimates with Qwen and accepts your code-checked corrections for later tuning rounds. A disagreement never changes a score automatically. <a href="https://github.com/riescheung/public-pr-review-load/blob/main/BENCHMARK.md" target="_blank" rel="noopener noreferrer">Review method and measured results</a>.</p>
       </div>
-      <p className="review-desk-caveat">No model is approved for dashboard scoring. Fresh expert labels and independent evidence audits are still required. Model tiers stay separate from WPR; outcome scores remain blank.</p>
+      <p className="review-desk-caveat">These are estimated code-change tiers, not human-verified truth or customer outcomes. Evaluation measures agreement with the frontier reference. Model tiers stay separate from WPR; outcome scores remain blank.</p>
     </section>
   )
 }
@@ -192,6 +194,7 @@ export default function App() {
         </section>}
 
         <ReviewDesk />
+        <ReviewQueue />
 
         <section className="contributor-board" aria-label="Contributor review-load index">
           <div className="board-heading">

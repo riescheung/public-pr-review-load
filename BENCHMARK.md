@@ -26,8 +26,103 @@ The dashboard still shows WPR; this pipeline does not modify `data/report.json`.
   using the full 20 historical AI proposals. A process-scoped Metal watchdog
   workaround resolved the earlier crashes. This is still separate from
   human-supervised training; no adapter is promoted.
-- The reserved final test has not been run. Human-supervised training remains
-  blocked on fresh human adjudications.
+- The reserved final test has not been run. Frontier-reference distillation
+  can now proceed without waiting for expert labels. The separate human-gold
+  path still requires real human adjudications.
+
+## Frontier references and queue feedback
+
+The working reference judge is GPT-6.1 Sol High, exact CLI ID
+`gpt-6-1-sol-high`. Its answers are accepted as estimates for development and
+distillation. They are not relabelled as human gold. Agreement with this judge
+is useful for model selection, but it is not an objective accuracy estimate.
+Queue users can approve or correct complete cited reviews. Their corrections
+take precedence over the original frontier answer in later dataset versions.
+The first development batch finished with 35 valid Sol references, four
+contract failures and one evidence-preflight rejection. The unchanged Ollama
+Qwen baseline agrees with 22 of the 35 references (62.9%, counting its invalid
+response as a failure). This is development agreement with Sol, not a final
+test result or expert accuracy. The queue contains all 35 valid references.
+`data/benchmark/reference_learning_v1.json` records the batch and dataset.
+
+The first reference dataset contains 24 training groups (86 rows) and seven
+validation groups (24 rows). Four other groups are excluded whole because at
+least one row exceeds the sequence or completion budget. No code or answer
+is truncated. A new 40-step adapter attempt uses that frozen dataset; no
+completion or improved agreement is claimed until its result and paired
+inference checks exist.
+
+The 60 final-test cases are reserved PR diffs, not existing teacher answers.
+Neither those cases nor the historical calibrations enter the new queue or
+training data. Development has a stable family-hash train/validation split:
+adding feedback does not move an existing case between those splits.
+Validation cases remain out of gradient updates even when corrected.
+
+Run a finite frontier batch using the locally signed-in CLI:
+
+```bash
+python3 scripts/frontier_reference.py run --reference sol61-dev-v1 \
+  --model gpt-6-1-sol-high --limit 40 --max-chunks 8 --execute
+python3 scripts/frontier_reference.py evaluate --reference sol61-dev-v1 \
+  --run qwen-base-v2 --output data/benchmark/reports/sol61-baseline-v1.json
+```
+
+The reference judge sees the rubric and code, not Qwen's answers, WPR,
+authors or earlier labels. Every chunk receives a checked observation pass;
+multi-chunk cases also receive a combined decision. The runner records the
+exact model, CLI version and adapter/contract hashes. Invalid responses,
+timeouts, explicit chunk deferrals and evidence-preflight rejections stay
+separate from deliberate abstentions. Existing attempts are not overwritten.
+These calls use the account's model allowance or billing; `--execute` and a
+finite case limit are required.
+
+Export a queue snapshot after the reference batch:
+
+```bash
+python3 scripts/reference_learning.py queue --reference sol61-dev-v1 \
+  --run qwen-base-v2 --output data/benchmark/packets/queue-sol61-dev-v1.json
+```
+
+The published `data/reference_queue.json` is a copy of a versioned snapshot.
+It is loaded only when a visitor opens the review queue. Each case shows the
+frontier estimate, Qwen's decision, explanations and the full frozen diffs.
+No held-out case is published in that asset.
+
+In the queue, identify yourself, explain your correction, approve the review
+and check its cited code. Save locally, then use **Export feedback**. The
+static Pages site stores corrections in that browser; it does not send them
+to a server or retrain weights. Browser storage is not a backup. The exported
+file must be imported into the local project:
+
+```bash
+python3 scripts/reference_learning.py import --reference sol61-dev-v1 \
+  --queue data/benchmark/packets/queue-sol61-dev-v1.json \
+  --answers /path/to/qwen-feedback.json
+python3 scripts/reference_learning.py dataset --reference sol61-dev-v1 \
+  --base-model data/ai_review/model/qwen3.5-9b-ollama \
+  --output data/ai_review/lora/reference-v1 --max-tokens 8192
+python3 scripts/train_experimental_qwen.py \
+  --base-model data/ai_review/model/qwen3.5-9b-ollama \
+  --dataset data/ai_review/lora/reference-v1 \
+  --output data/ai_review/lora/adapter-reference-v1 \
+  --iters 40 --max-seq-length 8192 --num-layers 1 \
+  --execute --experimental-ai-labels
+```
+
+Each import validates the original queue, case, diff, reference and parent
+correction hashes. Reserved cases, stale corrections, duplicate cases,
+invented quotes and incomplete reviews are rejected. Feedback events are
+append-only and remain `user_feedback`, not verified human adjudications.
+Re-export the queue after an import so the next correction points to its
+current parent. Preserve older snapshots for outstanding browser exports.
+
+Dataset export prefers the latest accepted correction, retains chunked
+reviews and semantic abstentions, and excludes an entire group if any row
+exceeds the sequence or completion budget. It never truncates code or
+answers. New dataset and adapter versions preserve the prior experiment.
+Compare a candidate with the unchanged base under the same inference
+protocol before changing any default. The current human-gold promotion tool
+is unchanged: AI-reference agreement does not silently satisfy its gates.
 
 The baseline pins Ollama model digest
 `d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911`.
