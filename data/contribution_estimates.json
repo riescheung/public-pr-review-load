@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:35:39.473391+00:00",
+  "generated_at": "2026-11-07T04:36:08.649529+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3321,15 +3321,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0040": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 811,
+    "failed": 831,
     "reserved": 60,
-    "pending": 16232,
+    "pending": 16212,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -4264,7 +4340,27 @@
       "title:frankh:suggest dashboards for ingested metrics",
       "title:frankh:trace every master workflow run into posthog",
       "title:frankh:write metrics insights in builder promql or sql",
-      "title:frankh:write native rows for remote histograms"
+      "title:frankh:write native rows for remote histograms",
+      "title:gantoine:compute trunk merge queue lanes from impacted targets",
+      "title:gantoine:move the heatmaps scene into the product",
+      "title:gantoine:move the inbox scene into the product",
+      "title:gantoine:move the live github manifest test off the required gate",
+      "title:gantoine:narrow the merge queue universal lane",
+      "title:gantoine:remove the tasks golden snapshot workflow",
+      "title:gantoine:remove the unused pr conflict autoresolver",
+      "title:gantoine:restore hogbox pr previews behind a label on dev",
+      "title:gantoine:split nodejs into import derived merge queue lanes",
+      "title:georgemunyoro:report per filter index eligibility before a query runs",
+      "title:gesh:resolve harness from sdk emitted mcp vendor client simplify chain to 3 properties",
+      "title:gesh:theme aware brand marks for harnesses and labs",
+      "title:gustavohstrassburger:add evaluation context selector to experiment creation",
+      "title:gustavohstrassburger:classify whether a flag edit raises lowers or keeps exposure",
+      "title:gustavohstrassburger:count the exposure of watched flag edits per time bucket",
+      "title:gustavohstrassburger:delete the legacy precalculated realtime cohort path",
+      "title:gustavohstrassburger:move flag edit primitives to the flags facade",
+      "title:gustavohstrassburger:stop scheduling cohort calculation and save triggered backfills",
+      "title:haacked:add a job that repairs person id on imported flag evaluations rows",
+      "title:haacked:add an organization level flag evaluations mode"
     ],
     "unmapped_prs": 14
   },
@@ -6531,25 +6627,27 @@
           "groups": 40,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 40,
+          "pending": 39,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:haacked:add an organization level flag evaluations mode"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 80,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 1,
-          "pending": 78,
+          "pending": 77,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -6557,7 +6655,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:119926"
+            "issue:119926",
+            "title:haacked:add a job that repairs person id on imported flag evaluations rows"
           ],
           "unmapped_prs": 0
         },
@@ -6582,9 +6681,9 @@
         "groups": 252,
         "scored": 2,
         "abstained": 0,
-        "failed": 0,
+        "failed": 2,
         "reserved": 1,
-        "pending": 249,
+        "pending": 247,
         "mean_tier": 1.5,
         "tiers": {
           "1": 1,
@@ -6593,7 +6692,9 @@
         },
         "review_ids": [
           "issue:119926",
-          "issue:19367"
+          "issue:19367",
+          "title:haacked:add a job that repairs person id on imported flag evaluations rows",
+          "title:haacked:add an organization level flag evaluations mode"
         ],
         "unmapped_prs": 0
       }
@@ -10477,9 +10578,9 @@
           "groups": 30,
           "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 4,
           "reserved": 0,
-          "pending": 28,
+          "pending": 25,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -10488,7 +10589,10 @@
           },
           "review_ids": [
             "issue:70960",
-            "pr:72410"
+            "pr:72410",
+            "title:gantoine:compute trunk merge queue lanes from impacted targets",
+            "title:gantoine:move the heatmaps scene into the product",
+            "title:gantoine:move the inbox scene into the product"
           ],
           "unmapped_prs": 0
         },
@@ -10512,16 +10616,18 @@
           "groups": 32,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 32,
+          "pending": 31,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:gantoine:narrow the merge queue universal lane"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -10546,25 +10652,28 @@
           "groups": 9,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 9,
+          "pending": 7,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:gantoine:move the live github manifest test off the required gate",
+            "title:gantoine:split nodejs into import derived merge queue lanes"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 31,
           "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 29,
+          "pending": 28,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -10573,7 +10682,8 @@
           },
           "review_ids": [
             "pr:116166",
-            "pr:120228"
+            "pr:120228",
+            "title:gantoine:remove the unused pr conflict autoresolver"
           ],
           "unmapped_prs": 0
         },
@@ -10581,9 +10691,9 @@
           "groups": 44,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 3,
           "reserved": 0,
-          "pending": 43,
+          "pending": 41,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -10591,7 +10701,9 @@
             "3": 0
           },
           "review_ids": [
-            "pr:121346"
+            "pr:121346",
+            "title:gantoine:remove the tasks golden snapshot workflow",
+            "title:gantoine:restore hogbox pr previews behind a label on dev"
           ],
           "unmapped_prs": 0
         }
@@ -10600,9 +10712,9 @@
         "groups": 198,
         "scored": 3,
         "abstained": 0,
-        "failed": 3,
+        "failed": 12,
         "reserved": 0,
-        "pending": 192,
+        "pending": 183,
         "mean_tier": 1.3333333333333333,
         "tiers": {
           "1": 2,
@@ -10615,7 +10727,16 @@
           "pr:116166",
           "pr:120228",
           "pr:121346",
-          "pr:72410"
+          "pr:72410",
+          "title:gantoine:compute trunk merge queue lanes from impacted targets",
+          "title:gantoine:move the heatmaps scene into the product",
+          "title:gantoine:move the inbox scene into the product",
+          "title:gantoine:move the live github manifest test off the required gate",
+          "title:gantoine:narrow the merge queue universal lane",
+          "title:gantoine:remove the tasks golden snapshot workflow",
+          "title:gantoine:remove the unused pr conflict autoresolver",
+          "title:gantoine:restore hogbox pr previews behind a label on dev",
+          "title:gantoine:split nodejs into import derived merge queue lanes"
         ],
         "unmapped_prs": 0
       }
@@ -17468,9 +17589,9 @@
           "groups": 8,
           "scored": 2,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 6,
+          "pending": 4,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -17479,7 +17600,9 @@
           },
           "review_ids": [
             "issue:53446",
-            "issue:75182"
+            "issue:75182",
+            "title:gustavohstrassburger:delete the legacy precalculated realtime cohort path",
+            "title:gustavohstrassburger:stop scheduling cohort calculation and save triggered backfills"
           ],
           "unmapped_prs": 0
         },
@@ -17503,9 +17626,9 @@
           "groups": 7,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 6,
+          "pending": 5,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -17513,7 +17636,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:79209"
+            "issue:79209",
+            "title:gustavohstrassburger:add evaluation context selector to experiment creation"
           ],
           "unmapped_prs": 0
         },
@@ -17571,16 +17695,20 @@
           "groups": 13,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 13,
+          "pending": 10,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:gustavohstrassburger:classify whether a flag edit raises lowers or keeps exposure",
+            "title:gustavohstrassburger:count the exposure of watched flag edits per time bucket",
+            "title:gustavohstrassburger:move flag edit primitives to the flags facade"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -17588,9 +17716,9 @@
         "groups": 42,
         "scored": 2,
         "abstained": 0,
-        "failed": 2,
+        "failed": 8,
         "reserved": 0,
-        "pending": 38,
+        "pending": 32,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -17601,7 +17729,13 @@
           "issue:53446",
           "issue:64387",
           "issue:75182",
-          "issue:79209"
+          "issue:79209",
+          "title:gustavohstrassburger:add evaluation context selector to experiment creation",
+          "title:gustavohstrassburger:classify whether a flag edit raises lowers or keeps exposure",
+          "title:gustavohstrassburger:count the exposure of watched flag edits per time bucket",
+          "title:gustavohstrassburger:delete the legacy precalculated realtime cohort path",
+          "title:gustavohstrassburger:move flag edit primitives to the flags facade",
+          "title:gustavohstrassburger:stop scheduling cohort calculation and save triggered backfills"
         ],
         "unmapped_prs": 1
       }
@@ -18193,16 +18327,18 @@
           "groups": 4,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 4,
+          "pending": 3,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:gesh:resolve harness from sdk emitted mcp vendor client simplify chain to 3 properties"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18243,16 +18379,18 @@
           "groups": 6,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 6,
+          "pending": 5,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:gesh:theme aware brand marks for harnesses and labs"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18276,9 +18414,9 @@
         "groups": 35,
         "scored": 0,
         "abstained": 0,
-        "failed": 1,
+        "failed": 3,
         "reserved": 0,
-        "pending": 34,
+        "pending": 32,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -18286,7 +18424,9 @@
           "3": 0
         },
         "review_ids": [
-          "pr:106026"
+          "pr:106026",
+          "title:gesh:resolve harness from sdk emitted mcp vendor client simplify chain to 3 properties",
+          "title:gesh:theme aware brand marks for harnesses and labs"
         ],
         "unmapped_prs": 0
       }
@@ -18603,16 +18743,18 @@
           "groups": 5,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 5,
+          "pending": 4,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:georgemunyoro:report per filter index eligibility before a query runs"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18684,16 +18826,18 @@
         "groups": 30,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 30,
+        "pending": 29,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:georgemunyoro:report per filter index eligibility before a query runs"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -45976,9 +46120,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "d7fbd411b51eae7659de55733c404415c2674d8b254aa289f352b464ca8bfb7c"
+    },
+    "title:haacked:add an organization level flag evaluations mode": {
+      "id": "title:haacked:add an organization level flag evaluations mode",
+      "prs": [
+        105446
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "25ff50fed67769b204195bc782cd1badcac9eb32d73f63e6ae80e8351bd7c0a9"
+    },
+    "title:gesh:resolve harness from sdk emitted mcp vendor client simplify chain to 3 properties": {
+      "id": "title:gesh:resolve harness from sdk emitted mcp vendor client simplify chain to 3 properties",
+      "prs": [
+        93189
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "64ce178b9e517c39328e013b263801926084f864a860a776ad23790d71a54689"
+    },
+    "title:gantoine:move the inbox scene into the product": {
+      "id": "title:gantoine:move the inbox scene into the product",
+      "prs": [
+        78384
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f020116c19b0bf8d6549a6c7d16170ac10e10fbfb037f3595665cf7703d0f59d"
+    },
+    "title:gustavohstrassburger:move flag edit primitives to the flags facade": {
+      "id": "title:gustavohstrassburger:move flag edit primitives to the flags facade",
+      "prs": [
+        121683
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bb4cc864acf2c1a1b3e003b19770010b8fcd77fdeadfd9ca96418ff11b1cd37a"
+    },
+    "title:gantoine:compute trunk merge queue lanes from impacted targets": {
+      "id": "title:gantoine:compute trunk merge queue lanes from impacted targets",
+      "prs": [
+        74266
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f3283dc0cd9e5752a0e3247355a24196625abfe0c7f82756163a9180766b95d6"
+    },
+    "title:gantoine:narrow the merge queue universal lane": {
+      "id": "title:gantoine:narrow the merge queue universal lane",
+      "prs": [
+        90085
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e8f2a1aac51d3322ee4b0eaa394b52e3d2171394ab2ac0182ed40f13a492b774"
+    },
+    "title:gustavohstrassburger:count the exposure of watched flag edits per time bucket": {
+      "id": "title:gustavohstrassburger:count the exposure of watched flag edits per time bucket",
+      "prs": [
+        125728
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c9761f4cb8529b441872b756fd54abbeed2fce02cbe6c0f8e6827ec7b3c7d30e"
+    },
+    "title:georgemunyoro:report per filter index eligibility before a query runs": {
+      "id": "title:georgemunyoro:report per filter index eligibility before a query runs",
+      "prs": [
+        83131
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0f06ebb20888c14aa50de617d6512a43a3e44c1505624f78fae2dbcd5ae363b9"
+    },
+    "title:gustavohstrassburger:delete the legacy precalculated realtime cohort path": {
+      "id": "title:gustavohstrassburger:delete the legacy precalculated realtime cohort path",
+      "prs": [
+        77485
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9a912d234b99c34506074f99de1e4286b371580bcda174323fe9bdea159bc575"
+    },
+    "title:gesh:theme aware brand marks for harnesses and labs": {
+      "id": "title:gesh:theme aware brand marks for harnesses and labs",
+      "prs": [
+        116057
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ac6aa2f635ceb5e491053b9e78d22dd2159f54165c01ce1fbacba07801683dd1"
+    },
+    "title:gantoine:remove the tasks golden snapshot workflow": {
+      "id": "title:gantoine:remove the tasks golden snapshot workflow",
+      "prs": [
+        121348
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "45812537e8dcbd2234894dbdaabd4da2081ed9ad51039ec063678f6df6c0b654"
+    },
+    "title:gantoine:split nodejs into import derived merge queue lanes": {
+      "id": "title:gantoine:split nodejs into import derived merge queue lanes",
+      "prs": [
+        110140
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4f80266775abd674d36ab01d15b9fc2a7e813421e72e01981570e24ceff1aa61"
+    },
+    "title:gantoine:move the live github manifest test off the required gate": {
+      "id": "title:gantoine:move the live github manifest test off the required gate",
+      "prs": [
+        110199
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ad070342c2d161f52724b3a4f5710186be6245a7971a2eceffc0ca164987b104"
+    },
+    "title:gustavohstrassburger:add evaluation context selector to experiment creation": {
+      "id": "title:gustavohstrassburger:add evaluation context selector to experiment creation",
+      "prs": [
+        83403
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "69a2b1ce7825443997dd32b544e1c3d5790bf2f998908105851248bac5095a18"
+    },
+    "title:gantoine:remove the unused pr conflict autoresolver": {
+      "id": "title:gantoine:remove the unused pr conflict autoresolver",
+      "prs": [
+        116335
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6e54a04d585f23b03a59f38455443d10d342e4bab627b5ecde888736da6f4f07"
+    },
+    "title:haacked:add a job that repairs person id on imported flag evaluations rows": {
+      "id": "title:haacked:add a job that repairs person id on imported flag evaluations rows",
+      "prs": [
+        119898
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c761f17df14425181a6c5f0c5366c82cb38f4dd8f58ade285a2fa6b701512cec"
+    },
+    "title:gantoine:move the heatmaps scene into the product": {
+      "id": "title:gantoine:move the heatmaps scene into the product",
+      "prs": [
+        78370
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7134997fd876de5b097433472c46558c6da7a1e2ca7f81a2cdd3c94b89456d94"
+    },
+    "title:gustavohstrassburger:classify whether a flag edit raises lowers or keeps exposure": {
+      "id": "title:gustavohstrassburger:classify whether a flag edit raises lowers or keeps exposure",
+      "prs": [
+        124163
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a4930c8b9f59cd66ded74781147ba4144abb50dc62ec8ec7eed3f8e2d5ff97bb"
+    },
+    "title:gustavohstrassburger:stop scheduling cohort calculation and save triggered backfills": {
+      "id": "title:gustavohstrassburger:stop scheduling cohort calculation and save triggered backfills",
+      "prs": [
+        76684
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1f9c05c9adc4a56671bb447a88710a6c73a968cfc39f0a0f79932c28da679297"
+    },
+    "title:gantoine:restore hogbox pr previews behind a label on dev": {
+      "id": "title:gantoine:restore hogbox pr previews behind a label on dev",
+      "prs": [
+        122674
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0040",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "dda9c0e16315a65598fb35803628609657ed3f37cede8299aa43423bf0b4b15d"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "516c4c9fb81bb61f849593dc0e0098688379aea259b71eb25b0bdcfceb47cbfd",
-  "sha256": "878cb1ddfd57c6f3ae872e8af282cff61d333acc916875869309d806e4b4cbfb"
+  "inline_publication_sha256": "abb51a39f45794b6b42651842886ebda78c8f065f58e1c4071b394e983e205f8",
+  "sha256": "64843e972351a8a79872458e73388367610d5de21d1f89f07153aa5a1e5609f7"
 }
