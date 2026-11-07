@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T12:16:03.271833+00:00",
+  "generated_at": "2026-11-07T12:33:00.942490+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -5829,19 +5829,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0073": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 631,
+    "scored": 650,
     "abstained": 6,
-    "failed": 951,
+    "failed": 952,
     "reserved": 60,
-    "pending": 15572,
-    "mean_tier": 1.5340729001584785,
+    "pending": 15552,
+    "mean_tier": 1.5369230769230768,
     "tiers": {
-      "1": 294,
-      "2": 337,
+      "1": 301,
+      "2": 349,
       "3": 0
     },
     "review_ids": [
@@ -6778,8 +6854,28 @@
       "pr:99581",
       "pr:99634",
       "pr:99669",
+      "pr:99908",
+      "title:304:use workflow time in monitoring",
+      "title:AlexlaGuardia:forward refund feedback to the authoring scout",
+      "title:CShine612:accept uuidt ids in the node push step schema",
+      "title:CShine612:accept uuidt ids on push step message category",
+      "title:CShine612:add a first message length input to get ticket",
+      "title:CShine612:gate runs on the run list and scope run failures",
+      "title:CShine612:keep a cleared number input empty while typing",
+      "title:CShine612:keep browser version as text in the export table",
+      "title:CShine612:let the update ticket step set critical priority",
       "title:CShine612:match trends day labels to clickhouse time zones",
+      "title:CShine612:name the failing tables on warehouse readiness",
+      "title:CShine612:open linked insights when monaco loads after the wait",
+      "title:CShine612:probe the merge key on incremental syncs",
+      "title:CShine612:say the email rate limit covers all recipients",
+      "title:CShine612:send resend oauth to the correct authorize host",
+      "title:CShine612:show alert threshold lines on dashboards after reload",
+      "title:CShine612:stop double quoted liquid strings breaking emails",
+      "title:CShine612:stop repeating the same low reputation warning",
+      "title:CShine612:sync plausible entry and exit page tables",
       "title:CShine612:unify person id type across revenue sources",
+      "title:CShine612:use real zone offsets in python hogvm dates",
       "title:DanielVisca:add a change feed of recent production changes",
       "title:DanielVisca:add apm service health and reject malformed get date ranges",
       "title:DanielVisca:add application observability services list behind the product flag",
@@ -8127,15 +8223,15 @@
         },
         {
           "groups": 112,
-          "scored": 16,
+          "scored": 17,
           "abstained": 0,
           "failed": 2,
           "reserved": 0,
-          "pending": 94,
-          "mean_tier": 1.5,
+          "pending": 93,
+          "mean_tier": 1.5294117647058822,
           "tiers": {
             "1": 8,
-            "2": 8,
+            "2": 9,
             "3": 0
           },
           "review_ids": [
@@ -8156,7 +8252,8 @@
             "pr:98103",
             "pr:98996",
             "pr:98998",
-            "pr:99180"
+            "pr:99180",
+            "pr:99908"
           ],
           "unmapped_prs": 0
         },
@@ -8238,15 +8335,15 @@
       ],
       "total": {
         "groups": 650,
-        "scored": 44,
+        "scored": 45,
         "abstained": 0,
         "failed": 9,
         "reserved": 6,
-        "pending": 591,
-        "mean_tier": 1.4772727272727273,
+        "pending": 590,
+        "mean_tier": 1.488888888888889,
         "tiers": {
           "1": 23,
-          "2": 21,
+          "2": 22,
           "3": 0
         },
         "review_ids": [
@@ -8302,7 +8399,8 @@
           "pr:98998",
           "pr:99069",
           "pr:99180",
-          "pr:99248"
+          "pr:99248",
+          "pr:99908"
         ],
         "unmapped_prs": 1
       }
@@ -24073,18 +24171,22 @@
       "periods": [
         {
           "groups": 4,
-          "scored": 0,
+          "scored": 3,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 4,
-          "mean_tier": null,
+          "pending": 1,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 3,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:CShine612:keep a cleared number input empty while typing",
+            "title:CShine612:show alert threshold lines on dashboards after reload",
+            "title:CShine612:sync plausible entry and exit page tables"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -24105,18 +24207,19 @@
         },
         {
           "groups": 3,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 2,
-          "mean_tier": null,
+          "pending": 1,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
           "review_ids": [
+            "title:CShine612:send resend oauth to the correct authorize host",
             "title:CShine612:unify person id type across revenue sources"
           ],
           "unmapped_prs": 0
@@ -24139,71 +24242,103 @@
         },
         {
           "groups": 1,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 1,
-          "mean_tier": null,
+          "pending": 0,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:CShine612:open linked insights when monaco loads after the wait"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 6,
-          "scored": 0,
+          "scored": 4,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 6,
-          "mean_tier": null,
+          "pending": 2,
+          "mean_tier": 1.75,
           "tiers": {
-            "1": 0,
-            "2": 0,
+            "1": 1,
+            "2": 3,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:CShine612:gate runs on the run list and scope run failures",
+            "title:CShine612:probe the merge key on incremental syncs",
+            "title:CShine612:say the email rate limit covers all recipients",
+            "title:CShine612:stop double quoted liquid strings breaking emails"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 12,
-          "scored": 0,
+          "scored": 7,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 11,
-          "mean_tier": null,
+          "pending": 3,
+          "mean_tier": 1.4285714285714286,
           "tiers": {
-            "1": 0,
-            "2": 0,
+            "1": 4,
+            "2": 3,
             "3": 0
           },
           "review_ids": [
-            "title:CShine612:match trends day labels to clickhouse time zones"
+            "title:CShine612:accept uuidt ids in the node push step schema",
+            "title:CShine612:accept uuidt ids on push step message category",
+            "title:CShine612:add a first message length input to get ticket",
+            "title:CShine612:keep browser version as text in the export table",
+            "title:CShine612:let the update ticket step set critical priority",
+            "title:CShine612:match trends day labels to clickhouse time zones",
+            "title:CShine612:name the failing tables on warehouse readiness",
+            "title:CShine612:stop repeating the same low reputation warning",
+            "title:CShine612:use real zone offsets in python hogvm dates"
           ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 26,
-        "scored": 0,
+        "scored": 16,
         "abstained": 0,
-        "failed": 2,
+        "failed": 3,
         "reserved": 0,
-        "pending": 24,
-        "mean_tier": null,
+        "pending": 7,
+        "mean_tier": 1.625,
         "tiers": {
-          "1": 0,
-          "2": 0,
+          "1": 6,
+          "2": 10,
           "3": 0
         },
         "review_ids": [
+          "title:CShine612:accept uuidt ids in the node push step schema",
+          "title:CShine612:accept uuidt ids on push step message category",
+          "title:CShine612:add a first message length input to get ticket",
+          "title:CShine612:gate runs on the run list and scope run failures",
+          "title:CShine612:keep a cleared number input empty while typing",
+          "title:CShine612:keep browser version as text in the export table",
+          "title:CShine612:let the update ticket step set critical priority",
           "title:CShine612:match trends day labels to clickhouse time zones",
-          "title:CShine612:unify person id type across revenue sources"
+          "title:CShine612:name the failing tables on warehouse readiness",
+          "title:CShine612:open linked insights when monaco loads after the wait",
+          "title:CShine612:probe the merge key on incremental syncs",
+          "title:CShine612:say the email rate limit covers all recipients",
+          "title:CShine612:send resend oauth to the correct authorize host",
+          "title:CShine612:show alert threshold lines on dashboards after reload",
+          "title:CShine612:stop double quoted liquid strings breaking emails",
+          "title:CShine612:stop repeating the same low reputation warning",
+          "title:CShine612:sync plausible entry and exit page tables",
+          "title:CShine612:unify person id type across revenue sources",
+          "title:CShine612:use real zone offsets in python hogvm dates"
         ],
         "unmapped_prs": 0
       }
@@ -29924,18 +30059,20 @@
         },
         {
           "groups": 1,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 1,
-          "mean_tier": null,
+          "pending": 0,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:AlexlaGuardia:forward refund feedback to the authoring scout"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -30021,20 +30158,21 @@
       ],
       "total": {
         "groups": 3,
-        "scored": 2,
+        "scored": 3,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 1,
+        "pending": 0,
         "mean_tier": 1.0,
         "tiers": {
-          "1": 2,
+          "1": 3,
           "2": 0,
           "3": 0
         },
         "review_ids": [
           "issue:43310",
-          "issue:73924"
+          "issue:73924",
+          "title:AlexlaGuardia:forward refund feedback to the authoring scout"
         ],
         "unmapped_prs": 0
       }
@@ -31907,19 +32045,20 @@
       "periods": [
         {
           "groups": 2,
-          "scored": 1,
+          "scored": 2,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 1,
-          "mean_tier": 1.0,
+          "pending": 0,
+          "mean_tier": 1.5,
           "tiers": {
             "1": 1,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
-            "pr:73744"
+            "pr:73744",
+            "title:304:use workflow time in monitoring"
           ],
           "unmapped_prs": 0
         },
@@ -32022,19 +32161,20 @@
       ],
       "total": {
         "groups": 2,
-        "scored": 1,
+        "scored": 2,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 1,
-        "mean_tier": 1.0,
+        "pending": 0,
+        "mean_tier": 1.5,
         "tiers": {
           "1": 1,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
         "review_ids": [
-          "pr:73744"
+          "pr:73744",
+          "title:304:use workflow time in monitoring"
         ],
         "unmapped_prs": 0
       }
@@ -58554,9 +58694,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "195c3d64d16f5416ebcefb56ef2b7946037a4010b95b3809fb774cf8175ce847"
+    },
+    "title:CShine612:accept uuidt ids on push step message category": {
+      "id": "title:CShine612:accept uuidt ids on push step message category",
+      "prs": [
+        128021
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "de970f3e946f4718bcd16465b051154f9bb17ee7ae1857a83716f56669134a81"
+    },
+    "title:CShine612:show alert threshold lines on dashboards after reload": {
+      "id": "title:CShine612:show alert threshold lines on dashboards after reload",
+      "prs": [
+        78684
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c0582b5f496e0d72b631ce44a2ad36f8f36a586eaf74c37946efb4c4c5674f8b"
+    },
+    "title:CShine612:accept uuidt ids in the node push step schema": {
+      "id": "title:CShine612:accept uuidt ids in the node push step schema",
+      "prs": [
+        128020
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "57f079d9deaf6b88ab2ee4c42de7f861a7ef50fb3b2bcbb8b7c323fb05c17fb4"
+    },
+    "title:CShine612:stop repeating the same low reputation warning": {
+      "id": "title:CShine612:stop repeating the same low reputation warning",
+      "prs": [
+        124949
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "161138c434fd9f8d3ceecbd3c0df5a2edda19c685ad40bb1535a2e7f5d29b33d"
+    },
+    "title:CShine612:open linked insights when monaco loads after the wait": {
+      "id": "title:CShine612:open linked insights when monaco loads after the wait",
+      "prs": [
+        110879
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b4e39bdc3035b25047ec3fad869818fad382d0fff10c2042e7d82f33b69e6f99"
+    },
+    "title:CShine612:say the email rate limit covers all recipients": {
+      "id": "title:CShine612:say the email rate limit covers all recipients",
+      "prs": [
+        113080
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "67fa521b2f961e9cdf5b19e2e275b55095915d065528b382a1a72cf8083bc514"
+    },
+    "title:CShine612:stop double quoted liquid strings breaking emails": {
+      "id": "title:CShine612:stop double quoted liquid strings breaking emails",
+      "prs": [
+        113274
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4ac0979b2cb15f0ade6f4305654ef72f18764b182c3002ef32db8ad9e628382d"
+    },
+    "title:304:use workflow time in monitoring": {
+      "id": "title:304:use workflow time in monitoring",
+      "prs": [
+        76658
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "36332502a4e59c1b0d5ad31a1f7bdf9512a46c4b9f6231e98fd603b17d31919d"
+    },
+    "title:AlexlaGuardia:forward refund feedback to the authoring scout": {
+      "id": "title:AlexlaGuardia:forward refund feedback to the authoring scout",
+      "prs": [
+        77027
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d3f3a88f4b620db9db6900f6c0d511e98d1aa87e920eee0e13b893bb76dd0e2f"
+    },
+    "title:CShine612:sync plausible entry and exit page tables": {
+      "id": "title:CShine612:sync plausible entry and exit page tables",
+      "prs": [
+        81077
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e26b87ab0c12ef629a194136ecb54b0d7113ad4a82517d54a359e61fc8935b11"
+    },
+    "title:CShine612:let the update ticket step set critical priority": {
+      "id": "title:CShine612:let the update ticket step set critical priority",
+      "prs": [
+        123299
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "32c24fb6aa48e58d5ac2af48583c1a9bc94035eec7230a5e11793f2ca61d91f2"
+    },
+    "title:CShine612:keep browser version as text in the export table": {
+      "id": "title:CShine612:keep browser version as text in the export table",
+      "prs": [
+        126081
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5cb87f38f7000d07153b1ec2fde4ec657f1b654dfcf204bc71328f38cd48ba73"
+    },
+    "title:CShine612:add a first message length input to get ticket": {
+      "id": "title:CShine612:add a first message length input to get ticket",
+      "prs": [
+        123917
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bf24bf6669742b73a6dce0bc66abb0e7329f6f35382b726a3d9c7f46bbc570c4"
+    },
+    "title:CShine612:probe the merge key on incremental syncs": {
+      "id": "title:CShine612:probe the merge key on incremental syncs",
+      "prs": [
+        116104
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2190a861dca09d12b0c4095f2bc9c88fbea5e765a0d7970174fa8a1bcf1acd1a"
+    },
+    "title:CShine612:gate runs on the run list and scope run failures": {
+      "id": "title:CShine612:gate runs on the run list and scope run failures",
+      "prs": [
+        114588
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b720e39522b067bdaabd31d84cafeb5780c8e895894b7f1ad786fa1e986c0624"
+    },
+    "title:CShine612:send resend oauth to the correct authorize host": {
+      "id": "title:CShine612:send resend oauth to the correct authorize host",
+      "prs": [
+        90890
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "83b3889fa58a62719e1673d3f3c28136d850dad3e75089c90936a659c643cdb2"
+    },
+    "title:CShine612:name the failing tables on warehouse readiness": {
+      "id": "title:CShine612:name the failing tables on warehouse readiness",
+      "prs": [
+        115974
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5ebb35cf54cc4c86a065f7f6ca2ed41e2eaf895a955ca3080e25568f13e8379d"
+    },
+    "title:CShine612:keep a cleared number input empty while typing": {
+      "id": "title:CShine612:keep a cleared number input empty while typing",
+      "prs": [
+        80115
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2c0a94c12ed466e94b719986ddae9f12d486ca236d33ccd5ec48401c29301a62"
+    },
+    "title:CShine612:use real zone offsets in python hogvm dates": {
+      "id": "title:CShine612:use real zone offsets in python hogvm dates",
+      "prs": [
+        127436
+      ],
+      "status": "error",
+      "tier": null,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4764b67cab8c05328b4fa87a2585cb0fb8b22b2c01c78d794c52c2d09601cc52"
+    },
+    "pr:99908": {
+      "id": "pr:99908",
+      "prs": [
+        99908
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0073",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e2e0ee32f71b4ff56cea2722fc4caa57909ea00938cc795a49821b4850a44ee8"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "ef1ba62474bb7dd123dae0057880a93c5d3392fb48542d07334b5ce1839529e6",
-  "sha256": "54923d4a2d8cb8589dee708dc7f7c89dec985a9d66c8f620ce51bc9f2058b3a1"
+  "inline_publication_sha256": "3909d90e027fa544698fca504354bf519d0a18a9bef5fb186aa7a800e7b0f7eb",
+  "sha256": "deb7f72be48fbcd805df9647421a4616229ef75bac6c933e16d36d0cc74f69a2"
 }
