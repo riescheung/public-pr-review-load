@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:53:05.959030+00:00",
+  "generated_at": "2026-11-07T05:10:45.659002+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3853,19 +3853,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0047": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 131,
+    "scored": 151,
     "abstained": 2,
     "failed": 935,
     "reserved": 60,
-    "pending": 16092,
-    "mean_tier": 1.5038167938931297,
+    "pending": 16072,
+    "mean_tier": 1.5496688741721854,
     "tiers": {
-      "1": 65,
-      "2": 66,
+      "1": 68,
+      "2": 83,
       "3": 0
     },
     "review_ids": [
@@ -4001,16 +4077,36 @@
       "issue:80159",
       "issue:80537",
       "issue:80771",
+      "issue:80843",
       "issue:80882",
+      "issue:81006",
+      "issue:81125",
+      "issue:81436",
+      "issue:81545",
+      "issue:81596",
       "issue:81757",
       "issue:81883",
       "issue:81884",
       "issue:81885",
+      "issue:82032",
+      "issue:82033",
+      "issue:82096",
+      "issue:82101",
+      "issue:82923",
+      "issue:82924",
+      "issue:82927",
+      "issue:82930",
       "issue:83343",
+      "issue:83364",
+      "issue:83952",
+      "issue:85619",
       "issue:86654",
       "issue:87775",
+      "issue:87958",
       "issue:88014",
       "issue:88354",
+      "issue:88817",
+      "issue:88966",
       "issue:92144",
       "issue:97799",
       "pr:100461",
@@ -8965,18 +9061,20 @@
         },
         {
           "groups": 35,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 35,
-          "mean_tier": null,
+          "pending": 34,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:81596"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -9068,20 +9166,21 @@
       ],
       "total": {
         "groups": 233,
-        "scored": 2,
+        "scored": 3,
         "abstained": 0,
         "failed": 1,
         "reserved": 0,
-        "pending": 230,
+        "pending": 229,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 2,
+          "2": 3,
           "3": 0
         },
         "review_ids": [
           "issue:103374",
           "issue:42271",
+          "issue:81596",
           "pr:104270"
         ],
         "unmapped_prs": 0
@@ -12843,46 +12942,35 @@
         },
         {
           "groups": 15,
-          "scored": 0,
+          "scored": 7,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 15,
-          "mean_tier": null,
+          "pending": 8,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 7,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 2,
-          "reserved": 0,
-          "pending": 5,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
+            "2": 7,
             "3": 0
           },
           "review_ids": [
-            "issue:80882",
-            "title:jakesciotto:filter a heatmap by events in the session"
+            "issue:82096",
+            "issue:82101",
+            "issue:82924",
+            "issue:82927",
+            "issue:82930",
+            "issue:83364",
+            "issue:83952"
           ],
           "unmapped_prs": 0
         },
         {
-          "groups": 20,
+          "groups": 7,
           "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 18,
+          "pending": 4,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -12890,7 +12978,29 @@
             "3": 0
           },
           "review_ids": [
+            "issue:80882",
+            "issue:82923",
+            "title:jakesciotto:filter a heatmap by events in the session"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 20,
+          "scored": 3,
+          "abstained": 0,
+          "failed": 1,
+          "reserved": 0,
+          "pending": 16,
+          "mean_tier": 2.0,
+          "tiers": {
+            "1": 0,
+            "2": 3,
+            "3": 0
+          },
+          "review_ids": [
             "issue:103471",
+            "issue:87958",
+            "issue:88817",
             "title:jakesciotto:add gainsight cs data warehouse source"
           ],
           "unmapped_prs": 2
@@ -12949,15 +13059,15 @@
       ],
       "total": {
         "groups": 107,
-        "scored": 14,
+        "scored": 24,
         "abstained": 0,
         "failed": 9,
         "reserved": 0,
-        "pending": 84,
-        "mean_tier": 1.7857142857142858,
+        "pending": 74,
+        "mean_tier": 1.875,
         "tiers": {
           "1": 3,
-          "2": 11,
+          "2": 21,
           "3": 0
         },
         "review_ids": [
@@ -12981,6 +13091,16 @@
           "issue:80159",
           "issue:80771",
           "issue:80882",
+          "issue:82096",
+          "issue:82101",
+          "issue:82923",
+          "issue:82924",
+          "issue:82927",
+          "issue:82930",
+          "issue:83364",
+          "issue:83952",
+          "issue:87958",
+          "issue:88817",
           "title:jakesciotto:add gainsight cs data warehouse source",
           "title:jakesciotto:filter a heatmap by events in the session",
           "title:jakesciotto:sync checkout com report files as tables"
@@ -13984,18 +14104,19 @@
       "periods": [
         {
           "groups": 13,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 3,
           "reserved": 0,
-          "pending": 10,
-          "mean_tier": null,
+          "pending": 9,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
           "review_ids": [
+            "issue:80843",
             "pr:76041",
             "title:carlos-marchal-ph:drop the multipart blob code from the ai capture endpoint",
             "title:carlos-marchal-ph:end to end coverage for multimodal ai ingestion"
@@ -14119,18 +14240,19 @@
       ],
       "total": {
         "groups": 91,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 16,
         "reserved": 0,
-        "pending": 75,
-        "mean_tier": null,
+        "pending": 74,
+        "mean_tier": 1.0,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 0,
           "3": 0
         },
         "review_ids": [
+          "issue:80843",
           "pr:107516",
           "pr:108227",
           "pr:108228",
@@ -17969,15 +18091,15 @@
       "periods": [
         {
           "groups": 11,
-          "scored": 4,
+          "scored": 5,
           "abstained": 0,
           "failed": 2,
           "reserved": 0,
-          "pending": 5,
-          "mean_tier": 1.5,
+          "pending": 4,
+          "mean_tier": 1.6,
           "tiers": {
             "1": 2,
-            "2": 2,
+            "2": 3,
             "3": 0
           },
           "review_ids": [
@@ -17986,25 +18108,29 @@
             "issue:74309",
             "issue:74316",
             "issue:74935",
-            "issue:74941"
+            "issue:74941",
+            "issue:81125"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 8,
-          "scored": 0,
+          "scored": 3,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 7,
-          "mean_tier": null,
+          "pending": 4,
+          "mean_tier": 1.6666666666666667,
           "tiers": {
-            "1": 0,
-            "2": 0,
+            "1": 1,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
-            "issue:81757"
+            "issue:81436",
+            "issue:81757",
+            "issue:82032",
+            "issue:82033"
           ],
           "unmapped_prs": 0
         },
@@ -18103,15 +18229,15 @@
       ],
       "total": {
         "groups": 51,
-        "scored": 5,
+        "scored": 9,
         "abstained": 0,
         "failed": 10,
         "reserved": 1,
-        "pending": 35,
-        "mean_tier": 1.4,
+        "pending": 31,
+        "mean_tier": 1.5555555555555556,
         "tiers": {
-          "1": 3,
-          "2": 2,
+          "1": 4,
+          "2": 5,
           "3": 0
         },
         "review_ids": [
@@ -18122,7 +18248,11 @@
           "issue:74316",
           "issue:74935",
           "issue:74941",
+          "issue:81125",
+          "issue:81436",
           "issue:81757",
+          "issue:82032",
+          "issue:82033",
           "pr:89523",
           "pr:91819",
           "pr:91821",
@@ -23648,18 +23778,20 @@
         },
         {
           "groups": 2,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 2,
-          "mean_tier": null,
+          "pending": 1,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:88966"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -23729,18 +23861,20 @@
       ],
       "total": {
         "groups": 8,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 8,
-        "mean_tier": null,
+        "pending": 7,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:88966"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -26418,19 +26552,21 @@
         },
         {
           "groups": 3,
-          "scored": 1,
+          "scored": 3,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 2,
-          "mean_tier": 1.0,
+          "pending": 0,
+          "mean_tier": 1.6666666666666667,
           "tiers": {
             "1": 1,
-            "2": 0,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
-            "issue:67316"
+            "issue:67316",
+            "issue:81006",
+            "issue:81545"
           ],
           "unmapped_prs": 0
         },
@@ -26517,19 +26653,21 @@
       ],
       "total": {
         "groups": 3,
-        "scored": 1,
+        "scored": 3,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 2,
-        "mean_tier": 1.0,
+        "pending": 0,
+        "mean_tier": 1.6666666666666667,
         "tiers": {
           "1": 1,
-          "2": 0,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
-          "issue:67316"
+          "issue:67316",
+          "issue:81006",
+          "issue:81545"
         ],
         "unmapped_prs": 0
       }
@@ -30810,18 +30948,20 @@
         },
         {
           "groups": 1,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 1,
-          "mean_tier": null,
+          "pending": 0,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:85619"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -30891,18 +31031,20 @@
       ],
       "total": {
         "groups": 1,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 1,
-        "mean_tier": null,
+        "pending": 0,
+        "mean_tier": 1.0,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:85619"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -48649,9 +48791,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "cbfcc5aee3e0b1e8526fda8f1ea2d52fa42ebb513864581533883a868925d272"
+    },
+    "issue:82101": {
+      "id": "issue:82101",
+      "prs": [
+        82115
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1641277123c52aee13ef88b0cb9c98599eac97a4c70844714d9fb0787a33ce18"
+    },
+    "issue:82033": {
+      "id": "issue:82033",
+      "prs": [
+        82043
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2ea62231825d937e7eeb6dd16e965007abd3f91651b39a8c014fab45f8671d63"
+    },
+    "issue:81436": {
+      "id": "issue:81436",
+      "prs": [
+        83882
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7cc23497e4b19ff1b50b1d0eb730de590ec7192cc383dd4a0135390edc2625a1"
+    },
+    "issue:81125": {
+      "id": "issue:81125",
+      "prs": [
+        81141
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "81b2d62fe2288d1dc0e41a891d26aecd79963ce7a63a333857599e8afd5da4e4"
+    },
+    "issue:85619": {
+      "id": "issue:85619",
+      "prs": [
+        85635
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c87ae22fc4453e59233241ec1cf855c6a2b79073cf735d642eb223e43be21346"
+    },
+    "issue:81596": {
+      "id": "issue:81596",
+      "prs": [
+        83561
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "27d8956653f32790aea8bbf0d817f42e05373bb0a413c7f1b81d5df5180f1a38"
+    },
+    "issue:80843": {
+      "id": "issue:80843",
+      "prs": [
+        81105
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ce38757dfd96034f582cdfe1e2e2dd7b1dabe469e0b7e236f7c478f686bc60e5"
+    },
+    "issue:88817": {
+      "id": "issue:88817",
+      "prs": [
+        98074
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2f55557f0b924d695e450c239d3243612a0fb7582551bbadec8058470181ed49"
+    },
+    "issue:83952": {
+      "id": "issue:83952",
+      "prs": [
+        84705
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b2fe3afdc797409321b49e36508899d265ac368b0a975852348718d4335a3ef3"
+    },
+    "issue:82930": {
+      "id": "issue:82930",
+      "prs": [
+        82958
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2333c59a079d43b44f93c9bd85661d961db6df9a200021004cb0052c0e61a2ca"
+    },
+    "issue:82032": {
+      "id": "issue:82032",
+      "prs": [
+        82044
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cd82d57a40356efdce9acd9d7eec79da3baba6bffad0e21e2de8f79851ea4a0b"
+    },
+    "issue:82924": {
+      "id": "issue:82924",
+      "prs": [
+        82959
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f9a6eba1cfa0fb90c446d20f5cef71afd8a2ca2690cb0c56b7d0fda3cf37abcb"
+    },
+    "issue:83364": {
+      "id": "issue:83364",
+      "prs": [
+        84740
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "379edd3639a9b1e78af2d9c20484eb15d531e41894f2d180d3a34330b5620fac"
+    },
+    "issue:82096": {
+      "id": "issue:82096",
+      "prs": [
+        82099
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e8ad206f774b74296efdd65959ee426bb0a52d6e5dd2d5754d0886a295dcd5e1"
+    },
+    "issue:81545": {
+      "id": "issue:81545",
+      "prs": [
+        81660
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "73717353662f5120d6b050768307771bf6354f8ccbe46779fe6ff7840369f6d1"
+    },
+    "issue:88966": {
+      "id": "issue:88966",
+      "prs": [
+        88605
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f0852db8633d7605558f8a76ad17dd7edad6369078211ecf13ff4f63f2a66f12"
+    },
+    "issue:82923": {
+      "id": "issue:82923",
+      "prs": [
+        82957
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b204b8321bcdc4e49657f4d9a243d04f638d4ca1e6cb7b6392ee23b2d7a9b64d"
+    },
+    "issue:82927": {
+      "id": "issue:82927",
+      "prs": [
+        82956
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "85a1782e745a6e8c7ee95ce0de67344fc6f19d5adcc19f7b9d96f8452bb503b7"
+    },
+    "issue:81006": {
+      "id": "issue:81006",
+      "prs": [
+        83533
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "59faf8bf4fe395b8c410f8f65bea2cf4834d5561ab560355d486d8da36c08886"
+    },
+    "issue:87958": {
+      "id": "issue:87958",
+      "prs": [
+        91423
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0047",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5c1ba0c9bfa7792bf997b04f5ce08bfd894c3fe399e710c706d7ba408d4b2d5c"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "6edbb8cc694d3dd4969fe30bba81ba4dcbeb7220bdc392f262dac7a41bc0ba38",
-  "sha256": "279f88a026a4e41e1577902cb34a8f9b796f31adb934be791f5d801a88f0a995"
+  "inline_publication_sha256": "728c99f0c2a794414848d01d2f9684bae7a6e5ffbf50f42e486a2c1869eedc5f",
+  "sha256": "b75144a9bd77b9c341cc036eecd26b6d93393177734433013d47fc52cecff351"
 }
