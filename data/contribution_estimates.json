@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:38:07.111090+00:00",
+  "generated_at": "2026-11-07T04:38:35.976904+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3701,15 +3701,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0045": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 911,
+    "failed": 931,
     "reserved": 60,
-    "pending": 16132,
+    "pending": 16112,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -4744,7 +4820,27 @@
       "title:jose-sequeira:add lifecycle fencing to the leader",
       "title:jose-sequeira:add partial indexes for live catalog rows",
       "title:jose-sequeira:add personhog publisher to drain the publish outbox",
-      "title:jose-sequeira:answer queued rebalance events when the consumer stops"
+      "title:jose-sequeira:answer queued rebalance events when the consumer stops",
+      "title:jose-sequeira:move the ingestion e2e suite to the parallel lane",
+      "title:jose-sequeira:rate limit to overflow by the kafka message key",
+      "title:jose-sequeira:reland tombstone merges behind the team allowlist",
+      "title:jose-sequeira:remove the http transport between consumer and workers",
+      "title:jose-sequeira:remove the person merge tombstone team allowlist",
+      "title:jose-sequeira:remove the pin stash scheduler",
+      "title:jose-sequeira:revert ingestion tombstone merges and lifecycle marks behind a flag",
+      "title:jose-sequeira:run extract and parseuseragent on the rust vm",
+      "title:jose-sequeira:run the consumer on the common ingestion consumer",
+      "title:jose-sequeira:send sub batches over ordered grpc lanes",
+      "title:jose-sequeira:serve workeringest grpc stream in the ingestion api server",
+      "title:jose-sequeira:share the cdc parity rules in personhog common",
+      "title:jose-sequeira:sub batch soft budgets with partial acks",
+      "title:jose-sequeira:tombstone aware reads and revival on recreate",
+      "title:jose-sequeira:tombstone merges and lifecycle marks behind a flag",
+      "title:jose-sequeira:trim warehouse catalog fetches in the database build",
+      "title:jose-sequeira:verify the publish plane in the e2e gate",
+      "title:jurajmajerik:add breathing room between the meta bar and tabs",
+      "title:jurajmajerik:drop unknown keys when parsing exposure criteria",
+      "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy"
     ],
     "unmapped_prs": 14
   },
@@ -7559,16 +7655,18 @@
           "groups": 34,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 34,
+          "pending": 33,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jurajmajerik:drop unknown keys when parsing exposure criteria"
+          ],
           "unmapped_prs": 1
         },
         {
@@ -7607,9 +7705,9 @@
           "groups": 47,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 46,
+          "pending": 44,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -7617,7 +7715,9 @@
             "3": 0
           },
           "review_ids": [
-            "issue:50161"
+            "issue:50161",
+            "title:jurajmajerik:add breathing room between the meta bar and tabs",
+            "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy"
           ],
           "unmapped_prs": 0
         },
@@ -7663,9 +7763,9 @@
         "groups": 237,
         "scored": 5,
         "abstained": 0,
-        "failed": 0,
+        "failed": 3,
         "reserved": 0,
-        "pending": 232,
+        "pending": 229,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -7677,7 +7777,10 @@
           "issue:50161",
           "issue:60297",
           "issue:70958",
-          "issue:73702"
+          "issue:73702",
+          "title:jurajmajerik:add breathing room between the meta bar and tabs",
+          "title:jurajmajerik:drop unknown keys when parsing exposure criteria",
+          "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy"
         ],
         "unmapped_prs": 1
       }
@@ -11561,9 +11664,9 @@
           "groups": 25,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 7,
           "reserved": 0,
-          "pending": 22,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -11573,7 +11676,11 @@
           "review_ids": [
             "title:jose-sequeira:add delete saga engine and deletepersons endpoint flow",
             "title:jose-sequeira:add etcd explorer and personhog topology tools",
-            "title:jose-sequeira:add lifecycle fencing to the leader"
+            "title:jose-sequeira:add lifecycle fencing to the leader",
+            "title:jose-sequeira:reland tombstone merges behind the team allowlist",
+            "title:jose-sequeira:revert ingestion tombstone merges and lifecycle marks behind a flag",
+            "title:jose-sequeira:tombstone aware reads and revival on recreate",
+            "title:jose-sequeira:tombstone merges and lifecycle marks behind a flag"
           ],
           "unmapped_prs": 0
         },
@@ -11581,25 +11688,27 @@
           "groups": 14,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 1,
-          "pending": 13,
+          "pending": 12,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jose-sequeira:serve workeringest grpc stream in the ingestion api server"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 39,
           "scored": 0,
           "abstained": 0,
-          "failed": 5,
+          "failed": 10,
           "reserved": 0,
-          "pending": 34,
+          "pending": 29,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -11611,7 +11720,12 @@
             "pr:94343",
             "pr:95964",
             "title:jose-sequeira:add partial indexes for live catalog rows",
-            "title:jose-sequeira:answer queued rebalance events when the consumer stops"
+            "title:jose-sequeira:answer queued rebalance events when the consumer stops",
+            "title:jose-sequeira:move the ingestion e2e suite to the parallel lane",
+            "title:jose-sequeira:rate limit to overflow by the kafka message key",
+            "title:jose-sequeira:remove the http transport between consumer and workers",
+            "title:jose-sequeira:send sub batches over ordered grpc lanes",
+            "title:jose-sequeira:trim warehouse catalog fetches in the database build"
           ],
           "unmapped_prs": 0
         },
@@ -11619,9 +11733,9 @@
           "groups": 6,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 5,
+          "pending": 4,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -11629,7 +11743,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:93358"
+            "pr:93358",
+            "title:jose-sequeira:run the consumer on the common ingestion consumer"
           ],
           "unmapped_prs": 0
         },
@@ -11653,9 +11768,9 @@
           "groups": 31,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 9,
           "reserved": 0,
-          "pending": 28,
+          "pending": 22,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -11665,7 +11780,13 @@
           "review_ids": [
             "pr:119364",
             "title:jose-sequeira:add kafka feed parity e2e across person backends",
-            "title:jose-sequeira:add personhog publisher to drain the publish outbox"
+            "title:jose-sequeira:add personhog publisher to drain the publish outbox",
+            "title:jose-sequeira:remove the person merge tombstone team allowlist",
+            "title:jose-sequeira:remove the pin stash scheduler",
+            "title:jose-sequeira:run extract and parseuseragent on the rust vm",
+            "title:jose-sequeira:share the cdc parity rules in personhog common",
+            "title:jose-sequeira:sub batch soft budgets with partial acks",
+            "title:jose-sequeira:verify the publish plane in the e2e gate"
           ],
           "unmapped_prs": 0
         },
@@ -11690,9 +11811,9 @@
         "groups": 120,
         "scored": 0,
         "abstained": 0,
-        "failed": 12,
+        "failed": 29,
         "reserved": 1,
-        "pending": 107,
+        "pending": 90,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -11711,7 +11832,24 @@
           "title:jose-sequeira:add lifecycle fencing to the leader",
           "title:jose-sequeira:add partial indexes for live catalog rows",
           "title:jose-sequeira:add personhog publisher to drain the publish outbox",
-          "title:jose-sequeira:answer queued rebalance events when the consumer stops"
+          "title:jose-sequeira:answer queued rebalance events when the consumer stops",
+          "title:jose-sequeira:move the ingestion e2e suite to the parallel lane",
+          "title:jose-sequeira:rate limit to overflow by the kafka message key",
+          "title:jose-sequeira:reland tombstone merges behind the team allowlist",
+          "title:jose-sequeira:remove the http transport between consumer and workers",
+          "title:jose-sequeira:remove the person merge tombstone team allowlist",
+          "title:jose-sequeira:remove the pin stash scheduler",
+          "title:jose-sequeira:revert ingestion tombstone merges and lifecycle marks behind a flag",
+          "title:jose-sequeira:run extract and parseuseragent on the rust vm",
+          "title:jose-sequeira:run the consumer on the common ingestion consumer",
+          "title:jose-sequeira:send sub batches over ordered grpc lanes",
+          "title:jose-sequeira:serve workeringest grpc stream in the ingestion api server",
+          "title:jose-sequeira:share the cdc parity rules in personhog common",
+          "title:jose-sequeira:sub batch soft budgets with partial acks",
+          "title:jose-sequeira:tombstone aware reads and revival on recreate",
+          "title:jose-sequeira:tombstone merges and lifecycle marks behind a flag",
+          "title:jose-sequeira:trim warehouse catalog fetches in the database build",
+          "title:jose-sequeira:verify the publish plane in the e2e gate"
         ],
         "unmapped_prs": 0
       }
@@ -47886,9 +48024,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "c85e4575a8abf9a7b22c8a1531cbf56d5644cf30eaa8a2a491a8a702db973654"
+    },
+    "title:jose-sequeira:remove the pin stash scheduler": {
+      "id": "title:jose-sequeira:remove the pin stash scheduler",
+      "prs": [
+        118347
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "162050cd7038f4c65e11d07c75fb7f3cbec1a3f929172c29ae4d9672187e12de"
+    },
+    "title:jose-sequeira:run extract and parseuseragent on the rust vm": {
+      "id": "title:jose-sequeira:run extract and parseuseragent on the rust vm",
+      "prs": [
+        112670
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f267ff32a10f1f708771375a98275e412aadafa08081b556605e8a1a5ce58ea6"
+    },
+    "title:jose-sequeira:revert ingestion tombstone merges and lifecycle marks behind a flag": {
+      "id": "title:jose-sequeira:revert ingestion tombstone merges and lifecycle marks behind a flag",
+      "prs": [
+        79682
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "80e5bc3b8de175fda3d91c6378ab6cd5137e9b2f6476314ddaa599aa13938056"
+    },
+    "title:jose-sequeira:run the consumer on the common ingestion consumer": {
+      "id": "title:jose-sequeira:run the consumer on the common ingestion consumer",
+      "prs": [
+        98945
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9ae365cc8a37a5c7b97941c14b045bab5495b9e3d46eac1faafae32e014653f5"
+    },
+    "title:jose-sequeira:sub batch soft budgets with partial acks": {
+      "id": "title:jose-sequeira:sub batch soft budgets with partial acks",
+      "prs": [
+        115388
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e75829b381c9868d411862640fc34954517be784a53e9b4aa7313fc349568bbc"
+    },
+    "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy": {
+      "id": "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy",
+      "prs": [
+        111709
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "90e7cce39f203a55b93b70c69db99f77a1536cccb30f48643dc0657d5cc0e1b1"
+    },
+    "title:jurajmajerik:add breathing room between the meta bar and tabs": {
+      "id": "title:jurajmajerik:add breathing room between the meta bar and tabs",
+      "prs": [
+        105672
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0ce48276c4313de2e4411d7aeae3f469ec4bf1e34c1eec6e4ebbc0abee1a42ea"
+    },
+    "title:jose-sequeira:verify the publish plane in the e2e gate": {
+      "id": "title:jose-sequeira:verify the publish plane in the e2e gate",
+      "prs": [
+        117263
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "41763dddb03300345db9b11356cb2880d7f5809413eaaace95daf8e831116c5f"
+    },
+    "title:jose-sequeira:tombstone aware reads and revival on recreate": {
+      "id": "title:jose-sequeira:tombstone aware reads and revival on recreate",
+      "prs": [
+        74126
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "43b5a7eff5a2b82662c7eed96720c2416101a5f29ad16df9868b7a601d6bd557"
+    },
+    "title:jose-sequeira:remove the person merge tombstone team allowlist": {
+      "id": "title:jose-sequeira:remove the person merge tombstone team allowlist",
+      "prs": [
+        113197
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3f72400afb0c6d6c5a3be2a32a2b6278981703e4bfbfb1f01f85cb801bfd9773"
+    },
+    "title:jose-sequeira:serve workeringest grpc stream in the ingestion api server": {
+      "id": "title:jose-sequeira:serve workeringest grpc stream in the ingestion api server",
+      "prs": [
+        85191
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6b27a656b05730d044d3ef2656a5c5d79b16ca500c4f6a38a7148ae99eac03f6"
+    },
+    "title:jose-sequeira:move the ingestion e2e suite to the parallel lane": {
+      "id": "title:jose-sequeira:move the ingestion e2e suite to the parallel lane",
+      "prs": [
+        90032
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b380afb106d92f92b5a9d540d70a365cc7c58db6b1958beb798604b8c5e7955e"
+    },
+    "title:jose-sequeira:send sub batches over ordered grpc lanes": {
+      "id": "title:jose-sequeira:send sub batches over ordered grpc lanes",
+      "prs": [
+        85238
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "460f0f36be53f053bf9e41c59e6352efc5b0b7bcd210c31a23dbf083223ce809"
+    },
+    "title:jose-sequeira:trim warehouse catalog fetches in the database build": {
+      "id": "title:jose-sequeira:trim warehouse catalog fetches in the database build",
+      "prs": [
+        95093
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5c6a2a68aaad033b8f87b6cd2eb49bdd4a9139c6d2635634046f9e0444a8a114"
+    },
+    "title:jose-sequeira:rate limit to overflow by the kafka message key": {
+      "id": "title:jose-sequeira:rate limit to overflow by the kafka message key",
+      "prs": [
+        95565
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ed8a2fe1e024bd2c405eb3c60e725579d7d82d7a8f782c037f9bcb736a3d9031"
+    },
+    "title:jose-sequeira:remove the http transport between consumer and workers": {
+      "id": "title:jose-sequeira:remove the http transport between consumer and workers",
+      "prs": [
+        90790
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a4f4af8179b878140defd1344bd8038eded76befe00f31dd3389a954d29338f6"
+    },
+    "title:jose-sequeira:share the cdc parity rules in personhog common": {
+      "id": "title:jose-sequeira:share the cdc parity rules in personhog common",
+      "prs": [
+        119363
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e9b151b02ecf6ff42101bf11b4815d68e1475eab7eedebe8c7c9c6108b50cbc3"
+    },
+    "title:jose-sequeira:tombstone merges and lifecycle marks behind a flag": {
+      "id": "title:jose-sequeira:tombstone merges and lifecycle marks behind a flag",
+      "prs": [
+        78944
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "64c8487ae3f4ee1cda53abf8c12c14526388d12284f3901eee12c072492a04d0"
+    },
+    "title:jurajmajerik:drop unknown keys when parsing exposure criteria": {
+      "id": "title:jurajmajerik:drop unknown keys when parsing exposure criteria",
+      "prs": [
+        85175
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f731b53c1c9b3a565c0af448b3547c900a364ac83333805c7b9e030c745b085c"
+    },
+    "title:jose-sequeira:reland tombstone merges behind the team allowlist": {
+      "id": "title:jose-sequeira:reland tombstone merges behind the team allowlist",
+      "prs": [
+        80062
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0045",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "32e8dd1f8da420e5a30250facfeead60f1f18b03b44e040852cb91cbb19ab5dd"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "a092e93ad241f2e8ab2c6f8628382396d117ef5e9d4b3c0465a15eaad05ca495",
-  "sha256": "f8a1599c6bda6c40a5deea0d97c6fd5cb1cb545a65629c8e839f655ab420a712"
+  "inline_publication_sha256": "0bc79797e6092a815cc5f1de17aa5b36c2d94839520cf9bab3bb58f5228f3dd2",
+  "sha256": "bfcfc9db418b0eec3520ed70ed7505ab065d9454a5ab11476324b27c7e28478c"
 }
