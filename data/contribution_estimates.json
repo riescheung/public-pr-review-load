@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:23:25.346921+00:00",
+  "generated_at": "2026-11-07T04:23:57.366709+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -1421,15 +1421,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0015": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 311,
+    "failed": 331,
     "reserved": 60,
-    "pending": 16732,
+    "pending": 16712,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -1857,9 +1933,29 @@
       "title:GeneralistDev:replace legacy evals with focused sandbox cases",
       "title:Gilbert09:add 14 missing google ads tables",
       "title:Gilbert09:add 23 tables to the clerk source",
+      "title:Gilbert09:add 23 tables to the sentry source",
+      "title:Gilbert09:add 25 tables to the zendesk source",
+      "title:Gilbert09:add 26 tables to the stripe source",
+      "title:Gilbert09:add 28 tables to the mailchimp source",
+      "title:Gilbert09:add 38 tables to the github source",
       "title:Gilbert09:add 4 missing tables to the recurly source",
       "title:Gilbert09:add 4 missing tables to the xmatters source",
+      "title:Gilbert09:add a shared driver for source tests",
+      "title:Gilbert09:add a source contract test suite with ratchet baselines",
+      "title:Gilbert09:add a warehouse destinations scene",
+      "title:Gilbert09:add airwallex as a warehouse source",
+      "title:Gilbert09:add amazon s3 import source on a shared object storage backend",
+      "title:Gilbert09:add aws budgets import source",
+      "title:Gilbert09:add aws cost anomaly detection import source",
+      "title:Gilbert09:add aws organizations import source",
+      "title:Gilbert09:add dagster cloud automation and asset event tables",
+      "title:Gilbert09:add dagster cloud deployment insights run log and org tables",
+      "title:Gilbert09:add durable source cursors move xmin onto them",
       "title:Gilbert09:add firstpromoter report and referral link tables",
+      "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync",
+      "title:Gilbert09:add generic job queue tables and sdk",
+      "title:Gilbert09:add integration service for platform secrets",
+      "title:Gilbert09:add kalshi as a warehouse source",
       "title:Gilbert09:continue an import only when the source proves its row order",
       "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
       "title:Gilbert09:make row tracking survive redis and billing blips",
@@ -1875,9 +1971,9 @@
           "groups": 453,
           "scored": 1,
           "abstained": 0,
-          "failed": 28,
+          "failed": 33,
           "reserved": 0,
-          "pending": 424,
+          "pending": 419,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -1913,7 +2009,12 @@
             "pr:78747",
             "pr:78833",
             "title:Gilbert09:add 14 missing google ads tables",
-            "title:Gilbert09:add 23 tables to the clerk source"
+            "title:Gilbert09:add 23 tables to the clerk source",
+            "title:Gilbert09:add 23 tables to the sentry source",
+            "title:Gilbert09:add 25 tables to the zendesk source",
+            "title:Gilbert09:add 26 tables to the stripe source",
+            "title:Gilbert09:add 28 tables to the mailchimp source",
+            "title:Gilbert09:add 38 tables to the github source"
           ],
           "unmapped_prs": 0
         },
@@ -1921,9 +2022,9 @@
           "groups": 311,
           "scored": 2,
           "abstained": 0,
-          "failed": 13,
+          "failed": 19,
           "reserved": 1,
-          "pending": 295,
+          "pending": 289,
           "mean_tier": 1.5,
           "tiers": {
             "1": 1,
@@ -1945,6 +2046,12 @@
             "pr:84326",
             "pr:84436",
             "pr:88379",
+            "title:Gilbert09:add airwallex as a warehouse source",
+            "title:Gilbert09:add aws budgets import source",
+            "title:Gilbert09:add aws cost anomaly detection import source",
+            "title:Gilbert09:add aws organizations import source",
+            "title:Gilbert09:add integration service for platform secrets",
+            "title:Gilbert09:add kalshi as a warehouse source",
             "title:Gilbert09:keep exhausted read timeout errors out of error tracking"
           ],
           "unmapped_prs": 0
@@ -1973,9 +2080,9 @@
           "groups": 379,
           "scored": 0,
           "abstained": 0,
-          "failed": 4,
+          "failed": 5,
           "reserved": 0,
-          "pending": 375,
+          "pending": 374,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -1986,7 +2093,8 @@
             "pr:101482",
             "pr:102822",
             "pr:103576",
-            "pr:78839"
+            "pr:78839",
+            "title:Gilbert09:add a warehouse destinations scene"
           ],
           "unmapped_prs": 0
         },
@@ -1994,9 +2102,9 @@
           "groups": 584,
           "scored": 1,
           "abstained": 0,
-          "failed": 7,
+          "failed": 11,
           "reserved": 0,
-          "pending": 576,
+          "pending": 572,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2011,6 +2119,10 @@
             "pr:107258",
             "pr:111503",
             "pr:112070",
+            "title:Gilbert09:add dagster cloud automation and asset event tables",
+            "title:Gilbert09:add dagster cloud deployment insights run log and org tables",
+            "title:Gilbert09:add durable source cursors move xmin onto them",
+            "title:Gilbert09:add generic job queue tables and sdk",
             "title:Gilbert09:make row tracking survive redis and billing blips"
           ],
           "unmapped_prs": 0
@@ -2019,9 +2131,9 @@
           "groups": 665,
           "scored": 4,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 1,
-          "pending": 660,
+          "pending": 657,
           "mean_tier": 1.25,
           "tiers": {
             "1": 3,
@@ -2030,6 +2142,9 @@
           },
           "review_ids": [
             "title:Gilbert09:add 4 missing tables to the recurly source",
+            "title:Gilbert09:add a shared driver for source tests",
+            "title:Gilbert09:add a source contract test suite with ratchet baselines",
+            "title:Gilbert09:add amazon s3 import source on a shared object storage backend",
             "title:Gilbert09:add firstpromoter report and referral link tables",
             "title:Gilbert09:continue an import only when the source proves its row order",
             "title:Gilbert09:point source test guidance at the shared driver"
@@ -2040,9 +2155,9 @@
           "groups": 539,
           "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 5,
-          "pending": 532,
+          "pending": 531,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2051,7 +2166,8 @@
           },
           "review_ids": [
             "pr:126144",
-            "title:Gilbert09:add 4 missing tables to the xmatters source"
+            "title:Gilbert09:add 4 missing tables to the xmatters source",
+            "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync"
           ],
           "unmapped_prs": 0
         }
@@ -2060,9 +2176,9 @@
         "groups": 3127,
         "scored": 9,
         "abstained": 0,
-        "failed": 56,
+        "failed": 76,
         "reserved": 7,
-        "pending": 3055,
+        "pending": 3035,
         "mean_tier": 1.4444444444444444,
         "tiers": {
           "1": 5,
@@ -2128,9 +2244,29 @@
           "pr:95577",
           "title:Gilbert09:add 14 missing google ads tables",
           "title:Gilbert09:add 23 tables to the clerk source",
+          "title:Gilbert09:add 23 tables to the sentry source",
+          "title:Gilbert09:add 25 tables to the zendesk source",
+          "title:Gilbert09:add 26 tables to the stripe source",
+          "title:Gilbert09:add 28 tables to the mailchimp source",
+          "title:Gilbert09:add 38 tables to the github source",
           "title:Gilbert09:add 4 missing tables to the recurly source",
           "title:Gilbert09:add 4 missing tables to the xmatters source",
+          "title:Gilbert09:add a shared driver for source tests",
+          "title:Gilbert09:add a source contract test suite with ratchet baselines",
+          "title:Gilbert09:add a warehouse destinations scene",
+          "title:Gilbert09:add airwallex as a warehouse source",
+          "title:Gilbert09:add amazon s3 import source on a shared object storage backend",
+          "title:Gilbert09:add aws budgets import source",
+          "title:Gilbert09:add aws cost anomaly detection import source",
+          "title:Gilbert09:add aws organizations import source",
+          "title:Gilbert09:add dagster cloud automation and asset event tables",
+          "title:Gilbert09:add dagster cloud deployment insights run log and org tables",
+          "title:Gilbert09:add durable source cursors move xmin onto them",
           "title:Gilbert09:add firstpromoter report and referral link tables",
+          "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync",
+          "title:Gilbert09:add generic job queue tables and sdk",
+          "title:Gilbert09:add integration service for platform secrets",
+          "title:Gilbert09:add kalshi as a warehouse source",
           "title:Gilbert09:continue an import only when the source proves its row order",
           "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
           "title:Gilbert09:make row tracking survive redis and billing blips",
@@ -36415,9 +36551,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "bcbdec605f39757fede522f2141ef0f2ee8b8b22bf019b9d53b944317352f8d1"
+    },
+    "title:Gilbert09:add a shared driver for source tests": {
+      "id": "title:Gilbert09:add a shared driver for source tests",
+      "prs": [
+        114350
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9e8a81ab870b297f0b9f39734a6e254c5620357fe3833a26ff8d7883ef136565"
+    },
+    "title:Gilbert09:add 23 tables to the sentry source": {
+      "id": "title:Gilbert09:add 23 tables to the sentry source",
+      "prs": [
+        73850
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "382e48329df5442f473dbbb94179d503e91fa0f3ac8381550f55dd5621e25da7"
+    },
+    "title:Gilbert09:add airwallex as a warehouse source": {
+      "id": "title:Gilbert09:add airwallex as a warehouse source",
+      "prs": [
+        85594
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d3a72a8a15ec2ab9de7a7b45991278e36809ff2c93cad406b6851721a6a10c5b"
+    },
+    "title:Gilbert09:add 26 tables to the stripe source": {
+      "id": "title:Gilbert09:add 26 tables to the stripe source",
+      "prs": [
+        73866
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ab7d76059b8190b98a3dbde6870defa4e27d88b8c3bbe0ac53d6e9a52c7d554e"
+    },
+    "title:Gilbert09:add generic job queue tables and sdk": {
+      "id": "title:Gilbert09:add generic job queue tables and sdk",
+      "prs": [
+        91398
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e888545f2791ed0a4883ad31c89c4d39ae2c0df3fa1e42dd699f2ce55b082284"
+    },
+    "title:Gilbert09:add kalshi as a warehouse source": {
+      "id": "title:Gilbert09:add kalshi as a warehouse source",
+      "prs": [
+        85520
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f64ece08b1b0d8820b4684423d85183fef4053b1d960af32f190a976debf5762"
+    },
+    "title:Gilbert09:add aws organizations import source": {
+      "id": "title:Gilbert09:add aws organizations import source",
+      "prs": [
+        84479
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "33617b9f48d9dece7a196c153845ea94a9c2712b1474808d034f0ce37772a1aa"
+    },
+    "title:Gilbert09:add aws budgets import source": {
+      "id": "title:Gilbert09:add aws budgets import source",
+      "prs": [
+        84475
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a00b095c7eb5357c1721159ba628fd81f4966a93251f2992f11f9dd283daac92"
+    },
+    "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync": {
+      "id": "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync",
+      "prs": [
+        120268
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f165d94e1923e0ecdc11dda8812f77452c62c68080ea59f03588d2cea9f07326"
+    },
+    "title:Gilbert09:add 25 tables to the zendesk source": {
+      "id": "title:Gilbert09:add 25 tables to the zendesk source",
+      "prs": [
+        73855
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "28008fd2ae7f5c3756567253dfd639af5513fd3e42106927c82e2f0c4f67364d"
+    },
+    "title:Gilbert09:add a source contract test suite with ratchet baselines": {
+      "id": "title:Gilbert09:add a source contract test suite with ratchet baselines",
+      "prs": [
+        113454
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f7060e45e984431893c209c4430d4f5a81983c0301ecd5df1d30370f6c88c73d"
+    },
+    "title:Gilbert09:add dagster cloud deployment insights run log and org tables": {
+      "id": "title:Gilbert09:add dagster cloud deployment insights run log and org tables",
+      "prs": [
+        105924
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fb14631ed8af8cfad9434da35cf98f2912bc7d3a92cfc3eb0e84d12e6383c8fc"
+    },
+    "title:Gilbert09:add aws cost anomaly detection import source": {
+      "id": "title:Gilbert09:add aws cost anomaly detection import source",
+      "prs": [
+        84472
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "669a70137884579ce0548cb4ce4dc4b294b4bf63dace56445f70c936190ad8b8"
+    },
+    "title:Gilbert09:add 28 tables to the mailchimp source": {
+      "id": "title:Gilbert09:add 28 tables to the mailchimp source",
+      "prs": [
+        73854
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "827f3c4e5f9d4f5ea5cc30f10992c1efb65e5f6aac6814330d57bac53c8685b8"
+    },
+    "title:Gilbert09:add integration service for platform secrets": {
+      "id": "title:Gilbert09:add integration service for platform secrets",
+      "prs": [
+        79462
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c7de0f1b3a2602de1b4737ade8cf6d452f3a9b4a9a8728c7e04a4e0c7ec5c175"
+    },
+    "title:Gilbert09:add durable source cursors move xmin onto them": {
+      "id": "title:Gilbert09:add durable source cursors move xmin onto them",
+      "prs": [
+        108390
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f29d0eedd57c9bc330ec177dcc3649d2fbf851bb456fa3c16d45e45ccc7ca6eb"
+    },
+    "title:Gilbert09:add 38 tables to the github source": {
+      "id": "title:Gilbert09:add 38 tables to the github source",
+      "prs": [
+        73856
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5b81806b6a7aaae20560fe8c052a2dd723e68e3154ee1daa081d03599d9527f5"
+    },
+    "title:Gilbert09:add amazon s3 import source on a shared object storage backend": {
+      "id": "title:Gilbert09:add amazon s3 import source on a shared object storage backend",
+      "prs": [
+        116382
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bb76063c428888f1ab1ebf69e8df98ea3946f4b1d55d32ac0ef655397f7e9e06"
+    },
+    "title:Gilbert09:add a warehouse destinations scene": {
+      "id": "title:Gilbert09:add a warehouse destinations scene",
+      "prs": [
+        90145
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "eca167679105c9219a6bf108e5507c8f69a87472f09b1a7d1e99c241ee21e1e4"
+    },
+    "title:Gilbert09:add dagster cloud automation and asset event tables": {
+      "id": "title:Gilbert09:add dagster cloud automation and asset event tables",
+      "prs": [
+        104406
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0015",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e841d34ef9ef41991b616babe5c77b8383cbe23c2bdf0635a18e921256ee8bde"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "19b6dc7526d3f9e7d5b1621ea716960cc5a36cd13a2ae3af39196c8c64049b12",
-  "sha256": "4ad60f10f0e222fdcca491a2793b094d97c5f38250e9237ad6ebad1fd89bcba1"
+  "inline_publication_sha256": "ec00c65cdedbf5c00825b741dd5015743f39b8110824fb035156bac3b7fac282",
+  "sha256": "5b509f6d846d6368f5f82d47ffc2e5d9edb0ed6a8e0581bf10ed286eeac72b7a"
 }
