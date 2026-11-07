@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:31:14.986493+00:00",
+  "generated_at": "2026-11-07T04:31:45.334406+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2637,15 +2637,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0031": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 631,
+    "failed": 651,
     "reserved": 60,
-    "pending": 16412,
+    "pending": 16392,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3400,7 +3476,27 @@
       "title:arthurdedeus:backfill slack summaries when an account opts in",
       "title:arthurdedeus:default accounts to all assignment statuses",
       "title:arthurdedeus:display and edit pinned account properties",
-      "title:arthurdedeus:google calendar sync engine on temporal"
+      "title:arthurdedeus:google calendar sync engine on temporal",
+      "title:arthurdedeus:open gong calls from meetings",
+      "title:arthurdedeus:query account members from memberships",
+      "title:arthurdedeus:sync feature requests with github issues",
+      "title:aspicer:add moved keys back to events json documents while retained",
+      "title:aspicer:add stable offsets move shared jobs off minute zero",
+      "title:aspicer:count blast radius via hogql drop legacy personquery",
+      "title:aspicer:delete posthog queries relocate live helpers",
+      "title:aspicer:delete the dead legacy sql builder chain",
+      "title:aspicer:explain why a slow query was slow and how to fix it",
+      "title:aspicer:export only the read keys of properties from subqueries",
+      "title:aspicer:native filters hit the json index and reads drop the udf",
+      "title:aspicer:read empty property values on events json like legacy",
+      "title:aspicer:read exported fields in wrapped event joins",
+      "title:aspicer:rebuild flag keys in events json documents and mark true variants",
+      "title:aspicer:restore recorded nulls in native documents",
+      "title:aspicer:run ci on the native json events table and fix what broke",
+      "title:aspicer:serve session property values via hogql not raw sql",
+      "title:aspicer:store large cached results in s3 behind a redis pointer",
+      "title:aspicer:trim log only redis round trips from cache writes",
+      "title:bciaraldi:model dev satellites in hcl add batch exports role"
     ],
     "unmapped_prs": 14
   },
@@ -6447,9 +6543,9 @@
           "groups": 40,
           "scored": 1,
           "abstained": 0,
-          "failed": 4,
+          "failed": 5,
           "reserved": 1,
-          "pending": 34,
+          "pending": 33,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -6461,7 +6557,8 @@
             "pr:92857",
             "pr:94196",
             "title:arthurdedeus:default accounts to all assignment statuses",
-            "title:arthurdedeus:display and edit pinned account properties"
+            "title:arthurdedeus:display and edit pinned account properties",
+            "title:arthurdedeus:open gong calls from meetings"
           ],
           "unmapped_prs": 0
         },
@@ -6469,9 +6566,9 @@
           "groups": 25,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 4,
           "reserved": 1,
-          "pending": 21,
+          "pending": 20,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -6481,7 +6578,8 @@
           "review_ids": [
             "issue:102624",
             "pr:101885",
-            "pr:97753"
+            "pr:97753",
+            "title:arthurdedeus:sync feature requests with github issues"
           ],
           "unmapped_prs": 0
         },
@@ -6530,9 +6628,9 @@
           "groups": 15,
           "scored": 1,
           "abstained": 0,
-          "failed": 2,
+          "failed": 3,
           "reserved": 0,
-          "pending": 12,
+          "pending": 11,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -6542,7 +6640,8 @@
           "review_ids": [
             "issue:109270",
             "issue:109271",
-            "pr:123585"
+            "pr:123585",
+            "title:arthurdedeus:query account members from memberships"
           ],
           "unmapped_prs": 0
         }
@@ -6551,9 +6650,9 @@
         "groups": 189,
         "scored": 5,
         "abstained": 0,
-        "failed": 32,
+        "failed": 35,
         "reserved": 3,
-        "pending": 149,
+        "pending": 146,
         "mean_tier": 1.8,
         "tiers": {
           "1": 1,
@@ -6597,7 +6696,10 @@
           "title:arthurdedeus:backfill slack summaries when an account opts in",
           "title:arthurdedeus:default accounts to all assignment statuses",
           "title:arthurdedeus:display and edit pinned account properties",
-          "title:arthurdedeus:google calendar sync engine on temporal"
+          "title:arthurdedeus:google calendar sync engine on temporal",
+          "title:arthurdedeus:open gong calls from meetings",
+          "title:arthurdedeus:query account members from memberships",
+          "title:arthurdedeus:sync feature requests with github issues"
         ],
         "unmapped_prs": 0
       }
@@ -14936,7 +15038,47 @@
           "groups": 6,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
+          "reserved": 0,
+          "pending": 4,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:aspicer:store large cached results in s3 behind a redis pointer",
+            "title:aspicer:trim log only redis round trips from cache writes"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 13,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 4,
+          "reserved": 0,
+          "pending": 9,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:aspicer:count blast radius via hogql drop legacy personquery",
+            "title:aspicer:delete posthog queries relocate live helpers",
+            "title:aspicer:delete the dead legacy sql builder chain",
+            "title:aspicer:serve session property values via hogql not raw sql"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 7,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 1,
           "reserved": 0,
           "pending": 6,
           "mean_tier": null,
@@ -14945,87 +15087,69 @@
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 13,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 13,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 7,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 7,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
+          "review_ids": [
+            "title:aspicer:explain why a slow query was slow and how to fix it"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 27,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 4,
           "reserved": 0,
-          "pending": 27,
+          "pending": 23,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:aspicer:add moved keys back to events json documents while retained",
+            "title:aspicer:add stable offsets move shared jobs off minute zero",
+            "title:aspicer:rebuild flag keys in events json documents and mark true variants",
+            "title:aspicer:run ci on the native json events table and fix what broke"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 3,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 3,
+          "pending": 2,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:aspicer:native filters hit the json index and reads drop the udf"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 10,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 4,
           "reserved": 0,
-          "pending": 10,
+          "pending": 6,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:aspicer:export only the read keys of properties from subqueries",
+            "title:aspicer:read empty property values on events json like legacy",
+            "title:aspicer:read exported fields in wrapped event joins",
+            "title:aspicer:restore recorded nulls in native documents"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -15033,16 +15157,33 @@
         "groups": 66,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 16,
         "reserved": 0,
-        "pending": 66,
+        "pending": 50,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:aspicer:add moved keys back to events json documents while retained",
+          "title:aspicer:add stable offsets move shared jobs off minute zero",
+          "title:aspicer:count blast radius via hogql drop legacy personquery",
+          "title:aspicer:delete posthog queries relocate live helpers",
+          "title:aspicer:delete the dead legacy sql builder chain",
+          "title:aspicer:explain why a slow query was slow and how to fix it",
+          "title:aspicer:export only the read keys of properties from subqueries",
+          "title:aspicer:native filters hit the json index and reads drop the udf",
+          "title:aspicer:read empty property values on events json like legacy",
+          "title:aspicer:read exported fields in wrapped event joins",
+          "title:aspicer:rebuild flag keys in events json documents and mark true variants",
+          "title:aspicer:restore recorded nulls in native documents",
+          "title:aspicer:run ci on the native json events table and fix what broke",
+          "title:aspicer:serve session property values via hogql not raw sql",
+          "title:aspicer:store large cached results in s3 behind a redis pointer",
+          "title:aspicer:trim log only redis round trips from cache writes"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -20140,16 +20281,18 @@
           "groups": 2,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 2,
+          "pending": 1,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:bciaraldi:model dev satellites in hcl add batch exports role"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -20237,16 +20380,18 @@
         "groups": 19,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 19,
+        "pending": 18,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:bciaraldi:model dev satellites in hcl add batch exports role"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -42516,9 +42661,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "a795cb5692891c5b8ad7dab2a4dbfc4d57a1c0daea35459fca4a7886ffbc919b"
+    },
+    "title:arthurdedeus:sync feature requests with github issues": {
+      "id": "title:arthurdedeus:sync feature requests with github issues",
+      "prs": [
+        101963
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "edd4e37d21b57872c842793e89e01c2fa9cd43a8c3779b5c9759b028d91f95b4"
+    },
+    "title:bciaraldi:model dev satellites in hcl add batch exports role": {
+      "id": "title:bciaraldi:model dev satellites in hcl add batch exports role",
+      "prs": [
+        84958
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ab551ffe2093fd8695c41ab855ed9e862d59f99b753163fb634c2ab9a450892e"
+    },
+    "title:arthurdedeus:open gong calls from meetings": {
+      "id": "title:arthurdedeus:open gong calls from meetings",
+      "prs": [
+        89486
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7a217e4db524758c7dd24e7102ccd5bb05079a49a6a8a8db4af4a67e89af56ba"
+    },
+    "title:aspicer:delete posthog queries relocate live helpers": {
+      "id": "title:aspicer:delete posthog queries relocate live helpers",
+      "prs": [
+        93687
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e7659d84c5431723009fa9552503015e09197d183a28803492534c7edeb5803c"
+    },
+    "title:aspicer:explain why a slow query was slow and how to fix it": {
+      "id": "title:aspicer:explain why a slow query was slow and how to fix it",
+      "prs": [
+        99428
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8a7fe98b77298775bf6e7508082a2d5c049b0b9645189b00aa4ebe81735e4b3e"
+    },
+    "title:aspicer:read empty property values on events json like legacy": {
+      "id": "title:aspicer:read empty property values on events json like legacy",
+      "prs": [
+        124459
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "73e875978216f8c1d05380991e189ebda866533f0f7fc7ba092073f04ab9c99d"
+    },
+    "title:aspicer:read exported fields in wrapped event joins": {
+      "id": "title:aspicer:read exported fields in wrapped event joins",
+      "prs": [
+        125074
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8db7760bc5df9617fd5cb1ca98fc99384dbd6184d43185eb1b81b98a766d73ec"
+    },
+    "title:aspicer:run ci on the native json events table and fix what broke": {
+      "id": "title:aspicer:run ci on the native json events table and fix what broke",
+      "prs": [
+        104783
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "58d4bef0597e406e1cbd3845814058c093ca891cc10a1b59121fb204cb2829b9"
+    },
+    "title:aspicer:export only the read keys of properties from subqueries": {
+      "id": "title:aspicer:export only the read keys of properties from subqueries",
+      "prs": [
+        127964
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9bb35c4b09930cf83f9d1aedae6877e25e26f0e35be325b6a05a92182b3f1589"
+    },
+    "title:aspicer:trim log only redis round trips from cache writes": {
+      "id": "title:aspicer:trim log only redis round trips from cache writes",
+      "prs": [
+        86000
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "105c31196a802b184418fbbde03fc75239dc99c0bd854e38a568007c7fbeb1fe"
+    },
+    "title:aspicer:add moved keys back to events json documents while retained": {
+      "id": "title:aspicer:add moved keys back to events json documents while retained",
+      "prs": [
+        109486
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "466804a3d0c242715f63dbe1f2f9167d8e4dc8896a3dcdbedfa9a941dae61017"
+    },
+    "title:aspicer:serve session property values via hogql not raw sql": {
+      "id": "title:aspicer:serve session property values via hogql not raw sql",
+      "prs": [
+        91455
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "33f28819f4ff7918bba35043fc8f53437dcc55c13e4ea8724baec6ffd7524919"
+    },
+    "title:aspicer:count blast radius via hogql drop legacy personquery": {
+      "id": "title:aspicer:count blast radius via hogql drop legacy personquery",
+      "prs": [
+        87287
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "48e5d639404e0b843969b03bea240acafc99267ea3216378a89f64ae981c0d5c"
+    },
+    "title:arthurdedeus:query account members from memberships": {
+      "id": "title:arthurdedeus:query account members from memberships",
+      "prs": [
+        126673
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "86b1f5f1fb5b880bc9670a9c5a6fa731e059354069bb0dc21e5d23aebc57db3a"
+    },
+    "title:aspicer:restore recorded nulls in native documents": {
+      "id": "title:aspicer:restore recorded nulls in native documents",
+      "prs": [
+        114299
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bbef8d355c0107af11b619697055f5a58b8fe7dbc23a84ff5bb4c5cc96e27298"
+    },
+    "title:aspicer:rebuild flag keys in events json documents and mark true variants": {
+      "id": "title:aspicer:rebuild flag keys in events json documents and mark true variants",
+      "prs": [
+        109395
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "af8eb257773c9c48aa0dd30907ba41bd5247a49e669eb4dec46a53ca4f19b159"
+    },
+    "title:aspicer:add stable offsets move shared jobs off minute zero": {
+      "id": "title:aspicer:add stable offsets move shared jobs off minute zero",
+      "prs": [
+        106984
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fccda0f4f451e93da3f2921046770d853ad38510eec82e72307227e087514e16"
+    },
+    "title:aspicer:delete the dead legacy sql builder chain": {
+      "id": "title:aspicer:delete the dead legacy sql builder chain",
+      "prs": [
+        91453
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0fef676180c1ab029b89f70d17dff6fda0b2d7685799ebd51c6a9b6165d8d97f"
+    },
+    "title:aspicer:store large cached results in s3 behind a redis pointer": {
+      "id": "title:aspicer:store large cached results in s3 behind a redis pointer",
+      "prs": [
+        82910
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6d1496795af6e74b96be1ef089137e6b746765d10cddd6b65b546bcdf3404fe4"
+    },
+    "title:aspicer:native filters hit the json index and reads drop the udf": {
+      "id": "title:aspicer:native filters hit the json index and reads drop the udf",
+      "prs": [
+        113523
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0031",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d23b45b19c0e50bcfa5f615430efc70bb3fb1b0c7f097f3281e0701582da47b2"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "470e60821e1b598178d20c36e6d3f83f44eb7af5521124a2653e301c5d36b438",
-  "sha256": "39d16969b5109c222e0c776ab8c72305f2c022dca4ddd9dbe54fbc190e02f9d0"
+  "inline_publication_sha256": "5eaa605389b32d847d71dffafb65fb7ba425df201a4fe9cd3a67fea63a1405b9",
+  "sha256": "db928eb6db4d6ff1f97737945532ebddab61e00cf66def20be9dcc542bf22d2c"
 }
