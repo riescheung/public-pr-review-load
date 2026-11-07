@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:38:35.976904+00:00",
+  "generated_at": "2026-11-07T04:53:05.959030+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3777,19 +3777,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0046": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 115,
+    "scored": 131,
     "abstained": 2,
-    "failed": 931,
+    "failed": 935,
     "reserved": 60,
-    "pending": 16112,
-    "mean_tier": 1.4695652173913043,
+    "pending": 16092,
+    "mean_tier": 1.5038167938931297,
     "tiers": {
-      "1": 61,
-      "2": 54,
+      "1": 65,
+      "2": 66,
       "3": 0
     },
     "review_ids": [
@@ -3902,13 +3978,29 @@
       "issue:74941",
       "issue:75182",
       "issue:75572",
+      "issue:76090",
+      "issue:76192",
+      "issue:76317",
+      "issue:78628",
       "issue:79107",
       "issue:79108",
       "issue:79111",
       "issue:79112",
       "issue:79113",
+      "issue:79187",
+      "issue:792",
       "issue:79209",
+      "issue:79809",
+      "issue:79845",
+      "issue:79847",
+      "issue:79855",
+      "issue:80152",
+      "issue:80153",
+      "issue:80154",
+      "issue:80155",
+      "issue:80159",
       "issue:80537",
+      "issue:80771",
       "issue:80882",
       "issue:81757",
       "issue:81883",
@@ -4840,7 +4932,11 @@
       "title:jose-sequeira:verify the publish plane in the e2e gate",
       "title:jurajmajerik:add breathing room between the meta bar and tabs",
       "title:jurajmajerik:drop unknown keys when parsing exposure criteria",
-      "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy"
+      "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy",
+      "title:jurajmajerik:parse summary metric dicts via the shared builder table",
+      "title:jurajmajerik:remove pointless single tab on staff tools scene",
+      "title:jurajmajerik:rename query performance scene to experiments staff tools",
+      "title:jurajmajerik:theme match the how to read results tooltip"
     ],
     "unmapped_prs": 14
   },
@@ -5882,18 +5978,20 @@
         },
         {
           "groups": 63,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 63,
-          "mean_tier": null,
+          "pending": 62,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:76317"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -5966,19 +6064,20 @@
       ],
       "total": {
         "groups": 358,
-        "scored": 1,
+        "scored": 2,
         "abstained": 1,
         "failed": 2,
         "reserved": 0,
-        "pending": 354,
+        "pending": 353,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
           "issue:100265",
+          "issue:76317",
           "issue:88354",
           "pr:75212",
           "pr:88274"
@@ -7655,9 +7754,9 @@
           "groups": 34,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 33,
+          "pending": 32,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7665,7 +7764,8 @@
             "3": 0
           },
           "review_ids": [
-            "title:jurajmajerik:drop unknown keys when parsing exposure criteria"
+            "title:jurajmajerik:drop unknown keys when parsing exposure criteria",
+            "title:jurajmajerik:rename query performance scene to experiments staff tools"
           ],
           "unmapped_prs": 1
         },
@@ -7673,16 +7773,18 @@
           "groups": 36,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 36,
+          "pending": 35,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jurajmajerik:remove pointless single tab on staff tools scene"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -7705,9 +7807,9 @@
           "groups": 47,
           "scored": 1,
           "abstained": 0,
-          "failed": 2,
+          "failed": 4,
           "reserved": 0,
-          "pending": 44,
+          "pending": 42,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -7717,7 +7819,9 @@
           "review_ids": [
             "issue:50161",
             "title:jurajmajerik:add breathing room between the meta bar and tabs",
-            "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy"
+            "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy",
+            "title:jurajmajerik:parse summary metric dicts via the shared builder table",
+            "title:jurajmajerik:theme match the how to read results tooltip"
           ],
           "unmapped_prs": 0
         },
@@ -7763,9 +7867,9 @@
         "groups": 237,
         "scored": 5,
         "abstained": 0,
-        "failed": 3,
+        "failed": 7,
         "reserved": 0,
-        "pending": 229,
+        "pending": 225,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -7780,7 +7884,11 @@
           "issue:73702",
           "title:jurajmajerik:add breathing room between the meta bar and tabs",
           "title:jurajmajerik:drop unknown keys when parsing exposure criteria",
-          "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy"
+          "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy",
+          "title:jurajmajerik:parse summary metric dicts via the shared builder table",
+          "title:jurajmajerik:remove pointless single tab on staff tools scene",
+          "title:jurajmajerik:rename query performance scene to experiments staff tools",
+          "title:jurajmajerik:theme match the how to read results tooltip"
         ],
         "unmapped_prs": 1
       }
@@ -12701,15 +12809,15 @@
       "periods": [
         {
           "groups": 48,
-          "scored": 1,
+          "scored": 11,
           "abstained": 0,
           "failed": 6,
           "reserved": 0,
-          "pending": 41,
-          "mean_tier": 1.0,
+          "pending": 31,
+          "mean_tier": 1.7272727272727273,
           "tiers": {
-            "1": 1,
-            "2": 0,
+            "1": 3,
+            "2": 8,
             "3": 0
           },
           "review_ids": [
@@ -12719,6 +12827,16 @@
             "issue:79111",
             "issue:79112",
             "issue:79113",
+            "issue:79809",
+            "issue:79845",
+            "issue:79847",
+            "issue:79855",
+            "issue:80152",
+            "issue:80153",
+            "issue:80154",
+            "issue:80155",
+            "issue:80159",
+            "issue:80771",
             "title:jakesciotto:sync checkout com report files as tables"
           ],
           "unmapped_prs": 0
@@ -12831,15 +12949,15 @@
       ],
       "total": {
         "groups": 107,
-        "scored": 4,
+        "scored": 14,
         "abstained": 0,
         "failed": 9,
         "reserved": 0,
-        "pending": 94,
-        "mean_tier": 1.75,
+        "pending": 84,
+        "mean_tier": 1.7857142857142858,
         "tiers": {
-          "1": 1,
-          "2": 3,
+          "1": 3,
+          "2": 11,
           "3": 0
         },
         "review_ids": [
@@ -12852,6 +12970,16 @@
           "issue:79111",
           "issue:79112",
           "issue:79113",
+          "issue:79809",
+          "issue:79845",
+          "issue:79847",
+          "issue:79855",
+          "issue:80152",
+          "issue:80153",
+          "issue:80154",
+          "issue:80155",
+          "issue:80159",
+          "issue:80771",
           "issue:80882",
           "title:jakesciotto:add gainsight cs data warehouse source",
           "title:jakesciotto:filter a heatmap by events in the session",
@@ -18306,18 +18434,20 @@
         },
         {
           "groups": 3,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 3,
-          "mean_tier": null,
+          "pending": 2,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:79187"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18412,21 +18542,22 @@
       ],
       "total": {
         "groups": 42,
-        "scored": 2,
+        "scored": 3,
         "abstained": 0,
         "failed": 8,
         "reserved": 0,
-        "pending": 32,
+        "pending": 31,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 2,
+          "2": 3,
           "3": 0
         },
         "review_ids": [
           "issue:53446",
           "issue:64387",
           "issue:75182",
+          "issue:79187",
           "issue:79209",
           "title:gustavohstrassburger:add evaluation context selector to experiment creation",
           "title:gustavohstrassburger:classify whether a flag edit raises lowers or keeps exposure",
@@ -18661,18 +18792,20 @@
         },
         {
           "groups": 1,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 1,
-          "mean_tier": null,
+          "pending": 0,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:78628"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18694,18 +18827,19 @@
       ],
       "total": {
         "groups": 41,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 2,
         "reserved": 0,
-        "pending": 39,
-        "mean_tier": null,
+        "pending": 38,
+        "mean_tier": 1.0,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 0,
           "3": 0
         },
         "review_ids": [
+          "issue:78628",
           "title:JakeRuth:mirror langgraph conversations into tasks after each turn",
           "title:JakeRuth:re land skill discovery via exec learn behind a flag"
         ],
@@ -19943,18 +20077,20 @@
       "periods": [
         {
           "groups": 5,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 5,
-          "mean_tier": null,
+          "pending": 4,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:792"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -20062,20 +20198,21 @@
       ],
       "total": {
         "groups": 29,
-        "scored": 3,
+        "scored": 4,
         "abstained": 0,
         "failed": 0,
         "reserved": 1,
-        "pending": 25,
-        "mean_tier": 1.3333333333333333,
+        "pending": 24,
+        "mean_tier": 1.5,
         "tiers": {
           "1": 2,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
           "issue:1821",
           "issue:3192",
+          "issue:792",
           "issue:87775"
         ],
         "unmapped_prs": 0
@@ -27373,18 +27510,20 @@
         },
         {
           "groups": 2,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 2,
-          "mean_tier": null,
+          "pending": 1,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:76090"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -27438,18 +27577,20 @@
       ],
       "total": {
         "groups": 2,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 2,
-        "mean_tier": null,
+        "pending": 1,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:76090"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -31841,18 +31982,20 @@
         },
         {
           "groups": 1,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 1,
-          "mean_tier": null,
+          "pending": 0,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:76192"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -31938,18 +32081,20 @@
       ],
       "total": {
         "groups": 1,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 0,
         "reserved": 0,
-        "pending": 1,
-        "mean_tier": null,
+        "pending": 0,
+        "mean_tier": 1.0,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "issue:76192"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -48264,9 +48409,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "32e8dd1f8da420e5a30250facfeead60f1f18b03b44e040852cb91cbb19ab5dd"
+    },
+    "issue:79845": {
+      "id": "issue:79845",
+      "prs": [
+        79999
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7548675f6ae0adee02dc5441537f634501e0c15ed1dd6f4cc148a5c21f462ee4"
+    },
+    "title:jurajmajerik:rename query performance scene to experiments staff tools": {
+      "id": "title:jurajmajerik:rename query performance scene to experiments staff tools",
+      "prs": [
+        85183
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "34f5d00c71ef14bfee5105738673208832aa36caa3f4eee55fbe3f6dbfaf6a1d"
+    },
+    "title:jurajmajerik:parse summary metric dicts via the shared builder table": {
+      "id": "title:jurajmajerik:parse summary metric dicts via the shared builder table",
+      "prs": [
+        107578
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7a2117a0a27c4746cb68bceb4809c2998d871c6119a295b9ede3fa95c30afbb1"
+    },
+    "issue:80153": {
+      "id": "issue:80153",
+      "prs": [
+        80185
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "338577cb5f5a5ef66b7614a21537d37fae9853873b52f0684296aaa04b724aec"
+    },
+    "issue:76317": {
+      "id": "issue:76317",
+      "prs": [
+        89067
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "91f3be876b700a29145ea299749600812dc4285e43ae13e08a1c321cbfafc7c6"
+    },
+    "issue:80154": {
+      "id": "issue:80154",
+      "prs": [
+        80186
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9084f260633ab48ee980f004baa9b6a200350b44208d56b399593051f1344857"
+    },
+    "title:jurajmajerik:remove pointless single tab on staff tools scene": {
+      "id": "title:jurajmajerik:remove pointless single tab on staff tools scene",
+      "prs": [
+        96103
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0917a50bc1cbf10112913d4342b1965e4a049ab75be5e53d5903642e03ceaa62"
+    },
+    "issue:792": {
+      "id": "issue:792",
+      "prs": [
+        81199
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d491da91c5ca25c12ac061d4ec6d54c1e8e71aa1365c7d8c15504e589338e7bc"
+    },
+    "issue:80155": {
+      "id": "issue:80155",
+      "prs": [
+        80187
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b88f9e9af7d64eee23bd259f3e2b0627d3de710d323ef54cc0dbe240943780b3"
+    },
+    "issue:79187": {
+      "id": "issue:79187",
+      "prs": [
+        82164
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c1242d89e251111ccfb5e50da2208bbff54f3e0b440c58b963fd78931c54d570"
+    },
+    "issue:80771": {
+      "id": "issue:80771",
+      "prs": [
+        80824
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6b7e7e2d777c63eccaa679b6fa9f958ae7252f23d807f5f51cfd6a4fa249dee6"
+    },
+    "title:jurajmajerik:theme match the how to read results tooltip": {
+      "id": "title:jurajmajerik:theme match the how to read results tooltip",
+      "prs": [
+        110066
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9b8ac08d79585ef8ec830e9c47cec12a8d640aa482aa070264da039bb6d627a5"
+    },
+    "issue:76090": {
+      "id": "issue:76090",
+      "prs": [
+        103163
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e0ebb906e15c6e05c0a3f3eee9920e95b39b27739dbfe22abf81dd387b1e8cf8"
+    },
+    "issue:79847": {
+      "id": "issue:79847",
+      "prs": [
+        80010
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a47ec22d97ee2a53d2726b90e9ba65553ecba810561789b34f992b653ba905c9"
+    },
+    "issue:80152": {
+      "id": "issue:80152",
+      "prs": [
+        80184
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d0b77226a9d47c5a33d2753a7b0aca401959cc55b11792b2cfada70237166190"
+    },
+    "issue:79855": {
+      "id": "issue:79855",
+      "prs": [
+        80004
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e0d859d88ab2f907d86089d7bd76eabafbec0957acee1993909b6e52451de86d"
+    },
+    "issue:80159": {
+      "id": "issue:80159",
+      "prs": [
+        80188
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "15541ae59f18d69d0bc6918d01ae81e5d99ecbb3641a49c8238888337dcb0bec"
+    },
+    "issue:79809": {
+      "id": "issue:79809",
+      "prs": [
+        79826
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "db755295db3d69d620091943a41a5b25c12fa26f13384845f301c3c6e9d85029"
+    },
+    "issue:78628": {
+      "id": "issue:78628",
+      "prs": [
+        113789
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "74eb97ffbc3c44339cc50c0187a1ad3e204fa663e4f201020f19514f255691ab"
+    },
+    "issue:76192": {
+      "id": "issue:76192",
+      "prs": [
+        83562
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0046",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cbfcc5aee3e0b1e8526fda8f1ea2d52fa42ebb513864581533883a868925d272"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "0bc79797e6092a815cc5f1de17aa5b36c2d94839520cf9bab3bb58f5228f3dd2",
-  "sha256": "bfcfc9db418b0eec3520ed70ed7505ab065d9454a5ab11476324b27c7e28478c"
+  "inline_publication_sha256": "6edbb8cc694d3dd4969fe30bba81ba4dcbeb7220bdc392f262dac7a41bc0ba38",
+  "sha256": "279f88a026a4e41e1577902cb34a8f9b796f31adb934be791f5d801a88f0a995"
 }
