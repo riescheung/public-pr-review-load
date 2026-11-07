@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:35:09.836295+00:00",
+  "generated_at": "2026-11-07T04:35:39.473391+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3245,15 +3245,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0039": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 791,
+    "failed": 811,
     "reserved": 60,
-    "pending": 16252,
+    "pending": 16232,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -4168,7 +4244,27 @@
       "title:fasyy612:replay updated ui candidate 1",
       "title:fercgomes:extract layout modes into readable modules",
       "title:fercgomes:keep product empty states readable on narrow scenes",
-      "title:fivestarspicy:add copy as csv to the dashboard insight card menu"
+      "title:fivestarspicy:add copy as csv to the dashboard insight card menu",
+      "title:frankh:add dashboard variable selects and editor",
+      "title:frankh:add metrics4 tables and update sample expiry",
+      "title:frankh:add retention and retention rules for traces",
+      "title:frankh:add retention rule editor scenes",
+      "title:frankh:add the metrics2 clickhouse chain fed by one kafka mv",
+      "title:frankh:bill retention as byte days instead of fixed tiers",
+      "title:frankh:count distinct values in group by attributes",
+      "title:frankh:import grafana dashboards and screenshots as dashboards",
+      "title:frankh:integrate the logs viewer with posthog ai",
+      "title:frankh:load the options of dashboard variables",
+      "title:frankh:metric widgets replace the metrics insight tab",
+      "title:frankh:reload only the other facets when a facet value is selected",
+      "title:frankh:remove fully rolled out logs alerting flag",
+      "title:frankh:revert feat dashboards metric widgets replace the metrics insight tab",
+      "title:frankh:send metric series labels once per window",
+      "title:frankh:substitute dashboard variables in metrics queries",
+      "title:frankh:suggest dashboards for ingested metrics",
+      "title:frankh:trace every master workflow run into posthog",
+      "title:frankh:write metrics insights in builder promql or sql",
+      "title:frankh:write native rows for remote histograms"
     ],
     "unmapped_prs": 14
   },
@@ -7894,103 +7990,25 @@
           "groups": 12,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 12,
+          "pending": 11,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:frankh:add retention rule editor scenes"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 26,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 26,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 20,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 20,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 1
-        },
-        {
-          "groups": 33,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 33,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 42,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 42,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 45,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 45,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 23,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
           "pending": 23,
           "mean_tier": null,
@@ -7999,7 +8017,112 @@
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:frankh:reload only the other facets when a facet value is selected",
+            "title:frankh:remove fully rolled out logs alerting flag",
+            "title:frankh:trace every master workflow run into posthog"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 20,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 17,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:frankh:add the metrics2 clickhouse chain fed by one kafka mv",
+            "title:frankh:bill retention as byte days instead of fixed tiers",
+            "title:frankh:integrate the logs viewer with posthog ai"
+          ],
+          "unmapped_prs": 1
+        },
+        {
+          "groups": 33,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 30,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:frankh:add metrics4 tables and update sample expiry",
+            "title:frankh:count distinct values in group by attributes",
+            "title:frankh:send metric series labels once per window"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 42,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 2,
+          "reserved": 0,
+          "pending": 40,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:frankh:add retention and retention rules for traces",
+            "title:frankh:write native rows for remote histograms"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 45,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 6,
+          "reserved": 0,
+          "pending": 39,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:frankh:add dashboard variable selects and editor",
+            "title:frankh:import grafana dashboards and screenshots as dashboards",
+            "title:frankh:load the options of dashboard variables",
+            "title:frankh:substitute dashboard variables in metrics queries",
+            "title:frankh:suggest dashboards for ingested metrics",
+            "title:frankh:write metrics insights in builder promql or sql"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 23,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 2,
+          "reserved": 0,
+          "pending": 21,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:frankh:metric widgets replace the metrics insight tab",
+            "title:frankh:revert feat dashboards metric widgets replace the metrics insight tab"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -8007,16 +8130,37 @@
         "groups": 201,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 20,
         "reserved": 0,
-        "pending": 201,
+        "pending": 181,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:frankh:add dashboard variable selects and editor",
+          "title:frankh:add metrics4 tables and update sample expiry",
+          "title:frankh:add retention and retention rules for traces",
+          "title:frankh:add retention rule editor scenes",
+          "title:frankh:add the metrics2 clickhouse chain fed by one kafka mv",
+          "title:frankh:bill retention as byte days instead of fixed tiers",
+          "title:frankh:count distinct values in group by attributes",
+          "title:frankh:import grafana dashboards and screenshots as dashboards",
+          "title:frankh:integrate the logs viewer with posthog ai",
+          "title:frankh:load the options of dashboard variables",
+          "title:frankh:metric widgets replace the metrics insight tab",
+          "title:frankh:reload only the other facets when a facet value is selected",
+          "title:frankh:remove fully rolled out logs alerting flag",
+          "title:frankh:revert feat dashboards metric widgets replace the metrics insight tab",
+          "title:frankh:send metric series labels once per window",
+          "title:frankh:substitute dashboard variables in metrics queries",
+          "title:frankh:suggest dashboards for ingested metrics",
+          "title:frankh:trace every master workflow run into posthog",
+          "title:frankh:write metrics insights in builder promql or sql",
+          "title:frankh:write native rows for remote histograms"
+        ],
         "unmapped_prs": 1
       }
     },
@@ -45591,9 +45735,250 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "7af886438a9e3d1ac52b5f7f3e56b58d9e483272cc149ed503b4b0c5747ee05f"
+    },
+    "title:frankh:metric widgets replace the metrics insight tab": {
+      "id": "title:frankh:metric widgets replace the metrics insight tab",
+      "prs": [
+        119821
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8469e7bb4b29b9606f6a42ee7beb6b9e1f231511ff54b5914bb6c30fb177092a"
+    },
+    "title:frankh:revert feat dashboards metric widgets replace the metrics insight tab": {
+      "id": "title:frankh:revert feat dashboards metric widgets replace the metrics insight tab",
+      "prs": [
+        127286
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b35d1b832bf35c93e4f87301fe76424932d3e14779e0e1765ae78ef68d48d581"
+    },
+    "title:frankh:substitute dashboard variables in metrics queries": {
+      "id": "title:frankh:substitute dashboard variables in metrics queries",
+      "prs": [
+        118633
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "07653cdadc1f130fb95accae4a85befb2b42b794054d8c036dcbf954492c7377"
+    },
+    "title:frankh:bill retention as byte days instead of fixed tiers": {
+      "id": "title:frankh:bill retention as byte days instead of fixed tiers",
+      "prs": [
+        93515
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0f091199a85f679839f508412ca1c184852b961d57b036d601190745bf4176e9"
+    },
+    "title:frankh:import grafana dashboards and screenshots as dashboards": {
+      "id": "title:frankh:import grafana dashboards and screenshots as dashboards",
+      "prs": [
+        113938
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "dedebf0160e87bcb25abfd3745b0b388369a891536961a0720fc7ccbf47ad5d7"
+    },
+    "title:frankh:integrate the logs viewer with posthog ai": {
+      "id": "title:frankh:integrate the logs viewer with posthog ai",
+      "prs": [
+        93582
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "38e4db7fc66a9950ba1fed0b2875d96a6f97b472397115d4b6cf40c58eee2a12"
+    },
+    "title:frankh:send metric series labels once per window": {
+      "id": "title:frankh:send metric series labels once per window",
+      "prs": [
+        96468
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1832cc839b7a2982b7ffd3361dadd56ab0acb86d0b07057ce8ab7442640404d0"
+    },
+    "title:frankh:add retention and retention rules for traces": {
+      "id": "title:frankh:add retention and retention rules for traces",
+      "prs": [
+        104593
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "87c5c77cdcb4ca9aff03f69fda07b154a8915df632a79d7b371ed3223e3eb258"
+    },
+    "title:frankh:add the metrics2 clickhouse chain fed by one kafka mv": {
+      "id": "title:frankh:add the metrics2 clickhouse chain fed by one kafka mv",
+      "prs": [
+        95391
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d00b3af51d83623e3c4967b0bcfbecd60cb5821f22b9ce67260a267c81928883"
+    },
+    "title:frankh:add dashboard variable selects and editor": {
+      "id": "title:frankh:add dashboard variable selects and editor",
+      "prs": [
+        118636
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ae414902d144f04ed0feb390c77a7492b18e00d68625dd9655820ac0a1b1cb95"
+    },
+    "title:frankh:load the options of dashboard variables": {
+      "id": "title:frankh:load the options of dashboard variables",
+      "prs": [
+        118634
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "129f0e734e937290bf768a55f5a2b9f744d582084ab0cf29a57021725bd81c94"
+    },
+    "title:frankh:count distinct values in group by attributes": {
+      "id": "title:frankh:count distinct values in group by attributes",
+      "prs": [
+        100138
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6dbfc79aae81195a30b4fdf3f83fc4884861bb8be6bba76aec760b543c54fee2"
+    },
+    "title:frankh:suggest dashboards for ingested metrics": {
+      "id": "title:frankh:suggest dashboards for ingested metrics",
+      "prs": [
+        114255
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4317b1eadf2f7055f449a4218339839d845b891410ca748aaff35ddd167b475c"
+    },
+    "title:frankh:add retention rule editor scenes": {
+      "id": "title:frankh:add retention rule editor scenes",
+      "prs": [
+        76534
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ab41d114b04ca3cc6694ed447fcf27fadf44ada51755be5277950f173cf2d3c6"
+    },
+    "title:frankh:remove fully rolled out logs alerting flag": {
+      "id": "title:frankh:remove fully rolled out logs alerting flag",
+      "prs": [
+        82679
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "acd0296e5d0eb4fb127bbb1db54e494030952e25b0a4d9b6326760734c0568de"
+    },
+    "title:frankh:trace every master workflow run into posthog": {
+      "id": "title:frankh:trace every master workflow run into posthog",
+      "prs": [
+        84547
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "376d2bc3ed498e078497369351459392893787a30ea68a7f45cb07fb185cdfb6"
+    },
+    "title:frankh:write metrics insights in builder promql or sql": {
+      "id": "title:frankh:write metrics insights in builder promql or sql",
+      "prs": [
+        113477
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "13670f1dcecb6b079bdcbac3bdcedd18ddc56abef3a034fdb1cedab7dae7efc9"
+    },
+    "title:frankh:write native rows for remote histograms": {
+      "id": "title:frankh:write native rows for remote histograms",
+      "prs": [
+        104583
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3c1d5f5cc4b15f0deeea77b0d2648db7845dc12a7c4c232c120f0e42aa27ac54"
+    },
+    "title:frankh:reload only the other facets when a facet value is selected": {
+      "id": "title:frankh:reload only the other facets when a facet value is selected",
+      "prs": [
+        81875,
+        81907
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ccbbea8cb395c005c3c29d4f02c0673164b3dcf3d77b77e0c73ca1c72bf704a1"
+    },
+    "title:frankh:add metrics4 tables and update sample expiry": {
+      "id": "title:frankh:add metrics4 tables and update sample expiry",
+      "prs": [
+        102433
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0039",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d7fbd411b51eae7659de55733c404415c2674d8b254aa289f352b464ca8bfb7c"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "4bfeb87ccc124473be620bd9f7d6ff52148e9b5e158cf5953cc022396c4cc550",
-  "sha256": "0b6a386ad143b015453a5bf54d32066e9a81ca204043b2e478a1819dd36e58bc"
+  "inline_publication_sha256": "516c4c9fb81bb61f849593dc0e0098688379aea259b71eb25b0bdcfceb47cbfd",
+  "sha256": "878cb1ddfd57c6f3ae872e8af282cff61d333acc916875869309d806e4b4cbfb"
 }
