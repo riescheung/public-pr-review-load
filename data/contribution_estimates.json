@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T13:24:22.772655+00:00",
+  "generated_at": "2026-11-07T13:44:18.690241+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -6133,19 +6133,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0077": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 708,
+    "scored": 728,
     "abstained": 7,
     "failed": 953,
     "reserved": 60,
-    "pending": 15492,
-    "mean_tier": 1.5663841807909604,
+    "pending": 15472,
+    "mean_tier": 1.5714285714285714,
     "tiers": {
-      "1": 307,
-      "2": 401,
+      "1": 312,
+      "2": 416,
       "3": 0
     },
     "review_ids": [
@@ -7177,11 +7253,31 @@
       "title:EDsCODE:pass the org to the hogtower database name check",
       "title:EDsCODE:preserve limits in trino translation",
       "title:EDsCODE:preserve logical fields during trino resolution",
+      "title:EDsCODE:preserve trino functions in saved view diagnostics",
+      "title:EDsCODE:scale query error ratio axis as a fraction",
+      "title:EDsCODE:scope register data imports workflow id per generation",
+      "title:EDsCODE:serialize register and extend timeout",
+      "title:EDsCODE:stop managed warehouse and dags edits fanning out tests",
+      "title:EDsCODE:tag duckgres connections with application name",
+      "title:EDsCODE:translate common functions for duckdb",
+      "title:EDsCODE:trigger register data imports from v3 load consumer",
+      "title:EDsCODE:use scene flag for registration",
       "title:EDsCODE:use service credentials for trino",
+      "title:EDsCODE:wait out v3 full refresh delta rebuild in ducklake copy",
       "title:GeneralistDev:add an interactive terminal dashboard",
+      "title:GeneralistDev:add announcing behavior changes skill",
+      "title:GeneralistDev:add eval for sql tiles that ignore dashboard date range",
       "title:GeneralistDev:add evals for sql routing misses and chart answers",
       "title:GeneralistDev:balance typed query and sql guidance",
+      "title:GeneralistDev:default sandbox eval models to opus 5 5 and gpt 6 1 sol",
+      "title:GeneralistDev:emit logged in when a simulated user logs back in",
       "title:GeneralistDev:improve home overview and dashboard setup",
+      "title:GeneralistDev:keep home sample labels inside cards",
+      "title:GeneralistDev:load home queries concurrently in the new navigation",
+      "title:GeneralistDev:make interactive apps discoverable in chatgpt and codex",
+      "title:GeneralistDev:make long report prompts scrollable",
+      "title:GeneralistDev:match home sample charts to live data",
+      "title:GeneralistDev:only uncollapse the last renderable tool call per turn",
       "title:GeneralistDev:replace legacy evals with focused sandbox cases",
       "title:Gilbert09:add 14 missing google ads tables",
       "title:Gilbert09:add 23 tables to the clerk source",
@@ -20403,15 +20499,15 @@
       "periods": [
         {
           "groups": 23,
-          "scored": 6,
+          "scored": 10,
           "abstained": 0,
           "failed": 3,
           "reserved": 2,
-          "pending": 12,
+          "pending": 8,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 6,
+            "2": 10,
             "3": 0
           },
           "review_ids": [
@@ -20423,21 +20519,25 @@
             "title:EDsCODE:extract ducklake into its own product",
             "title:EDsCODE:gate ducklake registration on a provisioned duckgres server",
             "title:EDsCODE:keep raw mode when opening managed queries",
-            "title:EDsCODE:keep registration heartbeat through metrics"
+            "title:EDsCODE:keep registration heartbeat through metrics",
+            "title:EDsCODE:scope register data imports workflow id per generation",
+            "title:EDsCODE:translate common functions for duckdb",
+            "title:EDsCODE:trigger register data imports from v3 load consumer",
+            "title:EDsCODE:wait out v3 full refresh delta rebuild in ducklake copy"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 10,
-          "scored": 4,
+          "scored": 8,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 5,
-          "mean_tier": 2.0,
+          "pending": 1,
+          "mean_tier": 1.875,
           "tiers": {
-            "1": 0,
-            "2": 4,
+            "1": 1,
+            "2": 7,
             "3": 0
           },
           "review_ids": [
@@ -20445,7 +20545,11 @@
             "pr:82885",
             "pr:82972",
             "pr:84697",
-            "title:EDsCODE:batch ducklake add data files registration"
+            "title:EDsCODE:batch ducklake add data files registration",
+            "title:EDsCODE:scale query error ratio axis as a fraction",
+            "title:EDsCODE:serialize register and extend timeout",
+            "title:EDsCODE:tag duckgres connections with application name",
+            "title:EDsCODE:use scene flag for registration"
           ],
           "unmapped_prs": 0
         },
@@ -20469,15 +20573,15 @@
         },
         {
           "groups": 12,
-          "scored": 7,
+          "scored": 8,
           "abstained": 0,
           "failed": 3,
           "reserved": 1,
-          "pending": 1,
-          "mean_tier": 1.7142857142857142,
+          "pending": 0,
+          "mean_tier": 1.75,
           "tiers": {
             "1": 2,
-            "2": 5,
+            "2": 6,
             "3": 0
           },
           "review_ids": [
@@ -20490,7 +20594,8 @@
             "title:EDsCODE:hide drafts for direct connections",
             "title:EDsCODE:log trino readiness failure reasons",
             "title:EDsCODE:preserve limits in trino translation",
-            "title:EDsCODE:preserve logical fields during trino resolution"
+            "title:EDsCODE:preserve logical fields during trino resolution",
+            "title:EDsCODE:preserve trino functions in saved view diagnostics"
           ],
           "unmapped_prs": 0
         },
@@ -20538,36 +20643,37 @@
         },
         {
           "groups": 8,
-          "scored": 3,
+          "scored": 4,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 5,
-          "mean_tier": 1.6666666666666667,
+          "pending": 4,
+          "mean_tier": 1.75,
           "tiers": {
             "1": 1,
-            "2": 2,
+            "2": 3,
             "3": 0
           },
           "review_ids": [
             "title:EDsCODE:add internal testing lifecycle state",
             "title:EDsCODE:evaluate trino backfill flag remotely in dagster",
-            "title:EDsCODE:pass the org to the hogtower database name check"
+            "title:EDsCODE:pass the org to the hogtower database name check",
+            "title:EDsCODE:stop managed warehouse and dags edits fanning out tests"
           ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 74,
-        "scored": 28,
+        "scored": 38,
         "abstained": 0,
         "failed": 8,
         "reserved": 4,
-        "pending": 34,
-        "mean_tier": 1.8928571428571428,
+        "pending": 24,
+        "mean_tier": 1.894736842105263,
         "tiers": {
-          "1": 3,
-          "2": 25,
+          "1": 4,
+          "2": 34,
           "3": 0
         },
         "review_ids": [
@@ -20606,7 +20712,17 @@
           "title:EDsCODE:pass the org to the hogtower database name check",
           "title:EDsCODE:preserve limits in trino translation",
           "title:EDsCODE:preserve logical fields during trino resolution",
-          "title:EDsCODE:use service credentials for trino"
+          "title:EDsCODE:preserve trino functions in saved view diagnostics",
+          "title:EDsCODE:scale query error ratio axis as a fraction",
+          "title:EDsCODE:scope register data imports workflow id per generation",
+          "title:EDsCODE:serialize register and extend timeout",
+          "title:EDsCODE:stop managed warehouse and dags edits fanning out tests",
+          "title:EDsCODE:tag duckgres connections with application name",
+          "title:EDsCODE:translate common functions for duckdb",
+          "title:EDsCODE:trigger register data imports from v3 load consumer",
+          "title:EDsCODE:use scene flag for registration",
+          "title:EDsCODE:use service credentials for trino",
+          "title:EDsCODE:wait out v3 full refresh delta rebuild in ducklake copy"
         ],
         "unmapped_prs": 0
       }
@@ -21407,20 +21523,21 @@
         },
         {
           "groups": 4,
-          "scored": 1,
+          "scored": 2,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 2,
+          "pending": 1,
           "mean_tier": 1.0,
           "tiers": {
-            "1": 1,
+            "1": 2,
             "2": 0,
             "3": 0
           },
           "review_ids": [
             "issue:29757",
-            "issue:48947"
+            "issue:48947",
+            "title:GeneralistDev:add announcing behavior changes skill"
           ],
           "unmapped_prs": 0
         },
@@ -21444,45 +21561,30 @@
         },
         {
           "groups": 8,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 1,
           "reserved": 1,
-          "pending": 6,
-          "mean_tier": null,
+          "pending": 5,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
           "review_ids": [
-            "title:GeneralistDev:balance typed query and sql guidance"
+            "title:GeneralistDev:balance typed query and sql guidance",
+            "title:GeneralistDev:make long report prompts scrollable"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 5,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 5,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 21,
-          "scored": 1,
-          "abstained": 0,
-          "failed": 4,
-          "reserved": 0,
-          "pending": 16,
+          "pending": 4,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -21490,42 +21592,68 @@
             "3": 0
           },
           "review_ids": [
+            "title:GeneralistDev:only uncollapse the last renderable tool call per turn"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 21,
+          "scored": 6,
+          "abstained": 0,
+          "failed": 4,
+          "reserved": 0,
+          "pending": 11,
+          "mean_tier": 1.8333333333333333,
+          "tiers": {
+            "1": 1,
+            "2": 5,
+            "3": 0
+          },
+          "review_ids": [
             "issue:25541",
             "title:GeneralistDev:add an interactive terminal dashboard",
+            "title:GeneralistDev:add eval for sql tiles that ignore dashboard date range",
             "title:GeneralistDev:add evals for sql routing misses and chart answers",
+            "title:GeneralistDev:default sandbox eval models to opus 5 5 and gpt 6 1 sol",
             "title:GeneralistDev:improve home overview and dashboard setup",
+            "title:GeneralistDev:keep home sample labels inside cards",
+            "title:GeneralistDev:make interactive apps discoverable in chatgpt and codex",
+            "title:GeneralistDev:match home sample charts to live data",
             "title:GeneralistDev:replace legacy evals with focused sandbox cases"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 17,
-          "scored": 0,
+          "scored": 2,
           "abstained": 0,
           "failed": 0,
           "reserved": 1,
-          "pending": 16,
-          "mean_tier": null,
+          "pending": 14,
+          "mean_tier": 1.5,
           "tiers": {
-            "1": 0,
-            "2": 0,
+            "1": 1,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:GeneralistDev:emit logged in when a simulated user logs back in",
+            "title:GeneralistDev:load home queries concurrently in the new navigation"
+          ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 60,
-        "scored": 4,
+        "scored": 14,
         "abstained": 0,
         "failed": 6,
         "reserved": 2,
-        "pending": 48,
-        "mean_tier": 1.75,
+        "pending": 38,
+        "mean_tier": 1.6428571428571428,
         "tiers": {
-          "1": 1,
-          "2": 3,
+          "1": 5,
+          "2": 9,
           "3": 0
         },
         "review_ids": [
@@ -21535,9 +21663,19 @@
           "issue:58066",
           "issue:92875",
           "title:GeneralistDev:add an interactive terminal dashboard",
+          "title:GeneralistDev:add announcing behavior changes skill",
+          "title:GeneralistDev:add eval for sql tiles that ignore dashboard date range",
           "title:GeneralistDev:add evals for sql routing misses and chart answers",
           "title:GeneralistDev:balance typed query and sql guidance",
+          "title:GeneralistDev:default sandbox eval models to opus 5 5 and gpt 6 1 sol",
+          "title:GeneralistDev:emit logged in when a simulated user logs back in",
           "title:GeneralistDev:improve home overview and dashboard setup",
+          "title:GeneralistDev:keep home sample labels inside cards",
+          "title:GeneralistDev:load home queries concurrently in the new navigation",
+          "title:GeneralistDev:make interactive apps discoverable in chatgpt and codex",
+          "title:GeneralistDev:make long report prompts scrollable",
+          "title:GeneralistDev:match home sample charts to live data",
+          "title:GeneralistDev:only uncollapse the last renderable tool call per turn",
           "title:GeneralistDev:replace legacy evals with focused sandbox cases"
         ],
         "unmapped_prs": 0
@@ -60064,9 +60202,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "bf5289f69842439fc7537f4c30a0609f12c9760892acc0bcd14f7e328aff2f40"
+    },
+    "title:GeneralistDev:emit logged in when a simulated user logs back in": {
+      "id": "title:GeneralistDev:emit logged in when a simulated user logs back in",
+      "prs": [
+        127430
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e858a7ef371d350d44318cbf83cada89668355af21653e6c0b298d6b7613432c"
+    },
+    "title:EDsCODE:tag duckgres connections with application name": {
+      "id": "title:EDsCODE:tag duckgres connections with application name",
+      "prs": [
+        83351
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f4f1c3c471765eb8e3b1c9024bee754c60b7b6e183b04dec19c43b5460615f46"
+    },
+    "title:GeneralistDev:only uncollapse the last renderable tool call per turn": {
+      "id": "title:GeneralistDev:only uncollapse the last renderable tool call per turn",
+      "prs": [
+        106030
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "39528fb0e29af9731cea7a8feb8ed7089c4c7555aed045e6daca2a2b6b84d4bb"
+    },
+    "title:EDsCODE:serialize register and extend timeout": {
+      "id": "title:EDsCODE:serialize register and extend timeout",
+      "prs": [
+        82987
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5d10b1461cd03ed952c46729a263cf4a7dd23c9c2aa57bc1b2a5b5d7258d4ed5"
+    },
+    "title:EDsCODE:trigger register data imports from v3 load consumer": {
+      "id": "title:EDsCODE:trigger register data imports from v3 load consumer",
+      "prs": [
+        74570
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a9d19d519faf7c9e372d337128f9487839555e9ff8707b870e1d3f69fcd03e3a"
+    },
+    "title:GeneralistDev:load home queries concurrently in the new navigation": {
+      "id": "title:GeneralistDev:load home queries concurrently in the new navigation",
+      "prs": [
+        121170
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e5bf477d4be35f6eb9925afc3cb9cbf32d7e8047bd72c52479c826ef6cec3f95"
+    },
+    "title:EDsCODE:wait out v3 full refresh delta rebuild in ducklake copy": {
+      "id": "title:EDsCODE:wait out v3 full refresh delta rebuild in ducklake copy",
+      "prs": [
+        75124
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "036f3036133ecdca0f8de569e4c7aeb3da9ce1408ead1da596be55048308e644"
+    },
+    "title:GeneralistDev:keep home sample labels inside cards": {
+      "id": "title:GeneralistDev:keep home sample labels inside cards",
+      "prs": [
+        116910
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "564411e463f6154e3ff88a3d35e0fa10bdc11b59f5bf863a068d03b433515581"
+    },
+    "title:EDsCODE:scope register data imports workflow id per generation": {
+      "id": "title:EDsCODE:scope register data imports workflow id per generation",
+      "prs": [
+        75241
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2b65680389f3df78ae31636ef6818f2e9ab39f25a0e92ce91288f85758048d54"
+    },
+    "title:GeneralistDev:make interactive apps discoverable in chatgpt and codex": {
+      "id": "title:GeneralistDev:make interactive apps discoverable in chatgpt and codex",
+      "prs": [
+        113140
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0be08dcb645e0752d26d085440f9d6a87b5b90baa0e5b5422abba230c1a0d1fb"
+    },
+    "title:EDsCODE:preserve trino functions in saved view diagnostics": {
+      "id": "title:EDsCODE:preserve trino functions in saved view diagnostics",
+      "prs": [
+        101357
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3270e1ccccad9714cd891c6b928aac389fdcfd604c9954130f4a317b1fa8ef0f"
+    },
+    "title:EDsCODE:translate common functions for duckdb": {
+      "id": "title:EDsCODE:translate common functions for duckdb",
+      "prs": [
+        77879
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3d5bcc61c77d4b00881ba992cbd0fc660fecfde7d793a94e611f513b99058d28"
+    },
+    "title:EDsCODE:stop managed warehouse and dags edits fanning out tests": {
+      "id": "title:EDsCODE:stop managed warehouse and dags edits fanning out tests",
+      "prs": [
+        125990
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4e5c0c934cf3a116e24f97f52a97d5d76342984f10ea72e28aa76f9f12866569"
+    },
+    "title:GeneralistDev:match home sample charts to live data": {
+      "id": "title:GeneralistDev:match home sample charts to live data",
+      "prs": [
+        116026
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f2b61b10c887cb8e7efba29c19344e9ce03ab91f41438d4db481a92765903932"
+    },
+    "title:GeneralistDev:add eval for sql tiles that ignore dashboard date range": {
+      "id": "title:GeneralistDev:add eval for sql tiles that ignore dashboard date range",
+      "prs": [
+        119567
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "85351746947fed2c2b399a5c05964260443228359667d2a7b9c0ffdec72f1597"
+    },
+    "title:EDsCODE:use scene flag for registration": {
+      "id": "title:EDsCODE:use scene flag for registration",
+      "prs": [
+        84629
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9d6e1c0755d0f86296437045953a9d0179a7a21ca084731e1a89711d00901ef8"
+    },
+    "title:GeneralistDev:add announcing behavior changes skill": {
+      "id": "title:GeneralistDev:add announcing behavior changes skill",
+      "prs": [
+        87728
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1600df7861189f7f0b30dd116900f0c8e21865c54203be94c9326fbbcbdf3dde"
+    },
+    "title:GeneralistDev:make long report prompts scrollable": {
+      "id": "title:GeneralistDev:make long report prompts scrollable",
+      "prs": [
+        102915
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f4a033df32b58260ccb0c251293dd6572cad0a371aa32aef3242eaed4d0332ef"
+    },
+    "title:EDsCODE:scale query error ratio axis as a fraction": {
+      "id": "title:EDsCODE:scale query error ratio axis as a fraction",
+      "prs": [
+        85084
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3779a7598178fbf326f715bea2b8c0f021a4a979328d1abbeb3c67367c6a4803"
+    },
+    "title:GeneralistDev:default sandbox eval models to opus 5 5 and gpt 6 1 sol": {
+      "id": "title:GeneralistDev:default sandbox eval models to opus 5 5 and gpt 6 1 sol",
+      "prs": [
+        120089
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0077",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "14a9f7b1383b840cdb8d275ebd9aae03876406b71731b93fb3edbd22398225e0"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "c6965bba3bc5f8764b9780a122bdb3098d7fff9c2dfb8a0639f5da56e1933b56",
-  "sha256": "fddcbbd861597b0356ebed94c33d19784ecd4261355e4be84321cae36a230a72"
+  "inline_publication_sha256": "3f456488114b34f248c65475167a3c912742286408ec233eb00cf0946391e9b9",
+  "sha256": "ca3c527f3ce9964936dc240458617e375d0d9a26923fc9683f8c4f5d1e4cf258"
 }
