@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:25:17.976929+00:00",
+  "generated_at": "2026-11-07T04:25:53.414608+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -1725,15 +1725,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0019": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 391,
+    "failed": 411,
     "reserved": 60,
-    "pending": 16652,
+    "pending": 16632,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2247,7 +2323,27 @@
       "title:Gilbert09:make row tracking survive redis and billing blips",
       "title:Gilbert09:migrate self managed tables into object storage sources",
       "title:Gilbert09:mobile refund action for signal reports",
+      "title:Gilbert09:move postgres and mysql plugin vendors to the plugin folder",
+      "title:Gilbert09:move queue engine into warehouse sources queue package",
+      "title:Gilbert09:move the convex source to the data sync api",
+      "title:Gilbert09:one way to read posthog s own credentials",
       "title:Gilbert09:point source test guidance at the shared driver",
+      "title:Gilbert09:port 36 more sources onto the shared test driver",
+      "title:Gilbert09:prepare a provider seam for hogland sandboxes",
+      "title:Gilbert09:ratchet source test shapes that hide behavior",
+      "title:Gilbert09:re land the deltalite footer and commit snapshot trims",
+      "title:Gilbert09:read the secret through a kubernetes watch",
+      "title:Gilbert09:refresh the source coverage docs and add new sources",
+      "title:Gilbert09:remove the v2 import pipeline",
+      "title:Gilbert09:rename integration service to credentials service",
+      "title:Gilbert09:repartition the folder the pipeline wrote to",
+      "title:Gilbert09:report a snowflake run as resumable only when it can resume",
+      "title:Gilbert09:resume mssql full refreshes and incremental imports",
+      "title:Gilbert09:route source job inputs through one store",
+      "title:Gilbert09:scaffold 1 newly requested source",
+      "title:Gilbert09:scaffold 2 newly requested sources",
+      "title:Gilbert09:scaffold 3 newly requested sources",
+      "title:Gilbert09:scaffold 4 newly requested sources",
       "title:Piccirello:name the posthog hosts in style src and font src"
     ],
     "unmapped_prs": 14
@@ -2259,9 +2355,9 @@
           "groups": 453,
           "scored": 1,
           "abstained": 0,
-          "failed": 41,
+          "failed": 42,
           "reserved": 0,
-          "pending": 411,
+          "pending": 410,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -2310,7 +2406,8 @@
             "title:Gilbert09:heal delta tables with an empty log segment",
             "title:Gilbert09:implement app store connect source",
             "title:Gilbert09:implement aws cost explorer source",
-            "title:Gilbert09:mobile refund action for signal reports"
+            "title:Gilbert09:mobile refund action for signal reports",
+            "title:Gilbert09:repartition the folder the pipeline wrote to"
           ],
           "unmapped_prs": 0
         },
@@ -2318,9 +2415,9 @@
           "groups": 311,
           "scored": 2,
           "abstained": 0,
-          "failed": 27,
+          "failed": 28,
           "reserved": 1,
-          "pending": 281,
+          "pending": 280,
           "mean_tier": 1.5,
           "tiers": {
             "1": 1,
@@ -2356,7 +2453,8 @@
             "title:Gilbert09:implement dynamics 365 business central source",
             "title:Gilbert09:implement google play console source",
             "title:Gilbert09:implement power bi admin source",
-            "title:Gilbert09:keep exhausted read timeout errors out of error tracking"
+            "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
+            "title:Gilbert09:prepare a provider seam for hogland sandboxes"
           ],
           "unmapped_prs": 0
         },
@@ -2364,9 +2462,9 @@
           "groups": 196,
           "scored": 0,
           "abstained": 0,
-          "failed": 4,
+          "failed": 5,
           "reserved": 0,
-          "pending": 192,
+          "pending": 191,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -2377,7 +2475,8 @@
             "pr:91501",
             "pr:92229",
             "pr:95577",
-            "title:Gilbert09:bake the hogland golden snapshot in ci"
+            "title:Gilbert09:bake the hogland golden snapshot in ci",
+            "title:Gilbert09:one way to read posthog s own credentials"
           ],
           "unmapped_prs": 0
         },
@@ -2410,9 +2509,9 @@
           "groups": 584,
           "scored": 1,
           "abstained": 0,
-          "failed": 35,
+          "failed": 39,
           "reserved": 0,
-          "pending": 548,
+          "pending": 544,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2455,7 +2554,11 @@
             "title:Gilbert09:implement the telli import source",
             "title:Gilbert09:implement the the prompting company import source",
             "title:Gilbert09:implement the turso import source",
-            "title:Gilbert09:make row tracking survive redis and billing blips"
+            "title:Gilbert09:make row tracking survive redis and billing blips",
+            "title:Gilbert09:move queue engine into warehouse sources queue package",
+            "title:Gilbert09:move the convex source to the data sync api",
+            "title:Gilbert09:re land the deltalite footer and commit snapshot trims",
+            "title:Gilbert09:remove the v2 import pipeline"
           ],
           "unmapped_prs": 0
         },
@@ -2463,9 +2566,9 @@
           "groups": 665,
           "scored": 4,
           "abstained": 0,
-          "failed": 10,
+          "failed": 19,
           "reserved": 1,
-          "pending": 650,
+          "pending": 641,
           "mean_tier": 1.25,
           "tiers": {
             "1": 3,
@@ -2486,7 +2589,16 @@
             "title:Gilbert09:implement the auth0 import source",
             "title:Gilbert09:implement the triple whale import source",
             "title:Gilbert09:import csv and excel file contents from sharepoint",
-            "title:Gilbert09:point source test guidance at the shared driver"
+            "title:Gilbert09:point source test guidance at the shared driver",
+            "title:Gilbert09:port 36 more sources onto the shared test driver",
+            "title:Gilbert09:ratchet source test shapes that hide behavior",
+            "title:Gilbert09:read the secret through a kubernetes watch",
+            "title:Gilbert09:refresh the source coverage docs and add new sources",
+            "title:Gilbert09:rename integration service to credentials service",
+            "title:Gilbert09:report a snowflake run as resumable only when it can resume",
+            "title:Gilbert09:resume mssql full refreshes and incremental imports",
+            "title:Gilbert09:scaffold 3 newly requested sources",
+            "title:Gilbert09:scaffold 4 newly requested sources"
           ],
           "unmapped_prs": 0
         },
@@ -2494,9 +2606,9 @@
           "groups": 539,
           "scored": 1,
           "abstained": 0,
-          "failed": 11,
+          "failed": 15,
           "reserved": 5,
-          "pending": 522,
+          "pending": 518,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2515,7 +2627,11 @@
             "title:Gilbert09:classify source fields as connection or sync setting",
             "title:Gilbert09:dual write source connection fields to an integration",
             "title:Gilbert09:import file uploads through a managed source",
-            "title:Gilbert09:migrate self managed tables into object storage sources"
+            "title:Gilbert09:migrate self managed tables into object storage sources",
+            "title:Gilbert09:move postgres and mysql plugin vendors to the plugin folder",
+            "title:Gilbert09:route source job inputs through one store",
+            "title:Gilbert09:scaffold 1 newly requested source",
+            "title:Gilbert09:scaffold 2 newly requested sources"
           ],
           "unmapped_prs": 0
         }
@@ -2524,9 +2640,9 @@
         "groups": 3127,
         "scored": 9,
         "abstained": 0,
-        "failed": 136,
+        "failed": 156,
         "reserved": 7,
-        "pending": 2975,
+        "pending": 2955,
         "mean_tier": 1.4444444444444444,
         "tiers": {
           "1": 5,
@@ -2678,7 +2794,27 @@
           "title:Gilbert09:make row tracking survive redis and billing blips",
           "title:Gilbert09:migrate self managed tables into object storage sources",
           "title:Gilbert09:mobile refund action for signal reports",
-          "title:Gilbert09:point source test guidance at the shared driver"
+          "title:Gilbert09:move postgres and mysql plugin vendors to the plugin folder",
+          "title:Gilbert09:move queue engine into warehouse sources queue package",
+          "title:Gilbert09:move the convex source to the data sync api",
+          "title:Gilbert09:one way to read posthog s own credentials",
+          "title:Gilbert09:point source test guidance at the shared driver",
+          "title:Gilbert09:port 36 more sources onto the shared test driver",
+          "title:Gilbert09:prepare a provider seam for hogland sandboxes",
+          "title:Gilbert09:ratchet source test shapes that hide behavior",
+          "title:Gilbert09:re land the deltalite footer and commit snapshot trims",
+          "title:Gilbert09:read the secret through a kubernetes watch",
+          "title:Gilbert09:refresh the source coverage docs and add new sources",
+          "title:Gilbert09:remove the v2 import pipeline",
+          "title:Gilbert09:rename integration service to credentials service",
+          "title:Gilbert09:repartition the folder the pipeline wrote to",
+          "title:Gilbert09:report a snowflake run as resumable only when it can resume",
+          "title:Gilbert09:resume mssql full refreshes and incremental imports",
+          "title:Gilbert09:route source job inputs through one store",
+          "title:Gilbert09:scaffold 1 newly requested source",
+          "title:Gilbert09:scaffold 2 newly requested sources",
+          "title:Gilbert09:scaffold 3 newly requested sources",
+          "title:Gilbert09:scaffold 4 newly requested sources"
         ],
         "unmapped_prs": 0
       }
@@ -37919,9 +38055,276 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "a564589e92b5463d7d30ffc014e42976fdc7ccef7033f3637435c36aec10109e"
+    },
+    "title:Gilbert09:repartition the folder the pipeline wrote to": {
+      "id": "title:Gilbert09:repartition the folder the pipeline wrote to",
+      "prs": [
+        75334
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b7263aa91b0ec80a8878e5d8849a476ac996bf6cf87e9212ed6223835939a5d8"
+    },
+    "title:Gilbert09:refresh the source coverage docs and add new sources": {
+      "id": "title:Gilbert09:refresh the source coverage docs and add new sources",
+      "prs": [
+        115627
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ed3ccb7f84948c7e0627353aae357d2d9bafd88322bedc55b087627ffae0c96f"
+    },
+    "title:Gilbert09:ratchet source test shapes that hide behavior": {
+      "id": "title:Gilbert09:ratchet source test shapes that hide behavior",
+      "prs": [
+        114471
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f6cce06501af14f1157b422bc379bdc1c2b85205dba1deeebd44e11ba3cb231d"
+    },
+    "title:Gilbert09:scaffold 3 newly requested sources": {
+      "id": "title:Gilbert09:scaffold 3 newly requested sources",
+      "prs": [
+        75276,
+        77212,
+        81075,
+        82447,
+        90754,
+        93148,
+        98200,
+        114871
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1ca73dea3832f3a43d697e36dc323d8685033f368df12e533ca31c1b77ba1be8"
+    },
+    "title:Gilbert09:resume mssql full refreshes and incremental imports": {
+      "id": "title:Gilbert09:resume mssql full refreshes and incremental imports",
+      "prs": [
+        112714
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "183c58a26a1183f077a683023e99e98f7edd0fcb50b3bea28471016dbfb659fb"
+    },
+    "title:Gilbert09:scaffold 1 newly requested source": {
+      "id": "title:Gilbert09:scaffold 1 newly requested source",
+      "prs": [
+        110631,
+        112429,
+        112608,
+        112611,
+        112613,
+        115013,
+        115994,
+        118412,
+        120965,
+        124661,
+        125317,
+        126740
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "afab8535b8aa005cc15c59581738e21ac47067a80b2bb2bd9443366bc3d2d35b"
+    },
+    "title:Gilbert09:scaffold 4 newly requested sources": {
+      "id": "title:Gilbert09:scaffold 4 newly requested sources",
+      "prs": [
+        75901,
+        118972
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cb0d96bf2ab17cde4524da1fbf5c221cc6ae786c83fca8712f33ae8b6add6ce1"
+    },
+    "title:Gilbert09:report a snowflake run as resumable only when it can resume": {
+      "id": "title:Gilbert09:report a snowflake run as resumable only when it can resume",
+      "prs": [
+        112718
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0ba71cfaec21d1d2c0aef0633b02b57396e0e843e2e217aab69350296ec5eb84"
+    },
+    "title:Gilbert09:move the convex source to the data sync api": {
+      "id": "title:Gilbert09:move the convex source to the data sync api",
+      "prs": [
+        109290
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8e1a62f4570b069888fbf3849381ade779237a368de1be78e492d49ab6be4440"
+    },
+    "title:Gilbert09:one way to read posthog s own credentials": {
+      "id": "title:Gilbert09:one way to read posthog s own credentials",
+      "prs": [
+        88388
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d43a60c18aef00c7e80b4efb9f3ddd92ff921416fa4215eb99344ec9c9168af9"
+    },
+    "title:Gilbert09:read the secret through a kubernetes watch": {
+      "id": "title:Gilbert09:read the secret through a kubernetes watch",
+      "prs": [
+        116078
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fe37dcc91e20ab638e6952b10c0822fe29314e15d9915f2053f54e13e1248bad"
+    },
+    "title:Gilbert09:move postgres and mysql plugin vendors to the plugin folder": {
+      "id": "title:Gilbert09:move postgres and mysql plugin vendors to the plugin folder",
+      "prs": [
+        128258
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4d717cd9e24ef0b2ad5d79aed38b9b7d3e4ff4d093f6fae3c582d1b0af50beac"
+    },
+    "title:Gilbert09:prepare a provider seam for hogland sandboxes": {
+      "id": "title:Gilbert09:prepare a provider seam for hogland sandboxes",
+      "prs": [
+        87250
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6720372a937f50340e9c807c5f6a66a517690af4a6147fb4c54d8a0ce55e90d1"
+    },
+    "title:Gilbert09:remove the v2 import pipeline": {
+      "id": "title:Gilbert09:remove the v2 import pipeline",
+      "prs": [
+        112145
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1675a3fb7e704b65abf64c91aca8d59181891a1ca835ac78d43f6c8ffcea4404"
+    },
+    "title:Gilbert09:port 36 more sources onto the shared test driver": {
+      "id": "title:Gilbert09:port 36 more sources onto the shared test driver",
+      "prs": [
+        115492
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6f0f0384e1641bbe947ed115f9e8d90c8f198dd31ebb1babe6bdaa4493b737ca"
+    },
+    "title:Gilbert09:route source job inputs through one store": {
+      "id": "title:Gilbert09:route source job inputs through one store",
+      "prs": [
+        124069
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3fa2dd0c10781f78da889e407531db41a260429c5524ac9f468ff92d57aff031"
+    },
+    "title:Gilbert09:re land the deltalite footer and commit snapshot trims": {
+      "id": "title:Gilbert09:re land the deltalite footer and commit snapshot trims",
+      "prs": [
+        108283
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1a613b473694e677f62ae0566a0d28263e5c6a5e53170bc7866737701ded6c1a"
+    },
+    "title:Gilbert09:rename integration service to credentials service": {
+      "id": "title:Gilbert09:rename integration service to credentials service",
+      "prs": [
+        116086
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8bc21427b107be11842df813e0402f961b553b33e1f5384946465188d9326133"
+    },
+    "title:Gilbert09:scaffold 2 newly requested sources": {
+      "id": "title:Gilbert09:scaffold 2 newly requested sources",
+      "prs": [
+        79446,
+        81683,
+        99030,
+        102132,
+        114393,
+        115325,
+        120113,
+        123020,
+        123277
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "85017dce0e1f828fabca8e5be299b50a85f866e20bb44b440f45b1eff0557254"
+    },
+    "title:Gilbert09:move queue engine into warehouse sources queue package": {
+      "id": "title:Gilbert09:move queue engine into warehouse sources queue package",
+      "prs": [
+        91379
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0019",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9e51b1092231ca7f3af88901cc551f553f40a29c277efd880d30411a194b6f54"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "dc454b5214f1bebcb613922afd22eac65430822dcb5193378e765bf61cb003ac",
-  "sha256": "ba4eca1e79c9b25ddfcff4c89d8a9c962d3c4e750562e7459a775c3e28877d13"
+  "inline_publication_sha256": "9c2ccbf955a587e04b5a2919417a204497372690991ebd6ff29bd235117ef209",
+  "sha256": "674a69752fdc974f8bc73ae8ca6425302d67b9314da05a2a4e8c28be551aca77"
 }
