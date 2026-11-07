@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:28:47.647244+00:00",
+  "generated_at": "2026-11-07T04:29:17.352225+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2257,15 +2257,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0026": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 531,
+    "failed": 551,
     "reserved": 60,
-    "pending": 16512,
+    "pending": 16492,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2920,7 +2996,27 @@
       "title:a-lider:add per table access control for schemas",
       "title:a-lider:check access to a view s tables before materializing it",
       "title:a-lider:flag gated access resolution preview page",
-      "title:a-lider:generate the frontend scope object type from the backend list"
+      "title:a-lider:generate the frontend scope object type from the backend list",
+      "title:a-lider:hide the retired project environments route from the schema",
+      "title:a-lider:model warehouse table source fallback",
+      "title:a-lider:reject expired personal api keys",
+      "title:abhischekt:make ca the authority for ae and csm ownership",
+      "title:ablaszkiewicz:count only frames an upload would resolve",
+      "title:ablaszkiewicz:mask python code variables with the sdk rules",
+      "title:ablaszkiewicz:replace recommendations tab with stacked banners",
+      "title:ablaszkiewicz:route weekly digest queries through the error tracking clickhouse user",
+      "title:ablaszkiewicz:sync issue status from linear tickets",
+      "title:adamleithp:add a canvases list scene at canvases",
+      "title:adamleithp:add command k search with smart filters behind flag",
+      "title:adamleithp:add rail more menu and status signals",
+      "title:adamleithp:add session sidebar drag and drop",
+      "title:adamleithp:add settings rail pane to the today navigation",
+      "title:adamleithp:add tooltip disabledreason menu description and compact input to primitives",
+      "title:adamleithp:adopt desktop s chrome in the today layout",
+      "title:adamleithp:flatten routes and remember rail destinations",
+      "title:adamleithp:give tree session rows cards menus and a way into the space",
+      "title:adamleithp:make browser tabs independent and persistent",
+      "title:adamleithp:quill skin for the legacy chat behind phai quill"
     ],
     "unmapped_prs": 14
   },
@@ -7411,25 +7507,9 @@
           "groups": 20,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 20,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 38,
-          "scored": 0,
-          "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 37,
+          "pending": 19,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7437,7 +7517,28 @@
             "3": 0
           },
           "review_ids": [
-            "pr:81787"
+            "title:adamleithp:give tree session rows cards menus and a way into the space"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 38,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 4,
+          "reserved": 0,
+          "pending": 34,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:81787",
+            "title:adamleithp:add session sidebar drag and drop",
+            "title:adamleithp:flatten routes and remember rail destinations",
+            "title:adamleithp:make browser tabs independent and persistent"
           ],
           "unmapped_prs": 0
         },
@@ -7477,25 +7578,9 @@
           "groups": 20,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 20,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 46,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 1,
-          "reserved": 0,
-          "pending": 45,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7503,7 +7588,29 @@
             "3": 0
           },
           "review_ids": [
-            "pr:99581"
+            "title:adamleithp:add a canvases list scene at canvases",
+            "title:adamleithp:adopt desktop s chrome in the today layout"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 46,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 4,
+          "reserved": 0,
+          "pending": 42,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:99581",
+            "title:adamleithp:add command k search with smart filters behind flag",
+            "title:adamleithp:add settings rail pane to the today navigation",
+            "title:adamleithp:add tooltip disabledreason menu description and compact input to primitives"
           ],
           "unmapped_prs": 0
         },
@@ -7511,16 +7618,19 @@
           "groups": 12,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 12,
+          "pending": 10,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:adamleithp:add rail more menu and status signals",
+            "title:adamleithp:quill skin for the legacy chat behind phai quill"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -7528,9 +7638,9 @@
         "groups": 168,
         "scored": 0,
         "abstained": 0,
-        "failed": 2,
+        "failed": 13,
         "reserved": 0,
-        "pending": 166,
+        "pending": 155,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -7539,7 +7649,18 @@
         },
         "review_ids": [
           "pr:81787",
-          "pr:99581"
+          "pr:99581",
+          "title:adamleithp:add a canvases list scene at canvases",
+          "title:adamleithp:add command k search with smart filters behind flag",
+          "title:adamleithp:add rail more menu and status signals",
+          "title:adamleithp:add session sidebar drag and drop",
+          "title:adamleithp:add settings rail pane to the today navigation",
+          "title:adamleithp:add tooltip disabledreason menu description and compact input to primitives",
+          "title:adamleithp:adopt desktop s chrome in the today layout",
+          "title:adamleithp:flatten routes and remember rail destinations",
+          "title:adamleithp:give tree session rows cards menus and a way into the space",
+          "title:adamleithp:make browser tabs independent and persistent",
+          "title:adamleithp:quill skin for the legacy chat behind phai quill"
         ],
         "unmapped_prs": 0
       }
@@ -10746,9 +10867,9 @@
           "groups": 23,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 22,
+          "pending": 21,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -10756,7 +10877,8 @@
             "3": 0
           },
           "review_ids": [
-            "title:a-lider:flag gated access resolution preview page"
+            "title:a-lider:flag gated access resolution preview page",
+            "title:a-lider:hide the retired project environments route from the schema"
           ],
           "unmapped_prs": 1
         },
@@ -10801,32 +10923,36 @@
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 21,
+          "pending": 20,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:a-lider:model warehouse table source fallback"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 21,
+          "pending": 20,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:a-lider:reject expired personal api keys"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -10834,9 +10960,9 @@
         "groups": 108,
         "scored": 0,
         "abstained": 0,
-        "failed": 7,
+        "failed": 10,
         "reserved": 0,
-        "pending": 101,
+        "pending": 98,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -10850,7 +10976,10 @@
           "title:a-lider:add per table access control for schemas",
           "title:a-lider:check access to a view s tables before materializing it",
           "title:a-lider:flag gated access resolution preview page",
-          "title:a-lider:generate the frontend scope object type from the backend list"
+          "title:a-lider:generate the frontend scope object type from the backend list",
+          "title:a-lider:hide the retired project environments route from the schema",
+          "title:a-lider:model warehouse table source fallback",
+          "title:a-lider:reject expired personal api keys"
         ],
         "unmapped_prs": 1
       }
@@ -12426,16 +12555,18 @@
           "groups": 19,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 19,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:ablaszkiewicz:route weekly digest queries through the error tracking clickhouse user"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -12490,41 +12621,9 @@
           "groups": 12,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 12,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 6,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 6,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 17,
-          "scored": 0,
-          "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 16,
+          "pending": 11,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -12532,7 +12631,45 @@
             "3": 0
           },
           "review_ids": [
-            "pr:125472"
+            "title:ablaszkiewicz:mask python code variables with the sdk rules"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 6,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 1,
+          "reserved": 0,
+          "pending": 5,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:ablaszkiewicz:replace recommendations tab with stacked banners"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 17,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 14,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:125472",
+            "title:ablaszkiewicz:count only frames an upload would resolve",
+            "title:ablaszkiewicz:sync issue status from linear tickets"
           ],
           "unmapped_prs": 0
         }
@@ -12541,9 +12678,9 @@
         "groups": 90,
         "scored": 0,
         "abstained": 0,
-        "failed": 1,
+        "failed": 6,
         "reserved": 2,
-        "pending": 87,
+        "pending": 82,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -12551,7 +12688,12 @@
           "3": 0
         },
         "review_ids": [
-          "pr:125472"
+          "pr:125472",
+          "title:ablaszkiewicz:count only frames an upload would resolve",
+          "title:ablaszkiewicz:mask python code variables with the sdk rules",
+          "title:ablaszkiewicz:replace recommendations tab with stacked banners",
+          "title:ablaszkiewicz:route weekly digest queries through the error tracking clickhouse user",
+          "title:ablaszkiewicz:sync issue status from linear tickets"
         ],
         "unmapped_prs": 0
       }
@@ -20013,16 +20155,18 @@
           "groups": 3,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 3,
+          "pending": 2,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:abhischekt:make ca the authority for ae and csm ownership"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -20078,16 +20222,18 @@
         "groups": 11,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 11,
+        "pending": 10,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:abhischekt:make ca the authority for ae and csm ownership"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -40612,9 +40758,250 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "505adc30d09ccf0b7f3713ae2c815ccb8b265fc949cf73de4f268e9fe793ee0d"
+    },
+    "title:adamleithp:flatten routes and remember rail destinations": {
+      "id": "title:adamleithp:flatten routes and remember rail destinations",
+      "prs": [
+        87499
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9cde899acc68a2b07f329d1816f8d02c697cd8c5187a8869311e8b932aaf0eac"
+    },
+    "title:a-lider:model warehouse table source fallback": {
+      "id": "title:a-lider:model warehouse table source fallback",
+      "prs": [
+        117193
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fcf180b766fa401a9fe01178538a014099231bd563a56156db4252a8d853d309"
+    },
+    "title:ablaszkiewicz:replace recommendations tab with stacked banners": {
+      "id": "title:ablaszkiewicz:replace recommendations tab with stacked banners",
+      "prs": [
+        120160
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "339e16fe0803af8c388e6fb5f064561b2a94c4afaa74d11340c20f82e7834870"
+    },
+    "title:abhischekt:make ca the authority for ae and csm ownership": {
+      "id": "title:abhischekt:make ca the authority for ae and csm ownership",
+      "prs": [
+        100044
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e7b66ec6be6346e721c7f6b046027f487ac65266a5a15f8a3a7b243cb9cdfb4b"
+    },
+    "title:adamleithp:make browser tabs independent and persistent": {
+      "id": "title:adamleithp:make browser tabs independent and persistent",
+      "prs": [
+        87734
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e00f107e872d2e8225d2f8426f8c21782f9ddaded5a8fe380ace2373c91ed6b6"
+    },
+    "title:a-lider:reject expired personal api keys": {
+      "id": "title:a-lider:reject expired personal api keys",
+      "prs": [
+        121703,
+        122119
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ed6db9ac18de5707eba96b827eb55fe77d7e0ac75daaec5b14c67ffbf6f17187"
+    },
+    "title:ablaszkiewicz:sync issue status from linear tickets": {
+      "id": "title:ablaszkiewicz:sync issue status from linear tickets",
+      "prs": [
+        125338
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "00a25b97f8d4540aa2888a761bbf1550379a6c18d9a683a4b9e42d144c3b5282"
+    },
+    "title:adamleithp:add settings rail pane to the today navigation": {
+      "id": "title:adamleithp:add settings rail pane to the today navigation",
+      "prs": [
+        117022
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f4999f01678b4b790237e3c8a8e3e9e28eca12c0b3fd89e9c6dd9b0499987130"
+    },
+    "title:ablaszkiewicz:route weekly digest queries through the error tracking clickhouse user": {
+      "id": "title:ablaszkiewicz:route weekly digest queries through the error tracking clickhouse user",
+      "prs": [
+        76573
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "153c11bc0e24210cda460d170e04f745cb59abc2296caabbad2c33187bb92895"
+    },
+    "title:adamleithp:add a canvases list scene at canvases": {
+      "id": "title:adamleithp:add a canvases list scene at canvases",
+      "prs": [
+        112183
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "054c9ce236e0901c8fb1a9399b9dfcf8ddd882b205d174fa002d843dbe314fa6"
+    },
+    "title:adamleithp:add tooltip disabledreason menu description and compact input to primitives": {
+      "id": "title:adamleithp:add tooltip disabledreason menu description and compact input to primitives",
+      "prs": [
+        119635
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fa4ee809230beb3ba94fe7a2763e68a43a02c32bb5c178d246fe0bc31627fbf4"
+    },
+    "title:adamleithp:add command k search with smart filters behind flag": {
+      "id": "title:adamleithp:add command k search with smart filters behind flag",
+      "prs": [
+        112700
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "73c349d493d4f892440ba34de8efa4f4398ec53fe25fecdfa0d17b0bdfefa75d"
+    },
+    "title:a-lider:hide the retired project environments route from the schema": {
+      "id": "title:a-lider:hide the retired project environments route from the schema",
+      "prs": [
+        95171
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "989cc5a5ec9d85a391cc7cc89775260665cc3eca34599e6f209ae3511347fe15"
+    },
+    "title:adamleithp:adopt desktop s chrome in the today layout": {
+      "id": "title:adamleithp:adopt desktop s chrome in the today layout",
+      "prs": [
+        110696
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5cab1603b660bb2e003966d2bc9ddd33802cccb546bc1931d9cbbccd754aca04"
+    },
+    "title:adamleithp:add rail more menu and status signals": {
+      "id": "title:adamleithp:add rail more menu and status signals",
+      "prs": [
+        121114
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c6225cd031a3b3f7f314cf346a7de522999d8758354f0189a5578244044b86b1"
+    },
+    "title:ablaszkiewicz:count only frames an upload would resolve": {
+      "id": "title:ablaszkiewicz:count only frames an upload would resolve",
+      "prs": [
+        121179
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ea621fbeb19deaa68718afa1d05aacdf00fa7693d6f2c2f2ec693ce376ab9b9c"
+    },
+    "title:adamleithp:give tree session rows cards menus and a way into the space": {
+      "id": "title:adamleithp:give tree session rows cards menus and a way into the space",
+      "prs": [
+        78742
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fb50c52f252f3972ef3fdf9ce40a55808c1e6ab718d4cdff713a1674ee9709af"
+    },
+    "title:adamleithp:quill skin for the legacy chat behind phai quill": {
+      "id": "title:adamleithp:quill skin for the legacy chat behind phai quill",
+      "prs": [
+        122022
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5ddb9e0171695151a2edb13a71fb06b4ea9f467e831d5220aca30201013d9f6d"
+    },
+    "title:adamleithp:add session sidebar drag and drop": {
+      "id": "title:adamleithp:add session sidebar drag and drop",
+      "prs": [
+        84960
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f01329ce4b3c2baeb7208a4f935804b1507360d2cae8fdfffcbc1d0887dd8457"
+    },
+    "title:ablaszkiewicz:mask python code variables with the sdk rules": {
+      "id": "title:ablaszkiewicz:mask python code variables with the sdk rules",
+      "prs": [
+        112465
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0026",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5ceca2de1bfe196264daee68e18fa769b58f90b3020a435f84ac67d42eea4f84"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "9710c7d8b1e5e9c582fe5a48a32c239bcfb84074b3db9a6cf4734221271829c9",
-  "sha256": "9b80aa456d8f8af575d11a2e99a8d11a3ca81c60ff2c3f0ef2485a50e49f9350"
+  "inline_publication_sha256": "91d46e424d69daf2739b86359f493479e7cbd264eafb2655083916abbbf1a0a8",
+  "sha256": "386ebdf19181aea72813c5429b925db6f1e828350024052f183baeec9ec64cf5"
 }
