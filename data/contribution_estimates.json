@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T10:13:50.001171+00:00",
+  "generated_at": "2026-11-07T10:30:48.299651+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -5297,19 +5297,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0066": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 498,
-    "abstained": 3,
-    "failed": 947,
+    "scored": 516,
+    "abstained": 4,
+    "failed": 948,
     "reserved": 60,
-    "pending": 15712,
-    "mean_tier": 1.5502008032128514,
+    "pending": 15692,
+    "mean_tier": 1.5387596899224807,
     "tiers": {
-      "1": 224,
-      "2": 274,
+      "1": 238,
+      "2": 278,
       "3": 0
     },
     "review_ids": [
@@ -6033,8 +6109,28 @@
       "pr:85308",
       "pr:85325",
       "pr:85372",
+      "pr:85375",
+      "pr:85466",
+      "pr:85467",
+      "pr:85514",
+      "pr:85698",
+      "pr:85715",
+      "pr:85767",
+      "pr:85849",
+      "pr:85915",
+      "pr:86068",
+      "pr:86095",
+      "pr:86265",
+      "pr:86285",
+      "pr:86288",
+      "pr:86435",
+      "pr:86467",
       "pr:86640",
+      "pr:86767",
+      "pr:86779",
+      "pr:86796",
       "pr:86908",
+      "pr:86972",
       "pr:87136",
       "pr:87830",
       "pr:87881",
@@ -7625,14 +7721,14 @@
         },
         {
           "groups": 60,
-          "scored": 6,
+          "scored": 7,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 54,
-          "mean_tier": 1.6666666666666667,
+          "pending": 53,
+          "mean_tier": 1.5714285714285714,
           "tiers": {
-            "1": 2,
+            "1": 3,
             "2": 4,
             "3": 0
           },
@@ -7642,7 +7738,8 @@
             "pr:83002",
             "pr:83152",
             "pr:83430",
-            "pr:85372"
+            "pr:85372",
+            "pr:85466"
           ],
           "unmapped_prs": 0
         },
@@ -7757,14 +7854,14 @@
       ],
       "total": {
         "groups": 479,
-        "scored": 23,
+        "scored": 24,
         "abstained": 0,
         "failed": 10,
         "reserved": 0,
-        "pending": 446,
-        "mean_tier": 1.434782608695652,
+        "pending": 445,
+        "mean_tier": 1.4166666666666667,
         "tiers": {
-          "1": 13,
+          "1": 14,
           "2": 10,
           "3": 0
         },
@@ -7801,6 +7898,7 @@
           "pr:83152",
           "pr:83430",
           "pr:85372",
+          "pr:85466",
           "pr:95792"
         ],
         "unmapped_prs": 1
@@ -7990,14 +8088,14 @@
         },
         {
           "groups": 72,
-          "scored": 8,
+          "scored": 9,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 64,
-          "mean_tier": 1.625,
+          "pending": 63,
+          "mean_tier": 1.5555555555555556,
           "tiers": {
-            "1": 3,
+            "1": 4,
             "2": 5,
             "3": 0
           },
@@ -8009,6 +8107,7 @@
             "pr:83692",
             "pr:83702",
             "pr:84601",
+            "pr:85514",
             "pr:88274"
           ],
           "unmapped_prs": 0
@@ -8104,14 +8203,14 @@
       ],
       "total": {
         "groups": 358,
-        "scored": 20,
+        "scored": 21,
         "abstained": 1,
         "failed": 3,
         "reserved": 0,
-        "pending": 334,
-        "mean_tier": 1.75,
+        "pending": 333,
+        "mean_tier": 1.7142857142857142,
         "tiers": {
-          "1": 5,
+          "1": 6,
           "2": 15,
           "3": 0
         },
@@ -8139,6 +8238,7 @@
           "pr:83692",
           "pr:83702",
           "pr:84601",
+          "pr:85514",
           "pr:88274"
         ],
         "unmapped_prs": 0
@@ -10236,14 +10336,14 @@
         },
         {
           "groups": 40,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 9,
           "reserved": 1,
-          "pending": 30,
-          "mean_tier": null,
+          "pending": 29,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
@@ -10256,6 +10356,7 @@
             "issue:86654",
             "pr:81169",
             "pr:84534",
+            "pr:85715",
             "title:arthurdedeus:add feature request mcp tools"
           ],
           "unmapped_prs": 0
@@ -10373,14 +10474,14 @@
       ],
       "total": {
         "groups": 189,
-        "scored": 11,
+        "scored": 12,
         "abstained": 0,
         "failed": 35,
         "reserved": 3,
-        "pending": 140,
-        "mean_tier": 1.5454545454545454,
+        "pending": 139,
+        "mean_tier": 1.5,
         "tiers": {
-          "1": 5,
+          "1": 6,
           "2": 6,
           "3": 0
         },
@@ -10416,6 +10517,7 @@
           "pr:81167",
           "pr:81169",
           "pr:84534",
+          "pr:85715",
           "pr:92855",
           "pr:92857",
           "pr:94196",
@@ -11681,15 +11783,15 @@
         },
         {
           "groups": 37,
-          "scored": 7,
+          "scored": 12,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 30,
-          "mean_tier": 1.8571428571428572,
+          "pending": 25,
+          "mean_tier": 1.5833333333333333,
           "tiers": {
-            "1": 1,
-            "2": 6,
+            "1": 5,
+            "2": 7,
             "3": 0
           },
           "review_ids": [
@@ -11699,7 +11801,12 @@
             "pr:82671",
             "pr:83993",
             "pr:83995",
-            "pr:84884"
+            "pr:84884",
+            "pr:85698",
+            "pr:86068",
+            "pr:86467",
+            "pr:86779",
+            "pr:86796"
           ],
           "unmapped_prs": 0
         },
@@ -11808,15 +11915,15 @@
       ],
       "total": {
         "groups": 192,
-        "scored": 23,
+        "scored": 28,
         "abstained": 0,
         "failed": 13,
         "reserved": 2,
-        "pending": 154,
-        "mean_tier": 1.6521739130434783,
+        "pending": 149,
+        "mean_tier": 1.5714285714285714,
         "tiers": {
-          "1": 8,
-          "2": 15,
+          "1": 12,
+          "2": 16,
           "3": 0
         },
         "review_ids": [
@@ -11846,6 +11953,11 @@
           "pr:83993",
           "pr:83995",
           "pr:84884",
+          "pr:85698",
+          "pr:86068",
+          "pr:86467",
+          "pr:86779",
+          "pr:86796",
           "pr:90231",
           "pr:91958",
           "pr:93631",
@@ -12056,10 +12168,10 @@
         {
           "groups": 38,
           "scored": 2,
-          "abstained": 0,
+          "abstained": 1,
           "failed": 4,
           "reserved": 0,
-          "pending": 32,
+          "pending": 31,
           "mean_tier": 1.5,
           "tiers": {
             "1": 1,
@@ -12070,6 +12182,7 @@
             "pr:81787",
             "pr:83045",
             "pr:85240",
+            "pr:85375",
             "title:adamleithp:add session sidebar drag and drop",
             "title:adamleithp:flatten routes and remember rail destinations",
             "title:adamleithp:make browser tabs independent and persistent"
@@ -12173,10 +12286,10 @@
       "total": {
         "groups": 168,
         "scored": 3,
-        "abstained": 0,
+        "abstained": 1,
         "failed": 13,
         "reserved": 0,
-        "pending": 152,
+        "pending": 151,
         "mean_tier": 1.3333333333333333,
         "tiers": {
           "1": 2,
@@ -12188,6 +12301,7 @@
           "pr:81787",
           "pr:83045",
           "pr:85240",
+          "pr:85375",
           "pr:99581",
           "title:adamleithp:add a canvases list scene at canvases",
           "title:adamleithp:add command k search with smart filters behind flag",
@@ -12567,19 +12681,21 @@
         },
         {
           "groups": 28,
-          "scored": 1,
+          "scored": 2,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 26,
+          "pending": 24,
           "mean_tier": 1.0,
           "tiers": {
-            "1": 1,
+            "1": 2,
             "2": 0,
             "3": 0
           },
           "review_ids": [
             "pr:80848",
+            "pr:85915",
+            "pr:86767",
             "title:dmarticus:revert signals remove automatic report canvas generation"
           ],
           "unmapped_prs": 0
@@ -12684,14 +12800,14 @@
       ],
       "total": {
         "groups": 152,
-        "scored": 9,
+        "scored": 10,
         "abstained": 0,
-        "failed": 7,
+        "failed": 8,
         "reserved": 0,
-        "pending": 136,
-        "mean_tier": 1.5555555555555556,
+        "pending": 134,
+        "mean_tier": 1.5,
         "tiers": {
-          "1": 4,
+          "1": 5,
           "2": 5,
           "3": 0
         },
@@ -12706,6 +12822,8 @@
           "pr:109529",
           "pr:76948",
           "pr:80848",
+          "pr:85915",
+          "pr:86767",
           "title:dmarticus:add per space auto archive settings",
           "title:dmarticus:align self driving inbox experience with web",
           "title:dmarticus:preserve reviewer edits in the existing artefact path",
@@ -12739,18 +12857,20 @@
         },
         {
           "groups": 36,
-          "scored": 0,
+          "scored": 2,
           "abstained": 0,
           "failed": 3,
           "reserved": 0,
-          "pending": 33,
-          "mean_tier": null,
+          "pending": 31,
+          "mean_tier": 1.5,
           "tiers": {
-            "1": 0,
-            "2": 0,
+            "1": 1,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
+            "pr:85849",
+            "pr:86095",
             "title:charlesvien:clean up standalone repo leftovers after monorepo move",
             "title:charlesvien:implement clear and advertise it as a capability",
             "title:charlesvien:remove the task automations feature"
@@ -12854,21 +12974,23 @@
       ],
       "total": {
         "groups": 173,
-        "scored": 1,
+        "scored": 3,
         "abstained": 0,
         "failed": 14,
         "reserved": 0,
-        "pending": 158,
-        "mean_tier": 1.0,
+        "pending": 156,
+        "mean_tier": 1.3333333333333333,
         "tiers": {
-          "1": 1,
-          "2": 0,
+          "1": 2,
+          "2": 1,
           "3": 0
         },
         "review_ids": [
           "pr:114445",
           "pr:123757",
           "pr:76806",
+          "pr:85849",
+          "pr:86095",
           "title:charlesvien:add a dark appearance to the app icon",
           "title:charlesvien:clean up standalone repo leftovers after monorepo move",
           "title:charlesvien:implement clear and advertise it as a capability",
@@ -13335,14 +13457,14 @@
         },
         {
           "groups": 40,
-          "scored": 5,
+          "scored": 7,
           "abstained": 0,
           "failed": 2,
           "reserved": 3,
-          "pending": 30,
-          "mean_tier": 2.0,
+          "pending": 28,
+          "mean_tier": 1.7142857142857142,
           "tiers": {
-            "1": 0,
+            "1": 2,
             "2": 5,
             "3": 0
           },
@@ -13353,7 +13475,9 @@
             "pr:81355",
             "pr:81693",
             "pr:83082",
-            "pr:83832"
+            "pr:83832",
+            "pr:86285",
+            "pr:86288"
           ],
           "unmapped_prs": 0
         },
@@ -13453,14 +13577,14 @@
       ],
       "total": {
         "groups": 147,
-        "scored": 14,
+        "scored": 16,
         "abstained": 0,
         "failed": 10,
         "reserved": 4,
-        "pending": 119,
-        "mean_tier": 1.7142857142857142,
+        "pending": 117,
+        "mean_tier": 1.625,
         "tiers": {
-          "1": 4,
+          "1": 6,
           "2": 10,
           "3": 0
         },
@@ -13484,6 +13608,8 @@
           "pr:81693",
           "pr:83082",
           "pr:83832",
+          "pr:86285",
+          "pr:86288",
           "pr:87881",
           "title:hpouillot:bucket remaining symbol set scans",
           "title:hpouillot:manage fingerprints from issue preview",
@@ -13833,20 +13959,22 @@
         },
         {
           "groups": 49,
-          "scored": 2,
+          "scored": 4,
           "abstained": 0,
           "failed": 3,
           "reserved": 0,
-          "pending": 44,
-          "mean_tier": 2.0,
+          "pending": 42,
+          "mean_tier": 1.5,
           "tiers": {
-            "1": 0,
+            "1": 2,
             "2": 2,
             "3": 0
           },
           "review_ids": [
             "pr:81957",
             "pr:84469",
+            "pr:85467",
+            "pr:86435",
             "title:adboio:drop the welcome and import config onboarding steps",
             "title:adboio:overhaul settings with compact card layout",
             "title:adboio:seed a teaching canvas the first session points people at"
@@ -13940,14 +14068,14 @@
       ],
       "total": {
         "groups": 134,
-        "scored": 5,
+        "scored": 7,
         "abstained": 0,
         "failed": 6,
         "reserved": 0,
-        "pending": 123,
-        "mean_tier": 2.0,
+        "pending": 121,
+        "mean_tier": 1.7142857142857142,
         "tiers": {
-          "1": 0,
+          "1": 2,
           "2": 5,
           "3": 0
         },
@@ -13958,6 +14086,8 @@
           "pr:80988",
           "pr:81957",
           "pr:84469",
+          "pr:85467",
+          "pr:86435",
           "title:adboio:add prompt context selection for web and slack",
           "title:adboio:drop the welcome and import config onboarding steps",
           "title:adboio:overhaul settings with compact card layout",
@@ -17350,18 +17480,20 @@
         },
         {
           "groups": 9,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 9,
-          "mean_tier": null,
+          "pending": 8,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "pr:86972"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -17453,22 +17585,23 @@
       ],
       "total": {
         "groups": 90,
-        "scored": 3,
+        "scored": 4,
         "abstained": 0,
         "failed": 1,
         "reserved": 1,
-        "pending": 85,
-        "mean_tier": 1.6666666666666667,
+        "pending": 84,
+        "mean_tier": 1.75,
         "tiers": {
           "1": 1,
-          "2": 2,
+          "2": 3,
           "3": 0
         },
         "review_ids": [
           "pr:100770",
           "pr:100996",
           "pr:102161",
-          "pr:116004"
+          "pr:116004",
+          "pr:86972"
         ],
         "unmapped_prs": 0
       }
@@ -19802,18 +19935,20 @@
         },
         {
           "groups": 8,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 8,
-          "mean_tier": null,
+          "pending": 7,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "pr:85767"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -19908,14 +20043,14 @@
       ],
       "total": {
         "groups": 67,
-        "scored": 7,
+        "scored": 8,
         "abstained": 0,
         "failed": 1,
         "reserved": 0,
-        "pending": 59,
-        "mean_tier": 1.4285714285714286,
+        "pending": 58,
+        "mean_tier": 1.375,
         "tiers": {
-          "1": 4,
+          "1": 5,
           "2": 3,
           "3": 0
         },
@@ -19927,7 +20062,8 @@
           "pr:108160",
           "pr:114067",
           "pr:74262",
-          "pr:77179"
+          "pr:77179",
+          "pr:85767"
         ],
         "unmapped_prs": 0
       }
@@ -21882,19 +22018,20 @@
         },
         {
           "groups": 11,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 10,
-          "mean_tier": null,
+          "pending": 9,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
-            "pr:79047"
+            "pr:79047",
+            "pr:86265"
           ],
           "unmapped_prs": 0
         },
@@ -21985,21 +22122,22 @@
       ],
       "total": {
         "groups": 35,
-        "scored": 2,
+        "scored": 3,
         "abstained": 0,
         "failed": 1,
         "reserved": 0,
-        "pending": 32,
-        "mean_tier": 1.5,
+        "pending": 31,
+        "mean_tier": 1.6666666666666667,
         "tiers": {
           "1": 1,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
           "pr:102916",
           "pr:106729",
-          "pr:79047"
+          "pr:79047",
+          "pr:86265"
         ],
         "unmapped_prs": 0
       }
@@ -55893,9 +56031,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "05f2e8749b8e02e5d0e2edc112595e013710a701c01585c5e8de389d32cc8025"
+    },
+    "pr:86068": {
+      "id": "pr:86068",
+      "prs": [
+        86068
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9c4dc778ca5f51bfbbad2023af538227251ddb0b042e0f8b0edcffd9ce5afe22"
+    },
+    "pr:86288": {
+      "id": "pr:86288",
+      "prs": [
+        86288
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5b3b27074aa2d99d3d180e331175a845620371d395c9e928384ec4f18e5822e8"
+    },
+    "pr:86265": {
+      "id": "pr:86265",
+      "prs": [
+        86265
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f6efab342e0b8ec5f43cd52452a6b2932fe87163b4914ef7395c5795b2d4823c"
+    },
+    "pr:85466": {
+      "id": "pr:85466",
+      "prs": [
+        85466
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "44b0bc0a26529aa3e25a3268aceb95945eef7e56ce132a2e7f5f3d74ed1ea794"
+    },
+    "pr:86767": {
+      "id": "pr:86767",
+      "prs": [
+        86767
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e3bf1941ae3218a2e4027105abe3ec75dbf48234305bd227945e5f6011c7d22d"
+    },
+    "pr:86285": {
+      "id": "pr:86285",
+      "prs": [
+        86285
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e8717bcbf7b12019096f85ad9017a4d78f8d72a4feb76ebdee9b12ed3da0eefb"
+    },
+    "pr:86779": {
+      "id": "pr:86779",
+      "prs": [
+        86779
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "54e383bab57a1419ab68fb0aaa4260c785e385808c2f00b756210c5fe6273b1e"
+    },
+    "pr:86467": {
+      "id": "pr:86467",
+      "prs": [
+        86467
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c2753ff19ea14405b46ccef8d0df5a28ada61f03b117950aaf7799288b74611a"
+    },
+    "pr:86796": {
+      "id": "pr:86796",
+      "prs": [
+        86796
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "83f9774bf0b859a6489be4267d0bd979d8abc4fbd2b480a7cbd7cb3246984e61"
+    },
+    "pr:85915": {
+      "id": "pr:85915",
+      "prs": [
+        85915
+      ],
+      "status": "error",
+      "tier": null,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "19acc3c51b1096aee439590eef05ed944ee886c74bdd8a67724f1657703461fa"
+    },
+    "pr:85467": {
+      "id": "pr:85467",
+      "prs": [
+        85467
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a2af54746c5982aeacfa9c68ca218bc6e424a9915fca8c347ac01f66c964e8b3"
+    },
+    "pr:85767": {
+      "id": "pr:85767",
+      "prs": [
+        85767
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "70d658b2bf51da805f4d9ab56614e06b96f05d0f9bd175f7af90d5daa997e929"
+    },
+    "pr:86972": {
+      "id": "pr:86972",
+      "prs": [
+        86972
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3b3d6498bc139dc670ce83e546cb42853573fa29c1051764bf1f219cf524ce97"
+    },
+    "pr:85849": {
+      "id": "pr:85849",
+      "prs": [
+        85849
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "96649c08b39ecdcd05e4b2083440260916375621030167cd49138ea0fc137719"
+    },
+    "pr:86435": {
+      "id": "pr:86435",
+      "prs": [
+        86435
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "dec6618308501404458efb3983f06eeccae66b7699ed77df7596800e9b71a222"
+    },
+    "pr:86095": {
+      "id": "pr:86095",
+      "prs": [
+        86095
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fc0561451abb966c08de1c8716f4884ea50cca4a044c9c5d996c39aee1f817eb"
+    },
+    "pr:85375": {
+      "id": "pr:85375",
+      "prs": [
+        85375
+      ],
+      "status": "abstained",
+      "tier": null,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "eb567a6d2f6bb7e8addd7f1bd2ac4d78e3896d1d741320d85a60ba7b6b377353"
+    },
+    "pr:85698": {
+      "id": "pr:85698",
+      "prs": [
+        85698
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "583a65075bb54f48333c37c85a55e49c63a2df2a48e097a8577b761d7546cd4f"
+    },
+    "pr:85715": {
+      "id": "pr:85715",
+      "prs": [
+        85715
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d9294ba0fe0891522c7484b9f3ae7ae1a76003daf0d77791110f194ba5113761"
+    },
+    "pr:85514": {
+      "id": "pr:85514",
+      "prs": [
+        85514
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0066",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fb9373a196a793225d5fdb01a5f00517bd5fa757ce9b6547967568bbb856ef15"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "94a18463c2cdeabe7507cdaa39f28a4e56c0f9676747638e68c10cff124fb6c4",
-  "sha256": "f1c0b649969b2b84a247ac171696921462d0978dbec5f9c1cfccd57d6bb6bec4"
+  "inline_publication_sha256": "831b37ccb4cf21de09b445371729f8e81aa85ac30aa6f6ff49ebba76d198b22a",
+  "sha256": "21f6b1a03adf309e7c70b7e41620a2b962d42dc4b352ca2f36da771439122302"
 }
