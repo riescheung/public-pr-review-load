@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:33:12.866159+00:00",
+  "generated_at": "2026-11-07T04:33:42.481078+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2941,15 +2941,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0035": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 711,
+    "failed": 731,
     "reserved": 60,
-    "pending": 16332,
+    "pending": 16312,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3784,7 +3860,27 @@
       "title:charlesvien:split agent contracts out of shared",
       "title:charlesvien:track roblox sdk events in usage report",
       "title:christiaan-ph:summarize ticket from customer evidence",
-      "title:cohenroy:bind payment flows to the selected organization"
+      "title:cohenroy:bind payment flows to the selected organization",
+      "title:cohenroy:move the poller into the managed warehouse product",
+      "title:cohenroy:re attribute and repoint deleted default teams",
+      "title:cohenroy:remove the retired posthog desktop seats proxy",
+      "title:cvolzer3:inbox redesign behind the inbox redesign flag",
+      "title:cvolzer3:keep recent analytics and inbox available offline",
+      "title:cvolzer3:store live report impact metrics and refresh snapshots",
+      "title:cvolzer3:turn the mcp store into a team gateway",
+      "title:danielcarletti:add a cdc conformance test kit",
+      "title:danielcarletti:add vendor central reports to amazon selling partner",
+      "title:danielcarletti:bound postgres keyset pages by bytes",
+      "title:danielcarletti:coarsen over split tables harden the oom trigger",
+      "title:danielcarletti:consume the cdc change buffer on the scheduled sync",
+      "title:danielcarletti:default hubspot partitioning to month not week",
+      "title:danielcarletti:implement amazon selling partner source",
+      "title:danielcarletti:implement aws cost and usage report source",
+      "title:danielcarletti:implement azure api management source",
+      "title:danielcarletti:implement azure cosmos db source",
+      "title:danielcarletti:implement azure log analytics source",
+      "title:danielcarletti:implement the singular import source",
+      "title:danielcarletti:match fivetran connectors to posthog sources by rule"
     ],
     "unmapped_prs": 14
   },
@@ -5585,32 +5681,37 @@
           "groups": 18,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 18,
+          "pending": 16,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:danielcarletti:coarsen over split tables harden the oom trigger",
+            "title:danielcarletti:default hubspot partitioning to month not week"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 26,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 26,
+          "pending": 25,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:danielcarletti:consume the cdc change buffer on the scheduled sync"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -5649,9 +5750,9 @@
           "groups": 44,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 4,
           "reserved": 0,
-          "pending": 42,
+          "pending": 40,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5660,7 +5761,9 @@
           },
           "review_ids": [
             "pr:105912",
-            "pr:109374"
+            "pr:109374",
+            "title:danielcarletti:bound postgres keyset pages by bytes",
+            "title:danielcarletti:implement the singular import source"
           ],
           "unmapped_prs": 0
         },
@@ -5668,9 +5771,9 @@
           "groups": 53,
           "scored": 0,
           "abstained": 0,
-          "failed": 15,
+          "failed": 17,
           "reserved": 0,
-          "pending": 38,
+          "pending": 36,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5692,7 +5795,9 @@
             "pr:118196",
             "pr:118204",
             "pr:118231",
-            "pr:118233"
+            "pr:118233",
+            "title:danielcarletti:add a cdc conformance test kit",
+            "title:danielcarletti:implement azure cosmos db source"
           ],
           "unmapped_prs": 0
         },
@@ -5700,9 +5805,9 @@
           "groups": 36,
           "scored": 0,
           "abstained": 0,
-          "failed": 4,
+          "failed": 10,
           "reserved": 0,
-          "pending": 32,
+          "pending": 26,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5713,7 +5818,13 @@
             "pr:118121",
             "pr:118144",
             "pr:118198",
-            "pr:118213"
+            "pr:118213",
+            "title:danielcarletti:add vendor central reports to amazon selling partner",
+            "title:danielcarletti:implement amazon selling partner source",
+            "title:danielcarletti:implement aws cost and usage report source",
+            "title:danielcarletti:implement azure api management source",
+            "title:danielcarletti:implement azure log analytics source",
+            "title:danielcarletti:match fivetran connectors to posthog sources by rule"
           ],
           "unmapped_prs": 0
         }
@@ -5722,9 +5833,9 @@
         "groups": 244,
         "scored": 0,
         "abstained": 0,
-        "failed": 21,
+        "failed": 34,
         "reserved": 0,
-        "pending": 223,
+        "pending": 210,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -5752,7 +5863,20 @@
           "pr:118204",
           "pr:118213",
           "pr:118231",
-          "pr:118233"
+          "pr:118233",
+          "title:danielcarletti:add a cdc conformance test kit",
+          "title:danielcarletti:add vendor central reports to amazon selling partner",
+          "title:danielcarletti:bound postgres keyset pages by bytes",
+          "title:danielcarletti:coarsen over split tables harden the oom trigger",
+          "title:danielcarletti:consume the cdc change buffer on the scheduled sync",
+          "title:danielcarletti:default hubspot partitioning to month not week",
+          "title:danielcarletti:implement amazon selling partner source",
+          "title:danielcarletti:implement aws cost and usage report source",
+          "title:danielcarletti:implement azure api management source",
+          "title:danielcarletti:implement azure cosmos db source",
+          "title:danielcarletti:implement azure log analytics source",
+          "title:danielcarletti:implement the singular import source",
+          "title:danielcarletti:match fivetran connectors to posthog sources by rule"
         ],
         "unmapped_prs": 0
       }
@@ -12229,9 +12353,9 @@
           "groups": 3,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 2,
+          "pending": 1,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -12239,7 +12363,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:76103"
+            "pr:76103",
+            "title:cvolzer3:turn the mcp store into a team gateway"
           ],
           "unmapped_prs": 0
         },
@@ -12263,32 +12388,36 @@
           "groups": 24,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 24,
+          "pending": 23,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cvolzer3:inbox redesign behind the inbox redesign flag"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 15,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 15,
+          "pending": 14,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cvolzer3:store live report impact metrics and refresh snapshots"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -12327,16 +12456,18 @@
           "groups": 37,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 37,
+          "pending": 36,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cvolzer3:keep recent analytics and inbox available offline"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -12344,9 +12475,9 @@
         "groups": 99,
         "scored": 0,
         "abstained": 0,
-        "failed": 1,
+        "failed": 5,
         "reserved": 0,
-        "pending": 98,
+        "pending": 94,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -12354,7 +12485,11 @@
           "3": 0
         },
         "review_ids": [
-          "pr:76103"
+          "pr:76103",
+          "title:cvolzer3:inbox redesign behind the inbox redesign flag",
+          "title:cvolzer3:keep recent analytics and inbox available offline",
+          "title:cvolzer3:store live report impact metrics and refresh snapshots",
+          "title:cvolzer3:turn the mcp store into a team gateway"
         ],
         "unmapped_prs": 0
       }
@@ -20437,32 +20572,36 @@
           "groups": 1,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 1,
+          "pending": 0,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cohenroy:re attribute and repoint deleted default teams"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 3,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 3,
+          "pending": 2,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cohenroy:move the poller into the managed warehouse product"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -20485,16 +20624,18 @@
           "groups": 1,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 1,
+          "pending": 0,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cohenroy:remove the retired posthog desktop seats proxy"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -20552,9 +20693,9 @@
         "groups": 18,
         "scored": 0,
         "abstained": 0,
-        "failed": 1,
+        "failed": 4,
         "reserved": 0,
-        "pending": 17,
+        "pending": 14,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -20562,7 +20703,10 @@
           "3": 0
         },
         "review_ids": [
-          "title:cohenroy:bind payment flows to the selected organization"
+          "title:cohenroy:bind payment flows to the selected organization",
+          "title:cohenroy:move the poller into the managed warehouse product",
+          "title:cohenroy:re attribute and repoint deleted default teams",
+          "title:cohenroy:remove the retired posthog desktop seats proxy"
         ],
         "unmapped_prs": 0
       }
@@ -44061,9 +44205,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "86ba06a6ff595af06c566dde46a2dec2297519efba32e298d106c6c103831eab"
+    },
+    "title:danielcarletti:implement azure api management source": {
+      "id": "title:danielcarletti:implement azure api management source",
+      "prs": [
+        118173
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d42eaf7f07cd59e068e33ce30eb6b8d222e617c5efc17e50d30f1769d4d482f6"
+    },
+    "title:danielcarletti:coarsen over split tables harden the oom trigger": {
+      "id": "title:danielcarletti:coarsen over split tables harden the oom trigger",
+      "prs": [
+        76349
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ee69864d3fd8f8338a5e491e5f342db5b370df2ec36dc18c5ac65bb7d97857ea"
+    },
+    "title:danielcarletti:implement aws cost and usage report source": {
+      "id": "title:danielcarletti:implement aws cost and usage report source",
+      "prs": [
+        118143
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2781cf8f8fed1dafc1480bfe6f7a7903b98576307b7d419310a9c5376ee97d83"
+    },
+    "title:cohenroy:re attribute and repoint deleted default teams": {
+      "id": "title:cohenroy:re attribute and repoint deleted default teams",
+      "prs": [
+        72256
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "42ef88709570e2d898584d2e97b6e6de32435d57727d770b6c1e118f0d1e913a"
+    },
+    "title:cvolzer3:turn the mcp store into a team gateway": {
+      "id": "title:cvolzer3:turn the mcp store into a team gateway",
+      "prs": [
+        72409
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7e48e0b429055edfb3652bab15ef3a02818521f0393f157fb1632d9cc2c8b0a3"
+    },
+    "title:danielcarletti:consume the cdc change buffer on the scheduled sync": {
+      "id": "title:danielcarletti:consume the cdc change buffer on the scheduled sync",
+      "prs": [
+        83333
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8def67435db384df662824298306fa8cf010a4ad90171cd59e02bf74da32bf13"
+    },
+    "title:danielcarletti:bound postgres keyset pages by bytes": {
+      "id": "title:danielcarletti:bound postgres keyset pages by bytes",
+      "prs": [
+        110815
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9f5974319f175cb2954aca486792e8398dac9ae493dac1e5083c3b422773b28c"
+    },
+    "title:danielcarletti:default hubspot partitioning to month not week": {
+      "id": "title:danielcarletti:default hubspot partitioning to month not week",
+      "prs": [
+        75071
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "50bf4ce794551f9fda08c10807b4b2f0474902a1e7cd7e0e65da5d13a8c454e3"
+    },
+    "title:danielcarletti:implement azure cosmos db source": {
+      "id": "title:danielcarletti:implement azure cosmos db source",
+      "prs": [
+        118145
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "af443f4882c39034af5210bd2ad3f3dc6ce5ed14c4b5955e45ca612ce1725e35"
+    },
+    "title:cvolzer3:keep recent analytics and inbox available offline": {
+      "id": "title:cvolzer3:keep recent analytics and inbox available offline",
+      "prs": [
+        127543
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "20a323663d7640514d0dbcfd4143ebf57d49da7f8b349eac7451f19a73015cc8"
+    },
+    "title:cvolzer3:store live report impact metrics and refresh snapshots": {
+      "id": "title:cvolzer3:store live report impact metrics and refresh snapshots",
+      "prs": [
+        97535
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "38636b92e72e562d4c069d62f5c997101ff08ced6c47e7de1c072b009ad81656"
+    },
+    "title:cohenroy:remove the retired posthog desktop seats proxy": {
+      "id": "title:cohenroy:remove the retired posthog desktop seats proxy",
+      "prs": [
+        94644
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0bb3aec71043da18fcd66686705bf13c1d34e965b1bd227024a21b21d06f6c02"
+    },
+    "title:danielcarletti:add vendor central reports to amazon selling partner": {
+      "id": "title:danielcarletti:add vendor central reports to amazon selling partner",
+      "prs": [
+        118179
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e3ceca8f32a55bae00b70caddef07332ac8d3f8b5a3010d3b081e4739542014a"
+    },
+    "title:cvolzer3:inbox redesign behind the inbox redesign flag": {
+      "id": "title:cvolzer3:inbox redesign behind the inbox redesign flag",
+      "prs": [
+        87990
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "09233f419c59e6e8a165c112555cbcb3d0f9313616294451ef25a7709f2920c9"
+    },
+    "title:danielcarletti:implement amazon selling partner source": {
+      "id": "title:danielcarletti:implement amazon selling partner source",
+      "prs": [
+        118147
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7df10a6e4cf6cccd61a5d13465c0fdd1f37e626d4e1c052d493882bbf3b26ce9"
+    },
+    "title:danielcarletti:match fivetran connectors to posthog sources by rule": {
+      "id": "title:danielcarletti:match fivetran connectors to posthog sources by rule",
+      "prs": [
+        125065
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c74887c5f22cec06f7fa319574101adac72eae2a0569f91697d064095e97b34d"
+    },
+    "title:danielcarletti:implement the singular import source": {
+      "id": "title:danielcarletti:implement the singular import source",
+      "prs": [
+        110280
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4f1380356ca7450d44fe3bf19a207b278bc447b24bc68d73827bef1aac12bf47"
+    },
+    "title:danielcarletti:implement azure log analytics source": {
+      "id": "title:danielcarletti:implement azure log analytics source",
+      "prs": [
+        118158
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d553d88ec00db0f82eb958e64a1320d4e09e7597dff9b8c91ab23cdb7f152177"
+    },
+    "title:danielcarletti:add a cdc conformance test kit": {
+      "id": "title:danielcarletti:add a cdc conformance test kit",
+      "prs": [
+        116565
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fecf5c374c94aa0f3952606a8a636d6a61d083cae9e01ffec320898f3cfa76dc"
+    },
+    "title:cohenroy:move the poller into the managed warehouse product": {
+      "id": "title:cohenroy:move the poller into the managed warehouse product",
+      "prs": [
+        82667
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0035",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e3e0a378d4d53f99e1001bcd77e799972cff856cedba226434b8c816f008015f"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "6198cdac351e2cf16cf4760e108d4b312deddd56fbc682983d7aee1e9393b2b1",
-  "sha256": "0e639fee27dc47bb1e9b57c5a490c106bc526282bd649302e7c705b070525696"
+  "inline_publication_sha256": "21c5eeba24fd4432ed9b05f85d99d2bff5fac56bf3e88beb21577c51c4a9d984",
+  "sha256": "ad9fd6ecf530b0c2ead58a932fc79d8e3e5b928a46ccdf2abdc746c1134cd03f"
 }
