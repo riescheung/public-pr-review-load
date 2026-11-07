@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T13:44:18.690241+00:00",
+  "generated_at": "2026-11-07T14:05:00.445176+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -6209,19 +6209,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0078": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 728,
-    "abstained": 7,
-    "failed": 953,
+    "scored": 746,
+    "abstained": 8,
+    "failed": 954,
     "reserved": 60,
-    "pending": 15472,
-    "mean_tier": 1.5714285714285714,
+    "pending": 15452,
+    "mean_tier": 1.5750670241286864,
     "tiers": {
-      "1": 312,
-      "2": 416,
+      "1": 317,
+      "2": 429,
       "3": 0
     },
     "review_ids": [
@@ -7278,7 +7354,27 @@
       "title:GeneralistDev:make long report prompts scrollable",
       "title:GeneralistDev:match home sample charts to live data",
       "title:GeneralistDev:only uncollapse the last renderable tool call per turn",
+      "title:GeneralistDev:open product analytics from today rail",
+      "title:GeneralistDev:open view all from the analytics rail button",
+      "title:GeneralistDev:preserve image widths in narrow review layouts",
+      "title:GeneralistDev:reduce embedded bar chart label spacing",
+      "title:GeneralistDev:regenerate the eval master demo team after a day",
+      "title:GeneralistDev:remove template option from home customize modal",
+      "title:GeneralistDev:render notes and app resilience for mcp ui apps",
       "title:GeneralistDev:replace legacy evals with focused sandbox cases",
+      "title:GeneralistDev:restore embedded chart label width",
+      "title:GeneralistDev:resume query polling after reconnect",
+      "title:GeneralistDev:revert interactive app discovery changes",
+      "title:GeneralistDev:route eval tasks through the posthog ai gateway product",
+      "title:GeneralistDev:run product analytics home queries in parallel",
+      "title:GeneralistDev:show which tool an agent called in eval traces",
+      "title:GeneralistDev:stop the insight editor auto saving on a chart type change",
+      "title:GeneralistDev:unblock both failing ai evals ci jobs",
+      "title:Gilbert09:accept a pasted atlassian site url as the subdomain",
+      "title:Gilbert09:accept a pasted project url in the project field",
+      "title:Gilbert09:accept a pasted site url for clickup and confluence",
+      "title:Gilbert09:accept a repository pasted as a github url",
+      "title:Gilbert09:accept a scoped api key that lacks one read permission",
       "title:Gilbert09:add 14 missing google ads tables",
       "title:Gilbert09:add 23 tables to the clerk source",
       "title:Gilbert09:add 23 tables to the sentry source",
@@ -8071,15 +8167,15 @@
         },
         {
           "groups": 379,
-          "scored": 0,
+          "scored": 2,
           "abstained": 0,
           "failed": 12,
           "reserved": 0,
-          "pending": 367,
-          "mean_tier": null,
+          "pending": 365,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
@@ -8087,6 +8183,8 @@
             "pr:102822",
             "pr:103576",
             "pr:78839",
+            "title:Gilbert09:accept a pasted project url in the project field",
+            "title:Gilbert09:accept a repository pasted as a github url",
             "title:Gilbert09:add a warehouse destinations scene",
             "title:Gilbert09:add the databricks destination writer",
             "title:Gilbert09:add the s3 destination writer",
@@ -8175,15 +8273,15 @@
         },
         {
           "groups": 665,
-          "scored": 24,
+          "scored": 25,
           "abstained": 0,
           "failed": 20,
           "reserved": 1,
-          "pending": 620,
-          "mean_tier": 1.5416666666666667,
+          "pending": 619,
+          "mean_tier": 1.56,
           "tiers": {
             "1": 11,
-            "2": 13,
+            "2": 14,
             "3": 0
           },
           "review_ids": [
@@ -8207,6 +8305,7 @@
             "pr:119542",
             "pr:120208",
             "pr:120209",
+            "title:Gilbert09:accept a pasted site url for clickup and confluence",
             "title:Gilbert09:add 4 missing tables to the recurly source",
             "title:Gilbert09:add a shared driver for source tests",
             "title:Gilbert09:add a source contract test suite with ratchet baselines",
@@ -8236,15 +8335,15 @@
         },
         {
           "groups": 539,
-          "scored": 11,
+          "scored": 13,
           "abstained": 0,
           "failed": 18,
           "reserved": 5,
-          "pending": 505,
-          "mean_tier": 1.4545454545454546,
+          "pending": 503,
+          "mean_tier": 1.5384615384615385,
           "tiers": {
             "1": 6,
-            "2": 5,
+            "2": 7,
             "3": 0
           },
           "review_ids": [
@@ -8259,6 +8358,8 @@
             "pr:126975",
             "pr:127279",
             "pr:127328",
+            "title:Gilbert09:accept a pasted atlassian site url as the subdomain",
+            "title:Gilbert09:accept a scoped api key that lacks one read permission",
             "title:Gilbert09:add 4 missing tables to the xmatters source",
             "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync",
             "title:Gilbert09:add missing logos to the source catalog",
@@ -8283,15 +8384,15 @@
       ],
       "total": {
         "groups": 3127,
-        "scored": 61,
+        "scored": 66,
         "abstained": 0,
         "failed": 181,
         "reserved": 7,
-        "pending": 2878,
-        "mean_tier": 1.4098360655737705,
+        "pending": 2873,
+        "mean_tier": 1.4545454545454546,
         "tiers": {
           "1": 36,
-          "2": 25,
+          "2": 30,
           "3": 0
         },
         "review_ids": [
@@ -8403,6 +8504,11 @@
           "pr:92229",
           "pr:95577",
           "pr:95864",
+          "title:Gilbert09:accept a pasted atlassian site url as the subdomain",
+          "title:Gilbert09:accept a pasted project url in the project field",
+          "title:Gilbert09:accept a pasted site url for clickup and confluence",
+          "title:Gilbert09:accept a repository pasted as a github url",
+          "title:Gilbert09:accept a scoped api key that lacks one read permission",
           "title:Gilbert09:add 14 missing google ads tables",
           "title:Gilbert09:add 23 tables to the clerk source",
           "title:Gilbert09:add 23 tables to the sentry source",
@@ -21543,70 +21649,76 @@
         },
         {
           "groups": 4,
-          "scored": 1,
-          "abstained": 0,
+          "scored": 2,
+          "abstained": 1,
           "failed": 0,
           "reserved": 0,
-          "pending": 3,
+          "pending": 1,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 1,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
-            "issue:92875"
+            "issue:92875",
+            "title:GeneralistDev:show which tool an agent called in eval traces",
+            "title:GeneralistDev:unblock both failing ai evals ci jobs"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 8,
-          "scored": 1,
+          "scored": 3,
           "abstained": 0,
           "failed": 1,
           "reserved": 1,
-          "pending": 5,
-          "mean_tier": 1.0,
+          "pending": 3,
+          "mean_tier": 1.6666666666666667,
           "tiers": {
             "1": 1,
-            "2": 0,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
             "title:GeneralistDev:balance typed query and sql guidance",
-            "title:GeneralistDev:make long report prompts scrollable"
+            "title:GeneralistDev:make long report prompts scrollable",
+            "title:GeneralistDev:reduce embedded bar chart label spacing",
+            "title:GeneralistDev:render notes and app resilience for mcp ui apps"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 5,
-          "scored": 1,
+          "scored": 3,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 4,
-          "mean_tier": 2.0,
+          "pending": 2,
+          "mean_tier": 1.6666666666666667,
           "tiers": {
-            "1": 0,
-            "2": 1,
+            "1": 1,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
-            "title:GeneralistDev:only uncollapse the last renderable tool call per turn"
+            "title:GeneralistDev:only uncollapse the last renderable tool call per turn",
+            "title:GeneralistDev:restore embedded chart label width",
+            "title:GeneralistDev:stop the insight editor auto saving on a chart type change"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 21,
-          "scored": 6,
+          "scored": 9,
           "abstained": 0,
-          "failed": 4,
+          "failed": 5,
           "reserved": 0,
-          "pending": 11,
-          "mean_tier": 1.8333333333333333,
+          "pending": 7,
+          "mean_tier": 1.8888888888888888,
           "tiers": {
             "1": 1,
-            "2": 5,
+            "2": 8,
             "3": 0
           },
           "review_ids": [
@@ -21619,41 +21731,50 @@
             "title:GeneralistDev:keep home sample labels inside cards",
             "title:GeneralistDev:make interactive apps discoverable in chatgpt and codex",
             "title:GeneralistDev:match home sample charts to live data",
-            "title:GeneralistDev:replace legacy evals with focused sandbox cases"
+            "title:GeneralistDev:replace legacy evals with focused sandbox cases",
+            "title:GeneralistDev:resume query polling after reconnect",
+            "title:GeneralistDev:revert interactive app discovery changes",
+            "title:GeneralistDev:route eval tasks through the posthog ai gateway product",
+            "title:GeneralistDev:run product analytics home queries in parallel"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 17,
-          "scored": 2,
+          "scored": 7,
           "abstained": 0,
           "failed": 0,
           "reserved": 1,
-          "pending": 14,
-          "mean_tier": 1.5,
+          "pending": 9,
+          "mean_tier": 1.2857142857142858,
           "tiers": {
-            "1": 1,
-            "2": 1,
+            "1": 5,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
             "title:GeneralistDev:emit logged in when a simulated user logs back in",
-            "title:GeneralistDev:load home queries concurrently in the new navigation"
+            "title:GeneralistDev:load home queries concurrently in the new navigation",
+            "title:GeneralistDev:open product analytics from today rail",
+            "title:GeneralistDev:open view all from the analytics rail button",
+            "title:GeneralistDev:preserve image widths in narrow review layouts",
+            "title:GeneralistDev:regenerate the eval master demo team after a day",
+            "title:GeneralistDev:remove template option from home customize modal"
           ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 60,
-        "scored": 14,
-        "abstained": 0,
-        "failed": 6,
+        "scored": 27,
+        "abstained": 1,
+        "failed": 7,
         "reserved": 2,
-        "pending": 38,
-        "mean_tier": 1.6428571428571428,
+        "pending": 23,
+        "mean_tier": 1.6296296296296295,
         "tiers": {
-          "1": 5,
-          "2": 9,
+          "1": 10,
+          "2": 17,
           "3": 0
         },
         "review_ids": [
@@ -21676,7 +21797,22 @@
           "title:GeneralistDev:make long report prompts scrollable",
           "title:GeneralistDev:match home sample charts to live data",
           "title:GeneralistDev:only uncollapse the last renderable tool call per turn",
-          "title:GeneralistDev:replace legacy evals with focused sandbox cases"
+          "title:GeneralistDev:open product analytics from today rail",
+          "title:GeneralistDev:open view all from the analytics rail button",
+          "title:GeneralistDev:preserve image widths in narrow review layouts",
+          "title:GeneralistDev:reduce embedded bar chart label spacing",
+          "title:GeneralistDev:regenerate the eval master demo team after a day",
+          "title:GeneralistDev:remove template option from home customize modal",
+          "title:GeneralistDev:render notes and app resilience for mcp ui apps",
+          "title:GeneralistDev:replace legacy evals with focused sandbox cases",
+          "title:GeneralistDev:restore embedded chart label width",
+          "title:GeneralistDev:resume query polling after reconnect",
+          "title:GeneralistDev:revert interactive app discovery changes",
+          "title:GeneralistDev:route eval tasks through the posthog ai gateway product",
+          "title:GeneralistDev:run product analytics home queries in parallel",
+          "title:GeneralistDev:show which tool an agent called in eval traces",
+          "title:GeneralistDev:stop the insight editor auto saving on a chart type change",
+          "title:GeneralistDev:unblock both failing ai evals ci jobs"
         ],
         "unmapped_prs": 0
       }
@@ -60442,9 +60578,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "14a9f7b1383b840cdb8d275ebd9aae03876406b71731b93fb3edbd22398225e0"
+    },
+    "title:GeneralistDev:render notes and app resilience for mcp ui apps": {
+      "id": "title:GeneralistDev:render notes and app resilience for mcp ui apps",
+      "prs": [
+        96640
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "43cdbcc74b2e9b22ebf212abcaf39fc41d3126a1f439e04e19988833d7b44138"
+    },
+    "title:GeneralistDev:run product analytics home queries in parallel": {
+      "id": "title:GeneralistDev:run product analytics home queries in parallel",
+      "prs": [
+        117588
+      ],
+      "status": "error",
+      "tier": null,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1a97c59d974ae6775252ebed2e92dbd96c1736c3f837cf3720c7b9f662aad37d"
+    },
+    "title:GeneralistDev:restore embedded chart label width": {
+      "id": "title:GeneralistDev:restore embedded chart label width",
+      "prs": [
+        104484
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "76b9f1c8fee39902d0c049b395c44aa513aa9f9338c25d673d8d1ed98a353eef"
+    },
+    "title:GeneralistDev:regenerate the eval master demo team after a day": {
+      "id": "title:GeneralistDev:regenerate the eval master demo team after a day",
+      "prs": [
+        127435
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c1392dc42b1fd9acfe5432540bb3ce19330a434dfe4197c4ab4dec28b1479455"
+    },
+    "title:GeneralistDev:show which tool an agent called in eval traces": {
+      "id": "title:GeneralistDev:show which tool an agent called in eval traces",
+      "prs": [
+        89942
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8c03288ee6843dd871bc9dc4dbd19cdd6f15b3d2f891845bbe9f2b3179a25d11"
+    },
+    "title:GeneralistDev:stop the insight editor auto saving on a chart type change": {
+      "id": "title:GeneralistDev:stop the insight editor auto saving on a chart type change",
+      "prs": [
+        105737
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5da78a9d1d0e7a2ce932feed308d333ac6e37f6b4bba50c09ade7635359e3507"
+    },
+    "title:GeneralistDev:reduce embedded bar chart label spacing": {
+      "id": "title:GeneralistDev:reduce embedded bar chart label spacing",
+      "prs": [
+        102841
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "167d95100e6356af64029f03dd086bbfd2804033ae536564252e939b13c568a1"
+    },
+    "title:Gilbert09:accept a scoped api key that lacks one read permission": {
+      "id": "title:Gilbert09:accept a scoped api key that lacks one read permission",
+      "prs": [
+        122453
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2d167f45aef459b5016a598cf509a867c5d8bd43ca999949f0cfdc166c6c73cb"
+    },
+    "title:GeneralistDev:open view all from the analytics rail button": {
+      "id": "title:GeneralistDev:open view all from the analytics rail button",
+      "prs": [
+        126097
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c64cbb26ffb5ceb8e02f100281410dee52799d1d408b8a844ca7f7a74e2d8732"
+    },
+    "title:GeneralistDev:route eval tasks through the posthog ai gateway product": {
+      "id": "title:GeneralistDev:route eval tasks through the posthog ai gateway product",
+      "prs": [
+        117846
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "81125da49304ec9bfa4d5cca941ed604488a2664277d6d100f0ca30d3457f24e"
+    },
+    "title:GeneralistDev:unblock both failing ai evals ci jobs": {
+      "id": "title:GeneralistDev:unblock both failing ai evals ci jobs",
+      "prs": [
+        92479
+      ],
+      "status": "abstained",
+      "tier": null,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e3c2838f46eacf899e627dc4260b195cefad37219ddc01f120f67dbe7903de73"
+    },
+    "title:Gilbert09:accept a pasted atlassian site url as the subdomain": {
+      "id": "title:Gilbert09:accept a pasted atlassian site url as the subdomain",
+      "prs": [
+        127991
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ddacaf3a6bfbc43bdcb2ef7bb22cd5a2320c8d32e4662f26a81da9cfe787d958"
+    },
+    "title:GeneralistDev:remove template option from home customize modal": {
+      "id": "title:GeneralistDev:remove template option from home customize modal",
+      "prs": [
+        126099
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "eced3eca76e3e34e54929c70bfc9187b5cc5b0639d6aa84542f4a61fec15e9f3"
+    },
+    "title:GeneralistDev:resume query polling after reconnect": {
+      "id": "title:GeneralistDev:resume query polling after reconnect",
+      "prs": [
+        115999
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9b020714b58beeee65ed9c21df6778ad2d78b214df6486cbbc218cb0637b313c"
+    },
+    "title:Gilbert09:accept a repository pasted as a github url": {
+      "id": "title:Gilbert09:accept a repository pasted as a github url",
+      "prs": [
+        99963
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "981217de913164effdb4575f3fc8f611cbaab3db46feac1e7397b015c25f29e3"
+    },
+    "title:Gilbert09:accept a pasted site url for clickup and confluence": {
+      "id": "title:Gilbert09:accept a pasted site url for clickup and confluence",
+      "prs": [
+        114830
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d7b7612c4a497ab8097e68d8f31c489f6a991528aedc9bf487ed8e1edbca40c8"
+    },
+    "title:GeneralistDev:revert interactive app discovery changes": {
+      "id": "title:GeneralistDev:revert interactive app discovery changes",
+      "prs": [
+        113429
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8f5af22facffdee7b35d8161de50b43d6490cc67630833d2352ee98fcf47449f"
+    },
+    "title:GeneralistDev:preserve image widths in narrow review layouts": {
+      "id": "title:GeneralistDev:preserve image widths in narrow review layouts",
+      "prs": [
+        120960
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "07808716e22452371263cfed9981c465b504dc510f955cf5a5e7e3b372314dda"
+    },
+    "title:Gilbert09:accept a pasted project url in the project field": {
+      "id": "title:Gilbert09:accept a pasted project url in the project field",
+      "prs": [
+        103310
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f5cba3363fd83ecde8202f77eacdc500823b4e16240215f29b48ba5002a353d7"
+    },
+    "title:GeneralistDev:open product analytics from today rail": {
+      "id": "title:GeneralistDev:open product analytics from today rail",
+      "prs": [
+        122596
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0078",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3a657310d778c7489f3be1875631361d4c6bc1cd927c07b3b9b7ebe19e235701"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "3f456488114b34f248c65475167a3c912742286408ec233eb00cf0946391e9b9",
-  "sha256": "ca3c527f3ce9964936dc240458617e375d0d9a26923fc9683f8c4f5d1e4cf258"
+  "inline_publication_sha256": "e743e59416755b871c7fd1b0f64efaba722c3f3c5d2e75a00076b5f009d36019",
+  "sha256": "d8121e50054fc71ef78983337bd1d4c9a094dee25c21d52e2cb3420badef9279"
 }
