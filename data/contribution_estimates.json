@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:28:18.168268+00:00",
+  "generated_at": "2026-11-07T04:28:47.647244+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2181,15 +2181,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0025": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 511,
+    "failed": 531,
     "reserved": 60,
-    "pending": 16532,
+    "pending": 16512,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2824,7 +2900,27 @@
       "title:TueHaulund:render scanner scout templates on the backend",
       "title:TueHaulund:rework the scanner setup flow",
       "title:TueHaulund:scanner scouts behind a feature flag",
-      "title:TueHaulund:serve search suggestions from themes"
+      "title:TueHaulund:serve search suggestions from themes",
+      "title:Twixes:add inline pull request reviews",
+      "title:VojtechBartos:add team and user default models for task agent runs",
+      "title:VojtechBartos:add the web setup after a slack install",
+      "title:VojtechBartos:add workspace activity stats to the app home tab",
+      "title:VojtechBartos:generate the kind registry from one python source of truth",
+      "title:VojtechBartos:move slack app temporal code into the product",
+      "title:VojtechBartos:personal morning briefing on the today home page",
+      "title:VojtechBartos:remove the old mention processing name and module",
+      "title:VojtechBartos:show chart images in insight link unfurls",
+      "title:VojtechBartos:show one feature tip under an answer",
+      "title:VojtechBartos:show self driving logo and drop summary in inbox report unfurls",
+      "title:VojtechBartos:stream a live progress plan in agent slack replies",
+      "title:Z3r0Sum:check out full history for the shared image jobs",
+      "title:Z3r0Sum:publish shared images through selective channels",
+      "title:Z3r0Sum:shared image release foundation for the ordered alias",
+      "title:a-lider:add member and role access control detail pages",
+      "title:a-lider:add per table access control for schemas",
+      "title:a-lider:check access to a view s tables before materializing it",
+      "title:a-lider:flag gated access resolution preview page",
+      "title:a-lider:generate the frontend scope object type from the backend list"
     ],
     "unmapped_prs": 14
   },
@@ -5653,16 +5749,18 @@
           "groups": 23,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 23,
+          "pending": 22,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:VojtechBartos:add workspace activity stats to the app home tab"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -5685,41 +5783,9 @@
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 21,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 34,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 34,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 56,
-          "scored": 0,
-          "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 55,
+          "pending": 20,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5727,7 +5793,45 @@
             "3": 0
           },
           "review_ids": [
-            "issue:62926"
+            "title:VojtechBartos:add team and user default models for task agent runs"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 34,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 1,
+          "reserved": 0,
+          "pending": 33,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:VojtechBartos:generate the kind registry from one python source of truth"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 56,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 53,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "issue:62926",
+            "title:VojtechBartos:personal morning briefing on the today home page",
+            "title:VojtechBartos:stream a live progress plan in agent slack replies"
           ],
           "unmapped_prs": 0
         },
@@ -5735,9 +5839,9 @@
           "groups": 37,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 4,
           "reserved": 0,
-          "pending": 36,
+          "pending": 33,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5745,7 +5849,10 @@
             "3": 0
           },
           "review_ids": [
-            "pr:120291"
+            "pr:120291",
+            "title:VojtechBartos:move slack app temporal code into the product",
+            "title:VojtechBartos:remove the old mention processing name and module",
+            "title:VojtechBartos:show chart images in insight link unfurls"
           ],
           "unmapped_prs": 0
         },
@@ -5753,16 +5860,20 @@
           "groups": 27,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 27,
+          "pending": 24,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:VojtechBartos:add the web setup after a slack install",
+            "title:VojtechBartos:show one feature tip under an answer",
+            "title:VojtechBartos:show self driving logo and drop summary in inbox report unfurls"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -5770,9 +5881,9 @@
         "groups": 215,
         "scored": 0,
         "abstained": 0,
-        "failed": 2,
+        "failed": 13,
         "reserved": 0,
-        "pending": 213,
+        "pending": 202,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -5781,7 +5892,18 @@
         },
         "review_ids": [
           "issue:62926",
-          "pr:120291"
+          "pr:120291",
+          "title:VojtechBartos:add team and user default models for task agent runs",
+          "title:VojtechBartos:add the web setup after a slack install",
+          "title:VojtechBartos:add workspace activity stats to the app home tab",
+          "title:VojtechBartos:generate the kind registry from one python source of truth",
+          "title:VojtechBartos:move slack app temporal code into the product",
+          "title:VojtechBartos:personal morning briefing on the today home page",
+          "title:VojtechBartos:remove the old mention processing name and module",
+          "title:VojtechBartos:show chart images in insight link unfurls",
+          "title:VojtechBartos:show one feature tip under an answer",
+          "title:VojtechBartos:show self driving logo and drop summary in inbox report unfurls",
+          "title:VojtechBartos:stream a live progress plan in agent slack replies"
         ],
         "unmapped_prs": 0
       }
@@ -10588,16 +10710,20 @@
           "groups": 14,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 14,
+          "pending": 11,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:a-lider:add member and role access control detail pages",
+            "title:a-lider:add per table access control for schemas",
+            "title:a-lider:check access to a view s tables before materializing it"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -10620,16 +10746,18 @@
           "groups": 23,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 23,
+          "pending": 22,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:a-lider:flag gated access resolution preview page"
+          ],
           "unmapped_prs": 1
         },
         {
@@ -10654,9 +10782,9 @@
           "groups": 12,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 11,
+          "pending": 10,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -10664,7 +10792,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:102274"
+            "pr:102274",
+            "title:a-lider:generate the frontend scope object type from the backend list"
           ],
           "unmapped_prs": 0
         },
@@ -10705,9 +10834,9 @@
         "groups": 108,
         "scored": 0,
         "abstained": 0,
-        "failed": 2,
+        "failed": 7,
         "reserved": 0,
-        "pending": 106,
+        "pending": 101,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -10716,7 +10845,12 @@
         },
         "review_ids": [
           "pr:102274",
-          "pr:94553"
+          "pr:94553",
+          "title:a-lider:add member and role access control detail pages",
+          "title:a-lider:add per table access control for schemas",
+          "title:a-lider:check access to a view s tables before materializing it",
+          "title:a-lider:flag gated access resolution preview page",
+          "title:a-lider:generate the frontend scope object type from the backend list"
         ],
         "unmapped_prs": 1
       }
@@ -17560,16 +17694,18 @@
           "groups": 23,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 1,
-          "pending": 22,
+          "pending": 21,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:Twixes:add inline pull request reviews"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -17673,16 +17809,18 @@
         "groups": 25,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 1,
-        "pending": 24,
+        "pending": 23,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:Twixes:add inline pull request reviews"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -19783,16 +19921,20 @@
           "groups": 5,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 5,
+          "pending": 2,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:Z3r0Sum:check out full history for the shared image jobs",
+            "title:Z3r0Sum:publish shared images through selective channels",
+            "title:Z3r0Sum:shared image release foundation for the ordered alias"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -19800,16 +19942,20 @@
         "groups": 17,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 3,
         "reserved": 0,
-        "pending": 17,
+        "pending": 14,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:Z3r0Sum:check out full history for the shared image jobs",
+          "title:Z3r0Sum:publish shared images through selective channels",
+          "title:Z3r0Sum:shared image release foundation for the ordered alias"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -40226,9 +40372,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "c6853ea6d25381bea5361c60eb73154a4cbfeb2f5016e37bc5a60b976c0b950b"
+    },
+    "title:Z3r0Sum:check out full history for the shared image jobs": {
+      "id": "title:Z3r0Sum:check out full history for the shared image jobs",
+      "prs": [
+        124063
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "32fe51a419dccffd714d1f524e11737e8b596010dccf7b4cf6c2b1c8ed269790"
+    },
+    "title:VojtechBartos:show one feature tip under an answer": {
+      "id": "title:VojtechBartos:show one feature tip under an answer",
+      "prs": [
+        122538
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "67880a2e0730a92e904a2abf636b62c89480495f2d333438a2c5d1cea81b27f2"
+    },
+    "title:Z3r0Sum:shared image release foundation for the ordered alias": {
+      "id": "title:Z3r0Sum:shared image release foundation for the ordered alias",
+      "prs": [
+        120287
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2cea32cea95c6784a27bf73bcd0c3c6b438f338deeac2fb63fa5995d9682990f"
+    },
+    "title:VojtechBartos:personal morning briefing on the today home page": {
+      "id": "title:VojtechBartos:personal morning briefing on the today home page",
+      "prs": [
+        109155
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c02aa34ba5eda9e16db49f37e99e70c276bcf88112551d003949c7fa6faa3fed"
+    },
+    "title:VojtechBartos:remove the old mention processing name and module": {
+      "id": "title:VojtechBartos:remove the old mention processing name and module",
+      "prs": [
+        118370
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4b720894330a962c2de07aa51a7c271b6e5981cc02ce268a8e680c7267e085af"
+    },
+    "title:a-lider:add per table access control for schemas": {
+      "id": "title:a-lider:add per table access control for schemas",
+      "prs": [
+        72440
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cb4c5960e2d5281756b7e5607156079952d563b8f90c146c70a356726b9fa3f7"
+    },
+    "title:VojtechBartos:generate the kind registry from one python source of truth": {
+      "id": "title:VojtechBartos:generate the kind registry from one python source of truth",
+      "prs": [
+        101454
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bd5ba383118c87441c1ba1fb792afdc157147365b6867f411b0ccf685dcd5bdf"
+    },
+    "title:a-lider:check access to a view s tables before materializing it": {
+      "id": "title:a-lider:check access to a view s tables before materializing it",
+      "prs": [
+        75758
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4022537a45fe1e64a0ac604781bf588fce8b28b502a0320547c8a15867ad5180"
+    },
+    "title:VojtechBartos:stream a live progress plan in agent slack replies": {
+      "id": "title:VojtechBartos:stream a live progress plan in agent slack replies",
+      "prs": [
+        108250
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "de057ca7a65f7cdef2059659f3a143c0bc87b960b053bc515aa99bda1be5f3da"
+    },
+    "title:VojtechBartos:add workspace activity stats to the app home tab": {
+      "id": "title:VojtechBartos:add workspace activity stats to the app home tab",
+      "prs": [
+        77244
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ec6f65846607a86157374b77b7662f95dd5c4c6edf4917c38a8f5b2898183288"
+    },
+    "title:VojtechBartos:show chart images in insight link unfurls": {
+      "id": "title:VojtechBartos:show chart images in insight link unfurls",
+      "prs": [
+        116815
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4fc6a4e58c69170477408e532458bcbe43b478a7eedd1425e07995f958309421"
+    },
+    "title:Z3r0Sum:publish shared images through selective channels": {
+      "id": "title:Z3r0Sum:publish shared images through selective channels",
+      "prs": [
+        120488
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "32101426cf996dbb9ad62b59265106c954c1501b831b6926aa22e31e419327f4"
+    },
+    "title:VojtechBartos:show self driving logo and drop summary in inbox report unfurls": {
+      "id": "title:VojtechBartos:show self driving logo and drop summary in inbox report unfurls",
+      "prs": [
+        120874
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "464c04b3e31e972d217d73bb419a559310a21620862c4f5039c1a9b473922ae5"
+    },
+    "title:Twixes:add inline pull request reviews": {
+      "id": "title:Twixes:add inline pull request reviews",
+      "prs": [
+        72242
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "68b712bac298f34f00f18b9901688fde0a8ce1852a52a3830b630bea5ae27f4a"
+    },
+    "title:a-lider:flag gated access resolution preview page": {
+      "id": "title:a-lider:flag gated access resolution preview page",
+      "prs": [
+        88704
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "26c938276da7dac83cbbf5c04e5f420021eea8610f641812da4110c957af9746"
+    },
+    "title:VojtechBartos:add the web setup after a slack install": {
+      "id": "title:VojtechBartos:add the web setup after a slack install",
+      "prs": [
+        124196
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a1b76227fde7206831fc9e3502cb45f55824ee184a7c4d4a3f497b34145e29ae"
+    },
+    "title:VojtechBartos:move slack app temporal code into the product": {
+      "id": "title:VojtechBartos:move slack app temporal code into the product",
+      "prs": [
+        117748
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "673edbf872e22bc99e3ce2351253393c0bff869f6ac3b8e727ab08aa7a438b7d"
+    },
+    "title:a-lider:generate the frontend scope object type from the backend list": {
+      "id": "title:a-lider:generate the frontend scope object type from the backend list",
+      "prs": [
+        106173
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a687435d37b12b3a3943dd2dd495a88db4cfada68e794a1a2d901cbc79169a09"
+    },
+    "title:a-lider:add member and role access control detail pages": {
+      "id": "title:a-lider:add member and role access control detail pages",
+      "prs": [
+        67501
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "51c626ce08fb6c13d941dc7bc81829dd86d78041b8a63cc189e4969321db1762"
+    },
+    "title:VojtechBartos:add team and user default models for task agent runs": {
+      "id": "title:VojtechBartos:add team and user default models for task agent runs",
+      "prs": [
+        70683
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0025",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "505adc30d09ccf0b7f3713ae2c815ccb8b265fc949cf73de4f268e9fe793ee0d"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "946a28b739ada29630c172a0e3a0de75924c205cf811c36ddde16535bac3ca73",
-  "sha256": "f63a87cddffb0d32ce9483b79035fa5be6b9683c3b03dcd50fdc48339e3de440"
+  "inline_publication_sha256": "9710c7d8b1e5e9c582fe5a48a32c239bcfb84074b3db9a6cf4734221271829c9",
+  "sha256": "9b80aa456d8f8af575d11a2e99a8d11a3ca81c60ff2c3f0ef2485a50e49f9350"
 }
