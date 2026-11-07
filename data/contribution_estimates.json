@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T05:10:45.659002+00:00",
+  "generated_at": "2026-11-07T05:26:56.414132+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3929,19 +3929,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0048": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 151,
+    "scored": 171,
     "abstained": 2,
     "failed": 935,
     "reserved": 60,
-    "pending": 16072,
-    "mean_tier": 1.5496688741721854,
+    "pending": 16052,
+    "mean_tier": 1.5614035087719298,
     "tiers": {
-      "1": 68,
-      "2": 83,
+      "1": 75,
+      "2": 96,
       "3": 0
     },
     "review_ids": [
@@ -4107,8 +4183,28 @@
       "issue:88354",
       "issue:88817",
       "issue:88966",
+      "issue:90191",
+      "issue:90741",
+      "issue:91324",
+      "issue:91426",
+      "issue:91899",
       "issue:92144",
+      "issue:92875",
+      "issue:93842",
+      "issue:96037",
+      "issue:96347",
+      "issue:96903",
+      "issue:97444",
       "issue:97799",
+      "issue:98068",
+      "issue:99096",
+      "pr:100000",
+      "pr:100078",
+      "pr:100079",
+      "pr:100082",
+      "pr:100083",
+      "pr:100089",
+      "pr:100090",
       "pr:100461",
       "pr:100887",
       "pr:101482",
@@ -5612,18 +5708,25 @@
         },
         {
           "groups": 112,
-          "scored": 0,
+          "scored": 6,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 112,
-          "mean_tier": null,
+          "pending": 106,
+          "mean_tier": 1.3333333333333333,
           "tiers": {
-            "1": 0,
-            "2": 0,
+            "1": 4,
+            "2": 2,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:99096",
+            "pr:100078",
+            "pr:100079",
+            "pr:100082",
+            "pr:100083",
+            "pr:100090"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -5648,20 +5751,21 @@
         },
         {
           "groups": 141,
-          "scored": 2,
+          "scored": 3,
           "abstained": 0,
           "failed": 1,
           "reserved": 2,
-          "pending": 136,
-          "mean_tier": 1.0,
+          "pending": 135,
+          "mean_tier": 1.3333333333333333,
           "tiers": {
             "1": 2,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
             "issue:114760",
             "issue:32033",
+            "pr:100089",
             "pr:99248"
           ],
           "unmapped_prs": 0
@@ -5689,21 +5793,28 @@
       ],
       "total": {
         "groups": 650,
-        "scored": 4,
+        "scored": 11,
         "abstained": 0,
         "failed": 7,
         "reserved": 6,
-        "pending": 633,
-        "mean_tier": 1.5,
+        "pending": 626,
+        "mean_tier": 1.4545454545454546,
         "tiers": {
-          "1": 2,
-          "2": 2,
+          "1": 6,
+          "2": 5,
           "3": 0
         },
         "review_ids": [
           "issue:114760",
           "issue:32033",
           "issue:61109",
+          "issue:99096",
+          "pr:100078",
+          "pr:100079",
+          "pr:100082",
+          "pr:100083",
+          "pr:100089",
+          "pr:100090",
           "pr:108135",
           "pr:109618",
           "pr:124477",
@@ -7867,18 +7978,19 @@
         },
         {
           "groups": 36,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 35,
-          "mean_tier": null,
+          "pending": 34,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
+            "issue:91899",
             "title:jurajmajerik:remove pointless single tab on staff tools scene"
           ],
           "unmapped_prs": 0
@@ -7961,15 +8073,15 @@
       ],
       "total": {
         "groups": 237,
-        "scored": 5,
+        "scored": 6,
         "abstained": 0,
         "failed": 7,
         "reserved": 0,
-        "pending": 225,
+        "pending": 224,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 5,
+          "2": 6,
           "3": 0
         },
         "review_ids": [
@@ -7978,6 +8090,7 @@
           "issue:60297",
           "issue:70958",
           "issue:73702",
+          "issue:91899",
           "title:jurajmajerik:add breathing room between the meta bar and tabs",
           "title:jurajmajerik:drop unknown keys when parsing exposure criteria",
           "title:jurajmajerik:map tool messages to gemini function calls in the llm proxy",
@@ -9131,19 +9244,20 @@
         },
         {
           "groups": 46,
-          "scored": 1,
+          "scored": 2,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 45,
+          "pending": 44,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 1,
+            "2": 2,
             "3": 0
           },
           "review_ids": [
-            "issue:42271"
+            "issue:42271",
+            "issue:96347"
           ],
           "unmapped_prs": 0
         },
@@ -9166,21 +9280,22 @@
       ],
       "total": {
         "groups": 233,
-        "scored": 3,
+        "scored": 4,
         "abstained": 0,
         "failed": 1,
         "reserved": 0,
-        "pending": 229,
+        "pending": 228,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 3,
+          "2": 4,
           "3": 0
         },
         "review_ids": [
           "issue:103374",
           "issue:42271",
           "issue:81596",
+          "issue:96347",
           "pr:104270"
         ],
         "unmapped_prs": 0
@@ -9367,18 +9482,19 @@
         },
         {
           "groups": 37,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 6,
           "reserved": 0,
-          "pending": 31,
-          "mean_tier": null,
+          "pending": 30,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
+            "issue:91324",
             "title:andrewm4894:add the data model and the access gate 2 22",
             "title:andrewm4894:add the query helper and the labeler 4 22",
             "title:andrewm4894:daily training dag for the inbox report ranking model",
@@ -9480,21 +9596,22 @@
       ],
       "total": {
         "groups": 183,
-        "scored": 2,
+        "scored": 3,
         "abstained": 0,
         "failed": 37,
         "reserved": 0,
-        "pending": 144,
-        "mean_tier": 1.5,
+        "pending": 143,
+        "mean_tier": 1.6666666666666667,
         "tiers": {
           "1": 1,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
           "issue:101512",
           "issue:120881",
           "issue:74587",
+          "issue:91324",
           "issue:97799",
           "pr:101569",
           "pr:101572",
@@ -9755,18 +9872,19 @@
         },
         {
           "groups": 20,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 19,
-          "mean_tier": null,
+          "pending": 18,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
+            "issue:97444",
             "title:jonmcwest:gate exact stored pattern queries behind v2 flag"
           ],
           "unmapped_prs": 0
@@ -9833,20 +9951,21 @@
       ],
       "total": {
         "groups": 188,
-        "scored": 2,
+        "scored": 3,
         "abstained": 0,
         "failed": 12,
         "reserved": 0,
-        "pending": 174,
-        "mean_tier": 1.5,
+        "pending": 173,
+        "mean_tier": 1.6666666666666667,
         "tiers": {
           "1": 1,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
           "issue:113858",
           "issue:115411",
+          "issue:97444",
           "pr:122247",
           "title:jonmcwest:add a replay harness for pattern miner changes",
           "title:jonmcwest:add a signed internal logs producer for capture logs",
@@ -10112,18 +10231,19 @@
         },
         {
           "groups": 31,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 3,
           "reserved": 0,
-          "pending": 28,
-          "mean_tier": null,
+          "pending": 27,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
           "review_ids": [
+            "issue:96037",
             "title:eli-r-ph:parse v1 event options leniently",
             "title:eli-r-ph:remove person tools that nothing runs",
             "title:eli-r-ph:tombstone outside the drain and remove dormant person tools"
@@ -10179,19 +10299,20 @@
       ],
       "total": {
         "groups": 180,
-        "scored": 1,
+        "scored": 2,
         "abstained": 0,
         "failed": 27,
         "reserved": 0,
-        "pending": 152,
-        "mean_tier": 2.0,
+        "pending": 151,
+        "mean_tier": 1.5,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 1,
           "3": 0
         },
         "review_ids": [
           "issue:104939",
+          "issue:96037",
           "pr:97994",
           "title:eli-r-ph:add distinct id row and team person list reads",
           "title:eli-r-ph:add person pg cleanup drain job",
@@ -11430,18 +11551,19 @@
         },
         {
           "groups": 32,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 31,
-          "mean_tier": null,
+          "pending": 30,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
           "review_ids": [
+            "issue:90191",
             "title:gantoine:narrow the merge queue universal lane"
           ],
           "unmapped_prs": 0
@@ -11526,19 +11648,20 @@
       ],
       "total": {
         "groups": 198,
-        "scored": 3,
+        "scored": 4,
         "abstained": 0,
         "failed": 12,
         "reserved": 0,
-        "pending": 183,
-        "mean_tier": 1.3333333333333333,
+        "pending": 182,
+        "mean_tier": 1.5,
         "tiers": {
           "1": 2,
-          "2": 1,
+          "2": 2,
           "3": 0
         },
         "review_ids": [
           "issue:70960",
+          "issue:90191",
           "pr:100461",
           "pr:116166",
           "pr:120228",
@@ -12463,18 +12586,20 @@
         },
         {
           "groups": 15,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 15,
-          "mean_tier": null,
+          "pending": 14,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:90741"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -12557,18 +12682,19 @@
       ],
       "total": {
         "groups": 116,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 10,
         "reserved": 0,
-        "pending": 106,
-        "mean_tier": null,
+        "pending": 105,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
         "review_ids": [
+          "issue:90741",
           "title:bernatixer:add the evaluation backfills api and backfills tab",
           "title:bernatixer:expose evaluation pass filters through the facade",
           "title:bernatixer:point agents reading traces to online evals",
@@ -12806,18 +12932,19 @@
         },
         {
           "groups": 35,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 6,
           "reserved": 0,
-          "pending": 29,
-          "mean_tier": null,
+          "pending": 28,
+          "mean_tier": 1.0,
           "tiers": {
-            "1": 0,
+            "1": 1,
             "2": 0,
             "3": 0
           },
           "review_ids": [
+            "pr:100000",
             "pr:103112",
             "pr:103884",
             "pr:98370",
@@ -12880,18 +13007,19 @@
       ],
       "total": {
         "groups": 107,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 8,
         "reserved": 0,
-        "pending": 99,
-        "mean_tier": null,
+        "pending": 98,
+        "mean_tier": 1.0,
         "tiers": {
-          "1": 0,
+          "1": 1,
           "2": 0,
           "3": 0
         },
         "review_ids": [
+          "pr:100000",
           "pr:103112",
           "pr:103884",
           "pr:108222",
@@ -12986,21 +13114,23 @@
         },
         {
           "groups": 20,
-          "scored": 3,
+          "scored": 5,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 16,
-          "mean_tier": 2.0,
+          "pending": 14,
+          "mean_tier": 1.8,
           "tiers": {
-            "1": 0,
-            "2": 3,
+            "1": 1,
+            "2": 4,
             "3": 0
           },
           "review_ids": [
             "issue:103471",
             "issue:87958",
             "issue:88817",
+            "issue:96903",
+            "issue:98068",
             "title:jakesciotto:add gainsight cs data warehouse source"
           ],
           "unmapped_prs": 2
@@ -13039,35 +13169,36 @@
         },
         {
           "groups": 8,
-          "scored": 2,
+          "scored": 3,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 6,
+          "pending": 5,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 2,
+            "2": 3,
             "3": 0
           },
           "review_ids": [
             "issue:117285",
-            "issue:127909"
+            "issue:127909",
+            "issue:91426"
           ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 107,
-        "scored": 24,
+        "scored": 27,
         "abstained": 0,
         "failed": 9,
         "reserved": 0,
-        "pending": 74,
-        "mean_tier": 1.875,
+        "pending": 71,
+        "mean_tier": 1.8518518518518519,
         "tiers": {
-          "1": 3,
-          "2": 21,
+          "1": 4,
+          "2": 23,
           "3": 0
         },
         "review_ids": [
@@ -13101,6 +13232,9 @@
           "issue:83952",
           "issue:87958",
           "issue:88817",
+          "issue:91426",
+          "issue:96903",
+          "issue:98068",
           "title:jakesciotto:add gainsight cs data warehouse source",
           "title:jakesciotto:filter a heatmap by events in the session",
           "title:jakesciotto:sync checkout com report files as tables"
@@ -15326,18 +15460,20 @@
         },
         {
           "groups": 11,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 11,
-          "mean_tier": null,
+          "pending": 10,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:93842"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -15415,18 +15551,19 @@
       ],
       "total": {
         "groups": 90,
-        "scored": 0,
+        "scored": 1,
         "abstained": 0,
         "failed": 6,
         "reserved": 2,
-        "pending": 82,
-        "mean_tier": null,
+        "pending": 81,
+        "mean_tier": 2.0,
         "tiers": {
           "1": 0,
-          "2": 0,
+          "2": 1,
           "3": 0
         },
         "review_ids": [
+          "issue:93842",
           "pr:125472",
           "title:ablaszkiewicz:count only frames an upload would resolve",
           "title:ablaszkiewicz:mask python code variables with the sdk rules",
@@ -17530,18 +17667,20 @@
         },
         {
           "groups": 4,
-          "scored": 0,
+          "scored": 1,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 4,
-          "mean_tier": null,
+          "pending": 3,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 1,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "issue:92875"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -17619,15 +17758,15 @@
       ],
       "total": {
         "groups": 60,
-        "scored": 3,
+        "scored": 4,
         "abstained": 0,
         "failed": 6,
         "reserved": 2,
-        "pending": 49,
-        "mean_tier": 1.6666666666666667,
+        "pending": 48,
+        "mean_tier": 1.75,
         "tiers": {
           "1": 1,
-          "2": 2,
+          "2": 3,
           "3": 0
         },
         "review_ids": [
@@ -17635,6 +17774,7 @@
           "issue:29757",
           "issue:48947",
           "issue:58066",
+          "issue:92875",
           "title:GeneralistDev:add an interactive terminal dashboard",
           "title:GeneralistDev:add evals for sql routing misses and chart answers",
           "title:GeneralistDev:balance typed query and sql guidance",
@@ -49031,9 +49171,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "5c1ba0c9bfa7792bf997b04f5ce08bfd894c3fe399e710c706d7ba408d4b2d5c"
+    },
+    "pr:100000": {
+      "id": "pr:100000",
+      "prs": [
+        100000
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9da6e1114f3c97e1ab52caa1f66b219693cd90f86e818f57cd60681c25b11059"
+    },
+    "issue:97444": {
+      "id": "issue:97444",
+      "prs": [
+        97471
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "49c3d3f42bd92da595851015c2de2635d79893c45cf173766b643c6e07d74285"
+    },
+    "issue:90191": {
+      "id": "issue:90191",
+      "prs": [
+        90192
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "772818b73de8797a81d7276be6a44bdba863867a335a5eff3e73fd926cac2e7c"
+    },
+    "issue:92875": {
+      "id": "issue:92875",
+      "prs": [
+        93137
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "20db8361d3d96aac5a8111e81597d33d4e0c4cadb21da982d8080c520ac9a5a7"
+    },
+    "issue:99096": {
+      "id": "issue:99096",
+      "prs": [
+        99209
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7eec4d54323f4735841fedf98e69cbf5b66d884ec27e8b19996fc73c87bef7c9"
+    },
+    "issue:93842": {
+      "id": "issue:93842",
+      "prs": [
+        95917
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "30aa6cc1d10a6e8bff0f013b43e5727cc82a94ef0a5637263e2387fb5f7b4f59"
+    },
+    "issue:96037": {
+      "id": "issue:96037",
+      "prs": [
+        108881
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6f0c7872fe738f70f5f0f8f517114b7a197a551feacc6286df28bfdf3b0a0230"
+    },
+    "pr:100079": {
+      "id": "pr:100079",
+      "prs": [
+        100079
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1fde43f2bd43cab3520275c9a8be38a601934b575b77ab6528b54a46eff95724"
+    },
+    "pr:100078": {
+      "id": "pr:100078",
+      "prs": [
+        100078
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c83a1cc6f0acb7372ad41e167d3d7d0c4fafb1a525057b8ebe406de6daaba7a9"
+    },
+    "pr:100089": {
+      "id": "pr:100089",
+      "prs": [
+        100089
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "edc0be587bc769542e633300ef533fdad44493791e47263fa9a7e76e83dc825f"
+    },
+    "issue:91899": {
+      "id": "issue:91899",
+      "prs": [
+        94006
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a2c24198f58136e73529a5aedd47f9918c0fa97e2be840a74317c108288cc5ee"
+    },
+    "pr:100083": {
+      "id": "pr:100083",
+      "prs": [
+        100083
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "05790eab5805806a0b877cd3d9a9f244dada05d89ace4ff577f58ff0f26c7957"
+    },
+    "pr:100082": {
+      "id": "pr:100082",
+      "prs": [
+        100082
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d58d896da8bbf4301b8cb7ed69037e71cb4611c26344292530e2d078f9a434bc"
+    },
+    "pr:100090": {
+      "id": "pr:100090",
+      "prs": [
+        100090
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "70f4cf9c4ddd705f27bfba06401e8ef9d6fe3c7d6b8ba2443c45d4548ba7ab83"
+    },
+    "issue:96903": {
+      "id": "issue:96903",
+      "prs": [
+        96905
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "aa050a7e34bbcec17a9c2132fbefcd380201f67fb54e4aa7541144fc42235367"
+    },
+    "issue:90741": {
+      "id": "issue:90741",
+      "prs": [
+        90744
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "127bc8b15f59c326c0e2b3b60fd02965ca00d8269d900d6b70ba071f08d3b20c"
+    },
+    "issue:96347": {
+      "id": "issue:96347",
+      "prs": [
+        117039
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e65d5818995cd060823f85517621aa79eec5371218a1e823e16f78e27a333842"
+    },
+    "issue:91426": {
+      "id": "issue:91426",
+      "prs": [
+        127928
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9285d79fdb3d3c23e5f21f44bbc23cb7c366389355fbf96d97ee5a74dd56e7ef"
+    },
+    "issue:98068": {
+      "id": "issue:98068",
+      "prs": [
+        98069
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3f2765b19c1cb2fdf1553b387220453bfc8c4034a4df2776d263e708318a2754"
+    },
+    "issue:91324": {
+      "id": "issue:91324",
+      "prs": [
+        92045
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0048",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4cbd2fb13cc20748b420fa61750817ae8e9c3c256809c4cb8883f673b0bc0628"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "728c99f0c2a794414848d01d2f9684bae7a6e5ffbf50f42e486a2c1869eedc5f",
-  "sha256": "b75144a9bd77b9c341cc036eecd26b6d93393177734433013d47fc52cecff351"
+  "inline_publication_sha256": "779a27bcd3a60cf1fb401090394b5bdacffaa1ce10c5b71af0a1a727ad85d4ad",
+  "sha256": "24106c0b05639bb69542ac623e983c4dc99288d02ff9e2a0e9fe224f92836c7d"
 }
