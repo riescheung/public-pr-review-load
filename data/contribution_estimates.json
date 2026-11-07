@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:37:07.786729+00:00",
+  "generated_at": "2026-11-07T04:37:39.576450+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3549,15 +3549,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0043": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 871,
+    "failed": 891,
     "reserved": 60,
-    "pending": 16172,
+    "pending": 16152,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -4552,7 +4628,27 @@
       "title:jabahamondes:retire the non integrated conversions table",
       "title:jabahamondes:retire the precomputed attribution reader",
       "title:jabahamondes:serve attribution from the session precompute",
-      "title:jabahamondes:share live attribution session resolution"
+      "title:jabahamondes:share live attribution session resolution",
+      "title:jabahamondes:suggest campaign field preferences from spend match rates",
+      "title:jabahamondes:suggest campaign name mappings for typo d utm campaign values",
+      "title:jabahamondes:support traffic metrics with conversion goals",
+      "title:jakesciotto:add gainsight cs data warehouse source",
+      "title:jakesciotto:filter a heatmap by events in the session",
+      "title:jakesciotto:sync checkout com report files as tables",
+      "title:joethreepwood:add student role and randomize role order",
+      "title:joethreepwood:answer product questions with posthog s own products",
+      "title:jonathanlab:move harness behavior out of posthog agent",
+      "title:jonathanlab:remove dead support sidebar max endpoint",
+      "title:jonathanlab:remove local cloud run handoff",
+      "title:jonmcwest:add a replay harness for pattern miner changes",
+      "title:jonmcwest:add a signed internal logs producer for capture logs",
+      "title:jonmcwest:add the uptime monitor crud api",
+      "title:jonmcwest:cap concurrent alert batch activities per cycle",
+      "title:jonmcwest:gate exact stored pattern queries behind v2 flag",
+      "title:jonmcwest:hoist per alert predicates into batched alert check where",
+      "title:jonmcwest:point agents at endpoint health in mcp tools",
+      "title:jonmcwest:scaffold apm product behind a feature flag",
+      "title:jonmcwest:scaffold unreleased uptime monitoring product"
     ],
     "unmapped_prs": 14
   },
@@ -8028,9 +8124,9 @@
           "groups": 24,
           "scored": 0,
           "abstained": 0,
-          "failed": 6,
+          "failed": 8,
           "reserved": 0,
-          "pending": 18,
+          "pending": 16,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -8043,7 +8139,9 @@
             "title:jabahamondes:add granular conversion goal write endpoints",
             "title:jabahamondes:apply setup operations atomically with an undo",
             "title:jabahamondes:expose conversion goal writes over mcp",
-            "title:jabahamondes:give the marketing analytics config serializer typed fields"
+            "title:jabahamondes:give the marketing analytics config serializer typed fields",
+            "title:jabahamondes:suggest campaign field preferences from spend match rates",
+            "title:jabahamondes:suggest campaign name mappings for typo d utm campaign values"
           ],
           "unmapped_prs": 0
         },
@@ -8091,9 +8189,9 @@
           "groups": 40,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 3,
           "reserved": 0,
-          "pending": 38,
+          "pending": 37,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -8102,7 +8200,8 @@
           },
           "review_ids": [
             "title:jabahamondes:retire the non integrated conversions table",
-            "title:jabahamondes:serve attribution from the session precompute"
+            "title:jabahamondes:serve attribution from the session precompute",
+            "title:jabahamondes:support traffic metrics with conversion goals"
           ],
           "unmapped_prs": 0
         },
@@ -8174,9 +8273,9 @@
         "groups": 194,
         "scored": 0,
         "abstained": 0,
-        "failed": 26,
+        "failed": 29,
         "reserved": 1,
-        "pending": 167,
+        "pending": 164,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -8209,7 +8308,10 @@
           "title:jabahamondes:retire the non integrated conversions table",
           "title:jabahamondes:retire the precomputed attribution reader",
           "title:jabahamondes:serve attribution from the session precompute",
-          "title:jabahamondes:share live attribution session resolution"
+          "title:jabahamondes:share live attribution session resolution",
+          "title:jabahamondes:suggest campaign field preferences from spend match rates",
+          "title:jabahamondes:suggest campaign name mappings for typo d utm campaign values",
+          "title:jabahamondes:support traffic metrics with conversion goals"
         ],
         "unmapped_prs": 0
       }
@@ -9194,32 +9296,37 @@
           "groups": 19,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 19,
+          "pending": 17,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jonmcwest:hoist per alert predicates into batched alert check where",
+            "title:jonmcwest:scaffold apm product behind a feature flag"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 29,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 29,
+          "pending": 28,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jonmcwest:add a replay harness for pattern miner changes"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -9242,32 +9349,36 @@
           "groups": 20,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 20,
+          "pending": 19,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jonmcwest:gate exact stored pattern queries behind v2 flag"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 11,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 11,
+          "pending": 10,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jonmcwest:cap concurrent alert batch activities per cycle"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -9293,9 +9404,9 @@
           "groups": 42,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 5,
           "reserved": 0,
-          "pending": 41,
+          "pending": 37,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -9303,7 +9414,11 @@
             "3": 0
           },
           "review_ids": [
-            "pr:122247"
+            "pr:122247",
+            "title:jonmcwest:add a signed internal logs producer for capture logs",
+            "title:jonmcwest:add the uptime monitor crud api",
+            "title:jonmcwest:point agents at endpoint health in mcp tools",
+            "title:jonmcwest:scaffold unreleased uptime monitoring product"
           ],
           "unmapped_prs": 0
         }
@@ -9312,9 +9427,9 @@
         "groups": 188,
         "scored": 2,
         "abstained": 0,
-        "failed": 1,
+        "failed": 10,
         "reserved": 0,
-        "pending": 185,
+        "pending": 176,
         "mean_tier": 1.5,
         "tiers": {
           "1": 1,
@@ -9324,7 +9439,16 @@
         "review_ids": [
           "issue:113858",
           "issue:115411",
-          "pr:122247"
+          "pr:122247",
+          "title:jonmcwest:add a replay harness for pattern miner changes",
+          "title:jonmcwest:add a signed internal logs producer for capture logs",
+          "title:jonmcwest:add the uptime monitor crud api",
+          "title:jonmcwest:cap concurrent alert batch activities per cycle",
+          "title:jonmcwest:gate exact stored pattern queries behind v2 flag",
+          "title:jonmcwest:hoist per alert predicates into batched alert check where",
+          "title:jonmcwest:point agents at endpoint health in mcp tools",
+          "title:jonmcwest:scaffold apm product behind a feature flag",
+          "title:jonmcwest:scaffold unreleased uptime monitoring product"
         ],
         "unmapped_prs": 0
       }
@@ -12301,9 +12425,9 @@
           "groups": 48,
           "scored": 1,
           "abstained": 0,
-          "failed": 5,
+          "failed": 6,
           "reserved": 0,
-          "pending": 42,
+          "pending": 41,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -12316,7 +12440,8 @@
             "issue:79108",
             "issue:79111",
             "issue:79112",
-            "issue:79113"
+            "issue:79113",
+            "title:jakesciotto:sync checkout com report files as tables"
           ],
           "unmapped_prs": 0
         },
@@ -12340,9 +12465,9 @@
           "groups": 7,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 6,
+          "pending": 5,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -12350,7 +12475,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:80882"
+            "issue:80882",
+            "title:jakesciotto:filter a heatmap by events in the session"
           ],
           "unmapped_prs": 0
         },
@@ -12358,9 +12484,9 @@
           "groups": 20,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 19,
+          "pending": 18,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -12368,7 +12494,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:103471"
+            "issue:103471",
+            "title:jakesciotto:add gainsight cs data warehouse source"
           ],
           "unmapped_prs": 2
         },
@@ -12428,9 +12555,9 @@
         "groups": 107,
         "scored": 4,
         "abstained": 0,
-        "failed": 6,
+        "failed": 9,
         "reserved": 0,
-        "pending": 97,
+        "pending": 94,
         "mean_tier": 1.75,
         "tiers": {
           "1": 1,
@@ -12447,7 +12574,10 @@
           "issue:79111",
           "issue:79112",
           "issue:79113",
-          "issue:80882"
+          "issue:80882",
+          "title:jakesciotto:add gainsight cs data warehouse source",
+          "title:jakesciotto:filter a heatmap by events in the session",
+          "title:jakesciotto:sync checkout com report files as tables"
         ],
         "unmapped_prs": 2
       }
@@ -16416,9 +16546,9 @@
           "groups": 18,
           "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 16,
+          "pending": 15,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -16427,7 +16557,8 @@
           },
           "review_ids": [
             "pr:89004",
-            "pr:90766"
+            "pr:90766",
+            "title:jonathanlab:remove local cloud run handoff"
           ],
           "unmapped_prs": 0
         },
@@ -16435,16 +16566,18 @@
           "groups": 8,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 8,
+          "pending": 7,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jonathanlab:move harness behavior out of posthog agent"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -16483,16 +16616,18 @@
           "groups": 23,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 23,
+          "pending": 22,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jonathanlab:remove dead support sidebar max endpoint"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -16500,9 +16635,9 @@
         "groups": 70,
         "scored": 1,
         "abstained": 0,
-        "failed": 1,
+        "failed": 4,
         "reserved": 1,
-        "pending": 67,
+        "pending": 64,
         "mean_tier": 1.0,
         "tiers": {
           "1": 1,
@@ -16511,7 +16646,10 @@
         },
         "review_ids": [
           "pr:89004",
-          "pr:90766"
+          "pr:90766",
+          "title:jonathanlab:move harness behavior out of posthog agent",
+          "title:jonathanlab:remove dead support sidebar max endpoint",
+          "title:jonathanlab:remove local cloud run handoff"
         ],
         "unmapped_prs": 0
       }
@@ -20503,16 +20641,19 @@
           "groups": 14,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 14,
+          "pending": 12,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:joethreepwood:add student role and randomize role order",
+            "title:joethreepwood:answer product questions with posthog s own products"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -20616,16 +20757,19 @@
         "groups": 24,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 2,
         "reserved": 0,
-        "pending": 24,
+        "pending": 22,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:joethreepwood:add student role and randomize role order",
+          "title:joethreepwood:answer product questions with posthog s own products"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -47122,9 +47266,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "26778b8f93a1d1f27912ac0d05f725c8baf1b4a8b1b43fd6ce9cd8de3f3ecf4a"
+    },
+    "title:jonmcwest:scaffold unreleased uptime monitoring product": {
+      "id": "title:jonmcwest:scaffold unreleased uptime monitoring product",
+      "prs": [
+        120391
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e414e557867824cb2c35d54bd74c511c09e83aae41dd3c28b1ee7d2ded0a5b16"
+    },
+    "title:jonmcwest:cap concurrent alert batch activities per cycle": {
+      "id": "title:jonmcwest:cap concurrent alert batch activities per cycle",
+      "prs": [
+        109878
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "36d3d7c9d18ad49687bf8ca98b33b7ac0a53acaaa9a9f3da0983e1d99c46b2e2"
+    },
+    "title:joethreepwood:answer product questions with posthog s own products": {
+      "id": "title:joethreepwood:answer product questions with posthog s own products",
+      "prs": [
+        77477
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "11e386e0d2ac18fde346fe9395f0cd30fc59763fb8af5f7c43bba5dac27fd50b"
+    },
+    "title:jakesciotto:filter a heatmap by events in the session": {
+      "id": "title:jakesciotto:filter a heatmap by events in the session",
+      "prs": [
+        91435
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9cb20797728633c823631bb0e0d1c58b6f7decbd3bee2598e3efd905f1f1ad26"
+    },
+    "title:jonmcwest:gate exact stored pattern queries behind v2 flag": {
+      "id": "title:jonmcwest:gate exact stored pattern queries behind v2 flag",
+      "prs": [
+        96778
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b948e74eb3198b892d9c4d4bbb65fc12b5fc45686b7879dd60118828f930d815"
+    },
+    "title:jonathanlab:remove dead support sidebar max endpoint": {
+      "id": "title:jonathanlab:remove dead support sidebar max endpoint",
+      "prs": [
+        125566
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bea7dfe1445b92ccba1204603df3730b9dae93012fb98e40a09abf9a4bc1fc1c"
+    },
+    "title:jonmcwest:add a signed internal logs producer for capture logs": {
+      "id": "title:jonmcwest:add a signed internal logs producer for capture logs",
+      "prs": [
+        124634
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9a531c34c9eea62e862202d12ddfbb05f16c0ecb8560d2212838676d08f276e7"
+    },
+    "title:jonmcwest:point agents at endpoint health in mcp tools": {
+      "id": "title:jonmcwest:point agents at endpoint health in mcp tools",
+      "prs": [
+        126397
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f542100eb16d042a123b29cd381ead34fa22d8f943ce24bbf68b0c00ee8a47ce"
+    },
+    "title:jonmcwest:add a replay harness for pattern miner changes": {
+      "id": "title:jonmcwest:add a replay harness for pattern miner changes",
+      "prs": [
+        83118
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "12048758d35e6b401f00c3968d9076a084a0c7f9f7db21b1870f86c1ab25d87e"
+    },
+    "title:jonathanlab:remove local cloud run handoff": {
+      "id": "title:jonathanlab:remove local cloud run handoff",
+      "prs": [
+        89986
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9434a71c44d935cc11a55e724aaea2da44d05167871a68f505a5ac872baf7e78"
+    },
+    "title:jonathanlab:move harness behavior out of posthog agent": {
+      "id": "title:jonathanlab:move harness behavior out of posthog agent",
+      "prs": [
+        102255
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5372dc6df3ccde03ab72e12ff39d54e5cd91ed32e5d2c816d98a503bc40031d5"
+    },
+    "title:joethreepwood:add student role and randomize role order": {
+      "id": "title:joethreepwood:add student role and randomize role order",
+      "prs": [
+        76606
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "73e2837300bc76f133b69dbbd65f624e02a5e24e939639ab9c8a44f99a090336"
+    },
+    "title:jonmcwest:hoist per alert predicates into batched alert check where": {
+      "id": "title:jonmcwest:hoist per alert predicates into batched alert check where",
+      "prs": [
+        78985
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a1c5819e1638e18c231b1fb25ce424e9f23d37ac5e07418770709c8fbe1e410b"
+    },
+    "title:jakesciotto:sync checkout com report files as tables": {
+      "id": "title:jakesciotto:sync checkout com report files as tables",
+      "prs": [
+        78672
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5d2547209c1346e5dba6921324b9e2bd93c9d58487c56c02a6274cc7481b6386"
+    },
+    "title:jonmcwest:scaffold apm product behind a feature flag": {
+      "id": "title:jonmcwest:scaffold apm product behind a feature flag",
+      "prs": [
+        75547
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "768be0b9c7386ccdb9726a1db38a6954af49f4b83ac8259ac4bd159cfd6568ab"
+    },
+    "title:jabahamondes:suggest campaign field preferences from spend match rates": {
+      "id": "title:jabahamondes:suggest campaign field preferences from spend match rates",
+      "prs": [
+        78058
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1b6cb687c4744893ce0003c70750a861fe93199df850656e5fb1c11300905a3a"
+    },
+    "title:jonmcwest:add the uptime monitor crud api": {
+      "id": "title:jonmcwest:add the uptime monitor crud api",
+      "prs": [
+        122248
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a7c0a70675f696fa80a6442fa7901ddcc94306f56cf952dfe8cb102786e460c7"
+    },
+    "title:jabahamondes:support traffic metrics with conversion goals": {
+      "id": "title:jabahamondes:support traffic metrics with conversion goals",
+      "prs": [
+        100562
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3c6be1831449468ffd1ff5e1b875b8419912f326ce21652d1a7f7def6bd6ca94"
+    },
+    "title:jabahamondes:suggest campaign name mappings for typo d utm campaign values": {
+      "id": "title:jabahamondes:suggest campaign name mappings for typo d utm campaign values",
+      "prs": [
+        78059
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f62335c297b3e45a60da5f33b44be84b60019063a9f6edf454c5c4bbac7e5712"
+    },
+    "title:jakesciotto:add gainsight cs data warehouse source": {
+      "id": "title:jakesciotto:add gainsight cs data warehouse source",
+      "prs": [
+        93619
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0043",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5d65a108faf8dd6851b3d13d62a252ba2d5bd9c513744f9df6ac081701fe00e5"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "a9713df066bc6fab274ab97076f684551a74b0b3225123e379c1a4655e6ebfde",
-  "sha256": "5b2a9b47eee3fa4df02211330ba8d1bd8d36a8983e67672070c1140074de6cc1"
+  "inline_publication_sha256": "8458cc7a4b84273dd2db6403288322db05fa42e9b6a5dfa896f7e62cb728b43c",
+  "sha256": "5c314d12331dabf163e35561a8e8994ca74c3cc6333377666101137973e71226"
 }
