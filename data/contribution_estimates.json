@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:29:46.428826+00:00",
+  "generated_at": "2026-11-07T04:30:16.507790+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2409,15 +2409,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0028": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 571,
+    "failed": 591,
     "reserved": 60,
-    "pending": 16472,
+    "pending": 16452,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3112,7 +3188,27 @@
       "title:andehen:drop results from legacy experiment pages",
       "title:andehen:edit config version 2 flags in the flag pages",
       "title:andehen:lock v1 evaluator and projections to corpus",
-      "title:andehen:move experiment activity receivers and data generator into the product"
+      "title:andehen:move experiment activity receivers and data generator into the product",
+      "title:andehen:parse closed v2 configs without enabling evaluation",
+      "title:andehen:remove dead query stats helper and orphaned snapshots",
+      "title:andehen:remove legacy experiment query runners",
+      "title:andehen:render timeseries results text from a typed view",
+      "title:andehen:serve effective metric definitions from the api",
+      "title:andehen:serve the approval handling mixin from presentation",
+      "title:andehen:serve the typed v3 record on flags v 3 behind a service setting",
+      "title:andehen:snapshot built queries without clickhouse",
+      "title:andehen:stop syncing metric ordering on every write",
+      "title:andehen:vendor one copy of the rules v2 contract",
+      "title:andrewm4894:add canonical pr follow up scout",
+      "title:andrewm4894:add daily inbox ranking modeling dataset dagster job",
+      "title:andrewm4894:add datadog errors alerts apm and logs as inbox signal sources",
+      "title:andrewm4894:add dataset validation and the validate command 6 22",
+      "title:andrewm4894:add steward book dispatcher and meta scout patterns to the scout cookbook",
+      "title:andrewm4894:add the api foundation and pipeline crud 13 22",
+      "title:andrewm4894:add the artifact store and recipe validation 7 22",
+      "title:andrewm4894:add the autoresearch seed demo command",
+      "title:andrewm4894:add the data model and the access gate 2 22",
+      "title:andrewm4894:add the query helper and the labeler 4 22"
     ],
     "unmapped_prs": 14
   },
@@ -7150,9 +7246,9 @@
           "groups": 34,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 33,
+          "pending": 32,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7160,7 +7256,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:74587"
+            "issue:74587",
+            "title:andrewm4894:add daily inbox ranking modeling dataset dagster job"
           ],
           "unmapped_prs": 0
         },
@@ -7184,25 +7281,28 @@
           "groups": 37,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 37,
+          "pending": 35,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:andrewm4894:add the data model and the access gate 2 22",
+            "title:andrewm4894:add the query helper and the labeler 4 22"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 25,
           "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 6,
           "reserved": 0,
-          "pending": 23,
+          "pending": 18,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -7211,7 +7311,12 @@
           },
           "review_ids": [
             "issue:101512",
-            "issue:97799"
+            "issue:97799",
+            "title:andrewm4894:add canonical pr follow up scout",
+            "title:andrewm4894:add dataset validation and the validate command 6 22",
+            "title:andrewm4894:add steward book dispatcher and meta scout patterns to the scout cookbook",
+            "title:andrewm4894:add the api foundation and pipeline crud 13 22",
+            "title:andrewm4894:add the artifact store and recipe validation 7 22"
           ],
           "unmapped_prs": 0
         },
@@ -7219,9 +7324,9 @@
           "groups": 16,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 4,
           "reserved": 0,
-          "pending": 13,
+          "pending": 12,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7231,7 +7336,8 @@
           "review_ids": [
             "pr:101569",
             "pr:101572",
-            "pr:101575"
+            "pr:101575",
+            "title:andrewm4894:add the autoresearch seed demo command"
           ],
           "unmapped_prs": 0
         },
@@ -7255,9 +7361,9 @@
           "groups": 12,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 11,
+          "pending": 10,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -7265,7 +7371,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:120881"
+            "issue:120881",
+            "title:andrewm4894:add datadog errors alerts apm and logs as inbox signal sources"
           ],
           "unmapped_prs": 0
         }
@@ -7274,9 +7381,9 @@
         "groups": 183,
         "scored": 2,
         "abstained": 0,
-        "failed": 5,
+        "failed": 15,
         "reserved": 0,
-        "pending": 176,
+        "pending": 166,
         "mean_tier": 1.5,
         "tiers": {
           "1": 1,
@@ -7290,7 +7397,17 @@
           "issue:97799",
           "pr:101569",
           "pr:101572",
-          "pr:101575"
+          "pr:101575",
+          "title:andrewm4894:add canonical pr follow up scout",
+          "title:andrewm4894:add daily inbox ranking modeling dataset dagster job",
+          "title:andrewm4894:add datadog errors alerts apm and logs as inbox signal sources",
+          "title:andrewm4894:add dataset validation and the validate command 6 22",
+          "title:andrewm4894:add steward book dispatcher and meta scout patterns to the scout cookbook",
+          "title:andrewm4894:add the api foundation and pipeline crud 13 22",
+          "title:andrewm4894:add the artifact store and recipe validation 7 22",
+          "title:andrewm4894:add the autoresearch seed demo command",
+          "title:andrewm4894:add the data model and the access gate 2 22",
+          "title:andrewm4894:add the query helper and the labeler 4 22"
         ],
         "unmapped_prs": 0
       }
@@ -9672,9 +9789,9 @@
           "groups": 30,
           "scored": 0,
           "abstained": 0,
-          "failed": 4,
+          "failed": 5,
           "reserved": 0,
-          "pending": 26,
+          "pending": 25,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -9685,7 +9802,8 @@
             "title:andehen:add a closed config version 2 update path",
             "title:andehen:add dormant rules v2 validator and rule warning detectors",
             "title:andehen:cut duplicate query layer snapshots",
-            "title:andehen:lock v1 evaluator and projections to corpus"
+            "title:andehen:lock v1 evaluator and projections to corpus",
+            "title:andehen:parse closed v2 configs without enabling evaluation"
           ],
           "unmapped_prs": 0
         },
@@ -9693,9 +9811,9 @@
           "groups": 41,
           "scored": 0,
           "abstained": 0,
-          "failed": 5,
+          "failed": 8,
           "reserved": 0,
-          "pending": 36,
+          "pending": 33,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -9707,7 +9825,10 @@
             "title:andehen:add dormant ordered boolean rule evaluator",
             "title:andehen:add the pilot config version 2 writer path",
             "title:andehen:delete legacy experiment view tests and stories",
-            "title:andehen:edit config version 2 flags in the flag pages"
+            "title:andehen:edit config version 2 flags in the flag pages",
+            "title:andehen:serve the typed v3 record on flags v 3 behind a service setting",
+            "title:andehen:snapshot built queries without clickhouse",
+            "title:andehen:stop syncing metric ordering on every write"
           ],
           "unmapped_prs": 0
         },
@@ -9715,9 +9836,9 @@
           "groups": 23,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 7,
           "reserved": 0,
-          "pending": 21,
+          "pending": 16,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -9726,7 +9847,12 @@
           },
           "review_ids": [
             "title:andehen:derive fingerprints from a calculation config",
-            "title:andehen:drop results from legacy experiment pages"
+            "title:andehen:drop results from legacy experiment pages",
+            "title:andehen:remove dead query stats helper and orphaned snapshots",
+            "title:andehen:remove legacy experiment query runners",
+            "title:andehen:render timeseries results text from a typed view",
+            "title:andehen:serve effective metric definitions from the api",
+            "title:andehen:vendor one copy of the rules v2 contract"
           ],
           "unmapped_prs": 0
         },
@@ -9734,9 +9860,9 @@
           "groups": 38,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 4,
           "reserved": 0,
-          "pending": 35,
+          "pending": 34,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -9746,7 +9872,8 @@
           "review_ids": [
             "pr:113153",
             "title:andehen:accept experiment rules in v2 writes",
-            "title:andehen:move experiment activity receivers and data generator into the product"
+            "title:andehen:move experiment activity receivers and data generator into the product",
+            "title:andehen:serve the approval handling mixin from presentation"
           ],
           "unmapped_prs": 1
         }
@@ -9755,9 +9882,9 @@
         "groups": 145,
         "scored": 1,
         "abstained": 0,
-        "failed": 15,
+        "failed": 25,
         "reserved": 0,
-        "pending": 129,
+        "pending": 119,
         "mean_tier": 1.0,
         "tiers": {
           "1": 1,
@@ -9780,7 +9907,17 @@
           "title:andehen:drop results from legacy experiment pages",
           "title:andehen:edit config version 2 flags in the flag pages",
           "title:andehen:lock v1 evaluator and projections to corpus",
-          "title:andehen:move experiment activity receivers and data generator into the product"
+          "title:andehen:move experiment activity receivers and data generator into the product",
+          "title:andehen:parse closed v2 configs without enabling evaluation",
+          "title:andehen:remove dead query stats helper and orphaned snapshots",
+          "title:andehen:remove legacy experiment query runners",
+          "title:andehen:render timeseries results text from a typed view",
+          "title:andehen:serve effective metric definitions from the api",
+          "title:andehen:serve the approval handling mixin from presentation",
+          "title:andehen:serve the typed v3 record on flags v 3 behind a service setting",
+          "title:andehen:snapshot built queries without clickhouse",
+          "title:andehen:stop syncing metric ordering on every write",
+          "title:andehen:vendor one copy of the rules v2 contract"
         ],
         "unmapped_prs": 1
       }
@@ -41381,9 +41518,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "b9d750255bc8b1b1a08763375b7f854a48b00c4012b09f07d7d4c32fc6d0724b"
+    },
+    "title:andehen:serve effective metric definitions from the api": {
+      "id": "title:andehen:serve effective metric definitions from the api",
+      "prs": [
+        109357
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a671138c8cf95d352f3a96228635859f779e7c61b48bbc42ae231b4dfa4b863f"
+    },
+    "title:andrewm4894:add the data model and the access gate 2 22": {
+      "id": "title:andrewm4894:add the data model and the access gate 2 22",
+      "prs": [
+        88740
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "46fc6a2b7f97dc18a23a0ea5c2f5d1749b2344e65222963b59531a9e04899388"
+    },
+    "title:andehen:snapshot built queries without clickhouse": {
+      "id": "title:andehen:snapshot built queries without clickhouse",
+      "prs": [
+        109397
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cf738c43c338acb0a31ba8da7c5ae9c494e167fff6bcb048272c8ffb30638550"
+    },
+    "title:andehen:parse closed v2 configs without enabling evaluation": {
+      "id": "title:andehen:parse closed v2 configs without enabling evaluation",
+      "prs": [
+        102189
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "45c3b4cdf03798ec77a334e52fcf6f5cb471da82f69f10c40b3957bf53473994"
+    },
+    "title:andehen:remove dead query stats helper and orphaned snapshots": {
+      "id": "title:andehen:remove dead query stats helper and orphaned snapshots",
+      "prs": [
+        118392
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c2522cd2864c079d2fd67afa6f4aceb67654fe5ae4cf6ec59f7c9383941335af"
+    },
+    "title:andehen:vendor one copy of the rules v2 contract": {
+      "id": "title:andehen:vendor one copy of the rules v2 contract",
+      "prs": [
+        117647
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "dabe80ca335ff3ade554d8eb69f5f75165504dada8830d58d0717c7c62f1b24d"
+    },
+    "title:andrewm4894:add datadog errors alerts apm and logs as inbox signal sources": {
+      "id": "title:andrewm4894:add datadog errors alerts apm and logs as inbox signal sources",
+      "prs": [
+        120323
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d25ed4a72968a90aedd5c4eb20e543d1d5aebd361376f44ead9f035338337799"
+    },
+    "title:andrewm4894:add the artifact store and recipe validation 7 22": {
+      "id": "title:andrewm4894:add the artifact store and recipe validation 7 22",
+      "prs": [
+        88795
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6647f34c756c7a434cc4f0a7b911c77b9d64d0e7c1100c8fe996c7815f8f28b8"
+    },
+    "title:andehen:remove legacy experiment query runners": {
+      "id": "title:andehen:remove legacy experiment query runners",
+      "prs": [
+        105011
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5db3d724654af3eeb51b6296f8e8cf1c3588d92449825353f7d2fe49bece692d"
+    },
+    "title:andrewm4894:add the query helper and the labeler 4 22": {
+      "id": "title:andrewm4894:add the query helper and the labeler 4 22",
+      "prs": [
+        88792
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7889d256dfef2060a168195f01daf82ec2ea62fcf810bc5d5fa31b8c52d9605e"
+    },
+    "title:andrewm4894:add the api foundation and pipeline crud 13 22": {
+      "id": "title:andrewm4894:add the api foundation and pipeline crud 13 22",
+      "prs": [
+        89143
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f7241968156fc6edcf3bb7780715568b5d2d3089925e1b1bc425abda610cf4bb"
+    },
+    "title:andrewm4894:add daily inbox ranking modeling dataset dagster job": {
+      "id": "title:andrewm4894:add daily inbox ranking modeling dataset dagster job",
+      "prs": [
+        75597
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5d77928d995b9d8c188b38ea079d917cb7b6f6504363cd38bd625b49e3100511"
+    },
+    "title:andrewm4894:add dataset validation and the validate command 6 22": {
+      "id": "title:andrewm4894:add dataset validation and the validate command 6 22",
+      "prs": [
+        88794
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9829a1ba4ea2329d1abef2ea2efbf577b346c3f3610c314d5453b11e85515bab"
+    },
+    "title:andrewm4894:add the autoresearch seed demo command": {
+      "id": "title:andrewm4894:add the autoresearch seed demo command",
+      "prs": [
+        101571
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3c3ad81a4d86601292e4c3768b33a70aa70de75a6ea55cf82bd252f87081f04a"
+    },
+    "title:andehen:render timeseries results text from a typed view": {
+      "id": "title:andehen:render timeseries results text from a typed view",
+      "prs": [
+        115262
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "48d43ca3af8283c4e69a5f323b5de4568509048ff58a3516f08059a3d6be765d"
+    },
+    "title:andehen:serve the approval handling mixin from presentation": {
+      "id": "title:andehen:serve the approval handling mixin from presentation",
+      "prs": [
+        125442
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "eb7094d6ef2e6dc0c891b6c074fad62aefd595278fe890c2219d90b3201af057"
+    },
+    "title:andehen:serve the typed v3 record on flags v 3 behind a service setting": {
+      "id": "title:andehen:serve the typed v3 record on flags v 3 behind a service setting",
+      "prs": [
+        107732
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1619a9ce813aa5b67d700546dbe6354dbb9a1e6fe522f4e1e60eb597dc169888"
+    },
+    "title:andrewm4894:add steward book dispatcher and meta scout patterns to the scout cookbook": {
+      "id": "title:andrewm4894:add steward book dispatcher and meta scout patterns to the scout cookbook",
+      "prs": [
+        101427
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6ef4f43516e651cc11b80972e1250ba442ed35f91879f14b465b2f05272b3d32"
+    },
+    "title:andrewm4894:add canonical pr follow up scout": {
+      "id": "title:andrewm4894:add canonical pr follow up scout",
+      "prs": [
+        103554
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e41535eeaab8a7dde24e67fad74dc52963287f13d16d7c0d9baff4d68ac7012e"
+    },
+    "title:andehen:stop syncing metric ordering on every write": {
+      "id": "title:andehen:stop syncing metric ordering on every write",
+      "prs": [
+        107213
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0028",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "81e4a794ce61e828dbf177d5df81c1bd57025824b00a809fed8a1017212d349a"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "e99bbf9acdb93fd2cca097ba7146eeea44595ba5074a91715c902087987b4132",
-  "sha256": "9fccc47972ee2d259c56f6be5f47c6c05c4b5b05b11ea56bb24c352f6df7da54"
+  "inline_publication_sha256": "5a1a53cb6bc2d9c21cd8820f3073b8c6c1ef12f1bfb17f28116c8652afe3c01a",
+  "sha256": "d1ac8e9e881b0896f7e8e28176b3be057042c3a57b4733ad08337d89dbdce65d"
 }
