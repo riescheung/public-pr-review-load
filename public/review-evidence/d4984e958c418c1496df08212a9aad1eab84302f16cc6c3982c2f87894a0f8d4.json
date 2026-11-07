@@ -1,0 +1,1 @@
+{"id":"issue:48947","prs":[81106],"status":"error","tier":null,"review":null,"run":"qwen-reference-rollout-v1","source":"publication","known_calibration":false,"packet_sha256":"46ee63c87b00af38acfb0cf4e3d63e1b74c03859b2fb63af320f367f2fa15a9b","prediction_sha256":"5b9f3bbc290c4f8979793ee4b777cd903e1592c4e4489d8ac5553968fad06223"}
