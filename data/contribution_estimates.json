@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:27:19.593867+00:00",
+  "generated_at": "2026-11-07T04:27:48.807752+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2029,15 +2029,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0023": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 471,
+    "failed": 491,
     "reserved": 60,
-    "pending": 16572,
+    "pending": 16552,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2632,7 +2708,27 @@
       "title:Piccirello:serve the country flag font ourselves",
       "title:Radu-Raicea:add anomaly alert investigations to self driving",
       "title:Radu-Raicea:add dataset history reads and exports",
-      "title:Radu-Raicea:add offline evaluation ingestion and lifecycle apis"
+      "title:Radu-Raicea:add offline evaluation ingestion and lifecycle apis",
+      "title:Radu-Raicea:add offline evaluation reads and scorer history",
+      "title:Radu-Raicea:add offline experiment inspection and score trends",
+      "title:Radu-Raicea:add postgres models for offline evaluations",
+      "title:Radu-Raicea:add scorer passing rules and unified editor",
+      "title:Radu-Raicea:expose offline evaluations as mcp tools",
+      "title:Radu-Raicea:group query llm trace tools under ai observability",
+      "title:Radu-Raicea:move datasets into offline evaluations",
+      "title:Radu-Raicea:publish sql eval results to offline experiments",
+      "title:Radu-Raicea:replace eval summarize button with a reports callout",
+      "title:ReeceJones:add access control to evaluations",
+      "title:ReeceJones:add mcp tools for idp configs",
+      "title:ReeceJones:move authentication helpers out of ee",
+      "title:ReeceJones:remove legacy dashboard collaborator code",
+      "title:Silthus:share the git link composer across the frontend",
+      "title:Silthus:split autocomplete into focused helpers",
+      "title:TueHaulund:add alert configurations on the shared alerts platform",
+      "title:TueHaulund:add scan requests for programmatic callers",
+      "title:TueHaulund:add the alerts tab behind a feature flag",
+      "title:TueHaulund:build a frozen benchmark from labeled recordings",
+      "title:TueHaulund:copy recordings between teams with per session encryption"
     ],
     "unmapped_prs": 14
   },
@@ -4268,16 +4364,19 @@
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 21,
+          "pending": 19,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:TueHaulund:add alert configurations on the shared alerts platform",
+            "title:TueHaulund:add the alerts tab behind a feature flag"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -4300,9 +4399,9 @@
           "groups": 34,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 1,
-          "pending": 32,
+          "pending": 31,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -4310,7 +4409,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:105826"
+            "pr:105826",
+            "title:TueHaulund:build a frozen benchmark from labeled recordings"
           ],
           "unmapped_prs": 0
         },
@@ -4318,16 +4418,19 @@
           "groups": 45,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 45,
+          "pending": 43,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:TueHaulund:add scan requests for programmatic callers",
+            "title:TueHaulund:copy recordings between teams with per session encryption"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -4355,9 +4458,9 @@
         "groups": 244,
         "scored": 3,
         "abstained": 0,
-        "failed": 2,
+        "failed": 7,
         "reserved": 1,
-        "pending": 238,
+        "pending": 233,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -4369,7 +4472,12 @@
           "issue:40540",
           "issue:42566",
           "pr:105826",
-          "pr:79085"
+          "pr:79085",
+          "title:TueHaulund:add alert configurations on the shared alerts platform",
+          "title:TueHaulund:add scan requests for programmatic callers",
+          "title:TueHaulund:add the alerts tab behind a feature flag",
+          "title:TueHaulund:build a frozen benchmark from labeled recordings",
+          "title:TueHaulund:copy recordings between teams with per session encryption"
         ],
         "unmapped_prs": 0
       }
@@ -11879,9 +11987,9 @@
           "groups": 20,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 3,
           "reserved": 0,
-          "pending": 18,
+          "pending": 17,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -11890,7 +11998,8 @@
           },
           "review_ids": [
             "pr:75748",
-            "title:Radu-Raicea:add dataset history reads and exports"
+            "title:Radu-Raicea:add dataset history reads and exports",
+            "title:Radu-Raicea:group query llm trace tools under ai observability"
           ],
           "unmapped_prs": 0
         },
@@ -11898,9 +12007,9 @@
           "groups": 16,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 15,
+          "pending": 14,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -11908,7 +12017,8 @@
             "3": 0
           },
           "review_ids": [
-            "title:Radu-Raicea:add anomaly alert investigations to self driving"
+            "title:Radu-Raicea:add anomaly alert investigations to self driving",
+            "title:Radu-Raicea:replace eval summarize button with a reports callout"
           ],
           "unmapped_prs": 0
         },
@@ -11948,25 +12058,7 @@
           "groups": 12,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
-          "reserved": 0,
-          "pending": 11,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [
-            "title:Radu-Raicea:add offline evaluation ingestion and lifecycle apis"
-          ],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 8,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 2,
+          "failed": 6,
           "reserved": 0,
           "pending": 6,
           "mean_tier": null,
@@ -11976,8 +12068,32 @@
             "3": 0
           },
           "review_ids": [
+            "title:Radu-Raicea:add offline evaluation ingestion and lifecycle apis",
+            "title:Radu-Raicea:add offline evaluation reads and scorer history",
+            "title:Radu-Raicea:add offline experiment inspection and score trends",
+            "title:Radu-Raicea:add postgres models for offline evaluations",
+            "title:Radu-Raicea:add scorer passing rules and unified editor",
+            "title:Radu-Raicea:expose offline evaluations as mcp tools"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 8,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 5,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
             "pr:118775",
-            "pr:119865"
+            "pr:119865",
+            "title:Radu-Raicea:publish sql eval results to offline experiments"
           ],
           "unmapped_prs": 0
         },
@@ -11985,16 +12101,18 @@
           "groups": 16,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 16,
+          "pending": 15,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:Radu-Raicea:move datasets into offline evaluations"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -12002,9 +12120,9 @@
         "groups": 81,
         "scored": 0,
         "abstained": 0,
-        "failed": 6,
+        "failed": 15,
         "reserved": 0,
-        "pending": 75,
+        "pending": 66,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -12017,7 +12135,16 @@
           "pr:75748",
           "title:Radu-Raicea:add anomaly alert investigations to self driving",
           "title:Radu-Raicea:add dataset history reads and exports",
-          "title:Radu-Raicea:add offline evaluation ingestion and lifecycle apis"
+          "title:Radu-Raicea:add offline evaluation ingestion and lifecycle apis",
+          "title:Radu-Raicea:add offline evaluation reads and scorer history",
+          "title:Radu-Raicea:add offline experiment inspection and score trends",
+          "title:Radu-Raicea:add postgres models for offline evaluations",
+          "title:Radu-Raicea:add scorer passing rules and unified editor",
+          "title:Radu-Raicea:expose offline evaluations as mcp tools",
+          "title:Radu-Raicea:group query llm trace tools under ai observability",
+          "title:Radu-Raicea:move datasets into offline evaluations",
+          "title:Radu-Raicea:publish sql eval results to offline experiments",
+          "title:Radu-Raicea:replace eval summarize button with a reports callout"
         ],
         "unmapped_prs": 0
       }
@@ -14281,16 +14408,18 @@
           "groups": 9,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:ReeceJones:add access control to evaluations"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -14333,9 +14462,9 @@
           "groups": 7,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 6,
+          "pending": 5,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -14343,7 +14472,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:108441"
+            "pr:108441",
+            "title:ReeceJones:add mcp tools for idp configs"
           ],
           "unmapped_prs": 0
         },
@@ -14351,9 +14481,9 @@
           "groups": 10,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -14361,7 +14491,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:116868"
+            "pr:116868",
+            "title:ReeceJones:remove legacy dashboard collaborator code"
           ],
           "unmapped_prs": 0
         },
@@ -14369,9 +14500,9 @@
           "groups": 10,
           "scored": 1,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 8,
+          "pending": 7,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -14380,7 +14511,8 @@
           },
           "review_ids": [
             "issue:122686",
-            "pr:120350"
+            "pr:120350",
+            "title:ReeceJones:move authentication helpers out of ee"
           ],
           "unmapped_prs": 0
         }
@@ -14389,9 +14521,9 @@
         "groups": 68,
         "scored": 1,
         "abstained": 0,
-        "failed": 5,
+        "failed": 9,
         "reserved": 0,
-        "pending": 62,
+        "pending": 58,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -14404,7 +14536,11 @@
           "pr:116868",
           "pr:120350",
           "pr:90988",
-          "pr:97388"
+          "pr:97388",
+          "title:ReeceJones:add access control to evaluations",
+          "title:ReeceJones:add mcp tools for idp configs",
+          "title:ReeceJones:move authentication helpers out of ee",
+          "title:ReeceJones:remove legacy dashboard collaborator code"
         ],
         "unmapped_prs": 0
       }
@@ -16140,16 +16276,19 @@
           "groups": 7,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 7,
+          "pending": 5,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:Silthus:share the git link composer across the frontend",
+            "title:Silthus:split autocomplete into focused helpers"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -16189,16 +16328,19 @@
         "groups": 33,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 2,
         "reserved": 0,
-        "pending": 33,
+        "pending": 31,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:Silthus:share the git link composer across the frontend",
+          "title:Silthus:split autocomplete into focused helpers"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -39467,9 +39609,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "0c9ed2d32567767ea5b8ef8351167e759e8be5791e993eed0d61ac97285544b3"
+    },
+    "title:Radu-Raicea:add offline experiment inspection and score trends": {
+      "id": "title:Radu-Raicea:add offline experiment inspection and score trends",
+      "prs": [
+        107937
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e2bf6d2569ab189ba57cf872c728f4561c6f644f038a7a5f6bfb5484cff76f69"
+    },
+    "title:Radu-Raicea:add postgres models for offline evaluations": {
+      "id": "title:Radu-Raicea:add postgres models for offline evaluations",
+      "prs": [
+        105418
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6df4af11082c317b4077084a4532aa7a299aa67bf2e844d1b0037a998669fbc5"
+    },
+    "title:TueHaulund:copy recordings between teams with per session encryption": {
+      "id": "title:TueHaulund:copy recordings between teams with per session encryption",
+      "prs": [
+        120179
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cdcf71a70d8d9b2b3616a3241013391adbd3be5e87e31e4a67531046f1ce498d"
+    },
+    "title:Radu-Raicea:replace eval summarize button with a reports callout": {
+      "id": "title:Radu-Raicea:replace eval summarize button with a reports callout",
+      "prs": [
+        83338
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "49f8e5b6c848ed6eef2791f6bd94138d3be30a078ca320589e4acaf627176c35"
+    },
+    "title:TueHaulund:add alert configurations on the shared alerts platform": {
+      "id": "title:TueHaulund:add alert configurations on the shared alerts platform",
+      "prs": [
+        88403
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "caa21d6433cb51d4fe13de259ce83e197f2bb88a4b2de52bce161e2270a9fa8c"
+    },
+    "title:Radu-Raicea:move datasets into offline evaluations": {
+      "id": "title:Radu-Raicea:move datasets into offline evaluations",
+      "prs": [
+        121572
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0a6f9012f28475d997ca4bb14dedc6e4d4c461c63dd519db3b0c10e06e305195"
+    },
+    "title:ReeceJones:add access control to evaluations": {
+      "id": "title:ReeceJones:add access control to evaluations",
+      "prs": [
+        81376
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ba14ef79d60c2ebd0214cd02e5bfb8fda29ca50f1aefcf1e1bbb40cb740176db"
+    },
+    "title:TueHaulund:add scan requests for programmatic callers": {
+      "id": "title:TueHaulund:add scan requests for programmatic callers",
+      "prs": [
+        113767
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3a0b029b80c5f7ee5fdb5debe3f0d366274b045b04de71f0cf64d42f954cf0d7"
+    },
+    "title:Radu-Raicea:publish sql eval results to offline experiments": {
+      "id": "title:Radu-Raicea:publish sql eval results to offline experiments",
+      "prs": [
+        114538
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2628e860c024d007ea7d2d1f7855ab0dcb9fa66d88aecf1126120e86b199b77e"
+    },
+    "title:ReeceJones:add mcp tools for idp configs": {
+      "id": "title:ReeceJones:add mcp tools for idp configs",
+      "prs": [
+        111933
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9d0c40f969cadf19eb960622da6e139d738a2812f484fd2f6efd0d13263f5e60"
+    },
+    "title:Radu-Raicea:group query llm trace tools under ai observability": {
+      "id": "title:Radu-Raicea:group query llm trace tools under ai observability",
+      "prs": [
+        76776
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "63c854c74d868aaa5f622d6492f2248f8f1faabf75ce46de4b4d96fabd575256"
+    },
+    "title:TueHaulund:add the alerts tab behind a feature flag": {
+      "id": "title:TueHaulund:add the alerts tab behind a feature flag",
+      "prs": [
+        88407
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "83c674c60917478f5e7e73814a5900f267669bd174f70a19f9c2a9907e6e9810"
+    },
+    "title:Silthus:split autocomplete into focused helpers": {
+      "id": "title:Silthus:split autocomplete into focused helpers",
+      "prs": [
+        104163
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0f03841c2d78e8b3b7c11f78c0c292406a421a79908eaca2122725adc1bb676a"
+    },
+    "title:Radu-Raicea:add offline evaluation reads and scorer history": {
+      "id": "title:Radu-Raicea:add offline evaluation reads and scorer history",
+      "prs": [
+        106977
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "179896cd4d6816578a96540c279466d388a5cd45bbe105397150c2f510e0d91a"
+    },
+    "title:ReeceJones:remove legacy dashboard collaborator code": {
+      "id": "title:ReeceJones:remove legacy dashboard collaborator code",
+      "prs": [
+        117619
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "415d75771b4f2de190befb9918d885505219325ea65f8b10678a7948883fd269"
+    },
+    "title:Silthus:share the git link composer across the frontend": {
+      "id": "title:Silthus:share the git link composer across the frontend",
+      "prs": [
+        103729
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "aa6f03f93e81781188502c26763ac67417a2e0d1ec8977fede4ff33d3ec90058"
+    },
+    "title:Radu-Raicea:expose offline evaluations as mcp tools": {
+      "id": "title:Radu-Raicea:expose offline evaluations as mcp tools",
+      "prs": [
+        110992
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0bcf68036beede1ef50e348cd568c105c4e4dd5ff98a608d31fa86d59949e4a3"
+    },
+    "title:Radu-Raicea:add scorer passing rules and unified editor": {
+      "id": "title:Radu-Raicea:add scorer passing rules and unified editor",
+      "prs": [
+        110056
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "01b22508618cc62dbe7783d7dad703a82ba4bdad9f1387b9a4ff2b4d9de33b0b"
+    },
+    "title:TueHaulund:build a frozen benchmark from labeled recordings": {
+      "id": "title:TueHaulund:build a frozen benchmark from labeled recordings",
+      "prs": [
+        107548
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bbc0df4701b5fbd1a6bc3212905495690cea9c2ade1fd156c2581e134fb12bf0"
+    },
+    "title:ReeceJones:move authentication helpers out of ee": {
+      "id": "title:ReeceJones:move authentication helpers out of ee",
+      "prs": [
+        122122
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0023",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5f606397a5e3b80037c4d31a5810f200bde18f1af762b32dcad7c6a990cd4c65"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "f02212da0a21243b9f5970dba01259ffe43d541301c672d8efe27bde72e16bfc",
-  "sha256": "428b4ded7ce2c51beda278abce6552fc802d9a1c7a6675f4d893af97f7e8e00a"
+  "inline_publication_sha256": "eb50b51b087742507f5f0cc2da340ccf6f93410ddc2c6269d813286382cd3144",
+  "sha256": "cb4f6909bfa666667b9481cf2fcf5db4dd0c01247850df432461dbf6f464ff8a"
 }
