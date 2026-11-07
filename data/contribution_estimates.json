@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:34:11.638662+00:00",
+  "generated_at": "2026-11-07T04:34:40.612503+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3093,15 +3093,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0037": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 751,
+    "failed": 771,
     "reserved": 60,
-    "pending": 16292,
+    "pending": 16272,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3976,7 +4052,27 @@
       "title:dmarchuk:scroll step settings with the panel and give the email preview room",
       "title:dmarchuk:serve push registrations only from the node push api",
       "title:dmarchuk:show pending suggestions on the workflow page",
-      "title:dmarchuk:start a new broadcast from a description with posthog ai"
+      "title:dmarchuk:start a new broadcast from a description with posthog ai",
+      "title:dmarticus:add per space auto archive settings",
+      "title:dmarticus:align self driving inbox experience with web",
+      "title:dmarticus:preserve reviewer edits in the existing artefact path",
+      "title:dmarticus:revert signals remove automatic report canvas generation",
+      "title:dmarticus:show merged prs and participation in the inbox",
+      "title:dmarticus:use ownership evidence and reviewer corrections",
+      "title:eli-r-ph:add distinct id row and team person list reads",
+      "title:eli-r-ph:add person pg cleanup drain job",
+      "title:eli-r-ph:add person version floors to the replica",
+      "title:eli-r-ph:add persons dedup command to resolve duplicate person rows",
+      "title:eli-r-ph:add raisepersonversionfloors for the person consistency repair",
+      "title:eli-r-ph:add restore and merge repair verbs",
+      "title:eli-r-ph:add restorepersons for the person consistency repair",
+      "title:eli-r-ph:add the cleanup sweep s persisted snapshot tables",
+      "title:eli-r-ph:add the clickhouse phases of the person consistency team scan",
+      "title:eli-r-ph:add writedistinctids for the person consistency repair",
+      "title:eli-r-ph:bound the cohort deletion sweep",
+      "title:eli-r-ph:cap lz64 decompression like gzip",
+      "title:eli-r-ph:delete a tombstoned person only at or below a version bound",
+      "title:eli-r-ph:emit ingestion warnings from the ai events endpoint"
     ],
     "unmapped_prs": 14
   },
@@ -8791,57 +8887,9 @@
           "groups": 41,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 41,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 14,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 14,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 10,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 10,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 21,
-          "scored": 0,
-          "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 20,
+          "pending": 40,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -8849,7 +8897,64 @@
             "3": 0
           },
           "review_ids": [
-            "pr:97994"
+            "title:eli-r-ph:emit ingestion warnings from the ai events endpoint"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 14,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 1,
+          "reserved": 0,
+          "pending": 13,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:eli-r-ph:add persons dedup command to resolve duplicate person rows"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 10,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 2,
+          "reserved": 0,
+          "pending": 8,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:eli-r-ph:add the cleanup sweep s persisted snapshot tables",
+            "title:eli-r-ph:bound the cohort deletion sweep"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 21,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 18,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:97994",
+            "title:eli-r-ph:add person pg cleanup drain job",
+            "title:eli-r-ph:cap lz64 decompression like gzip"
           ],
           "unmapped_prs": 0
         },
@@ -8873,9 +8978,9 @@
           "groups": 32,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 31,
+          "pending": 28,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -8883,7 +8988,10 @@
             "3": 0
           },
           "review_ids": [
-            "issue:104939"
+            "issue:104939",
+            "title:eli-r-ph:add distinct id row and team person list reads",
+            "title:eli-r-ph:add person version floors to the replica",
+            "title:eli-r-ph:delete a tombstoned person only at or below a version bound"
           ],
           "unmapped_prs": 0
         },
@@ -8891,16 +8999,22 @@
           "groups": 31,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 5,
           "reserved": 0,
-          "pending": 31,
+          "pending": 26,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:eli-r-ph:add raisepersonversionfloors for the person consistency repair",
+            "title:eli-r-ph:add restore and merge repair verbs",
+            "title:eli-r-ph:add restorepersons for the person consistency repair",
+            "title:eli-r-ph:add the clickhouse phases of the person consistency team scan",
+            "title:eli-r-ph:add writedistinctids for the person consistency repair"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -8908,9 +9022,9 @@
         "groups": 180,
         "scored": 1,
         "abstained": 0,
-        "failed": 1,
+        "failed": 15,
         "reserved": 0,
-        "pending": 178,
+        "pending": 164,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -8919,7 +9033,21 @@
         },
         "review_ids": [
           "issue:104939",
-          "pr:97994"
+          "pr:97994",
+          "title:eli-r-ph:add distinct id row and team person list reads",
+          "title:eli-r-ph:add person pg cleanup drain job",
+          "title:eli-r-ph:add person version floors to the replica",
+          "title:eli-r-ph:add persons dedup command to resolve duplicate person rows",
+          "title:eli-r-ph:add raisepersonversionfloors for the person consistency repair",
+          "title:eli-r-ph:add restore and merge repair verbs",
+          "title:eli-r-ph:add restorepersons for the person consistency repair",
+          "title:eli-r-ph:add the cleanup sweep s persisted snapshot tables",
+          "title:eli-r-ph:add the clickhouse phases of the person consistency team scan",
+          "title:eli-r-ph:add writedistinctids for the person consistency repair",
+          "title:eli-r-ph:bound the cohort deletion sweep",
+          "title:eli-r-ph:cap lz64 decompression like gzip",
+          "title:eli-r-ph:delete a tombstoned person only at or below a version bound",
+          "title:eli-r-ph:emit ingestion warnings from the ai events endpoint"
         ],
         "unmapped_prs": 0
       }
@@ -9082,9 +9210,9 @@
           "groups": 28,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 27,
+          "pending": 26,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -9092,7 +9220,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:80848"
+            "pr:80848",
+            "title:dmarticus:revert signals remove automatic report canvas generation"
           ],
           "unmapped_prs": 0
         },
@@ -9100,16 +9229,19 @@
           "groups": 38,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 38,
+          "pending": 36,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:dmarticus:add per space auto archive settings",
+            "title:dmarticus:align self driving inbox experience with web"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -9150,25 +9282,27 @@
           "groups": 22,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 22,
+          "pending": 21,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:dmarticus:show merged prs and participation in the inbox"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 36,
           "scored": 2,
           "abstained": 0,
-          "failed": 1,
+          "failed": 3,
           "reserved": 0,
-          "pending": 33,
+          "pending": 31,
           "mean_tier": 1.5,
           "tiers": {
             "1": 1,
@@ -9178,7 +9312,9 @@
           "review_ids": [
             "issue:122421",
             "issue:125223",
-            "issue:125705"
+            "issue:125705",
+            "title:dmarticus:preserve reviewer edits in the existing artefact path",
+            "title:dmarticus:use ownership evidence and reviewer corrections"
           ],
           "unmapped_prs": 0
         }
@@ -9187,9 +9323,9 @@
         "groups": 152,
         "scored": 4,
         "abstained": 0,
-        "failed": 1,
+        "failed": 7,
         "reserved": 0,
-        "pending": 147,
+        "pending": 141,
         "mean_tier": 1.5,
         "tiers": {
           "1": 2,
@@ -9201,7 +9337,13 @@
           "issue:122421",
           "issue:125223",
           "issue:125705",
-          "pr:80848"
+          "pr:80848",
+          "title:dmarticus:add per space auto archive settings",
+          "title:dmarticus:align self driving inbox experience with web",
+          "title:dmarticus:preserve reviewer edits in the existing artefact path",
+          "title:dmarticus:revert signals remove automatic report canvas generation",
+          "title:dmarticus:show merged prs and participation in the inbox",
+          "title:dmarticus:use ownership evidence and reviewer corrections"
         ],
         "unmapped_prs": 0
       }
@@ -44825,9 +44967,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "b14ed07bd3fbcb82828e0162f633fd3bac5c43cee89ecdd760afdc676dc9ccd8"
+    },
+    "title:eli-r-ph:emit ingestion warnings from the ai events endpoint": {
+      "id": "title:eli-r-ph:emit ingestion warnings from the ai events endpoint",
+      "prs": [
+        76153
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f565d24db5ae4ab86f8d26e903fee47ae05490d0332e66b5bfd21ee7a43d126b"
+    },
+    "title:eli-r-ph:add raisepersonversionfloors for the person consistency repair": {
+      "id": "title:eli-r-ph:add raisepersonversionfloors for the person consistency repair",
+      "prs": [
+        117411
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "77c23399610205d0b9cfd15de01fa96181fbe676f80a4f15e8d3895097283c49"
+    },
+    "title:eli-r-ph:add distinct id row and team person list reads": {
+      "id": "title:eli-r-ph:add distinct id row and team person list reads",
+      "prs": [
+        117394
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a230be15d52ec2f9b547ceeec4788b2102e3871127cd8ba8e867622379e19591"
+    },
+    "title:eli-r-ph:add writedistinctids for the person consistency repair": {
+      "id": "title:eli-r-ph:add writedistinctids for the person consistency repair",
+      "prs": [
+        118343
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bfe216afafbc78bdb28154f2aa1af7847f4436be2ddf0257360d9bb000f2d88d"
+    },
+    "title:eli-r-ph:cap lz64 decompression like gzip": {
+      "id": "title:eli-r-ph:cap lz64 decompression like gzip",
+      "prs": [
+        102546
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5a6fecd31820885334910eff0e44fc14a863829d81899b2cb9e082bb604fa0de"
+    },
+    "title:eli-r-ph:add the clickhouse phases of the person consistency team scan": {
+      "id": "title:eli-r-ph:add the clickhouse phases of the person consistency team scan",
+      "prs": [
+        117440
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ceb0be34bfd2ebd03996580a39169f98ba6359815a507e0be1f9a9776d409460"
+    },
+    "title:eli-r-ph:bound the cohort deletion sweep": {
+      "id": "title:eli-r-ph:bound the cohort deletion sweep",
+      "prs": [
+        94573
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0eae32426caf98fffeb6a2d9986580a90ed7db0db86babad0d87383ed54eb4a7"
+    },
+    "title:eli-r-ph:add person pg cleanup drain job": {
+      "id": "title:eli-r-ph:add person pg cleanup drain job",
+      "prs": [
+        97995
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "169b5d145bceb5226e9fa7d1391497b122514d6f66c379d875d193a2ce8215c9"
+    },
+    "title:dmarticus:preserve reviewer edits in the existing artefact path": {
+      "id": "title:dmarticus:preserve reviewer edits in the existing artefact path",
+      "prs": [
+        119902
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "548a94db3f51ed699e54463d49afbac1db489cfceba15cd74a2ac06259339252"
+    },
+    "title:dmarticus:align self driving inbox experience with web": {
+      "id": "title:dmarticus:align self driving inbox experience with web",
+      "prs": [
+        90586
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0179fd1b60c46ea6f824f62b633973f1ce2a448a0bafb20d209565e91ab83934"
+    },
+    "title:eli-r-ph:add the cleanup sweep s persisted snapshot tables": {
+      "id": "title:eli-r-ph:add the cleanup sweep s persisted snapshot tables",
+      "prs": [
+        80943
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b1d34612c9bda51b0ce314371def6c74e580dabae2a519813af32051c1c88ecf"
+    },
+    "title:eli-r-ph:add restore and merge repair verbs": {
+      "id": "title:eli-r-ph:add restore and merge repair verbs",
+      "prs": [
+        117445
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8898978aec0f64cfe8f3ca23d4c92d87a5638c20a6101f766a7e060608a65981"
+    },
+    "title:dmarticus:add per space auto archive settings": {
+      "id": "title:dmarticus:add per space auto archive settings",
+      "prs": [
+        91175
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a544c236f64a5a89683a6864536b40c510ceca316a4fd1a9d03baf86c820cede"
+    },
+    "title:dmarticus:use ownership evidence and reviewer corrections": {
+      "id": "title:dmarticus:use ownership evidence and reviewer corrections",
+      "prs": [
+        121797
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ad7ca6b857ab29c480c151b0a01da4111d49b9efd708db79e949334e31e6636a"
+    },
+    "title:eli-r-ph:add restorepersons for the person consistency repair": {
+      "id": "title:eli-r-ph:add restorepersons for the person consistency repair",
+      "prs": [
+        118342
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f2e05345e226466e10fee1e381fdc4f3cb50a91b0b7552990cac4b55ff71879d"
+    },
+    "title:eli-r-ph:add person version floors to the replica": {
+      "id": "title:eli-r-ph:add person version floors to the replica",
+      "prs": [
+        111465
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "28e8ec58ea564f0862c8a41744a7ec73348ad069f26194abf2c46ab871610161"
+    },
+    "title:eli-r-ph:add persons dedup command to resolve duplicate person rows": {
+      "id": "title:eli-r-ph:add persons dedup command to resolve duplicate person rows",
+      "prs": [
+        81532
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e3435820c0e302cb06289f7566d3369996c1be17687441769067c2872f113928"
+    },
+    "title:eli-r-ph:delete a tombstoned person only at or below a version bound": {
+      "id": "title:eli-r-ph:delete a tombstoned person only at or below a version bound",
+      "prs": [
+        111670
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c73cff14fd03e719a8db34f849d0587a2922876d277c0323631d2505c5307a75"
+    },
+    "title:dmarticus:show merged prs and participation in the inbox": {
+      "id": "title:dmarticus:show merged prs and participation in the inbox",
+      "prs": [
+        111094
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "65e398f03f3d26dd8301a2bdea5150d1a0fdb6efeda120b9ff50d67157b7ce20"
+    },
+    "title:dmarticus:revert signals remove automatic report canvas generation": {
+      "id": "title:dmarticus:revert signals remove automatic report canvas generation",
+      "prs": [
+        86766
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0037",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "140a1288af33ba85ffc47f1b5bc457b9d040e0f80da65f41bdf7dab580bb1e06"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "cb22429061c7499a721b929bcd2e5abd736e878f49b335191d3a59d20e60b7be",
-  "sha256": "592e079e4d432a71db0b68c43122c257484380ead439b9150409d48760ccab50"
+  "inline_publication_sha256": "f59240e649c7e1e816f1c84cabc986268f652876ed4c4c7ae581dc53f3bc9e5c",
+  "sha256": "6547772151b8e439b2faf22411bc40018ec4602e1404fa5f1cecce4b04b5bd1e"
 }
