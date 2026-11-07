@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:24:20.304365+00:00",
+  "generated_at": "2026-11-07T04:24:51.163056+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -1573,15 +1573,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0017": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 351,
+    "failed": 371,
     "reserved": 60,
-    "pending": 16692,
+    "pending": 16672,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2053,6 +2129,26 @@
       "title:Gilbert09:classify source fields as connection or sync setting",
       "title:Gilbert09:continue an import only when the source proves its row order",
       "title:Gilbert09:deltalite real write path phase 2 flag gated",
+      "title:Gilbert09:deltalite shadow verification and publish workflow",
+      "title:Gilbert09:dual write source connection fields to an integration",
+      "title:Gilbert09:fewer per run activities incremental stats deltalite prefetch",
+      "title:Gilbert09:give every source request a default timeout",
+      "title:Gilbert09:heal delta tables with an empty log segment",
+      "title:Gilbert09:hogland sandbox provider and golden snapshot bake",
+      "title:Gilbert09:implement app store connect source",
+      "title:Gilbert09:implement apple search ads source",
+      "title:Gilbert09:implement aws cost explorer source",
+      "title:Gilbert09:implement azure cost management source",
+      "title:Gilbert09:implement dynamics 365 business central source",
+      "title:Gilbert09:implement google play console source",
+      "title:Gilbert09:implement power bi admin source",
+      "title:Gilbert09:implement the auth0 import source",
+      "title:Gilbert09:implement the aws batch import source",
+      "title:Gilbert09:implement the aws glue data catalog import source",
+      "title:Gilbert09:implement the aws guardduty import source",
+      "title:Gilbert09:implement the aws systems manager import source",
+      "title:Gilbert09:implement the browse ai import source",
+      "title:Gilbert09:implement the fintoc import source",
       "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
       "title:Gilbert09:make row tracking survive redis and billing blips",
       "title:Gilbert09:point source test guidance at the shared driver",
@@ -2067,9 +2163,9 @@
           "groups": 453,
           "scored": 1,
           "abstained": 0,
-          "failed": 36,
+          "failed": 40,
           "reserved": 0,
-          "pending": 416,
+          "pending": 412,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -2113,7 +2209,11 @@
             "title:Gilbert09:add 38 tables to the github source",
             "title:Gilbert09:add sha1 and hmac sha1 to the stl",
             "title:Gilbert09:add skill for triaging warehouse sync tickets",
-            "title:Gilbert09:deltalite real write path phase 2 flag gated"
+            "title:Gilbert09:deltalite real write path phase 2 flag gated",
+            "title:Gilbert09:deltalite shadow verification and publish workflow",
+            "title:Gilbert09:heal delta tables with an empty log segment",
+            "title:Gilbert09:implement app store connect source",
+            "title:Gilbert09:implement aws cost explorer source"
           ],
           "unmapped_prs": 0
         },
@@ -2121,9 +2221,9 @@
           "groups": 311,
           "scored": 2,
           "abstained": 0,
-          "failed": 21,
+          "failed": 27,
           "reserved": 1,
-          "pending": 287,
+          "pending": 281,
           "mean_tier": 1.5,
           "tiers": {
             "1": 1,
@@ -2153,6 +2253,12 @@
             "title:Gilbert09:add kalshi as a warehouse source",
             "title:Gilbert09:add polymarket as a warehouse source",
             "title:Gilbert09:add profound as a warehouse source",
+            "title:Gilbert09:hogland sandbox provider and golden snapshot bake",
+            "title:Gilbert09:implement apple search ads source",
+            "title:Gilbert09:implement azure cost management source",
+            "title:Gilbert09:implement dynamics 365 business central source",
+            "title:Gilbert09:implement google play console source",
+            "title:Gilbert09:implement power bi admin source",
             "title:Gilbert09:keep exhausted read timeout errors out of error tracking"
           ],
           "unmapped_prs": 0
@@ -2207,9 +2313,9 @@
           "groups": 584,
           "scored": 1,
           "abstained": 0,
-          "failed": 13,
+          "failed": 20,
           "reserved": 0,
-          "pending": 570,
+          "pending": 563,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2230,6 +2336,13 @@
             "title:Gilbert09:add generic job queue tables and sdk",
             "title:Gilbert09:add warehouse scheduler in shadow mode",
             "title:Gilbert09:budget row group fetches and stream parquet writes",
+            "title:Gilbert09:fewer per run activities incremental stats deltalite prefetch",
+            "title:Gilbert09:implement the aws batch import source",
+            "title:Gilbert09:implement the aws glue data catalog import source",
+            "title:Gilbert09:implement the aws guardduty import source",
+            "title:Gilbert09:implement the aws systems manager import source",
+            "title:Gilbert09:implement the browse ai import source",
+            "title:Gilbert09:implement the fintoc import source",
             "title:Gilbert09:make row tracking survive redis and billing blips"
           ],
           "unmapped_prs": 0
@@ -2238,9 +2351,9 @@
           "groups": 665,
           "scored": 4,
           "abstained": 0,
-          "failed": 6,
+          "failed": 8,
           "reserved": 1,
-          "pending": 654,
+          "pending": 652,
           "mean_tier": 1.25,
           "tiers": {
             "1": 3,
@@ -2257,6 +2370,8 @@
             "title:Gilbert09:checkpoint the postgres keyset seek on uuid keys",
             "title:Gilbert09:classify real source errors in one shared test",
             "title:Gilbert09:continue an import only when the source proves its row order",
+            "title:Gilbert09:give every source request a default timeout",
+            "title:Gilbert09:implement the auth0 import source",
             "title:Gilbert09:point source test guidance at the shared driver"
           ],
           "unmapped_prs": 0
@@ -2265,9 +2380,9 @@
           "groups": 539,
           "scored": 1,
           "abstained": 0,
-          "failed": 8,
+          "failed": 9,
           "reserved": 5,
-          "pending": 525,
+          "pending": 524,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2283,7 +2398,8 @@
             "title:Gilbert09:add the integrations sdk with three auth types and a model access ratchet",
             "title:Gilbert09:add warehouse sync alerts to the alerts platform",
             "title:Gilbert09:cache deltalite probe keys per data file",
-            "title:Gilbert09:classify source fields as connection or sync setting"
+            "title:Gilbert09:classify source fields as connection or sync setting",
+            "title:Gilbert09:dual write source connection fields to an integration"
           ],
           "unmapped_prs": 0
         }
@@ -2292,9 +2408,9 @@
         "groups": 3127,
         "scored": 9,
         "abstained": 0,
-        "failed": 96,
+        "failed": 116,
         "reserved": 7,
-        "pending": 3015,
+        "pending": 2995,
         "mean_tier": 1.4444444444444444,
         "tiers": {
           "1": 5,
@@ -2404,6 +2520,26 @@
           "title:Gilbert09:classify source fields as connection or sync setting",
           "title:Gilbert09:continue an import only when the source proves its row order",
           "title:Gilbert09:deltalite real write path phase 2 flag gated",
+          "title:Gilbert09:deltalite shadow verification and publish workflow",
+          "title:Gilbert09:dual write source connection fields to an integration",
+          "title:Gilbert09:fewer per run activities incremental stats deltalite prefetch",
+          "title:Gilbert09:give every source request a default timeout",
+          "title:Gilbert09:heal delta tables with an empty log segment",
+          "title:Gilbert09:hogland sandbox provider and golden snapshot bake",
+          "title:Gilbert09:implement app store connect source",
+          "title:Gilbert09:implement apple search ads source",
+          "title:Gilbert09:implement aws cost explorer source",
+          "title:Gilbert09:implement azure cost management source",
+          "title:Gilbert09:implement dynamics 365 business central source",
+          "title:Gilbert09:implement google play console source",
+          "title:Gilbert09:implement power bi admin source",
+          "title:Gilbert09:implement the auth0 import source",
+          "title:Gilbert09:implement the aws batch import source",
+          "title:Gilbert09:implement the aws glue data catalog import source",
+          "title:Gilbert09:implement the aws guardduty import source",
+          "title:Gilbert09:implement the aws systems manager import source",
+          "title:Gilbert09:implement the browse ai import source",
+          "title:Gilbert09:implement the fintoc import source",
           "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
           "title:Gilbert09:make row tracking survive redis and billing blips",
           "title:Gilbert09:point source test guidance at the shared driver"
@@ -37167,9 +37303,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "2f39b37ddbec2ea1a479fa3bd496d2bb1cad2021dc8b9086fe0b95c9e380fafb"
+    },
+    "title:Gilbert09:implement the fintoc import source": {
+      "id": "title:Gilbert09:implement the fintoc import source",
+      "prs": [
+        108633
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "54bcf27f0dce1dfad7664a4910893f02947e80b520267d5da6d530a72bb8bfd8"
+    },
+    "title:Gilbert09:hogland sandbox provider and golden snapshot bake": {
+      "id": "title:Gilbert09:hogland sandbox provider and golden snapshot bake",
+      "prs": [
+        87252
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "656f1471008fb8259e391f91d920ecd07c671c3fea27f26da40aee4128e0e8be"
+    },
+    "title:Gilbert09:implement aws cost explorer source": {
+      "id": "title:Gilbert09:implement aws cost explorer source",
+      "prs": [
+        73794
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "274a32a470f652007181a9007d711b06cdc6f2646abd358a5d32faf4073cb0e9"
+    },
+    "title:Gilbert09:implement the auth0 import source": {
+      "id": "title:Gilbert09:implement the auth0 import source",
+      "prs": [
+        112591
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ab6cfd3de0c909f1391ba127def1a9f2a2719d39963c22b0d629f70f564bfb45"
+    },
+    "title:Gilbert09:implement the aws glue data catalog import source": {
+      "id": "title:Gilbert09:implement the aws glue data catalog import source",
+      "prs": [
+        110797
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3fa1449930982a24137ba650ad8759ba6dc863cca2c3890af496c3f9cfee8f9c"
+    },
+    "title:Gilbert09:implement power bi admin source": {
+      "id": "title:Gilbert09:implement power bi admin source",
+      "prs": [
+        73765
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "338ab144f1f3c7d9ca2a6f79e9dbab06e585c521de3245e296231974297ca776"
+    },
+    "title:Gilbert09:dual write source connection fields to an integration": {
+      "id": "title:Gilbert09:dual write source connection fields to an integration",
+      "prs": [
+        124097
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "90d999f6835b8871b8d245b887ee6f22bfb320715b4181b147c5139795ec307d"
+    },
+    "title:Gilbert09:give every source request a default timeout": {
+      "id": "title:Gilbert09:give every source request a default timeout",
+      "prs": [
+        113433
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9653cadd1368d386ef6d6ed4da64ef0c326e481bc396a2e1ae3a02553a0a2379"
+    },
+    "title:Gilbert09:deltalite shadow verification and publish workflow": {
+      "id": "title:Gilbert09:deltalite shadow verification and publish workflow",
+      "prs": [
+        74242
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6bfa3c7b4967a7009435635223451f5ba371bfe2e182c1e308cefdd2ee7307b3"
+    },
+    "title:Gilbert09:implement azure cost management source": {
+      "id": "title:Gilbert09:implement azure cost management source",
+      "prs": [
+        73796
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "96624ab63019ab70efd541327cac686ba7ca7a4a73fe91a24d717970cda6095e"
+    },
+    "title:Gilbert09:implement dynamics 365 business central source": {
+      "id": "title:Gilbert09:implement dynamics 365 business central source",
+      "prs": [
+        73764
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bac2324da7e1fba116011afa70cbc10a2d7331d34f26e66ae54c3615cfe5c8ff"
+    },
+    "title:Gilbert09:implement the aws batch import source": {
+      "id": "title:Gilbert09:implement the aws batch import source",
+      "prs": [
+        110791
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c61eea2513c1f933f9e208911bff0feb61ca48cfa9ecd1d40be7021c1ab8d95d"
+    },
+    "title:Gilbert09:implement google play console source": {
+      "id": "title:Gilbert09:implement google play console source",
+      "prs": [
+        73757
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8753e1f091287dd2c41cce04d5565b92f089aa4ff7e475a84bb1d25073a33ee6"
+    },
+    "title:Gilbert09:implement app store connect source": {
+      "id": "title:Gilbert09:implement app store connect source",
+      "prs": [
+        73756
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0195a3b2f0f242c8b659931844d32577d107798e228295acd66e576531e17cf2"
+    },
+    "title:Gilbert09:implement the aws guardduty import source": {
+      "id": "title:Gilbert09:implement the aws guardduty import source",
+      "prs": [
+        110799
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bbea00ee19c5f93c9c90e2001569582ac48f93355a113aaac7edfd78fa9af966"
+    },
+    "title:Gilbert09:fewer per run activities incremental stats deltalite prefetch": {
+      "id": "title:Gilbert09:fewer per run activities incremental stats deltalite prefetch",
+      "prs": [
+        107470
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9ccb87d116990b012c7fba3af6cace59f7654a3fff3bac7b50074402c6eab9a8"
+    },
+    "title:Gilbert09:implement apple search ads source": {
+      "id": "title:Gilbert09:implement apple search ads source",
+      "prs": [
+        73758
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "dc2c7345040ca07b63f63af005e2578a59b17849306caba34126575d7eae4963"
+    },
+    "title:Gilbert09:implement the browse ai import source": {
+      "id": "title:Gilbert09:implement the browse ai import source",
+      "prs": [
+        108618
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "44188028570903009867205b9fa1ea5bb3986019b527229b6ee51c4415873ce0"
+    },
+    "title:Gilbert09:heal delta tables with an empty log segment": {
+      "id": "title:Gilbert09:heal delta tables with an empty log segment",
+      "prs": [
+        76334
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7e215592d002456daf81f64a903f6d1985364f8d6930c4de6210bfd01860fc04"
+    },
+    "title:Gilbert09:implement the aws systems manager import source": {
+      "id": "title:Gilbert09:implement the aws systems manager import source",
+      "prs": [
+        110810
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0017",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b951a9546619e97d6df91a35b2503b64b25d6021c727643944998bab413b8436"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "e86b191c6c7e2d1851744c2fb501cddbc4e0880d322fcc48c02265f2fc0245fd",
-  "sha256": "0ffcba8014756ebd5ce3d501d6279ff2a28b23fa113f44c89490c4c3bb6f64e4"
+  "inline_publication_sha256": "14fc826703a7a232eda442752e10f355a2b65318e5494041772f96115c88dea2",
+  "sha256": "cf93b31e12eb8090870d0f4d5adefcdcb7f880f3391d4f15633bd3c2a14c3dc2"
 }
