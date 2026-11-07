@@ -343,7 +343,35 @@ groups in resumable cohorts. Completed scores, abstentions and evidence
 preflights are not selected again. Failed or deferred groups are retried
 only under a different recorded protocol. `--deploy` runs Python tests,
 JavaScript tests and the production build, then commits only the generated
-estimate/catalogue files and pushes to `main`. Without it, no push occurs.
+estimate/catalogue files and immutable evidence assets to `main`. Without
+it, no push occurs. Untouched groups run before retries, with short groups
+first; that scheduling metadata is never shown to the model.
+
+For an overnight run independent of this chat or terminal, install the
+macOS user launch agent:
+
+```bash
+python3 scripts/qwen_overnight.py start \
+  --manifest data/ai_review/harness/contribution-manifest-v5.json \
+  --prefix qwen-overnight-v1
+python3 scripts/qwen_overnight.py status
+python3 scripts/qwen_overnight.py stop
+```
+
+Start with Node 22 first on `PATH` and the prepared local Python runtime.
+The job starts immediately and resumes saved cohorts after login or restart.
+`stop` disables the agent and interrupts its worker without deleting saved
+results. Logs are in `~/Library/Logs/public-pr-review-load/`. The Mac must
+remain powered on and awake; leave the lid open and connect power. Low
+battery pauses are automatic. A completed cached pass is not a claim that
+all groups received numeric scores.
+
+The web build separates complete reviews into content-addressed JSON
+assets. Opening a review fetches its evidence and checks the exact file
+hash and group metadata. The summary index retains the original complete
+publication hash, and every build reconstructs that hash from the assets.
+This keeps the full backlog out of the initial JavaScript bundle without
+changing scores or dropping evidence.
 
 At the 20% battery floor, GPU work stops, completed receipts are published,
 and the controller waits to resume at 35% or higher. AC-status changes alone

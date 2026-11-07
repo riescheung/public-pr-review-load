@@ -37,6 +37,7 @@ def prepare(catalog, benchmark, catalog_hash, report_hash):
         cases.append({
             "id": "E" + digest(group)[:16], "source": "full", "index": index,
             "group": group, "split": "publication", "packet_sha256": digest(packet),
+            "chunk_count": len(packet["chunks"]),
         })
     return seal({
         "purpose": "Estimated contribution publication, not a benchmark evaluation",

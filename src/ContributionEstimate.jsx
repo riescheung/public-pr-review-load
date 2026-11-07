@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import estimates from '../data/contribution_estimates.json'
 import { estimateValue } from './contributionEstimates.js'
+import { loadReviewRecord } from './reviewEvidence.js'
 
 export { estimates }
 
@@ -22,6 +23,50 @@ export function ContributionCell({ login, index, onOpen }) {
   )
 }
 
+function ReviewBody({ record }) {
+  return (
+    <>
+      <p>{record.review?.reason || 'No valid model review was saved for this attempt.'}</p>
+      <p className="estimate-source">{estimates.models[record.run].name} · {record.run}{record.known_calibration ? ' · Previously inspected calibration example' : ''}</p>
+      <p>{record.prs.map(pr => <a key={pr} href={`https://github.com/PostHog/posthog/pull/${pr}`} target="_blank" rel="noopener noreferrer">PR #{pr} </a>)}</p>
+      {record.review?.observations?.flatMap(chunk => chunk.observations).map((observation, n) =>
+        <div key={`${observation.hunk}:${n}`} className="estimate-citation">
+          <strong>{observation.hunk}</strong><p>{observation.behavior}</p>
+          <pre>{observation.code_quote}</pre>
+        </div>)}
+      {record.review?.uncertainty && <p>Uncertainty: {record.review.uncertainty}</p>}
+      <p className="estimate-source">Prediction SHA-256: <code>{record.prediction_sha256}</code></p>
+    </>
+  )
+}
+
+function ContributionReview({ entry }) {
+  const [open, setOpen] = useState(false)
+  const [state, setState] = useState({})
+  const [retry, setRetry] = useState(0)
+  useEffect(() => {
+    if (!open) return
+    const controller = new AbortController()
+    setState({})
+    loadReviewRecord(entry, {
+      baseUrl: import.meta.env.BASE_URL, signal: controller.signal,
+    }).then(record => {
+      if (!controller.signal.aborted) setState({ entry, record })
+    }).catch(() => {
+      if (!controller.signal.aborted) setState({ entry, error: true })
+    })
+    return () => controller.abort()
+  }, [entry, open, retry])
+  return (
+    <details onToggle={event => setOpen(event.currentTarget.open)}>
+      <summary>{entry.tier == null ? 'Unassessed' : `Tier ${entry.tier}`} · {entry.prs.map(pr => `#${pr}`).join(', ')}</summary>
+      {open && (state.entry === entry && state.record ? <ReviewBody record={state.record} /> : state.entry === entry && state.error
+        ? <p role="alert">Cited review unavailable. <button type="button" onClick={() => setRetry(retry + 1)}>Retry loading</button></p>
+        : <p role="status">Loading cited review...</p>)}
+    </details>
+  )
+}
+
 export function ContributionEvidence({ login, index }) {
   const [limit, setLimit] = useState(5)
   const summary = contributionSummary(login, index)
@@ -33,21 +78,7 @@ export function ContributionEvidence({ login, index }) {
       <p>A group counts once per contributor, in their latest interval containing a member PR. Shared groups describe associated work, not individual ownership. WPR and the table’s ordering are unchanged.</p>
       {!!(summary?.abstained || summary?.failed || summary?.reserved || summary?.unmapped_prs) &&
         <p>{summary.abstained} abstentions · {summary.failed} failed or deferred · {summary.reserved} reserved test groups · {summary.unmapped_prs} PRs without an eligible group.</p>}
-      {records.slice(0, limit).map(record => (
-        <details key={record.id}>
-          <summary>{record.tier == null ? 'Unassessed' : `Tier ${record.tier}`} · {record.prs.map(pr => `#${pr}`).join(', ')}</summary>
-          <p>{record.review?.reason || 'No valid model review was saved for this attempt.'}</p>
-          <p className="estimate-source">{estimates.models[record.run].name} · {record.run}{record.known_calibration ? ' · Previously inspected calibration example' : ''}</p>
-          <p>{record.prs.map(pr => <a key={pr} href={`https://github.com/PostHog/posthog/pull/${pr}`} target="_blank" rel="noopener noreferrer">PR #{pr} </a>)}</p>
-          {record.review?.observations?.flatMap(chunk => chunk.observations).map((observation, n) =>
-            <div key={`${observation.hunk}:${n}`} className="estimate-citation">
-              <strong>{observation.hunk}</strong><p>{observation.behavior}</p>
-              <pre>{observation.code_quote}</pre>
-            </div>)}
-          {record.review?.uncertainty && <p>Uncertainty: {record.review.uncertainty}</p>}
-          <p className="estimate-source">Prediction SHA-256: <code>{record.prediction_sha256}</code></p>
-        </details>
-      ))}
+      {records.slice(0, limit).map(entry => <ContributionReview key={entry.id} entry={entry} />)}
       {records.length > limit && <button type="button" onClick={() => setLimit(limit + 10)}>Show more AI reviews</button>}
       {!records.length && <p>No Qwen reviews are available for these groups yet. No estimate has been inferred from PR titles or WPR.</p>}
     </section>

@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+import signal
 import subprocess
 import sys
 import time
@@ -31,6 +32,25 @@ def cohort_finished(directory):
                for identifier in selected)
 
 
+def run_cohort(command):
+    child = subprocess.Popen(command, start_new_session=True)
+    try:
+        return subprocess.CompletedProcess(command, child.wait())
+    except BaseException:
+        if child.poll() is None:
+            child.send_signal(signal.SIGINT)
+            try:
+                child.wait(timeout=30)
+            except subprocess.TimeoutExpired:
+                os.killpg(child.pid, signal.SIGTERM)
+                child.wait()
+        raise
+
+
+def stop_requested(_signal, _frame):
+    raise KeyboardInterrupt
+
+
 def wait_for_power(resuming=False):
     while True:
         try:
@@ -51,12 +71,14 @@ def deploy_checkpoint():
     ).strip()
     if branch != "main":
         raise ValueError("Automatic publication requires the approved main branch")
-    paths = ["data/contribution_estimates.json", "data/ai_review/selection.json"]
+    paths = ["data/contribution_estimates.json", "data/ai_review/selection.json",
+             "public/review-evidence"]
     changed = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", *paths])
     if changed.returncode not in (0, 1):
         changed.check_returncode()
     if changed.returncode == 1:
         publication = json.loads((ROOT / paths[0]).read_text())
+        subprocess.run(["git", "add", "--", "public/review-evidence"], check=True)
         subprocess.run([
             "git", "-c", "commit.gpgsign=false", "commit", "--only", "-m",
             f"Publish {publication['overall']['scored']} Qwen estimates", "--", *paths,
@@ -118,7 +140,7 @@ def main():
         ]
         while True:
             wait_for_power()
-            result = subprocess.run(command)
+            result = run_cohort(command)
             if result.returncode == 0:
                 break
             try:
@@ -143,4 +165,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    signal.signal(signal.SIGTERM, stop_requested)
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("Stopped. Completed receipts are preserved.", flush=True)

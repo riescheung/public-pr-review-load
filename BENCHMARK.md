@@ -556,6 +556,18 @@ same model/protocol identity. It pauses at 20% battery and waits for 35%
 before resuming. The optional publication step tests and builds each
 checkpoint before pushing only generated data to `main`.
 
+The overnight launcher uses a macOS user launch agent, not an agent-chat
+loop. It runs the same frozen cohort controller, stops its native worker
+on service shutdown and preserves completed receipts. Untouched cases
+precede retries; complete chunk counts schedule short cases first but do
+not enter the grading prompt.
+
+Web evidence is split losslessly by `prepare_review_assets.py`. Each
+asset is byte-hashed; the web index retains the original inline-publication
+hash. Builds verify that the assets reconstruct that original publication.
+This is a delivery transformation, not another inference protocol or a
+semantic audit of model explanations.
+
 After choosing one candidate, run the baseline and candidate against the
 same reserved test cases with `--unlock-test`, then independently label and
 audit the predictions. Give the candidate a new run ID and retain its base,

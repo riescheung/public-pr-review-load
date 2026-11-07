@@ -80,11 +80,15 @@ def publish_completed(args, benchmark, manifest, publication_path):
 
 
 def pending_publication_cases(cases, publication, model_digest):
-    return [case for case in cases if not (
+    eligible = [case for case in cases if not (
         (row := publication.get("reviews", {}).get(case["group"]["id"]))
         and (row["status"] in ("ok", "abstained", "preflight")
              or publication["models"][row["run"]]["digest"] == model_digest)
     )]
+    return sorted(eligible, key=lambda case: (
+        case["group"]["id"] in publication.get("reviews", {}),
+        case.get("chunk_count", float("inf")), case.get("index", 0),
+    ))
 
 
 def run_worker(args, benchmark, manifest, model):

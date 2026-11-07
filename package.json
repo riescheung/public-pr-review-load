@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "vite --host 0.0.0.0",
+    "prebuild": "python3 scripts/prepare_review_assets.py",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test"
