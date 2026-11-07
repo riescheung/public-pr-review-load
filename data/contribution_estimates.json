@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:23:57.366709+00:00",
+  "generated_at": "2026-11-07T04:24:20.304365+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -1497,15 +1497,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0016": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 331,
+    "failed": 351,
     "reserved": 60,
-    "pending": 16712,
+    "pending": 16692,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -1956,7 +2032,27 @@
       "title:Gilbert09:add generic job queue tables and sdk",
       "title:Gilbert09:add integration service for platform secrets",
       "title:Gilbert09:add kalshi as a warehouse source",
+      "title:Gilbert09:add missing logos to the source catalog",
+      "title:Gilbert09:add polymarket as a warehouse source",
+      "title:Gilbert09:add profound as a warehouse source",
+      "title:Gilbert09:add reference and selector field classes and credential kinds",
+      "title:Gilbert09:add sha1 and hmac sha1 to the stl",
+      "title:Gilbert09:add skill for triaging warehouse sync tickets",
+      "title:Gilbert09:add the databricks destination writer",
+      "title:Gilbert09:add the integrations sdk with three auth types and a model access ratchet",
+      "title:Gilbert09:add the s3 destination writer",
+      "title:Gilbert09:add the snowflake destination writer",
+      "title:Gilbert09:add warehouse scheduler in shadow mode",
+      "title:Gilbert09:add warehouse sync alerts to the alerts platform",
+      "title:Gilbert09:bake the hogland golden snapshot in ci",
+      "title:Gilbert09:bound and interrupt source retry waits",
+      "title:Gilbert09:budget row group fetches and stream parquet writes",
+      "title:Gilbert09:cache deltalite probe keys per data file",
+      "title:Gilbert09:checkpoint the postgres keyset seek on uuid keys",
+      "title:Gilbert09:classify real source errors in one shared test",
+      "title:Gilbert09:classify source fields as connection or sync setting",
       "title:Gilbert09:continue an import only when the source proves its row order",
+      "title:Gilbert09:deltalite real write path phase 2 flag gated",
       "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
       "title:Gilbert09:make row tracking survive redis and billing blips",
       "title:Gilbert09:point source test guidance at the shared driver",
@@ -1971,9 +2067,9 @@
           "groups": 453,
           "scored": 1,
           "abstained": 0,
-          "failed": 33,
+          "failed": 36,
           "reserved": 0,
-          "pending": 419,
+          "pending": 416,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -2014,7 +2110,10 @@
             "title:Gilbert09:add 25 tables to the zendesk source",
             "title:Gilbert09:add 26 tables to the stripe source",
             "title:Gilbert09:add 28 tables to the mailchimp source",
-            "title:Gilbert09:add 38 tables to the github source"
+            "title:Gilbert09:add 38 tables to the github source",
+            "title:Gilbert09:add sha1 and hmac sha1 to the stl",
+            "title:Gilbert09:add skill for triaging warehouse sync tickets",
+            "title:Gilbert09:deltalite real write path phase 2 flag gated"
           ],
           "unmapped_prs": 0
         },
@@ -2022,9 +2121,9 @@
           "groups": 311,
           "scored": 2,
           "abstained": 0,
-          "failed": 19,
+          "failed": 21,
           "reserved": 1,
-          "pending": 289,
+          "pending": 287,
           "mean_tier": 1.5,
           "tiers": {
             "1": 1,
@@ -2052,6 +2151,8 @@
             "title:Gilbert09:add aws organizations import source",
             "title:Gilbert09:add integration service for platform secrets",
             "title:Gilbert09:add kalshi as a warehouse source",
+            "title:Gilbert09:add polymarket as a warehouse source",
+            "title:Gilbert09:add profound as a warehouse source",
             "title:Gilbert09:keep exhausted read timeout errors out of error tracking"
           ],
           "unmapped_prs": 0
@@ -2060,9 +2161,9 @@
           "groups": 196,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 4,
           "reserved": 0,
-          "pending": 193,
+          "pending": 192,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -2072,7 +2173,8 @@
           "review_ids": [
             "pr:91501",
             "pr:92229",
-            "pr:95577"
+            "pr:95577",
+            "title:Gilbert09:bake the hogland golden snapshot in ci"
           ],
           "unmapped_prs": 0
         },
@@ -2080,9 +2182,9 @@
           "groups": 379,
           "scored": 0,
           "abstained": 0,
-          "failed": 5,
+          "failed": 8,
           "reserved": 0,
-          "pending": 374,
+          "pending": 371,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -2094,7 +2196,10 @@
             "pr:102822",
             "pr:103576",
             "pr:78839",
-            "title:Gilbert09:add a warehouse destinations scene"
+            "title:Gilbert09:add a warehouse destinations scene",
+            "title:Gilbert09:add the databricks destination writer",
+            "title:Gilbert09:add the s3 destination writer",
+            "title:Gilbert09:add the snowflake destination writer"
           ],
           "unmapped_prs": 0
         },
@@ -2102,9 +2207,9 @@
           "groups": 584,
           "scored": 1,
           "abstained": 0,
-          "failed": 11,
+          "failed": 13,
           "reserved": 0,
-          "pending": 572,
+          "pending": 570,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2123,6 +2228,8 @@
             "title:Gilbert09:add dagster cloud deployment insights run log and org tables",
             "title:Gilbert09:add durable source cursors move xmin onto them",
             "title:Gilbert09:add generic job queue tables and sdk",
+            "title:Gilbert09:add warehouse scheduler in shadow mode",
+            "title:Gilbert09:budget row group fetches and stream parquet writes",
             "title:Gilbert09:make row tracking survive redis and billing blips"
           ],
           "unmapped_prs": 0
@@ -2131,9 +2238,9 @@
           "groups": 665,
           "scored": 4,
           "abstained": 0,
-          "failed": 3,
+          "failed": 6,
           "reserved": 1,
-          "pending": 657,
+          "pending": 654,
           "mean_tier": 1.25,
           "tiers": {
             "1": 3,
@@ -2146,6 +2253,9 @@
             "title:Gilbert09:add a source contract test suite with ratchet baselines",
             "title:Gilbert09:add amazon s3 import source on a shared object storage backend",
             "title:Gilbert09:add firstpromoter report and referral link tables",
+            "title:Gilbert09:bound and interrupt source retry waits",
+            "title:Gilbert09:checkpoint the postgres keyset seek on uuid keys",
+            "title:Gilbert09:classify real source errors in one shared test",
             "title:Gilbert09:continue an import only when the source proves its row order",
             "title:Gilbert09:point source test guidance at the shared driver"
           ],
@@ -2155,9 +2265,9 @@
           "groups": 539,
           "scored": 1,
           "abstained": 0,
-          "failed": 2,
+          "failed": 8,
           "reserved": 5,
-          "pending": 531,
+          "pending": 525,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2167,7 +2277,13 @@
           "review_ids": [
             "pr:126144",
             "title:Gilbert09:add 4 missing tables to the xmatters source",
-            "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync"
+            "title:Gilbert09:add gcs azure blob and r2 sources with incremental object storage sync",
+            "title:Gilbert09:add missing logos to the source catalog",
+            "title:Gilbert09:add reference and selector field classes and credential kinds",
+            "title:Gilbert09:add the integrations sdk with three auth types and a model access ratchet",
+            "title:Gilbert09:add warehouse sync alerts to the alerts platform",
+            "title:Gilbert09:cache deltalite probe keys per data file",
+            "title:Gilbert09:classify source fields as connection or sync setting"
           ],
           "unmapped_prs": 0
         }
@@ -2176,9 +2292,9 @@
         "groups": 3127,
         "scored": 9,
         "abstained": 0,
-        "failed": 76,
+        "failed": 96,
         "reserved": 7,
-        "pending": 3035,
+        "pending": 3015,
         "mean_tier": 1.4444444444444444,
         "tiers": {
           "1": 5,
@@ -2267,7 +2383,27 @@
           "title:Gilbert09:add generic job queue tables and sdk",
           "title:Gilbert09:add integration service for platform secrets",
           "title:Gilbert09:add kalshi as a warehouse source",
+          "title:Gilbert09:add missing logos to the source catalog",
+          "title:Gilbert09:add polymarket as a warehouse source",
+          "title:Gilbert09:add profound as a warehouse source",
+          "title:Gilbert09:add reference and selector field classes and credential kinds",
+          "title:Gilbert09:add sha1 and hmac sha1 to the stl",
+          "title:Gilbert09:add skill for triaging warehouse sync tickets",
+          "title:Gilbert09:add the databricks destination writer",
+          "title:Gilbert09:add the integrations sdk with three auth types and a model access ratchet",
+          "title:Gilbert09:add the s3 destination writer",
+          "title:Gilbert09:add the snowflake destination writer",
+          "title:Gilbert09:add warehouse scheduler in shadow mode",
+          "title:Gilbert09:add warehouse sync alerts to the alerts platform",
+          "title:Gilbert09:bake the hogland golden snapshot in ci",
+          "title:Gilbert09:bound and interrupt source retry waits",
+          "title:Gilbert09:budget row group fetches and stream parquet writes",
+          "title:Gilbert09:cache deltalite probe keys per data file",
+          "title:Gilbert09:checkpoint the postgres keyset seek on uuid keys",
+          "title:Gilbert09:classify real source errors in one shared test",
+          "title:Gilbert09:classify source fields as connection or sync setting",
           "title:Gilbert09:continue an import only when the source proves its row order",
+          "title:Gilbert09:deltalite real write path phase 2 flag gated",
           "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
           "title:Gilbert09:make row tracking survive redis and billing blips",
           "title:Gilbert09:point source test guidance at the shared driver"
@@ -36791,9 +36927,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "e841d34ef9ef41991b616babe5c77b8383cbe23c2bdf0635a18e921256ee8bde"
+    },
+    "title:Gilbert09:add reference and selector field classes and credential kinds": {
+      "id": "title:Gilbert09:add reference and selector field classes and credential kinds",
+      "prs": [
+        124767
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "866a0619229a4e9c436540b80b92965f9e5f93939a08f5056798c6c1c06aafd2"
+    },
+    "title:Gilbert09:add profound as a warehouse source": {
+      "id": "title:Gilbert09:add profound as a warehouse source",
+      "prs": [
+        85631
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cbe50bd848d9349620653d938a37807ce72d879d8763dd3fdb368edc3d65e486"
+    },
+    "title:Gilbert09:bake the hogland golden snapshot in ci": {
+      "id": "title:Gilbert09:bake the hogland golden snapshot in ci",
+      "prs": [
+        88374
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4f80454893392e0cc62186e513649c9282c3aaa2173ef338c0873e175b587b00"
+    },
+    "title:Gilbert09:checkpoint the postgres keyset seek on uuid keys": {
+      "id": "title:Gilbert09:checkpoint the postgres keyset seek on uuid keys",
+      "prs": [
+        112720
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5852dd178e43378c7dcb070716d94285fbe0d49abb852d07a74acf93cba9d137"
+    },
+    "title:Gilbert09:add sha1 and hmac sha1 to the stl": {
+      "id": "title:Gilbert09:add sha1 and hmac sha1 to the stl",
+      "prs": [
+        77480
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fb04dd98f45ae5022e57f22857b5f44d17093e43d3c90dadc6ee31556cef9282"
+    },
+    "title:Gilbert09:add warehouse scheduler in shadow mode": {
+      "id": "title:Gilbert09:add warehouse scheduler in shadow mode",
+      "prs": [
+        92323
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f82dfb0f1dd884b50aa3a0e99cfe8854a235cd3899fb1929554c4a314cfcc923"
+    },
+    "title:Gilbert09:add missing logos to the source catalog": {
+      "id": "title:Gilbert09:add missing logos to the source catalog",
+      "prs": [
+        128424
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a9689ae9fb12d3cc33f7655f63576e129069a4ae374055effc68a2d16a8fbea1"
+    },
+    "title:Gilbert09:deltalite real write path phase 2 flag gated": {
+      "id": "title:Gilbert09:deltalite real write path phase 2 flag gated",
+      "prs": [
+        75884
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3f7c09f035a4aede3a91f7c2601026cf53f1bd9784870f0f7115b4e0c2bf92b2"
+    },
+    "title:Gilbert09:add polymarket as a warehouse source": {
+      "id": "title:Gilbert09:add polymarket as a warehouse source",
+      "prs": [
+        85532
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "76fab3bdb01115d5a0fb0f8f266122f52dcd5a4e3b18945d66a2a054b4c66d69"
+    },
+    "title:Gilbert09:cache deltalite probe keys per data file": {
+      "id": "title:Gilbert09:cache deltalite probe keys per data file",
+      "prs": [
+        121060
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ce0cce72275c6074430ec98a3a7acfbad2482542eb79bc2577ac69001b5d2045"
+    },
+    "title:Gilbert09:classify real source errors in one shared test": {
+      "id": "title:Gilbert09:classify real source errors in one shared test",
+      "prs": [
+        120393
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "852a000777eec72ca9d230613244797bcb1829302ba7a832d1979805f8fb5bb6"
+    },
+    "title:Gilbert09:bound and interrupt source retry waits": {
+      "id": "title:Gilbert09:bound and interrupt source retry waits",
+      "prs": [
+        113475
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "19c33c83a8ee53bf6e522bb3a8be68154e70f7105de893e1df3fe337a6e38463"
+    },
+    "title:Gilbert09:add the integrations sdk with three auth types and a model access ratchet": {
+      "id": "title:Gilbert09:add the integrations sdk with three auth types and a model access ratchet",
+      "prs": [
+        124844
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2d3df11bfd1d27f1f8c47325c59afa282956848e6e6f9eb1e476c421032f4f2c"
+    },
+    "title:Gilbert09:add the databricks destination writer": {
+      "id": "title:Gilbert09:add the databricks destination writer",
+      "prs": [
+        87963
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9ca02d89a9ed17d43f9e473df2abb20edda51f1b04c5deae55b605f0cbe7d762"
+    },
+    "title:Gilbert09:add the snowflake destination writer": {
+      "id": "title:Gilbert09:add the snowflake destination writer",
+      "prs": [
+        87962
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "15fec3fad52c8355b3cc65ca8b8b336dd62bad79a581511a843142b252bd2565"
+    },
+    "title:Gilbert09:add warehouse sync alerts to the alerts platform": {
+      "id": "title:Gilbert09:add warehouse sync alerts to the alerts platform",
+      "prs": [
+        121354
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ea29f6f48342c915bf9f67aec9357360f55e2505cd2c112c409d6dcdcdd6ef39"
+    },
+    "title:Gilbert09:classify source fields as connection or sync setting": {
+      "id": "title:Gilbert09:classify source fields as connection or sync setting",
+      "prs": [
+        124009
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4ead5bb43dd53293c1b8f32f6b28c56501cff02d097aa4d95dece8b6a79d9de0"
+    },
+    "title:Gilbert09:add skill for triaging warehouse sync tickets": {
+      "id": "title:Gilbert09:add skill for triaging warehouse sync tickets",
+      "prs": [
+        81093
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2a344fbdc845a0a40bc861223a632ddc431671c6dbb6b1b7b6d3bcc4259d5255"
+    },
+    "title:Gilbert09:budget row group fetches and stream parquet writes": {
+      "id": "title:Gilbert09:budget row group fetches and stream parquet writes",
+      "prs": [
+        111440
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "958c737aa2bb7a88cde884cff447e53b650c61dae6d85c9918a91e7c49d0acbc"
+    },
+    "title:Gilbert09:add the s3 destination writer": {
+      "id": "title:Gilbert09:add the s3 destination writer",
+      "prs": [
+        87965
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0016",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2f39b37ddbec2ea1a479fa3bd496d2bb1cad2021dc8b9086fe0b95c9e380fafb"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "ec00c65cdedbf5c00825b741dd5015743f39b8110824fb035156bac3b7fac282",
-  "sha256": "5b509f6d846d6368f5f82d47ffc2e5d9edb0ed6a8e0581bf10ed286eeac72b7a"
+  "inline_publication_sha256": "e86b191c6c7e2d1851744c2fb501cddbc4e0880d322fcc48c02265f2fc0245fd",
+  "sha256": "0ffcba8014756ebd5ce3d501d6279ff2a28b23fa113f44c89490c4c3bb6f64e4"
 }
