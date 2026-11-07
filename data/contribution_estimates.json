@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T13:09:52.847936+00:00",
+  "generated_at": "2026-11-07T13:24:22.772655+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -6057,19 +6057,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0076": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 688,
+    "scored": 708,
     "abstained": 7,
     "failed": 953,
     "reserved": 60,
-    "pending": 15512,
-    "mean_tier": 1.558139534883721,
+    "pending": 15492,
+    "mean_tier": 1.5663841807909604,
     "tiers": {
-      "1": 304,
-      "2": 384,
+      "1": 307,
+      "2": 401,
       "3": 0
     },
     "review_ids": [
@@ -7080,7 +7156,27 @@
       "title:DanielVisca:use locked dependencies for nextest source installs",
       "title:DanielVisca:wait for the feature preview before loading metric names",
       "title:DanielVisca:wire hog log transformations into logs ingestion default off",
+      "title:EDsCODE:add internal testing lifecycle state",
+      "title:EDsCODE:allow six hour trino shadow execution",
+      "title:EDsCODE:avoid privileged trino session settings",
+      "title:EDsCODE:batch ducklake add data files registration",
+      "title:EDsCODE:bypass environment proxies for managed trino",
+      "title:EDsCODE:default send raw query to on for the managed warehouse connection",
+      "title:EDsCODE:discover trino schemas in bounded batches",
+      "title:EDsCODE:evaluate trino backfill flag remotely in dagster",
+      "title:EDsCODE:exclude direct sources from readiness",
+      "title:EDsCODE:extend trino shadow execution deadline",
       "title:EDsCODE:extract ducklake into its own product",
+      "title:EDsCODE:gate ducklake registration on a provisioned duckgres server",
+      "title:EDsCODE:heartbeat and stop cancelled view translations",
+      "title:EDsCODE:hide drafts for direct connections",
+      "title:EDsCODE:hide managed connection for trino",
+      "title:EDsCODE:keep raw mode when opening managed queries",
+      "title:EDsCODE:keep registration heartbeat through metrics",
+      "title:EDsCODE:log trino readiness failure reasons",
+      "title:EDsCODE:pass the org to the hogtower database name check",
+      "title:EDsCODE:preserve limits in trino translation",
+      "title:EDsCODE:preserve logical fields during trino resolution",
       "title:EDsCODE:use service credentials for trino",
       "title:GeneralistDev:add an interactive terminal dashboard",
       "title:GeneralistDev:add evals for sql routing misses and chart answers",
@@ -20307,43 +20403,49 @@
       "periods": [
         {
           "groups": 23,
-          "scored": 1,
+          "scored": 6,
           "abstained": 0,
           "failed": 3,
           "reserved": 2,
-          "pending": 17,
+          "pending": 12,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 1,
+            "2": 6,
             "3": 0
           },
           "review_ids": [
             "pr:76480",
             "pr:77004",
             "pr:77747",
-            "title:EDsCODE:extract ducklake into its own product"
+            "title:EDsCODE:default send raw query to on for the managed warehouse connection",
+            "title:EDsCODE:exclude direct sources from readiness",
+            "title:EDsCODE:extract ducklake into its own product",
+            "title:EDsCODE:gate ducklake registration on a provisioned duckgres server",
+            "title:EDsCODE:keep raw mode when opening managed queries",
+            "title:EDsCODE:keep registration heartbeat through metrics"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 10,
-          "scored": 3,
+          "scored": 4,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 6,
+          "pending": 5,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 3,
+            "2": 4,
             "3": 0
           },
           "review_ids": [
             "pr:82785",
             "pr:82885",
             "pr:82972",
-            "pr:84697"
+            "pr:84697",
+            "title:EDsCODE:batch ducklake add data files registration"
           ],
           "unmapped_prs": 0
         },
@@ -20367,90 +20469,105 @@
         },
         {
           "groups": 12,
-          "scored": 1,
+          "scored": 7,
           "abstained": 0,
           "failed": 3,
           "reserved": 1,
-          "pending": 7,
-          "mean_tier": 2.0,
+          "pending": 1,
+          "mean_tier": 1.7142857142857142,
           "tiers": {
-            "1": 0,
-            "2": 1,
+            "1": 2,
+            "2": 5,
             "3": 0
           },
           "review_ids": [
             "pr:103188",
             "pr:98040",
             "pr:99354",
-            "pr:99546"
+            "pr:99546",
+            "title:EDsCODE:discover trino schemas in bounded batches",
+            "title:EDsCODE:heartbeat and stop cancelled view translations",
+            "title:EDsCODE:hide drafts for direct connections",
+            "title:EDsCODE:log trino readiness failure reasons",
+            "title:EDsCODE:preserve limits in trino translation",
+            "title:EDsCODE:preserve logical fields during trino resolution"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 9,
-          "scored": 0,
+          "scored": 4,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 8,
-          "mean_tier": null,
+          "pending": 4,
+          "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 0,
+            "2": 4,
             "3": 0
           },
           "review_ids": [
+            "title:EDsCODE:allow six hour trino shadow execution",
+            "title:EDsCODE:avoid privileged trino session settings",
+            "title:EDsCODE:bypass environment proxies for managed trino",
+            "title:EDsCODE:extend trino shadow execution deadline",
             "title:EDsCODE:use service credentials for trino"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 9,
-          "scored": 2,
+          "scored": 3,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 7,
+          "pending": 6,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 2,
+            "2": 3,
             "3": 0
           },
           "review_ids": [
             "pr:116508",
-            "pr:118278"
+            "pr:118278",
+            "title:EDsCODE:hide managed connection for trino"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 8,
-          "scored": 0,
+          "scored": 3,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 8,
-          "mean_tier": null,
+          "pending": 5,
+          "mean_tier": 1.6666666666666667,
           "tiers": {
-            "1": 0,
-            "2": 0,
+            "1": 1,
+            "2": 2,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:EDsCODE:add internal testing lifecycle state",
+            "title:EDsCODE:evaluate trino backfill flag remotely in dagster",
+            "title:EDsCODE:pass the org to the hogtower database name check"
+          ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 74,
-        "scored": 8,
+        "scored": 28,
         "abstained": 0,
         "failed": 8,
         "reserved": 4,
-        "pending": 54,
-        "mean_tier": 2.0,
+        "pending": 34,
+        "mean_tier": 1.8928571428571428,
         "tiers": {
-          "1": 0,
-          "2": 8,
+          "1": 3,
+          "2": 25,
           "3": 0
         },
         "review_ids": [
@@ -20468,7 +20585,27 @@
           "pr:98040",
           "pr:99354",
           "pr:99546",
+          "title:EDsCODE:add internal testing lifecycle state",
+          "title:EDsCODE:allow six hour trino shadow execution",
+          "title:EDsCODE:avoid privileged trino session settings",
+          "title:EDsCODE:batch ducklake add data files registration",
+          "title:EDsCODE:bypass environment proxies for managed trino",
+          "title:EDsCODE:default send raw query to on for the managed warehouse connection",
+          "title:EDsCODE:discover trino schemas in bounded batches",
+          "title:EDsCODE:evaluate trino backfill flag remotely in dagster",
+          "title:EDsCODE:exclude direct sources from readiness",
+          "title:EDsCODE:extend trino shadow execution deadline",
           "title:EDsCODE:extract ducklake into its own product",
+          "title:EDsCODE:gate ducklake registration on a provisioned duckgres server",
+          "title:EDsCODE:heartbeat and stop cancelled view translations",
+          "title:EDsCODE:hide drafts for direct connections",
+          "title:EDsCODE:hide managed connection for trino",
+          "title:EDsCODE:keep raw mode when opening managed queries",
+          "title:EDsCODE:keep registration heartbeat through metrics",
+          "title:EDsCODE:log trino readiness failure reasons",
+          "title:EDsCODE:pass the org to the hogtower database name check",
+          "title:EDsCODE:preserve limits in trino translation",
+          "title:EDsCODE:preserve logical fields during trino resolution",
           "title:EDsCODE:use service credentials for trino"
         ],
         "unmapped_prs": 0
@@ -59687,9 +59824,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "165fadd28290dfebf05820e9f4d78755a928a829c2b0d6cb1b190268a189d00c"
+    },
+    "title:EDsCODE:default send raw query to on for the managed warehouse connection": {
+      "id": "title:EDsCODE:default send raw query to on for the managed warehouse connection",
+      "prs": [
+        74679
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "253a2c6c261a970db572f73445b5f1357f9cbc36ede6a25304d9a2b4f1ef14c5"
+    },
+    "title:EDsCODE:evaluate trino backfill flag remotely in dagster": {
+      "id": "title:EDsCODE:evaluate trino backfill flag remotely in dagster",
+      "prs": [
+        126661
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "562fda4f5bf880e0d640eec74d2027da43a5d58352ae5bc2b91844bfdb1aa146"
+    },
+    "title:EDsCODE:gate ducklake registration on a provisioned duckgres server": {
+      "id": "title:EDsCODE:gate ducklake registration on a provisioned duckgres server",
+      "prs": [
+        76982
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7b34acca58e872391b1cc7bd50b292ea930373f6cd3b9b2a9d85362d934ab2ea"
+    },
+    "title:EDsCODE:hide drafts for direct connections": {
+      "id": "title:EDsCODE:hide drafts for direct connections",
+      "prs": [
+        98452
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "675d5bdb561136389e6d9fc33e77b10585d5e5b1e87e06992adb728d65377cc2"
+    },
+    "title:EDsCODE:avoid privileged trino session settings": {
+      "id": "title:EDsCODE:avoid privileged trino session settings",
+      "prs": [
+        105511
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "76c518f3bfd8ad11f7ee433dc4195a2da9389449f7a6e821f7a639935b0883b2"
+    },
+    "title:EDsCODE:allow six hour trino shadow execution": {
+      "id": "title:EDsCODE:allow six hour trino shadow execution",
+      "prs": [
+        111981
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1f69f871ee4639333ea9d2c0329fd32379b1409035180c399c31079d19d21429"
+    },
+    "title:EDsCODE:exclude direct sources from readiness": {
+      "id": "title:EDsCODE:exclude direct sources from readiness",
+      "prs": [
+        77008
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "57fd5fd8669e897ddb9d4c0df8cb50b9ce04b155dfd57f6b8a4f34964340644e"
+    },
+    "title:EDsCODE:extend trino shadow execution deadline": {
+      "id": "title:EDsCODE:extend trino shadow execution deadline",
+      "prs": [
+        111874
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "701365d80a39af1d41b056685f0d34bfb6ff40280b5ed4a29f04fe44f742a195"
+    },
+    "title:EDsCODE:add internal testing lifecycle state": {
+      "id": "title:EDsCODE:add internal testing lifecycle state",
+      "prs": [
+        122297
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0c8288ae1b7b84eb3fadb6475a0208dc0eeb9ce9363fe0c0539d25040d410e0f"
+    },
+    "title:EDsCODE:keep raw mode when opening managed queries": {
+      "id": "title:EDsCODE:keep raw mode when opening managed queries",
+      "prs": [
+        75396
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "66bcb40b47ef9825583879f631c74c7ed4a945eb90faa0be8cd7b3ff791e399c"
+    },
+    "title:EDsCODE:log trino readiness failure reasons": {
+      "id": "title:EDsCODE:log trino readiness failure reasons",
+      "prs": [
+        101953
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2b4238ef0beee338a583b078f4e874d16407442110c8c681a378d0aa32bb6549"
+    },
+    "title:EDsCODE:preserve limits in trino translation": {
+      "id": "title:EDsCODE:preserve limits in trino translation",
+      "prs": [
+        104041
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bbb210ad01c64e293f13b7666659d85ee143c75433e2ec7059f3f802c056494d"
+    },
+    "title:EDsCODE:discover trino schemas in bounded batches": {
+      "id": "title:EDsCODE:discover trino schemas in bounded batches",
+      "prs": [
+        98564
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "af57c90ca73edf4f9d4e36d10f8addc8f49786f5883e12f7f1e78513009a029f"
+    },
+    "title:EDsCODE:hide managed connection for trino": {
+      "id": "title:EDsCODE:hide managed connection for trino",
+      "prs": [
+        117369
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ac8b783d3ad72c32870f96dab055ad0bb029d2fc233a4ece208f0549dfee42e7"
+    },
+    "title:EDsCODE:keep registration heartbeat through metrics": {
+      "id": "title:EDsCODE:keep registration heartbeat through metrics",
+      "prs": [
+        77001
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c023d0283150d8249659865957ff747b7b0024505baf382677da9f61891b06c0"
+    },
+    "title:EDsCODE:bypass environment proxies for managed trino": {
+      "id": "title:EDsCODE:bypass environment proxies for managed trino",
+      "prs": [
+        104804
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5c2015a541bad9f74935e87515c33a363bb0f57f9aaeb8734250b1b709d97f3e"
+    },
+    "title:EDsCODE:pass the org to the hogtower database name check": {
+      "id": "title:EDsCODE:pass the org to the hogtower database name check",
+      "prs": [
+        125015
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7b328ba7d80b3caee7f2eeda7cc1b20d815fb90b925838a58b6f6e75b387890c"
+    },
+    "title:EDsCODE:heartbeat and stop cancelled view translations": {
+      "id": "title:EDsCODE:heartbeat and stop cancelled view translations",
+      "prs": [
+        102542
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f57b8ab4851bdccf78760227414da2857cdd6a03f6601cf173311096f0d72a12"
+    },
+    "title:EDsCODE:batch ducklake add data files registration": {
+      "id": "title:EDsCODE:batch ducklake add data files registration",
+      "prs": [
+        83424
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c74e5a48a4b60b5d92e9eeb3ee9335ce960b377afa7678cf7777783bd0f7e5ed"
+    },
+    "title:EDsCODE:preserve logical fields during trino resolution": {
+      "id": "title:EDsCODE:preserve logical fields during trino resolution",
+      "prs": [
+        102530
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0076",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bf5289f69842439fc7537f4c30a0609f12c9760892acc0bcd14f7e328aff2f40"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "2982224d0bd5013e5c6dca417cef12a431bf0fdfe9a534d5a3b8f989491f7549",
-  "sha256": "adacc128e86d9eb60e6eec373c6761432c654d102c5551cb499632cd3e1889fe"
+  "inline_publication_sha256": "c6965bba3bc5f8764b9780a122bdb3098d7fff9c2dfb8a0639f5da56e1933b56",
+  "sha256": "fddcbbd861597b0356ebed94c33d19784ecd4261355e4be84321cae36a230a72"
 }
