@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:26:26.056239+00:00",
+  "generated_at": "2026-11-07T04:26:50.462820+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -1877,15 +1877,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0021": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 431,
+    "failed": 451,
     "reserved": 60,
-    "pending": 16612,
+    "pending": 16592,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2440,6 +2516,26 @@
       "title:Gilbert09:split planetscale into mysql and postgres sources",
       "title:Gilbert09:stop re opening the delta table on every deltalite upsert",
       "title:Gilbert09:store source credentials in provider kind integration rows",
+      "title:Gilbert09:stream the repartition rewrite with bounded memory",
+      "title:Gilbert09:support stripe api version 2026 10 28 endive",
+      "title:Gilbert09:sync a table to destinations starting with postgres",
+      "title:Gilbert09:sync appsignal apps logs metrics and traces",
+      "title:Gilbert09:update the adding inbox sources skill for the in repo inbox",
+      "title:JakeRuth:mirror langgraph conversations into tasks after each turn",
+      "title:JakeRuth:re land skill discovery via exec learn behind a flag",
+      "title:JamesPatrickGill:add shadow compare mode to the flags cache builder",
+      "title:JamesPatrickGill:add version aware rollout endpoints",
+      "title:JamesPatrickGill:detect stale flag health issues",
+      "title:JamesPatrickGill:execute stale flag cleanup from repositories",
+      "title:JamesPatrickGill:generate and store issue summaries",
+      "title:JamesPatrickGill:improve ai lifecycle tool selection",
+      "title:JamesPatrickGill:judge a sample of auto merge decisions inline",
+      "title:JamesPatrickGill:record the instrumentation skill source of truth",
+      "title:MattBro:ai enrichment lab edit test run and switch classifier versions",
+      "title:MattBro:classify companies with versioned llm label configs",
+      "title:MattBro:delete three finished one off management commands",
+      "title:MattBro:edit icp formulas using saved enrichment inputs",
+      "title:MattBro:gate harmonic calls through a shared budget",
       "title:Piccirello:name the posthog hosts in style src and font src"
     ],
     "unmapped_prs": 14
@@ -2568,9 +2664,9 @@
           "groups": 196,
           "scored": 0,
           "abstained": 0,
-          "failed": 7,
+          "failed": 8,
           "reserved": 0,
-          "pending": 189,
+          "pending": 188,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -2584,7 +2680,8 @@
             "title:Gilbert09:bake the hogland golden snapshot in ci",
             "title:Gilbert09:one way to read posthog s own credentials",
             "title:Gilbert09:scaffold folk and cybersource sources",
-            "title:Gilbert09:scaffold lovable and zenchef sources"
+            "title:Gilbert09:scaffold lovable and zenchef sources",
+            "title:Gilbert09:sync a table to destinations starting with postgres"
           ],
           "unmapped_prs": 0
         },
@@ -2592,9 +2689,9 @@
           "groups": 379,
           "scored": 0,
           "abstained": 0,
-          "failed": 11,
+          "failed": 12,
           "reserved": 0,
-          "pending": 368,
+          "pending": 367,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -2612,7 +2709,8 @@
             "title:Gilbert09:add the snowflake destination writer",
             "title:Gilbert09:scaffold expo postnord and commslayer sources",
             "title:Gilbert09:scaffold the amplemarket warehouse source",
-            "title:Gilbert09:scaffold the electricity maps source"
+            "title:Gilbert09:scaffold the electricity maps source",
+            "title:Gilbert09:sync appsignal apps logs metrics and traces"
           ],
           "unmapped_prs": 0
         },
@@ -2620,9 +2718,9 @@
           "groups": 584,
           "scored": 1,
           "abstained": 0,
-          "failed": 42,
+          "failed": 43,
           "reserved": 0,
-          "pending": 541,
+          "pending": 540,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2672,7 +2770,8 @@
             "title:Gilbert09:remove the v2 import pipeline",
             "title:Gilbert09:scaffold audiogo exact online and lettrlabs sources",
             "title:Gilbert09:scaffold the sprinto and gem import sources",
-            "title:Gilbert09:stop re opening the delta table on every deltalite upsert"
+            "title:Gilbert09:stop re opening the delta table on every deltalite upsert",
+            "title:Gilbert09:stream the repartition rewrite with bounded memory"
           ],
           "unmapped_prs": 0
         },
@@ -2721,9 +2820,9 @@
           "groups": 539,
           "scored": 1,
           "abstained": 0,
-          "failed": 16,
+          "failed": 18,
           "reserved": 5,
-          "pending": 517,
+          "pending": 515,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2747,7 +2846,9 @@
             "title:Gilbert09:route source job inputs through one store",
             "title:Gilbert09:scaffold 1 newly requested source",
             "title:Gilbert09:scaffold 2 newly requested sources",
-            "title:Gilbert09:store source credentials in provider kind integration rows"
+            "title:Gilbert09:store source credentials in provider kind integration rows",
+            "title:Gilbert09:support stripe api version 2026 10 28 endive",
+            "title:Gilbert09:update the adding inbox sources skill for the in repo inbox"
           ],
           "unmapped_prs": 0
         }
@@ -2756,9 +2857,9 @@
         "groups": 3127,
         "scored": 9,
         "abstained": 0,
-        "failed": 176,
+        "failed": 181,
         "reserved": 7,
-        "pending": 2935,
+        "pending": 2930,
         "mean_tier": 1.4444444444444444,
         "tiers": {
           "1": 5,
@@ -2950,7 +3051,12 @@
           "title:Gilbert09:scaffold wps office and terabox sources",
           "title:Gilbert09:split planetscale into mysql and postgres sources",
           "title:Gilbert09:stop re opening the delta table on every deltalite upsert",
-          "title:Gilbert09:store source credentials in provider kind integration rows"
+          "title:Gilbert09:store source credentials in provider kind integration rows",
+          "title:Gilbert09:stream the repartition rewrite with bounded memory",
+          "title:Gilbert09:support stripe api version 2026 10 28 endive",
+          "title:Gilbert09:sync a table to destinations starting with postgres",
+          "title:Gilbert09:sync appsignal apps logs metrics and traces",
+          "title:Gilbert09:update the adding inbox sources skill for the in repo inbox"
         ],
         "unmapped_prs": 0
       }
@@ -10939,16 +11045,19 @@
           "groups": 14,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 14,
+          "pending": 12,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:MattBro:ai enrichment lab edit test run and switch classifier versions",
+            "title:MattBro:classify companies with versioned llm label configs"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -10971,16 +11080,18 @@
           "groups": 9,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:MattBro:gate harmonic calls through a shared budget"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -11003,16 +11114,19 @@
           "groups": 20,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 20,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:MattBro:delete three finished one off management commands",
+            "title:MattBro:edit icp formulas using saved enrichment inputs"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -11052,16 +11166,22 @@
         "groups": 89,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 5,
         "reserved": 0,
-        "pending": 89,
+        "pending": 84,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:MattBro:ai enrichment lab edit test run and switch classifier versions",
+          "title:MattBro:classify companies with versioned llm label configs",
+          "title:MattBro:delete three finished one off management commands",
+          "title:MattBro:edit icp formulas using saved enrichment inputs",
+          "title:MattBro:gate harmonic calls through a shared budget"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -12053,9 +12173,9 @@
           "groups": 5,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 4,
+          "pending": 3,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -12063,7 +12183,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:30174"
+            "issue:30174",
+            "title:JamesPatrickGill:add shadow compare mode to the flags cache builder"
           ],
           "unmapped_prs": 0
         },
@@ -12071,32 +12192,39 @@
           "groups": 18,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 18,
+          "pending": 17,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:JamesPatrickGill:record the instrumentation skill source of truth"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 19,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 4,
           "reserved": 0,
-          "pending": 19,
+          "pending": 15,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:JamesPatrickGill:add version aware rollout endpoints",
+            "title:JamesPatrickGill:detect stale flag health issues",
+            "title:JamesPatrickGill:execute stale flag cleanup from repositories",
+            "title:JamesPatrickGill:improve ai lifecycle tool selection"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -12119,25 +12247,27 @@
           "groups": 11,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 11,
+          "pending": 10,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:JamesPatrickGill:judge a sample of auto merge decisions inline"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 19,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 18,
+          "pending": 17,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -12145,7 +12275,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:101758"
+            "issue:101758",
+            "title:JamesPatrickGill:generate and store issue summaries"
           ],
           "unmapped_prs": 0
         }
@@ -12154,9 +12285,9 @@
         "groups": 83,
         "scored": 2,
         "abstained": 0,
-        "failed": 0,
+        "failed": 8,
         "reserved": 0,
-        "pending": 81,
+        "pending": 73,
         "mean_tier": 1.5,
         "tiers": {
           "1": 1,
@@ -12165,7 +12296,15 @@
         },
         "review_ids": [
           "issue:101758",
-          "issue:30174"
+          "issue:30174",
+          "title:JamesPatrickGill:add shadow compare mode to the flags cache builder",
+          "title:JamesPatrickGill:add version aware rollout endpoints",
+          "title:JamesPatrickGill:detect stale flag health issues",
+          "title:JamesPatrickGill:execute stale flag cleanup from repositories",
+          "title:JamesPatrickGill:generate and store issue summaries",
+          "title:JamesPatrickGill:improve ai lifecycle tool selection",
+          "title:JamesPatrickGill:judge a sample of auto merge decisions inline",
+          "title:JamesPatrickGill:record the instrumentation skill source of truth"
         ],
         "unmapped_prs": 0
       }
@@ -15164,16 +15303,19 @@
           "groups": 17,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 17,
+          "pending": 15,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:JakeRuth:mirror langgraph conversations into tasks after each turn",
+            "title:JakeRuth:re land skill discovery via exec learn behind a flag"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -15229,16 +15371,19 @@
         "groups": 41,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 2,
         "reserved": 0,
-        "pending": 41,
+        "pending": 39,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:JakeRuth:mirror langgraph conversations into tasks after each turn",
+          "title:JakeRuth:re land skill discovery via exec learn behind a flag"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -38699,9 +38844,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "9c630ac0b8be24c4b2fa177030859d2393b0362e0866444d9232adaba7c8a12b"
+    },
+    "title:Gilbert09:stream the repartition rewrite with bounded memory": {
+      "id": "title:Gilbert09:stream the repartition rewrite with bounded memory",
+      "prs": [
+        111992
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c6b59b83261ba2e5d1e36067d3a327861e2a6e7ba4d5770d1360a46ae62b08c6"
+    },
+    "title:JamesPatrickGill:generate and store issue summaries": {
+      "id": "title:JamesPatrickGill:generate and store issue summaries",
+      "prs": [
+        121371
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5820eb0a3cae433f5bda970a8e6beb75275a8304265b8eaffb8344c78255f3f6"
+    },
+    "title:MattBro:gate harmonic calls through a shared budget": {
+      "id": "title:MattBro:gate harmonic calls through a shared budget",
+      "prs": [
+        92785
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "de8fcf9b846c01077883bdcad7906dd68be5b47418630e41ac8a7daccdcc9860"
+    },
+    "title:JakeRuth:mirror langgraph conversations into tasks after each turn": {
+      "id": "title:JakeRuth:mirror langgraph conversations into tasks after each turn",
+      "prs": [
+        98936
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e268eaf8633faec99e6b771a2d492e7e25145f151544727622c944815bedf8ab"
+    },
+    "title:Gilbert09:support stripe api version 2026 10 28 endive": {
+      "id": "title:Gilbert09:support stripe api version 2026 10 28 endive",
+      "prs": [
+        126965
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6ef10d1eace1f85c900c0e99523c0562b9df62f824ab7662956d14a1787bc215"
+    },
+    "title:JamesPatrickGill:execute stale flag cleanup from repositories": {
+      "id": "title:JamesPatrickGill:execute stale flag cleanup from repositories",
+      "prs": [
+        95194
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ab1321171a020b52eac92e90e7c72098dac76234bd3a2ca0a256885d16aa4651"
+    },
+    "title:MattBro:delete three finished one off management commands": {
+      "id": "title:MattBro:delete three finished one off management commands",
+      "prs": [
+        108612
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d0547060a0555b8766e370883494019da8117913756af2f48de8d96a4768e599"
+    },
+    "title:JamesPatrickGill:add version aware rollout endpoints": {
+      "id": "title:JamesPatrickGill:add version aware rollout endpoints",
+      "prs": [
+        100151
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a158c7679a3e171c10d2409953352b0e47510d197a4780f14cc783dfae6e6589"
+    },
+    "title:Gilbert09:update the adding inbox sources skill for the in repo inbox": {
+      "id": "title:Gilbert09:update the adding inbox sources skill for the in repo inbox",
+      "prs": [
+        121985
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8af049dc1343dbc5e05255fc20900d270bf00f4595337af09b9c17772393df8e"
+    },
+    "title:JamesPatrickGill:add shadow compare mode to the flags cache builder": {
+      "id": "title:JamesPatrickGill:add shadow compare mode to the flags cache builder",
+      "prs": [
+        87891
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "56785705344a798e90ad99179db7a2bcd929b505549ab1c960e7234b3f89124f"
+    },
+    "title:Gilbert09:sync a table to destinations starting with postgres": {
+      "id": "title:Gilbert09:sync a table to destinations starting with postgres",
+      "prs": [
+        86986
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8017dcbd569d177acc7229e5cc3316de3d4e34cb4719d85dcd71eafd8582b7e4"
+    },
+    "title:MattBro:ai enrichment lab edit test run and switch classifier versions": {
+      "id": "title:MattBro:ai enrichment lab edit test run and switch classifier versions",
+      "prs": [
+        75754
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7b5f9c7e42b50c2acddd7b4d4eb91f9b312b6ad91565f06ac783b0196e2cb1f9"
+    },
+    "title:JamesPatrickGill:judge a sample of auto merge decisions inline": {
+      "id": "title:JamesPatrickGill:judge a sample of auto merge decisions inline",
+      "prs": [
+        117087
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "67fca8d091983f1da9d578bfc89e39569dbe1aaeb63f2df21cd6b6fe6287a048"
+    },
+    "title:MattBro:classify companies with versioned llm label configs": {
+      "id": "title:MattBro:classify companies with versioned llm label configs",
+      "prs": [
+        74912
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0ae982292416bfeb1f50ea3b614900361ae8aae0f845da696b91925576365eae"
+    },
+    "title:Gilbert09:sync appsignal apps logs metrics and traces": {
+      "id": "title:Gilbert09:sync appsignal apps logs metrics and traces",
+      "prs": [
+        99233
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "032d222f2cba4f6ffbd0af861a6c321180f412d699161e728d42cb42a2babfc9"
+    },
+    "title:JamesPatrickGill:improve ai lifecycle tool selection": {
+      "id": "title:JamesPatrickGill:improve ai lifecycle tool selection",
+      "prs": [
+        96064
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3d01c8b9fb088484ea4b12ffc6f1d42563868c2ac97f46e1884638fb35816c11"
+    },
+    "title:JamesPatrickGill:detect stale flag health issues": {
+      "id": "title:JamesPatrickGill:detect stale flag health issues",
+      "prs": [
+        95189
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8c93b950768787f6654947a4728f419b9a3b461b3f059504764f2ca9429e3479"
+    },
+    "title:JamesPatrickGill:record the instrumentation skill source of truth": {
+      "id": "title:JamesPatrickGill:record the instrumentation skill source of truth",
+      "prs": [
+        90943
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "62845661ca1c3d7dc7360f1ea006841c51d6fbeb41da8562e7c5130d9cf0e728"
+    },
+    "title:MattBro:edit icp formulas using saved enrichment inputs": {
+      "id": "title:MattBro:edit icp formulas using saved enrichment inputs",
+      "prs": [
+        103792
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d29aac6e724111a2f89089fbf202777f34959fd36a8da37c5086e27890024f3b"
+    },
+    "title:JakeRuth:re land skill discovery via exec learn behind a flag": {
+      "id": "title:JakeRuth:re land skill discovery via exec learn behind a flag",
+      "prs": [
+        95434
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0021",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c7f43b8185d2a21f41be1cc0902b8ad4dfbe28e79d5dc3fb9a17c76b38e20b6d"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "bd7a05ce768a2374ed52c86250c7227717c7bc6f03d5924a0620fcf1e40d2f16",
-  "sha256": "1942e133b188249c8d3f164af194c428f69e832d6f6e933de13fcdedfda882b5"
+  "inline_publication_sha256": "c0253f8baec1c4c554e269429f405eddfab2c267c1e077808307e447f55d3fe2",
+  "sha256": "83ef92bdee6aefea20e3c22c28616ab3d599199ecd9f12d75e1eb8e4996d60f2"
 }
