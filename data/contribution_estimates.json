@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:33:42.481078+00:00",
+  "generated_at": "2026-11-07T04:34:11.638662+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3017,15 +3017,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0036": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 731,
+    "failed": 751,
     "reserved": 60,
-    "pending": 16312,
+    "pending": 16292,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3880,7 +3956,27 @@
       "title:danielcarletti:implement azure cosmos db source",
       "title:danielcarletti:implement azure log analytics source",
       "title:danielcarletti:implement the singular import source",
-      "title:danielcarletti:match fivetran connectors to posthog sources by rule"
+      "title:danielcarletti:match fivetran connectors to posthog sources by rule",
+      "title:danielcarletti:serve cdc only and both table modes from the buffer",
+      "title:danielcarletti:sync activities self report workload to redis",
+      "title:dmarchuk:add a tile canvas editor behind a flag",
+      "title:dmarchuk:add broadcasts prototype on top of workflows",
+      "title:dmarchuk:add the proposal api behind the self optimising flag",
+      "title:dmarchuk:build the date based delay in the workflow editor",
+      "title:dmarchuk:clarify paths in the linear editor",
+      "title:dmarchuk:delete the finished conversion window migration command",
+      "title:dmarchuk:draft cross product emails with ai and a template fallback",
+      "title:dmarchuk:import customer io automations as draft workflows",
+      "title:dmarchuk:let a delay wait until a date carried by the person or event",
+      "title:dmarchuk:make the unsubscribe footer a real link in email templates",
+      "title:dmarchuk:point the email template banner at our own unlayer project",
+      "title:dmarchuk:prototype the push registration endpoint in node",
+      "title:dmarchuk:read an applied suggestion s outcome per published version",
+      "title:dmarchuk:remove cyclotron v1 rust crates and napi binding",
+      "title:dmarchuk:scroll step settings with the panel and give the email preview room",
+      "title:dmarchuk:serve push registrations only from the node push api",
+      "title:dmarchuk:show pending suggestions on the workflow page",
+      "title:dmarchuk:start a new broadcast from a description with posthog ai"
     ],
     "unmapped_prs": 14
   },
@@ -5359,16 +5455,22 @@
           "groups": 25,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 5,
           "reserved": 0,
-          "pending": 25,
+          "pending": 20,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:dmarchuk:build the date based delay in the workflow editor",
+            "title:dmarchuk:let a delay wait until a date carried by the person or event",
+            "title:dmarchuk:make the unsubscribe footer a real link in email templates",
+            "title:dmarchuk:point the email template banner at our own unlayer project",
+            "title:dmarchuk:remove cyclotron v1 rust crates and napi binding"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -5391,25 +5493,9 @@
           "groups": 24,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 24,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 65,
-          "scored": 0,
-          "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 64,
+          "pending": 23,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5417,7 +5503,32 @@
             "3": 0
           },
           "review_ids": [
-            "pr:105601"
+            "title:dmarchuk:add broadcasts prototype on top of workflows"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 65,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 8,
+          "reserved": 0,
+          "pending": 57,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:105601",
+            "title:dmarchuk:add the proposal api behind the self optimising flag",
+            "title:dmarchuk:clarify paths in the linear editor",
+            "title:dmarchuk:delete the finished conversion window migration command",
+            "title:dmarchuk:prototype the push registration endpoint in node",
+            "title:dmarchuk:read an applied suggestion s outcome per published version",
+            "title:dmarchuk:show pending suggestions on the workflow page",
+            "title:dmarchuk:start a new broadcast from a description with posthog ai"
           ],
           "unmapped_prs": 0
         },
@@ -5425,25 +5536,9 @@
           "groups": 66,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 1,
-          "pending": 65,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 64,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 1,
-          "reserved": 0,
-          "pending": 63,
+          "pending": 62,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5451,7 +5546,29 @@
             "3": 0
           },
           "review_ids": [
-            "pr:124197"
+            "title:dmarchuk:add a tile canvas editor behind a flag",
+            "title:dmarchuk:draft cross product emails with ai and a template fallback",
+            "title:dmarchuk:serve push registrations only from the node push api"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 64,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 61,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:124197",
+            "title:dmarchuk:import customer io automations as draft workflows",
+            "title:dmarchuk:scroll step settings with the panel and give the email preview room"
           ],
           "unmapped_prs": 0
         }
@@ -5460,9 +5577,9 @@
         "groups": 278,
         "scored": 0,
         "abstained": 0,
-        "failed": 2,
+        "failed": 20,
         "reserved": 1,
-        "pending": 275,
+        "pending": 257,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -5471,7 +5588,25 @@
         },
         "review_ids": [
           "pr:105601",
-          "pr:124197"
+          "pr:124197",
+          "title:dmarchuk:add a tile canvas editor behind a flag",
+          "title:dmarchuk:add broadcasts prototype on top of workflows",
+          "title:dmarchuk:add the proposal api behind the self optimising flag",
+          "title:dmarchuk:build the date based delay in the workflow editor",
+          "title:dmarchuk:clarify paths in the linear editor",
+          "title:dmarchuk:delete the finished conversion window migration command",
+          "title:dmarchuk:draft cross product emails with ai and a template fallback",
+          "title:dmarchuk:import customer io automations as draft workflows",
+          "title:dmarchuk:let a delay wait until a date carried by the person or event",
+          "title:dmarchuk:make the unsubscribe footer a real link in email templates",
+          "title:dmarchuk:point the email template banner at our own unlayer project",
+          "title:dmarchuk:prototype the push registration endpoint in node",
+          "title:dmarchuk:read an applied suggestion s outcome per published version",
+          "title:dmarchuk:remove cyclotron v1 rust crates and napi binding",
+          "title:dmarchuk:scroll step settings with the panel and give the email preview room",
+          "title:dmarchuk:serve push registrations only from the node push api",
+          "title:dmarchuk:show pending suggestions on the workflow page",
+          "title:dmarchuk:start a new broadcast from a description with posthog ai"
         ],
         "unmapped_prs": 0
       }
@@ -5681,9 +5816,9 @@
           "groups": 18,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 3,
           "reserved": 0,
-          "pending": 16,
+          "pending": 15,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -5692,7 +5827,8 @@
           },
           "review_ids": [
             "title:danielcarletti:coarsen over split tables harden the oom trigger",
-            "title:danielcarletti:default hubspot partitioning to month not week"
+            "title:danielcarletti:default hubspot partitioning to month not week",
+            "title:danielcarletti:sync activities self report workload to redis"
           ],
           "unmapped_prs": 0
         },
@@ -5734,16 +5870,18 @@
           "groups": 38,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 38,
+          "pending": 37,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:danielcarletti:serve cdc only and both table modes from the buffer"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -5833,9 +5971,9 @@
         "groups": 244,
         "scored": 0,
         "abstained": 0,
-        "failed": 34,
+        "failed": 36,
         "reserved": 0,
-        "pending": 210,
+        "pending": 208,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -5876,7 +6014,9 @@
           "title:danielcarletti:implement azure cosmos db source",
           "title:danielcarletti:implement azure log analytics source",
           "title:danielcarletti:implement the singular import source",
-          "title:danielcarletti:match fivetran connectors to posthog sources by rule"
+          "title:danielcarletti:match fivetran connectors to posthog sources by rule",
+          "title:danielcarletti:serve cdc only and both table modes from the buffer",
+          "title:danielcarletti:sync activities self report workload to redis"
         ],
         "unmapped_prs": 0
       }
@@ -44445,9 +44585,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "e3e0a378d4d53f99e1001bcd77e799972cff856cedba226434b8c816f008015f"
+    },
+    "title:dmarchuk:serve push registrations only from the node push api": {
+      "id": "title:dmarchuk:serve push registrations only from the node push api",
+      "prs": [
+        116924
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6dfcffc8969d76deeeb3f08e5814c8579fd40bbd05ac882db26c0e22dd12e43c"
+    },
+    "title:dmarchuk:build the date based delay in the workflow editor": {
+      "id": "title:dmarchuk:build the date based delay in the workflow editor",
+      "prs": [
+        84192
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b6692dc19eef2215a5420abdf5dc3f145922bdc6184efd55bd6a335469ade702"
+    },
+    "title:dmarchuk:draft cross product emails with ai and a template fallback": {
+      "id": "title:dmarchuk:draft cross product emails with ai and a template fallback",
+      "prs": [
+        114806
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c673203c3332b422a137b15bfb62e7940249e4e042b92cbcc73bda4b099df1da"
+    },
+    "title:dmarchuk:delete the finished conversion window migration command": {
+      "id": "title:dmarchuk:delete the finished conversion window migration command",
+      "prs": [
+        109385
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3e255e096092d81cc59551528ecad60b7dd0deaff73fc68d3ee0cdf1a91f3d0f"
+    },
+    "title:dmarchuk:let a delay wait until a date carried by the person or event": {
+      "id": "title:dmarchuk:let a delay wait until a date carried by the person or event",
+      "prs": [
+        82920
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1084e5059edfdc516f2a8c2dea34cb98ff2722b9e0cbd069524396c011f0fbe2"
+    },
+    "title:dmarchuk:add a tile canvas editor behind a flag": {
+      "id": "title:dmarchuk:add a tile canvas editor behind a flag",
+      "prs": [
+        119738
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "94f527a839478d346ed2afe89d0f4e792a771fa35ec1f8e173986389a0af735d"
+    },
+    "title:dmarchuk:prototype the push registration endpoint in node": {
+      "id": "title:dmarchuk:prototype the push registration endpoint in node",
+      "prs": [
+        101110
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b267668b13c6b26db80488f4b0a55cd032dae0cab0cfd55a2bfcf94f0d82d20b"
+    },
+    "title:dmarchuk:start a new broadcast from a description with posthog ai": {
+      "id": "title:dmarchuk:start a new broadcast from a description with posthog ai",
+      "prs": [
+        107782
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d102dc9543640354364338f5aabe20137fb9951bc6ac9c696c429571d7b42946"
+    },
+    "title:danielcarletti:sync activities self report workload to redis": {
+      "id": "title:danielcarletti:sync activities self report workload to redis",
+      "prs": [
+        77640
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "afd0743b357652b7c2579b000f2fb6eadaa263d44caa094fa82a3eeea6c153ca"
+    },
+    "title:dmarchuk:remove cyclotron v1 rust crates and napi binding": {
+      "id": "title:dmarchuk:remove cyclotron v1 rust crates and napi binding",
+      "prs": [
+        83200
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "82c0e145addb95a172281b92113b42edd27b4c6c439ea67a58fc2b449a20ec88"
+    },
+    "title:danielcarletti:serve cdc only and both table modes from the buffer": {
+      "id": "title:danielcarletti:serve cdc only and both table modes from the buffer",
+      "prs": [
+        91006
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0eaeb5916d6f444ac8f11b4e23121a34ae5dd1bac2e8f27d1526d0855062ec58"
+    },
+    "title:dmarchuk:show pending suggestions on the workflow page": {
+      "id": "title:dmarchuk:show pending suggestions on the workflow page",
+      "prs": [
+        91710
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b9860d6eaf00047e596660516e4ccec57f48618ae78ef7ccbd6ff09ae91e14af"
+    },
+    "title:dmarchuk:make the unsubscribe footer a real link in email templates": {
+      "id": "title:dmarchuk:make the unsubscribe footer a real link in email templates",
+      "prs": [
+        82560
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "466611b5ba955445f5e205858aa29ce7cdcf82da6b71e0eac025b3a8b6b6f571"
+    },
+    "title:dmarchuk:add the proposal api behind the self optimising flag": {
+      "id": "title:dmarchuk:add the proposal api behind the self optimising flag",
+      "prs": [
+        91709
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2e11b484d35aae702fee69859ac5dc74de7b083587d7dab2ad83023a37b1d50b"
+    },
+    "title:dmarchuk:read an applied suggestion s outcome per published version": {
+      "id": "title:dmarchuk:read an applied suggestion s outcome per published version",
+      "prs": [
+        107879
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d3f9e89a9e98671124e04a5ae7d4d8dd722274ba651b7c94ad7d0a9d1a2070f9"
+    },
+    "title:dmarchuk:add broadcasts prototype on top of workflows": {
+      "id": "title:dmarchuk:add broadcasts prototype on top of workflows",
+      "prs": [
+        82343
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "db0532b5154492d4bfbf8d46a54e55d7ca6525b78e2ddf66321c37ed26cf6c76"
+    },
+    "title:dmarchuk:scroll step settings with the panel and give the email preview room": {
+      "id": "title:dmarchuk:scroll step settings with the panel and give the email preview room",
+      "prs": [
+        121274
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e4751fcd29f5bc40ab6006c934d239c778e1b7ca8638be5e5c651f888d265dca"
+    },
+    "title:dmarchuk:clarify paths in the linear editor": {
+      "id": "title:dmarchuk:clarify paths in the linear editor",
+      "prs": [
+        102419
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8705af7809c0772d734a2b7e7fb5f2066142b6c512ce25b811b36b4feaafc243"
+    },
+    "title:dmarchuk:point the email template banner at our own unlayer project": {
+      "id": "title:dmarchuk:point the email template banner at our own unlayer project",
+      "prs": [
+        84169
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3720a5ecfff61accb705c62576ae8ddc587a0868f6a6b01c2711a729892fd611"
+    },
+    "title:dmarchuk:import customer io automations as draft workflows": {
+      "id": "title:dmarchuk:import customer io automations as draft workflows",
+      "prs": [
+        122456
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0036",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b14ed07bd3fbcb82828e0162f633fd3bac5c43cee89ecdd760afdc676dc9ccd8"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "21c5eeba24fd4432ed9b05f85d99d2bff5fac56bf3e88beb21577c51c4a9d984",
-  "sha256": "ad9fd6ecf530b0c2ead58a932fc79d8e3e5b928a46ccdf2abdc746c1134cd03f"
+  "inline_publication_sha256": "cb22429061c7499a721b929bcd2e5abd736e878f49b335191d3a59d20e60b7be",
+  "sha256": "592e079e4d432a71db0b68c43122c257484380ead439b9150409d48760ccab50"
 }
