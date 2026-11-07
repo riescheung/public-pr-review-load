@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:27:48.807752+00:00",
+  "generated_at": "2026-11-07T04:28:18.168268+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2105,15 +2105,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0024": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 491,
+    "failed": 511,
     "reserved": 60,
-    "pending": 16552,
+    "pending": 16532,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2728,7 +2804,27 @@
       "title:TueHaulund:add scan requests for programmatic callers",
       "title:TueHaulund:add the alerts tab behind a feature flag",
       "title:TueHaulund:build a frozen benchmark from labeled recordings",
-      "title:TueHaulund:copy recordings between teams with per session encryption"
+      "title:TueHaulund:copy recordings between teams with per session encryption",
+      "title:TueHaulund:drop the frontend scout template builders",
+      "title:TueHaulund:evaluate metric alerts on a temporal check schedule",
+      "title:TueHaulund:expose alerts backfills scouts and more as mcp tools",
+      "title:TueHaulund:expose themes and groups through the api and mcp",
+      "title:TueHaulund:give max the whole scanner and summary lifecycle",
+      "title:TueHaulund:learn hidden scanner rules from observation ratings",
+      "title:TueHaulund:let max run scans with confirmation before spending",
+      "title:TueHaulund:migrate legacy vision actions onto alerts and scouts",
+      "title:TueHaulund:offer a one click dashboard for each scanner",
+      "title:TueHaulund:rank highlights on embeddings only and retire the old rankers",
+      "title:TueHaulund:redesign the replay vision usage tab",
+      "title:TueHaulund:remove drained patches dead code and leftover tables",
+      "title:TueHaulund:remove scanner calibration and prompt suggestions",
+      "title:TueHaulund:remove the last session summarization remnants",
+      "title:TueHaulund:remove the legacy scanner creation flow",
+      "title:TueHaulund:rename the watch feed to highlights",
+      "title:TueHaulund:render scanner scout templates on the backend",
+      "title:TueHaulund:rework the scanner setup flow",
+      "title:TueHaulund:scanner scouts behind a feature flag",
+      "title:TueHaulund:serve search suggestions from themes"
     ],
     "unmapped_prs": 14
   },
@@ -4330,9 +4426,9 @@
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 3,
           "reserved": 0,
-          "pending": 20,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -4340,7 +4436,9 @@
             "3": 0
           },
           "review_ids": [
-            "pr:79085"
+            "pr:79085",
+            "title:TueHaulund:give max the whole scanner and summary lifecycle",
+            "title:TueHaulund:let max run scans with confirmation before spending"
           ],
           "unmapped_prs": 0
         },
@@ -4348,25 +4446,29 @@
           "groups": 34,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 34,
+          "pending": 31,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:TueHaulund:remove the last session summarization remnants",
+            "title:TueHaulund:rework the scanner setup flow",
+            "title:TueHaulund:scanner scouts behind a feature flag"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 5,
           "reserved": 0,
-          "pending": 19,
+          "pending": 16,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -4375,7 +4477,10 @@
           },
           "review_ids": [
             "title:TueHaulund:add alert configurations on the shared alerts platform",
-            "title:TueHaulund:add the alerts tab behind a feature flag"
+            "title:TueHaulund:add the alerts tab behind a feature flag",
+            "title:TueHaulund:evaluate metric alerts on a temporal check schedule",
+            "title:TueHaulund:migrate legacy vision actions onto alerts and scouts",
+            "title:TueHaulund:redesign the replay vision usage tab"
           ],
           "unmapped_prs": 0
         },
@@ -4399,9 +4504,9 @@
           "groups": 34,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 5,
           "reserved": 1,
-          "pending": 31,
+          "pending": 28,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -4410,7 +4515,10 @@
           },
           "review_ids": [
             "pr:105826",
-            "title:TueHaulund:build a frozen benchmark from labeled recordings"
+            "title:TueHaulund:build a frozen benchmark from labeled recordings",
+            "title:TueHaulund:expose alerts backfills scouts and more as mcp tools",
+            "title:TueHaulund:learn hidden scanner rules from observation ratings",
+            "title:TueHaulund:remove scanner calibration and prompt suggestions"
           ],
           "unmapped_prs": 0
         },
@@ -4418,9 +4526,9 @@
           "groups": 45,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 5,
           "reserved": 0,
-          "pending": 43,
+          "pending": 40,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -4429,7 +4537,10 @@
           },
           "review_ids": [
             "title:TueHaulund:add scan requests for programmatic callers",
-            "title:TueHaulund:copy recordings between teams with per session encryption"
+            "title:TueHaulund:copy recordings between teams with per session encryption",
+            "title:TueHaulund:offer a one click dashboard for each scanner",
+            "title:TueHaulund:remove drained patches dead code and leftover tables",
+            "title:TueHaulund:remove the legacy scanner creation flow"
           ],
           "unmapped_prs": 0
         },
@@ -4437,9 +4548,9 @@
           "groups": 61,
           "scored": 3,
           "abstained": 0,
-          "failed": 0,
+          "failed": 6,
           "reserved": 0,
-          "pending": 58,
+          "pending": 52,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -4449,7 +4560,13 @@
           "review_ids": [
             "issue:106294",
             "issue:40540",
-            "issue:42566"
+            "issue:42566",
+            "title:TueHaulund:drop the frontend scout template builders",
+            "title:TueHaulund:expose themes and groups through the api and mcp",
+            "title:TueHaulund:rank highlights on embeddings only and retire the old rankers",
+            "title:TueHaulund:rename the watch feed to highlights",
+            "title:TueHaulund:render scanner scout templates on the backend",
+            "title:TueHaulund:serve search suggestions from themes"
           ],
           "unmapped_prs": 0
         }
@@ -4458,9 +4575,9 @@
         "groups": 244,
         "scored": 3,
         "abstained": 0,
-        "failed": 7,
+        "failed": 27,
         "reserved": 1,
-        "pending": 233,
+        "pending": 213,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -4477,7 +4594,27 @@
           "title:TueHaulund:add scan requests for programmatic callers",
           "title:TueHaulund:add the alerts tab behind a feature flag",
           "title:TueHaulund:build a frozen benchmark from labeled recordings",
-          "title:TueHaulund:copy recordings between teams with per session encryption"
+          "title:TueHaulund:copy recordings between teams with per session encryption",
+          "title:TueHaulund:drop the frontend scout template builders",
+          "title:TueHaulund:evaluate metric alerts on a temporal check schedule",
+          "title:TueHaulund:expose alerts backfills scouts and more as mcp tools",
+          "title:TueHaulund:expose themes and groups through the api and mcp",
+          "title:TueHaulund:give max the whole scanner and summary lifecycle",
+          "title:TueHaulund:learn hidden scanner rules from observation ratings",
+          "title:TueHaulund:let max run scans with confirmation before spending",
+          "title:TueHaulund:migrate legacy vision actions onto alerts and scouts",
+          "title:TueHaulund:offer a one click dashboard for each scanner",
+          "title:TueHaulund:rank highlights on embeddings only and retire the old rankers",
+          "title:TueHaulund:redesign the replay vision usage tab",
+          "title:TueHaulund:remove drained patches dead code and leftover tables",
+          "title:TueHaulund:remove scanner calibration and prompt suggestions",
+          "title:TueHaulund:remove the last session summarization remnants",
+          "title:TueHaulund:remove the legacy scanner creation flow",
+          "title:TueHaulund:rename the watch feed to highlights",
+          "title:TueHaulund:render scanner scout templates on the backend",
+          "title:TueHaulund:rework the scanner setup flow",
+          "title:TueHaulund:scanner scouts behind a feature flag",
+          "title:TueHaulund:serve search suggestions from themes"
         ],
         "unmapped_prs": 0
       }
@@ -39849,9 +39986,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "5f606397a5e3b80037c4d31a5810f200bde18f1af762b32dcad7c6a990cd4c65"
+    },
+    "title:TueHaulund:remove the last session summarization remnants": {
+      "id": "title:TueHaulund:remove the last session summarization remnants",
+      "prs": [
+        83019
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "518b17127fbcb55210378238917bd5ef8023058adab820f7f3e633a1d95ae68d"
+    },
+    "title:TueHaulund:rework the scanner setup flow": {
+      "id": "title:TueHaulund:rework the scanner setup flow",
+      "prs": [
+        83095
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8a838c6f040f6b7ca10464d5f5957f51c4a494c5ca5010d6865dccbe10962106"
+    },
+    "title:TueHaulund:rank highlights on embeddings only and retire the old rankers": {
+      "id": "title:TueHaulund:rank highlights on embeddings only and retire the old rankers",
+      "prs": [
+        123987
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "511679bc36e6e53391186da439af21896e7130597fdbb86694a6764bb70efd43"
+    },
+    "title:TueHaulund:let max run scans with confirmation before spending": {
+      "id": "title:TueHaulund:let max run scans with confirmation before spending",
+      "prs": [
+        78754
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "261d7586480c87b5b3b72e489d2189ac8dec9d7825311819729c18c822c4b646"
+    },
+    "title:TueHaulund:drop the frontend scout template builders": {
+      "id": "title:TueHaulund:drop the frontend scout template builders",
+      "prs": [
+        126998
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3b6aad4fc386fa341d8ec713c8914b1287ce28af42703c3b2c2105dc58caf8ad"
+    },
+    "title:TueHaulund:expose alerts backfills scouts and more as mcp tools": {
+      "id": "title:TueHaulund:expose alerts backfills scouts and more as mcp tools",
+      "prs": [
+        106247
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "361521072d9d31ac18521d7ca1b982c3dffc8f3411985e664ca5f4e94822518e"
+    },
+    "title:TueHaulund:remove scanner calibration and prompt suggestions": {
+      "id": "title:TueHaulund:remove scanner calibration and prompt suggestions",
+      "prs": [
+        111311
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6bd1e8e5157da87f09342bbdcdaf37766e8b04d91e0980d5d0572a168563e73a"
+    },
+    "title:TueHaulund:evaluate metric alerts on a temporal check schedule": {
+      "id": "title:TueHaulund:evaluate metric alerts on a temporal check schedule",
+      "prs": [
+        88404
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "930117e197a2b33bf0a0202bc69ec8dd749e106b68f74077ad4f60b03e6897df"
+    },
+    "title:TueHaulund:serve search suggestions from themes": {
+      "id": "title:TueHaulund:serve search suggestions from themes",
+      "prs": [
+        123810
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "99213cd543e7b1d1b028b7dbeaae5ec1e7749eef9c49b7e83465f73c5e892bf4"
+    },
+    "title:TueHaulund:redesign the replay vision usage tab": {
+      "id": "title:TueHaulund:redesign the replay vision usage tab",
+      "prs": [
+        93145
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f757b0483504f73297db8cb06435123c374250bea27685cd21af4c5dffefdeee"
+    },
+    "title:TueHaulund:remove the legacy scanner creation flow": {
+      "id": "title:TueHaulund:remove the legacy scanner creation flow",
+      "prs": [
+        119416
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4b425fb153d5ad31e0990440b4201b6e412600d082a853d9311e823780bddc52"
+    },
+    "title:TueHaulund:scanner scouts behind a feature flag": {
+      "id": "title:TueHaulund:scanner scouts behind a feature flag",
+      "prs": [
+        86606
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c22a5ad6545c740b9f63ec7a2903549f816d34dd1a760c16966f1f7ac2e07ff9"
+    },
+    "title:TueHaulund:learn hidden scanner rules from observation ratings": {
+      "id": "title:TueHaulund:learn hidden scanner rules from observation ratings",
+      "prs": [
+        111312
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "69f9672733da762c14e49cb92d3272fbc939421c3850007aee606a815c18f844"
+    },
+    "title:TueHaulund:expose themes and groups through the api and mcp": {
+      "id": "title:TueHaulund:expose themes and groups through the api and mcp",
+      "prs": [
+        126657
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a6bd1c13d0087f74b28edcf389c82a30dc211f69f17b8532ad86214effb1a705"
+    },
+    "title:TueHaulund:render scanner scout templates on the backend": {
+      "id": "title:TueHaulund:render scanner scout templates on the backend",
+      "prs": [
+        126997
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fd7e8996311e21a177db03fb70636fb67b879e0abe301fdf49555d6882f0b49b"
+    },
+    "title:TueHaulund:rename the watch feed to highlights": {
+      "id": "title:TueHaulund:rename the watch feed to highlights",
+      "prs": [
+        125108
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3c41621e098444a7c25fb20519c73cf09c90ccb5ff157b1e576e1238b4383f7b"
+    },
+    "title:TueHaulund:remove drained patches dead code and leftover tables": {
+      "id": "title:TueHaulund:remove drained patches dead code and leftover tables",
+      "prs": [
+        113462
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "654fb5e0b7d3be59cd6e4e9e3d75b3f3219b531870847e5f87f3b9c6ed1d245c"
+    },
+    "title:TueHaulund:offer a one click dashboard for each scanner": {
+      "id": "title:TueHaulund:offer a one click dashboard for each scanner",
+      "prs": [
+        115063
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "332a2b8b861d92d47b3fb59b793e5eded0b071ac892c8ff1df2ce6a4a9338c5c"
+    },
+    "title:TueHaulund:give max the whole scanner and summary lifecycle": {
+      "id": "title:TueHaulund:give max the whole scanner and summary lifecycle",
+      "prs": [
+        79364
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "25e91c14c8f8ce9b47640bed48f4d5a0a8c898a831ceb80d32ddcabb5c9bed4e"
+    },
+    "title:TueHaulund:migrate legacy vision actions onto alerts and scouts": {
+      "id": "title:TueHaulund:migrate legacy vision actions onto alerts and scouts",
+      "prs": [
+        90182
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0024",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c6853ea6d25381bea5361c60eb73154a4cbfeb2f5016e37bc5a60b976c0b950b"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "eb50b51b087742507f5f0cc2da340ccf6f93410ddc2c6269d813286382cd3144",
-  "sha256": "cb4f6909bfa666667b9481cf2fcf5db4dd0c01247850df432461dbf6f464ff8a"
+  "inline_publication_sha256": "946a28b739ada29630c172a0e3a0de75924c205cf811c36ddde16535bac3ca73",
+  "sha256": "f63a87cddffb0d32ce9483b79035fa5be6b9683c3b03dcd50fdc48339e3de440"
 }
