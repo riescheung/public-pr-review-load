@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:22:53.556298+00:00",
+  "generated_at": "2026-11-07T04:23:25.346921+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -1345,15 +1345,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0014": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 291,
+    "failed": 311,
     "reserved": 60,
-    "pending": 16752,
+    "pending": 16732,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -1760,7 +1836,27 @@
       "pr:99669",
       "title:CShine612:match trends day labels to clickhouse time zones",
       "title:CShine612:unify person id type across revenue sources",
+      "title:DanielVisca:add a change feed of recent production changes",
+      "title:DanielVisca:add apm service health and reject malformed get date ranges",
+      "title:DanielVisca:add application observability services list behind the product flag",
+      "title:DanielVisca:add canvas app widget type resolved as the viewer",
+      "title:DanielVisca:add particle iot source with event capture",
+      "title:DanielVisca:ingest prometheus remote write v1 into metrics",
+      "title:DanielVisca:make discovery reachable by agents and people",
+      "title:DanielVisca:make the alpha gate enrollment toggle reachable",
+      "title:DanielVisca:put intent cluster detail beside the list",
+      "title:DanielVisca:ranked mcp server registry built on mcp analytics signal",
+      "title:DanielVisca:tool centric intent analytics with per call attribution",
       "title:DanielVisca:wire hog log transformations into logs ingestion default off",
+      "title:EDsCODE:extract ducklake into its own product",
+      "title:EDsCODE:use service credentials for trino",
+      "title:GeneralistDev:add an interactive terminal dashboard",
+      "title:GeneralistDev:add evals for sql routing misses and chart answers",
+      "title:GeneralistDev:balance typed query and sql guidance",
+      "title:GeneralistDev:improve home overview and dashboard setup",
+      "title:GeneralistDev:replace legacy evals with focused sandbox cases",
+      "title:Gilbert09:add 14 missing google ads tables",
+      "title:Gilbert09:add 23 tables to the clerk source",
       "title:Gilbert09:add 4 missing tables to the recurly source",
       "title:Gilbert09:add 4 missing tables to the xmatters source",
       "title:Gilbert09:add firstpromoter report and referral link tables",
@@ -1779,9 +1875,9 @@
           "groups": 453,
           "scored": 1,
           "abstained": 0,
-          "failed": 26,
+          "failed": 28,
           "reserved": 0,
-          "pending": 426,
+          "pending": 424,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -1815,7 +1911,9 @@
             "pr:77216",
             "pr:78149",
             "pr:78747",
-            "pr:78833"
+            "pr:78833",
+            "title:Gilbert09:add 14 missing google ads tables",
+            "title:Gilbert09:add 23 tables to the clerk source"
           ],
           "unmapped_prs": 0
         },
@@ -1962,9 +2060,9 @@
         "groups": 3127,
         "scored": 9,
         "abstained": 0,
-        "failed": 54,
+        "failed": 56,
         "reserved": 7,
-        "pending": 3057,
+        "pending": 3055,
         "mean_tier": 1.4444444444444444,
         "tiers": {
           "1": 5,
@@ -2028,6 +2126,8 @@
           "pr:91501",
           "pr:92229",
           "pr:95577",
+          "title:Gilbert09:add 14 missing google ads tables",
+          "title:Gilbert09:add 23 tables to the clerk source",
           "title:Gilbert09:add 4 missing tables to the recurly source",
           "title:Gilbert09:add 4 missing tables to the xmatters source",
           "title:Gilbert09:add firstpromoter report and referral link tables",
@@ -8300,9 +8400,9 @@
           "groups": 16,
           "scored": 1,
           "abstained": 0,
-          "failed": 2,
+          "failed": 3,
           "reserved": 1,
-          "pending": 12,
+          "pending": 11,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -8312,6 +8412,7 @@
           "review_ids": [
             "pr:67609",
             "pr:75141",
+            "title:DanielVisca:tool centric intent analytics with per call attribution",
             "title:DanielVisca:wire hog log transformations into logs ingestion default off"
           ],
           "unmapped_prs": 0
@@ -8320,48 +8421,56 @@
           "groups": 9,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 9,
+          "pending": 7,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:DanielVisca:ingest prometheus remote write v1 into metrics",
+            "title:DanielVisca:put intent cluster detail beside the list"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 20,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 20,
+          "pending": 19,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:DanielVisca:ranked mcp server registry built on mcp analytics signal"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 14,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 14,
+          "pending": 12,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:DanielVisca:make discovery reachable by agents and people",
+            "title:DanielVisca:make the alpha gate enrollment toggle reachable"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -8384,9 +8493,9 @@
           "groups": 18,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 17,
+          "pending": 14,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -8394,7 +8503,10 @@
             "3": 0
           },
           "review_ids": [
-            "issue:114177"
+            "issue:114177",
+            "title:DanielVisca:add a change feed of recent production changes",
+            "title:DanielVisca:add apm service health and reject malformed get date ranges",
+            "title:DanielVisca:add canvas app widget type resolved as the viewer"
           ],
           "unmapped_prs": 0
         },
@@ -8402,16 +8514,19 @@
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 1,
-          "pending": 20,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:DanielVisca:add application observability services list behind the product flag",
+            "title:DanielVisca:add particle iot source with event capture"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -8419,9 +8534,9 @@
         "groups": 105,
         "scored": 2,
         "abstained": 0,
-        "failed": 2,
+        "failed": 13,
         "reserved": 2,
-        "pending": 99,
+        "pending": 88,
         "mean_tier": 1.5,
         "tiers": {
           "1": 1,
@@ -8432,6 +8547,17 @@
           "issue:114177",
           "pr:67609",
           "pr:75141",
+          "title:DanielVisca:add a change feed of recent production changes",
+          "title:DanielVisca:add apm service health and reject malformed get date ranges",
+          "title:DanielVisca:add application observability services list behind the product flag",
+          "title:DanielVisca:add canvas app widget type resolved as the viewer",
+          "title:DanielVisca:add particle iot source with event capture",
+          "title:DanielVisca:ingest prometheus remote write v1 into metrics",
+          "title:DanielVisca:make discovery reachable by agents and people",
+          "title:DanielVisca:make the alpha gate enrollment toggle reachable",
+          "title:DanielVisca:put intent cluster detail beside the list",
+          "title:DanielVisca:ranked mcp server registry built on mcp analytics signal",
+          "title:DanielVisca:tool centric intent analytics with per call attribution",
           "title:DanielVisca:wire hog log transformations into logs ingestion default off"
         ],
         "unmapped_prs": 0
@@ -12058,9 +12184,9 @@
           "groups": 23,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 2,
-          "pending": 20,
+          "pending": 19,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -12068,7 +12194,8 @@
             "3": 0
           },
           "review_ids": [
-            "pr:76480"
+            "pr:76480",
+            "title:EDsCODE:extract ducklake into its own product"
           ],
           "unmapped_prs": 0
         },
@@ -12130,16 +12257,18 @@
           "groups": 9,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:EDsCODE:use service credentials for trino"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -12181,9 +12310,9 @@
         "groups": 74,
         "scored": 1,
         "abstained": 0,
-        "failed": 5,
+        "failed": 7,
         "reserved": 4,
-        "pending": 64,
+        "pending": 62,
         "mean_tier": 2.0,
         "tiers": {
           "1": 0,
@@ -12196,7 +12325,9 @@
           "pr:82885",
           "pr:98040",
           "pr:99354",
-          "pr:99546"
+          "pr:99546",
+          "title:EDsCODE:extract ducklake into its own product",
+          "title:EDsCODE:use service credentials for trino"
         ],
         "unmapped_prs": 0
       }
@@ -12934,16 +13065,18 @@
           "groups": 8,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 1,
-          "pending": 7,
+          "pending": 6,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:GeneralistDev:balance typed query and sql guidance"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -12966,9 +13099,9 @@
           "groups": 21,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 4,
           "reserved": 0,
-          "pending": 20,
+          "pending": 16,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -12976,7 +13109,11 @@
             "3": 0
           },
           "review_ids": [
-            "issue:25541"
+            "issue:25541",
+            "title:GeneralistDev:add an interactive terminal dashboard",
+            "title:GeneralistDev:add evals for sql routing misses and chart answers",
+            "title:GeneralistDev:improve home overview and dashboard setup",
+            "title:GeneralistDev:replace legacy evals with focused sandbox cases"
           ],
           "unmapped_prs": 0
         },
@@ -13001,9 +13138,9 @@
         "groups": 60,
         "scored": 3,
         "abstained": 0,
-        "failed": 1,
+        "failed": 6,
         "reserved": 2,
-        "pending": 54,
+        "pending": 49,
         "mean_tier": 1.6666666666666667,
         "tiers": {
           "1": 1,
@@ -13014,7 +13151,12 @@
           "issue:25541",
           "issue:29757",
           "issue:48947",
-          "issue:58066"
+          "issue:58066",
+          "title:GeneralistDev:add an interactive terminal dashboard",
+          "title:GeneralistDev:add evals for sql routing misses and chart answers",
+          "title:GeneralistDev:balance typed query and sql guidance",
+          "title:GeneralistDev:improve home overview and dashboard setup",
+          "title:GeneralistDev:replace legacy evals with focused sandbox cases"
         ],
         "unmapped_prs": 0
       }
@@ -36033,9 +36175,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "232fc9149bf318749f9fe29a287c778d0acad25560cc4c87a1ea303534540505"
+    },
+    "title:GeneralistDev:balance typed query and sql guidance": {
+      "id": "title:GeneralistDev:balance typed query and sql guidance",
+      "prs": [
+        90985
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f5166cd7a6bb7116d3e1fb77429f7022a8cd7631ba7d2af9a9f1f14727772dc6"
+    },
+    "title:EDsCODE:use service credentials for trino": {
+      "id": "title:EDsCODE:use service credentials for trino",
+      "prs": [
+        106197
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "df971d214f0cee19fbff65c53c9bc92a7cd21b031f097726a9a95d13c06b6d99"
+    },
+    "title:Gilbert09:add 14 missing google ads tables": {
+      "id": "title:Gilbert09:add 14 missing google ads tables",
+      "prs": [
+        77282
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2d82760030e157186cc39a83bdc0991a51b5e2603a9759eb1bf663b44016d46a"
+    },
+    "title:DanielVisca:put intent cluster detail beside the list": {
+      "id": "title:DanielVisca:put intent cluster detail beside the list",
+      "prs": [
+        84585
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c8be82a6e4633b7f7f5e2873442238d460191a2c1d561bc973d8e90039009065"
+    },
+    "title:GeneralistDev:replace legacy evals with focused sandbox cases": {
+      "id": "title:GeneralistDev:replace legacy evals with focused sandbox cases",
+      "prs": [
+        112346
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "57e7c277fb37ab19b92aaee5fa20ed36662a81fcabd757d2eabd2a02b937eef0"
+    },
+    "title:DanielVisca:add particle iot source with event capture": {
+      "id": "title:DanielVisca:add particle iot source with event capture",
+      "prs": [
+        118837
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "34dc58f5a9c7245c1c5b94840a72562eb018fda24a87f33a5be2754ebc02c734"
+    },
+    "title:Gilbert09:add 23 tables to the clerk source": {
+      "id": "title:Gilbert09:add 23 tables to the clerk source",
+      "prs": [
+        73848
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "af4ffb42dd04949a9a62572af05c020a3b92824e11abfdeec3034a203fa1c224"
+    },
+    "title:DanielVisca:add canvas app widget type resolved as the viewer": {
+      "id": "title:DanielVisca:add canvas app widget type resolved as the viewer",
+      "prs": [
+        112097
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6bb5239514654baf332dcb52f8258cc6610df3ba9f164d239710e320af6aedc1"
+    },
+    "title:EDsCODE:extract ducklake into its own product": {
+      "id": "title:EDsCODE:extract ducklake into its own product",
+      "prs": [
+        74277
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0a2fabc72663e5bffeeef319a2638cf6ae9e881f9c99be4e0d5c59bcaf9756bf"
+    },
+    "title:DanielVisca:add application observability services list behind the product flag": {
+      "id": "title:DanielVisca:add application observability services list behind the product flag",
+      "prs": [
+        118842
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1ff8177d490d98ad3078e7919e5bee98cc0ecd7bd6ec5d3efc29d6d24b6d2b38"
+    },
+    "title:GeneralistDev:add evals for sql routing misses and chart answers": {
+      "id": "title:GeneralistDev:add evals for sql routing misses and chart answers",
+      "prs": [
+        119445
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fa562808c88465cef4e9a9b66dcd32586dc8faf08882f789d0deee78edf96945"
+    },
+    "title:GeneralistDev:add an interactive terminal dashboard": {
+      "id": "title:GeneralistDev:add an interactive terminal dashboard",
+      "prs": [
+        117583
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "511b60eda805ea6d8dd372b9232d69b8de22bc149e82d40085a85cfc90fb119f"
+    },
+    "title:GeneralistDev:improve home overview and dashboard setup": {
+      "id": "title:GeneralistDev:improve home overview and dashboard setup",
+      "prs": [
+        109235
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7c2057c9401de3134fbe04e941462615c7a27242853e886feca1941eb3e17749"
+    },
+    "title:DanielVisca:add a change feed of recent production changes": {
+      "id": "title:DanielVisca:add a change feed of recent production changes",
+      "prs": [
+        115689
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "30cbbaa4b31bd4fcfdd21a7610aabe0e54d7df173d9e788365d0cad3ba7af515"
+    },
+    "title:DanielVisca:ranked mcp server registry built on mcp analytics signal": {
+      "id": "title:DanielVisca:ranked mcp server registry built on mcp analytics signal",
+      "prs": [
+        85710
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6527b534633a2ae72e03860c6c6f3cb100e8937eb248636c3a606519da3f3daf"
+    },
+    "title:DanielVisca:ingest prometheus remote write v1 into metrics": {
+      "id": "title:DanielVisca:ingest prometheus remote write v1 into metrics",
+      "prs": [
+        85868
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3c3d3384006df87e1613c8a038c61b1277568cc753d7d8fde78510bd0b01996a"
+    },
+    "title:DanielVisca:make discovery reachable by agents and people": {
+      "id": "title:DanielVisca:make discovery reachable by agents and people",
+      "prs": [
+        95309
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "04cc1c127432a7a13683c1a37fd307239636a2739bb42ae53b2033c7ea69a095"
+    },
+    "title:DanielVisca:make the alpha gate enrollment toggle reachable": {
+      "id": "title:DanielVisca:make the alpha gate enrollment toggle reachable",
+      "prs": [
+        97452
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "16cfd26c6068ba60d92978d29890abe4c758142369a91414020fc8798440a53b"
+    },
+    "title:DanielVisca:tool centric intent analytics with per call attribution": {
+      "id": "title:DanielVisca:tool centric intent analytics with per call attribution",
+      "prs": [
+        74074
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "793bfa8f560cf09da1fe998d52fc822b4c9915074ccfdb993074312be5693bcb"
+    },
+    "title:DanielVisca:add apm service health and reject malformed get date ranges": {
+      "id": "title:DanielVisca:add apm service health and reject malformed get date ranges",
+      "prs": [
+        119975
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0014",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bcbdec605f39757fede522f2141ef0f2ee8b8b22bf019b9d53b944317352f8d1"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "8523b24680bbd3d6155d6895e940850e06edaae7528780d494620ac0fd8857ab",
-  "sha256": "029f25b2ac5a108e9b3392257f0a2d477326e3f0f39a6581ca3aa0602872e3c7"
+  "inline_publication_sha256": "19b6dc7526d3f9e7d5b1621ea716960cc5a36cd13a2ae3af39196c8c64049b12",
+  "sha256": "4ad60f10f0e222fdcca491a2793b094d97c5f38250e9237ad6ebad1fd89bcba1"
 }
