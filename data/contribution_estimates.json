@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:36:38.398222+00:00",
+  "generated_at": "2026-11-07T04:37:07.786729+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -3473,15 +3473,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0042": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 851,
+    "failed": 871,
     "reserved": 60,
-    "pending": 16192,
+    "pending": 16172,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -4456,7 +4532,27 @@
       "title:haacked:stop renames and deletes breaking replay trigger groups",
       "title:hpouillot:bucket remaining symbol set scans",
       "title:hpouillot:manage fingerprints from issue preview",
-      "title:hpouillot:release symbol data with sampo"
+      "title:hpouillot:release symbol data with sampo",
+      "title:hpouillot:scope flutter aot source uploads",
+      "title:jabahamondes:add a cost per customer column",
+      "title:jabahamondes:add a search terms view to search performance",
+      "title:jabahamondes:add conversion recommendations backend and mcp",
+      "title:jabahamondes:add demo data generator command",
+      "title:jabahamondes:add granular conversion goal write endpoints",
+      "title:jabahamondes:add posthog goals to search performance",
+      "title:jabahamondes:add search recommendations query and mcp tool",
+      "title:jabahamondes:apply setup operations atomically with an undo",
+      "title:jabahamondes:count source only and click id pageviews as touchpoints",
+      "title:jabahamondes:cover source onboarding rollback states",
+      "title:jabahamondes:expose conversion goal writes over mcp",
+      "title:jabahamondes:give the marketing analytics config serializer typed fields",
+      "title:jabahamondes:guard cost trends with precompute coverage",
+      "title:jabahamondes:put the search performance title above its controls",
+      "title:jabahamondes:remove the new marketing analytics dashboard flag",
+      "title:jabahamondes:retire the non integrated conversions table",
+      "title:jabahamondes:retire the precomputed attribution reader",
+      "title:jabahamondes:serve attribution from the session precompute",
+      "title:jabahamondes:share live attribution session resolution"
     ],
     "unmapped_prs": 14
   },
@@ -7932,9 +8028,9 @@
           "groups": 24,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 6,
           "reserved": 0,
-          "pending": 23,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7942,7 +8038,12 @@
             "3": 0
           },
           "review_ids": [
-            "pr:78062"
+            "pr:78062",
+            "title:jabahamondes:add demo data generator command",
+            "title:jabahamondes:add granular conversion goal write endpoints",
+            "title:jabahamondes:apply setup operations atomically with an undo",
+            "title:jabahamondes:expose conversion goal writes over mcp",
+            "title:jabahamondes:give the marketing analytics config serializer typed fields"
           ],
           "unmapped_prs": 0
         },
@@ -7950,9 +8051,9 @@
           "groups": 22,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 3,
           "reserved": 0,
-          "pending": 21,
+          "pending": 19,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7960,7 +8061,9 @@
             "3": 0
           },
           "review_ids": [
-            "pr:81234"
+            "pr:81234",
+            "title:jabahamondes:add a cost per customer column",
+            "title:jabahamondes:count source only and click id pageviews as touchpoints"
           ],
           "unmapped_prs": 0
         },
@@ -7988,25 +8091,28 @@
           "groups": 40,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 40,
+          "pending": 38,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jabahamondes:retire the non integrated conversions table",
+            "title:jabahamondes:serve attribution from the session precompute"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 38,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 4,
           "reserved": 0,
-          "pending": 36,
+          "pending": 34,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -8015,7 +8121,9 @@
           },
           "review_ids": [
             "pr:106318",
-            "pr:110907"
+            "pr:110907",
+            "title:jabahamondes:retire the precomputed attribution reader",
+            "title:jabahamondes:share live attribution session resolution"
           ],
           "unmapped_prs": 0
         },
@@ -8023,32 +8131,42 @@
           "groups": 27,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 27,
+          "pending": 24,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jabahamondes:add posthog goals to search performance",
+            "title:jabahamondes:cover source onboarding rollback states",
+            "title:jabahamondes:guard cost trends with precompute coverage"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 29,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 5,
           "reserved": 1,
-          "pending": 28,
+          "pending": 23,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:jabahamondes:add a search terms view to search performance",
+            "title:jabahamondes:add conversion recommendations backend and mcp",
+            "title:jabahamondes:add search recommendations query and mcp tool",
+            "title:jabahamondes:put the search performance title above its controls",
+            "title:jabahamondes:remove the new marketing analytics dashboard flag"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -8056,9 +8174,9 @@
         "groups": 194,
         "scored": 0,
         "abstained": 0,
-        "failed": 7,
+        "failed": 26,
         "reserved": 1,
-        "pending": 186,
+        "pending": 167,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -8072,7 +8190,26 @@
           "pr:81234",
           "pr:86908",
           "pr:91071",
-          "pr:91196"
+          "pr:91196",
+          "title:jabahamondes:add a cost per customer column",
+          "title:jabahamondes:add a search terms view to search performance",
+          "title:jabahamondes:add conversion recommendations backend and mcp",
+          "title:jabahamondes:add demo data generator command",
+          "title:jabahamondes:add granular conversion goal write endpoints",
+          "title:jabahamondes:add posthog goals to search performance",
+          "title:jabahamondes:add search recommendations query and mcp tool",
+          "title:jabahamondes:apply setup operations atomically with an undo",
+          "title:jabahamondes:count source only and click id pageviews as touchpoints",
+          "title:jabahamondes:cover source onboarding rollback states",
+          "title:jabahamondes:expose conversion goal writes over mcp",
+          "title:jabahamondes:give the marketing analytics config serializer typed fields",
+          "title:jabahamondes:guard cost trends with precompute coverage",
+          "title:jabahamondes:put the search performance title above its controls",
+          "title:jabahamondes:remove the new marketing analytics dashboard flag",
+          "title:jabahamondes:retire the non integrated conversions table",
+          "title:jabahamondes:retire the precomputed attribution reader",
+          "title:jabahamondes:serve attribution from the session precompute",
+          "title:jabahamondes:share live attribution session resolution"
         ],
         "unmapped_prs": 0
       }
@@ -10534,16 +10671,18 @@
           "groups": 8,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 8,
+          "pending": 7,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:hpouillot:scope flutter aot source uploads"
+          ],
           "unmapped_prs": 0
         }
       ],
@@ -10551,9 +10690,9 @@
         "groups": 147,
         "scored": 2,
         "abstained": 0,
-        "failed": 9,
+        "failed": 10,
         "reserved": 4,
-        "pending": 132,
+        "pending": 131,
         "mean_tier": 1.0,
         "tiers": {
           "1": 2,
@@ -10571,7 +10710,8 @@
           "pr:87881",
           "title:hpouillot:bucket remaining symbol set scans",
           "title:hpouillot:manage fingerprints from issue preview",
-          "title:hpouillot:release symbol data with sampo"
+          "title:hpouillot:release symbol data with sampo",
+          "title:hpouillot:scope flutter aot source uploads"
         ],
         "unmapped_prs": 1
       }
@@ -46742,9 +46882,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "9478bd8bdfe67ba8b2f706494d0c978f03e88f1dfabadd9db47a60c281d3ab78"
+    },
+    "title:jabahamondes:add a cost per customer column": {
+      "id": "title:jabahamondes:add a cost per customer column",
+      "prs": [
+        83264
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4cb428389ae482bce65703aca131215250980b91af285af80741cbf17c88d55f"
+    },
+    "title:jabahamondes:retire the precomputed attribution reader": {
+      "id": "title:jabahamondes:retire the precomputed attribution reader",
+      "prs": [
+        110293
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "befb67f982c78d6b29bc77d3192d9c64731d5a82ae68c339ee166b9d7d401254"
+    },
+    "title:jabahamondes:add a search terms view to search performance": {
+      "id": "title:jabahamondes:add a search terms view to search performance",
+      "prs": [
+        124155
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "05f6d798f8d04c72ba8f613d98feef3b4300452dea9f04f3e18a8c1555c6d270"
+    },
+    "title:jabahamondes:add posthog goals to search performance": {
+      "id": "title:jabahamondes:add posthog goals to search performance",
+      "prs": [
+        113355
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6161b6cf9b54bd09d2ab2c880800e5746b0b6d3ff6634a9cb032c86b407ebf36"
+    },
+    "title:jabahamondes:retire the non integrated conversions table": {
+      "id": "title:jabahamondes:retire the non integrated conversions table",
+      "prs": [
+        96942
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4d271c9fea455220a34957b3c2a7a159a492e8b647d50078cefe41ffc9dd0e54"
+    },
+    "title:jabahamondes:count source only and click id pageviews as touchpoints": {
+      "id": "title:jabahamondes:count source only and click id pageviews as touchpoints",
+      "prs": [
+        86141
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "550a41996c66abcbf562195d36a6e4dc812f63b68c1d0b1188061b0a61c0b0ba"
+    },
+    "title:jabahamondes:apply setup operations atomically with an undo": {
+      "id": "title:jabahamondes:apply setup operations atomically with an undo",
+      "prs": [
+        81225
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "547ca68123c9058af991611829d7233bb9d46e430ab5f3e8fe9e178683e545e2"
+    },
+    "title:jabahamondes:give the marketing analytics config serializer typed fields": {
+      "id": "title:jabahamondes:give the marketing analytics config serializer typed fields",
+      "prs": [
+        72996
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2b105257044c68d1e9a84d50d7ea4701b9e2aba78416fc6e7a0e7d8c2fbae070"
+    },
+    "title:jabahamondes:guard cost trends with precompute coverage": {
+      "id": "title:jabahamondes:guard cost trends with precompute coverage",
+      "prs": [
+        118032
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "11f42c6eca5b798d65212e928a644405fbd36e15060efd582d6307e3ce98875f"
+    },
+    "title:hpouillot:scope flutter aot source uploads": {
+      "id": "title:hpouillot:scope flutter aot source uploads",
+      "prs": [
+        124249
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "40095e08b6f42c1832b11ceb236cdf457e5ba31ee0f7ab4475768df3c2d36b29"
+    },
+    "title:jabahamondes:add demo data generator command": {
+      "id": "title:jabahamondes:add demo data generator command",
+      "prs": [
+        74054
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3703986e76e896904c5be84eb7b3ca7a66032b8ad5e6e8a22a4441054ac1f688"
+    },
+    "title:jabahamondes:add granular conversion goal write endpoints": {
+      "id": "title:jabahamondes:add granular conversion goal write endpoints",
+      "prs": [
+        73012
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4d78eacde92e97b054fc0f80127ef0c1233fe405ec18681f5d57a2b5973cbad9"
+    },
+    "title:jabahamondes:remove the new marketing analytics dashboard flag": {
+      "id": "title:jabahamondes:remove the new marketing analytics dashboard flag",
+      "prs": [
+        124478
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7a68366751c717c558099170a6b0d99e1ae595d63d59c5e6727dbdc6832cef25"
+    },
+    "title:jabahamondes:cover source onboarding rollback states": {
+      "id": "title:jabahamondes:cover source onboarding rollback states",
+      "prs": [
+        113450
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a8a2cc8d9b32dda63d7e48a055a333a3b6e205e63f7a220cc3d66db6bf094fd6"
+    },
+    "title:jabahamondes:put the search performance title above its controls": {
+      "id": "title:jabahamondes:put the search performance title above its controls",
+      "prs": [
+        125086
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8196883387e2b6a191a309c20da518556d8eb625dced47de2768344b16cf816e"
+    },
+    "title:jabahamondes:serve attribution from the session precompute": {
+      "id": "title:jabahamondes:serve attribution from the session precompute",
+      "prs": [
+        91151
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f400b678637cb66ed3953c69b5ba0fcab0b5fe55b120b72e6cd3fe7866e9c109"
+    },
+    "title:jabahamondes:add conversion recommendations backend and mcp": {
+      "id": "title:jabahamondes:add conversion recommendations backend and mcp",
+      "prs": [
+        118305
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f16432850eb8658d9892e1a548766ec954300be8b35a8d77da05181c7ce4ea8b"
+    },
+    "title:jabahamondes:add search recommendations query and mcp tool": {
+      "id": "title:jabahamondes:add search recommendations query and mcp tool",
+      "prs": [
+        124396
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2c18cfe298311181aad39f4fff31336911cdc67a936ffe3a971c912d7c153b5e"
+    },
+    "title:jabahamondes:expose conversion goal writes over mcp": {
+      "id": "title:jabahamondes:expose conversion goal writes over mcp",
+      "prs": [
+        73033
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d62ff0ca13d1fbaddb89eb8fa7acca2eb59a50d3d4e329bceb68929ed3a4c1dc"
+    },
+    "title:jabahamondes:share live attribution session resolution": {
+      "id": "title:jabahamondes:share live attribution session resolution",
+      "prs": [
+        108008
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0042",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "26778b8f93a1d1f27912ac0d05f725c8baf1b4a8b1b43fd6ce9cd8de3f3ecf4a"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "d2c8767f490b878c5847853e1efc7106ecc6fc1d924dbb261ab65961ead56377",
-  "sha256": "e64577ad7013a183c5cd410cd26566f09d904b51249c00da80881318f0f7b518"
+  "inline_publication_sha256": "a9713df066bc6fab274ab97076f684551a74b0b3225123e379c1a4655e6ebfde",
+  "sha256": "5b2a9b47eee3fa4df02211330ba8d1bd8d36a8983e67672070c1140074de6cc1"
 }
