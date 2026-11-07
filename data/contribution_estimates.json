@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:29:17.352225+00:00",
+  "generated_at": "2026-11-07T04:29:46.428826+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2333,15 +2333,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0027": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 551,
+    "failed": 571,
     "reserved": 60,
-    "pending": 16492,
+    "pending": 16472,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3016,7 +3092,27 @@
       "title:adamleithp:flatten routes and remember rail destinations",
       "title:adamleithp:give tree session rows cards menus and a way into the space",
       "title:adamleithp:make browser tabs independent and persistent",
-      "title:adamleithp:quill skin for the legacy chat behind phai quill"
+      "title:adamleithp:quill skin for the legacy chat behind phai quill",
+      "title:adboio:add prompt context selection for web and slack",
+      "title:adboio:drop the welcome and import config onboarding steps",
+      "title:adboio:overhaul settings with compact card layout",
+      "title:adboio:recruit interview participants with native elicitation",
+      "title:adboio:seed a teaching canvas the first session points people at",
+      "title:amays-phog:read usage counters from real time records",
+      "title:andehen:accept and evaluate string number and object rules v2 values",
+      "title:andehen:accept experiment rules in v2 writes",
+      "title:andehen:add a closed config version 2 update path",
+      "title:andehen:add activation event exposure criteria",
+      "title:andehen:add dormant ordered boolean rule evaluator",
+      "title:andehen:add dormant rules v2 validator and rule warning detectors",
+      "title:andehen:add the pilot config version 2 writer path",
+      "title:andehen:cut duplicate query layer snapshots",
+      "title:andehen:delete legacy experiment view tests and stories",
+      "title:andehen:derive fingerprints from a calculation config",
+      "title:andehen:drop results from legacy experiment pages",
+      "title:andehen:edit config version 2 flags in the flag pages",
+      "title:andehen:lock v1 evaluator and projections to corpus",
+      "title:andehen:move experiment activity receivers and data generator into the product"
     ],
     "unmapped_prs": 14
   },
@@ -9089,16 +9185,20 @@
           "groups": 49,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 49,
+          "pending": 46,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:adboio:drop the welcome and import config onboarding steps",
+            "title:adboio:overhaul settings with compact card layout",
+            "title:adboio:seed a teaching canvas the first session points people at"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -9153,16 +9253,19 @@
           "groups": 11,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 11,
+          "pending": 9,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:adboio:add prompt context selection for web and slack",
+            "title:adboio:recruit interview participants with native elicitation"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -9186,9 +9289,9 @@
         "groups": 134,
         "scored": 0,
         "abstained": 0,
-        "failed": 1,
+        "failed": 6,
         "reserved": 0,
-        "pending": 133,
+        "pending": 128,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -9196,7 +9299,12 @@
           "3": 0
         },
         "review_ids": [
-          "pr:78657"
+          "pr:78657",
+          "title:adboio:add prompt context selection for web and slack",
+          "title:adboio:drop the welcome and import config onboarding steps",
+          "title:adboio:overhaul settings with compact card layout",
+          "title:adboio:recruit interview participants with native elicitation",
+          "title:adboio:seed a teaching canvas the first session points people at"
         ],
         "unmapped_prs": 0
       }
@@ -9513,9 +9621,9 @@
           "groups": 10,
           "scored": 1,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -9523,7 +9631,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:67942"
+            "issue:67942",
+            "title:andehen:add activation event exposure criteria"
           ],
           "unmapped_prs": 0
         },
@@ -9563,57 +9672,9 @@
           "groups": 30,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 4,
           "reserved": 0,
-          "pending": 30,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 41,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 41,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 23,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 0,
-          "reserved": 0,
-          "pending": 23,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 38,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 1,
-          "reserved": 0,
-          "pending": 37,
+          "pending": 26,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -9621,7 +9682,71 @@
             "3": 0
           },
           "review_ids": [
-            "pr:113153"
+            "title:andehen:add a closed config version 2 update path",
+            "title:andehen:add dormant rules v2 validator and rule warning detectors",
+            "title:andehen:cut duplicate query layer snapshots",
+            "title:andehen:lock v1 evaluator and projections to corpus"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 41,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 5,
+          "reserved": 0,
+          "pending": 36,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:andehen:accept and evaluate string number and object rules v2 values",
+            "title:andehen:add dormant ordered boolean rule evaluator",
+            "title:andehen:add the pilot config version 2 writer path",
+            "title:andehen:delete legacy experiment view tests and stories",
+            "title:andehen:edit config version 2 flags in the flag pages"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 23,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 2,
+          "reserved": 0,
+          "pending": 21,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "title:andehen:derive fingerprints from a calculation config",
+            "title:andehen:drop results from legacy experiment pages"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 38,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 3,
+          "reserved": 0,
+          "pending": 35,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:113153",
+            "title:andehen:accept experiment rules in v2 writes",
+            "title:andehen:move experiment activity receivers and data generator into the product"
           ],
           "unmapped_prs": 1
         }
@@ -9630,9 +9755,9 @@
         "groups": 145,
         "scored": 1,
         "abstained": 0,
-        "failed": 1,
+        "failed": 15,
         "reserved": 0,
-        "pending": 143,
+        "pending": 129,
         "mean_tier": 1.0,
         "tiers": {
           "1": 1,
@@ -9641,7 +9766,21 @@
         },
         "review_ids": [
           "issue:67942",
-          "pr:113153"
+          "pr:113153",
+          "title:andehen:accept and evaluate string number and object rules v2 values",
+          "title:andehen:accept experiment rules in v2 writes",
+          "title:andehen:add a closed config version 2 update path",
+          "title:andehen:add activation event exposure criteria",
+          "title:andehen:add dormant ordered boolean rule evaluator",
+          "title:andehen:add dormant rules v2 validator and rule warning detectors",
+          "title:andehen:add the pilot config version 2 writer path",
+          "title:andehen:cut duplicate query layer snapshots",
+          "title:andehen:delete legacy experiment view tests and stories",
+          "title:andehen:derive fingerprints from a calculation config",
+          "title:andehen:drop results from legacy experiment pages",
+          "title:andehen:edit config version 2 flags in the flag pages",
+          "title:andehen:lock v1 evaluator and projections to corpus",
+          "title:andehen:move experiment activity receivers and data generator into the product"
         ],
         "unmapped_prs": 1
       }
@@ -18186,16 +18325,18 @@
           "groups": 3,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 3,
+          "pending": 2,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:amays-phog:read usage counters from real time records"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18221,9 +18362,9 @@
         "groups": 19,
         "scored": 0,
         "abstained": 0,
-        "failed": 2,
+        "failed": 3,
         "reserved": 0,
-        "pending": 17,
+        "pending": 16,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -18232,7 +18373,8 @@
         },
         "review_ids": [
           "pr:118222",
-          "pr:95691"
+          "pr:95691",
+          "title:amays-phog:read usage counters from real time records"
         ],
         "unmapped_prs": 0
       }
@@ -40999,9 +41141,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "5ceca2de1bfe196264daee68e18fa769b58f90b3020a435f84ac67d42eea4f84"
+    },
+    "title:andehen:accept and evaluate string number and object rules v2 values": {
+      "id": "title:andehen:accept and evaluate string number and object rules v2 values",
+      "prs": [
+        107733
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d45f30b3d8d44ca4acafe4b65c3c84e11608451875748f2a490ed88c6c1d7b85"
+    },
+    "title:andehen:lock v1 evaluator and projections to corpus": {
+      "id": "title:andehen:lock v1 evaluator and projections to corpus",
+      "prs": [
+        96161
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1524e8598ccbc98d7c86bd745423f57dec45ad15259d3291642930bcaf0b8295"
+    },
+    "title:andehen:accept experiment rules in v2 writes": {
+      "id": "title:andehen:accept experiment rules in v2 writes",
+      "prs": [
+        113154
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0fc9d7b20fba59062540c24eff96e892d61f4c6940e9659a3cffc60b4ab161b4"
+    },
+    "title:andehen:drop results from legacy experiment pages": {
+      "id": "title:andehen:drop results from legacy experiment pages",
+      "prs": [
+        105010
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "9dbd478c6cd2b6d27f959e7f425a15c9c0142b240773770b6344a00fb41c18a7"
+    },
+    "title:adboio:overhaul settings with compact card layout": {
+      "id": "title:adboio:overhaul settings with compact card layout",
+      "prs": [
+        81523
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "02fd68e31e19f986ab5ab8e3454f94fea23c3c5a012a97c5a329b32c0bbbc347"
+    },
+    "title:adboio:add prompt context selection for web and slack": {
+      "id": "title:adboio:add prompt context selection for web and slack",
+      "prs": [
+        109949
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0b0f11f75f7a886fcac4c6a42c910545e44fe4a6bc8b5a83ed1146655224ea51"
+    },
+    "title:andehen:move experiment activity receivers and data generator into the product": {
+      "id": "title:andehen:move experiment activity receivers and data generator into the product",
+      "prs": [
+        122724
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c2e9d86102ea55fe264c3725bacd8036ecdf5822f0f319ef37a3b3f46a827d01"
+    },
+    "title:andehen:edit config version 2 flags in the flag pages": {
+      "id": "title:andehen:edit config version 2 flags in the flag pages",
+      "prs": [
+        107734
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5812d7a8f59ff87696841c220e310d23227b33e2192fd5f77d8b8383f1a55a99"
+    },
+    "title:andehen:add the pilot config version 2 writer path": {
+      "id": "title:andehen:add the pilot config version 2 writer path",
+      "prs": [
+        105889
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "27a466e79c3eef4932af3b8fdd85055d545ebc3ab06888d969d34ba4f67ff906"
+    },
+    "title:andehen:add a closed config version 2 update path": {
+      "id": "title:andehen:add a closed config version 2 update path",
+      "prs": [
+        102958
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "63d4c8094d98c4fd167dfd3a6b3b3e9a6091faddc959e96c1bfa82a5550d177a"
+    },
+    "title:adboio:recruit interview participants with native elicitation": {
+      "id": "title:adboio:recruit interview participants with native elicitation",
+      "prs": [
+        117751
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "857d5e8ca341a7fc3b3152cf507ff7aa76eadc6d13f4387fc3b0ddb30ba35f42"
+    },
+    "title:andehen:derive fingerprints from a calculation config": {
+      "id": "title:andehen:derive fingerprints from a calculation config",
+      "prs": [
+        109371
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "703992670fba52d48ebe19c91b5f00cf48b5c0c04e6ae6ae01aa120eb4985c12"
+    },
+    "title:adboio:drop the welcome and import config onboarding steps": {
+      "id": "title:adboio:drop the welcome and import config onboarding steps",
+      "prs": [
+        87819
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "51bff8bffc3fd7963d9cbadbd558449e37c46ce285d73eca82b94202c0ca6e72"
+    },
+    "title:andehen:cut duplicate query layer snapshots": {
+      "id": "title:andehen:cut duplicate query layer snapshots",
+      "prs": [
+        101464
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1f8013dd20478ed8380838ee96d05ea846e07eca1566095c1b27ed0e19342400"
+    },
+    "title:andehen:delete legacy experiment view tests and stories": {
+      "id": "title:andehen:delete legacy experiment view tests and stories",
+      "prs": [
+        106858
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e4887611daf2a55262dca6cd219aff4f8b356953955174062f50c25056e0a3ab"
+    },
+    "title:adboio:seed a teaching canvas the first session points people at": {
+      "id": "title:adboio:seed a teaching canvas the first session points people at",
+      "prs": [
+        87563
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7de7cd3f48b915348b1f37cee9d0529683fc1b07792e668983000a36591dece1"
+    },
+    "title:amays-phog:read usage counters from real time records": {
+      "id": "title:amays-phog:read usage counters from real time records",
+      "prs": [
+        105356
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3ca6bdedde02cc78ccda515abd787e242c5a9c94d4aacb4a3be4388ea41f2d20"
+    },
+    "title:andehen:add activation event exposure criteria": {
+      "id": "title:andehen:add activation event exposure criteria",
+      "prs": [
+        78841
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "920b09c1a2ea5a272aaa02d459ad50cf231c93e8d7326cc750b69fd3f5124844"
+    },
+    "title:andehen:add dormant ordered boolean rule evaluator": {
+      "id": "title:andehen:add dormant ordered boolean rule evaluator",
+      "prs": [
+        102982
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "83cd39d4dad4b91e8beaab8db68a04897c50905e7e411dfb15709e9c615f9cba"
+    },
+    "title:andehen:add dormant rules v2 validator and rule warning detectors": {
+      "id": "title:andehen:add dormant rules v2 validator and rule warning detectors",
+      "prs": [
+        101499
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0027",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b9d750255bc8b1b1a08763375b7f854a48b00c4012b09f07d7d4c32fc6d0724b"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "91d46e424d69daf2739b86359f493479e7cbd264eafb2655083916abbbf1a0a8",
-  "sha256": "386ebdf19181aea72813c5429b925db6f1e828350024052f183baeec9ec64cf5"
+  "inline_publication_sha256": "e99bbf9acdb93fd2cca097ba7146eeea44595ba5074a91715c902087987b4132",
+  "sha256": "9fccc47972ee2d259c56f6be5f47c6c05c4b5b05b11ea56bb24c352f6df7da54"
 }
