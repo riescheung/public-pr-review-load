@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:30:45.096272+00:00",
+  "generated_at": "2026-11-07T04:31:14.986493+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2561,15 +2561,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0030": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 611,
+    "failed": 631,
     "reserved": 60,
-    "pending": 16432,
+    "pending": 16412,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3304,7 +3380,27 @@
       "title:andrewm4894:run training through a tasks sandbox agent 20 22",
       "title:andrewm4894:schedule training scoring and validation on temporal 22 22",
       "title:andrewm4894:score the population and emit prediction events 11 22",
-      "title:andrewm4894:slim the scout harness prompt"
+      "title:andrewm4894:slim the scout harness prompt",
+      "title:andrewm4894:teach scout skills the structured output measurement channel",
+      "title:andrewm4894:validate predictions online once horizons mature 12 22",
+      "title:andyzzhao:compare date bounds in the project time zone",
+      "title:andyzzhao:compare date bounds in the project time zone at 6 decimals",
+      "title:andyzzhao:drop the http level query coalescer",
+      "title:andyzzhao:promote events in subqueries to global in",
+      "title:andyzzhao:revert timestamp bound anchoring that overflows decimals",
+      "title:andyzzhao:strip totimezone from timestamp bounds nested in calls",
+      "title:arnohillen:add frozen dataclass helper and defaults ratchet",
+      "title:arnohillen:add golden dataset eval loop for scanner prompts",
+      "title:arnohillen:add organizational tags to scanners",
+      "title:arnohillen:goal based ai scanner creation flow",
+      "title:arthurdedeus:add customer analytics billing and usage scout for per account product shifts",
+      "title:arthurdedeus:add feature request mcp tools",
+      "title:arthurdedeus:add personal account view editor",
+      "title:arthurdedeus:add source scoped account property sync",
+      "title:arthurdedeus:backfill slack summaries when an account opts in",
+      "title:arthurdedeus:default accounts to all assignment statuses",
+      "title:arthurdedeus:display and edit pinned account properties",
+      "title:arthurdedeus:google calendar sync engine on temporal"
     ],
     "unmapped_prs": 14
   },
@@ -6298,9 +6394,9 @@
           "groups": 36,
           "scored": 3,
           "abstained": 0,
-          "failed": 4,
+          "failed": 7,
           "reserved": 0,
-          "pending": 29,
+          "pending": 26,
           "mean_tier": 1.6666666666666667,
           "tiers": {
             "1": 1,
@@ -6314,7 +6410,10 @@
             "issue:74027",
             "issue:74029",
             "issue:74241",
-            "issue:75572"
+            "issue:75572",
+            "title:arthurdedeus:add customer analytics billing and usage scout for per account product shifts",
+            "title:arthurdedeus:backfill slack summaries when an account opts in",
+            "title:arthurdedeus:google calendar sync engine on temporal"
           ],
           "unmapped_prs": 0
         },
@@ -6322,9 +6421,9 @@
           "groups": 40,
           "scored": 0,
           "abstained": 0,
-          "failed": 8,
+          "failed": 9,
           "reserved": 1,
-          "pending": 31,
+          "pending": 30,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -6339,7 +6438,8 @@
             "issue:83343",
             "issue:86654",
             "pr:81169",
-            "pr:84534"
+            "pr:84534",
+            "title:arthurdedeus:add feature request mcp tools"
           ],
           "unmapped_prs": 0
         },
@@ -6347,9 +6447,9 @@
           "groups": 40,
           "scored": 1,
           "abstained": 0,
-          "failed": 2,
+          "failed": 4,
           "reserved": 1,
-          "pending": 36,
+          "pending": 34,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -6359,7 +6459,9 @@
           "review_ids": [
             "pr:92855",
             "pr:92857",
-            "pr:94196"
+            "pr:94196",
+            "title:arthurdedeus:default accounts to all assignment statuses",
+            "title:arthurdedeus:display and edit pinned account properties"
           ],
           "unmapped_prs": 0
         },
@@ -6387,9 +6489,9 @@
           "groups": 22,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 4,
           "reserved": 0,
-          "pending": 19,
+          "pending": 18,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -6399,7 +6501,8 @@
           "review_ids": [
             "issue:109268",
             "pr:107164",
-            "pr:112756"
+            "pr:112756",
+            "title:arthurdedeus:add personal account view editor"
           ],
           "unmapped_prs": 0
         },
@@ -6407,9 +6510,9 @@
           "groups": 11,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 3,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -6418,7 +6521,8 @@
           },
           "review_ids": [
             "issue:112952",
-            "issue:112968"
+            "issue:112968",
+            "title:arthurdedeus:add source scoped account property sync"
           ],
           "unmapped_prs": 0
         },
@@ -6447,9 +6551,9 @@
         "groups": 189,
         "scored": 5,
         "abstained": 0,
-        "failed": 24,
+        "failed": 32,
         "reserved": 3,
-        "pending": 157,
+        "pending": 149,
         "mean_tier": 1.8,
         "tiers": {
           "1": 1,
@@ -6485,7 +6589,15 @@
           "pr:92855",
           "pr:92857",
           "pr:94196",
-          "pr:97753"
+          "pr:97753",
+          "title:arthurdedeus:add customer analytics billing and usage scout for per account product shifts",
+          "title:arthurdedeus:add feature request mcp tools",
+          "title:arthurdedeus:add personal account view editor",
+          "title:arthurdedeus:add source scoped account property sync",
+          "title:arthurdedeus:backfill slack summaries when an account opts in",
+          "title:arthurdedeus:default accounts to all assignment statuses",
+          "title:arthurdedeus:display and edit pinned account properties",
+          "title:arthurdedeus:google calendar sync engine on temporal"
         ],
         "unmapped_prs": 0
       }
@@ -7367,9 +7479,9 @@
           "groups": 49,
           "scored": 0,
           "abstained": 0,
-          "failed": 2,
+          "failed": 3,
           "reserved": 0,
-          "pending": 47,
+          "pending": 46,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -7378,7 +7490,8 @@
           },
           "review_ids": [
             "title:andrewm4894:publish skills to community server 4 7",
-            "title:andrewm4894:remove orphaned cyclotron v1 napi build artifacts"
+            "title:andrewm4894:remove orphaned cyclotron v1 napi build artifacts",
+            "title:andrewm4894:teach scout skills the structured output measurement channel"
           ],
           "unmapped_prs": 0
         },
@@ -7409,9 +7522,9 @@
           "groups": 25,
           "scored": 1,
           "abstained": 0,
-          "failed": 11,
+          "failed": 12,
           "reserved": 0,
-          "pending": 13,
+          "pending": 12,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -7430,7 +7543,8 @@
             "title:andrewm4894:let the training agent open a run and record iterations 16 22",
             "title:andrewm4894:pin an openai service tier on one scout model slice",
             "title:andrewm4894:promote the best training run to champion 9 22",
-            "title:andrewm4894:score the population and emit prediction events 11 22"
+            "title:andrewm4894:score the population and emit prediction events 11 22",
+            "title:andrewm4894:validate predictions online once horizons mature 12 22"
           ],
           "unmapped_prs": 0
         },
@@ -7498,9 +7612,9 @@
         "groups": 183,
         "scored": 2,
         "abstained": 0,
-        "failed": 35,
+        "failed": 37,
         "reserved": 0,
-        "pending": 146,
+        "pending": 144,
         "mean_tier": 1.5,
         "tiers": {
           "1": 1,
@@ -7544,7 +7658,9 @@
           "title:andrewm4894:run training through a tasks sandbox agent 20 22",
           "title:andrewm4894:schedule training scoring and validation on temporal 22 22",
           "title:andrewm4894:score the population and emit prediction events 11 22",
-          "title:andrewm4894:slim the scout harness prompt"
+          "title:andrewm4894:slim the scout harness prompt",
+          "title:andrewm4894:teach scout skills the structured output measurement channel",
+          "title:andrewm4894:validate predictions online once horizons mature 12 22"
         ],
         "unmapped_prs": 0
       }
@@ -13117,9 +13233,9 @@
           "groups": 24,
           "scored": 0,
           "abstained": 0,
-          "failed": 1,
+          "failed": 2,
           "reserved": 0,
-          "pending": 23,
+          "pending": 22,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -13127,7 +13243,8 @@
             "3": 0
           },
           "review_ids": [
-            "issue:21999"
+            "issue:21999",
+            "title:arnohillen:add frozen dataclass helper and defaults ratchet"
           ],
           "unmapped_prs": 0
         },
@@ -13135,16 +13252,20 @@
           "groups": 43,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 43,
+          "pending": 40,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:arnohillen:add golden dataset eval loop for scanner prompts",
+            "title:arnohillen:add organizational tags to scanners",
+            "title:arnohillen:goal based ai scanner creation flow"
+          ],
           "unmapped_prs": 1
         },
         {
@@ -13232,9 +13353,9 @@
         "groups": 99,
         "scored": 0,
         "abstained": 0,
-        "failed": 1,
+        "failed": 5,
         "reserved": 0,
-        "pending": 98,
+        "pending": 94,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -13242,7 +13363,11 @@
           "3": 0
         },
         "review_ids": [
-          "issue:21999"
+          "issue:21999",
+          "title:arnohillen:add frozen dataclass helper and defaults ratchet",
+          "title:arnohillen:add golden dataset eval loop for scanner prompts",
+          "title:arnohillen:add organizational tags to scanners",
+          "title:arnohillen:goal based ai scanner creation flow"
         ],
         "unmapped_prs": 1
       }
@@ -15377,16 +15502,18 @@
           "groups": 17,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 17,
+          "pending": 16,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:andyzzhao:promote events in subqueries to global in"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -15425,32 +15552,39 @@
           "groups": 9,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:andyzzhao:drop the http level query coalescer"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 11,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 4,
           "reserved": 0,
-          "pending": 11,
+          "pending": 7,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:andyzzhao:compare date bounds in the project time zone",
+            "title:andyzzhao:compare date bounds in the project time zone at 6 decimals",
+            "title:andyzzhao:revert timestamp bound anchoring that overflows decimals",
+            "title:andyzzhao:strip totimezone from timestamp bounds nested in calls"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -15490,16 +15624,23 @@
         "groups": 56,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 6,
         "reserved": 0,
-        "pending": 56,
+        "pending": 50,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:andyzzhao:compare date bounds in the project time zone",
+          "title:andyzzhao:compare date bounds in the project time zone at 6 decimals",
+          "title:andyzzhao:drop the http level query coalescer",
+          "title:andyzzhao:promote events in subqueries to global in",
+          "title:andyzzhao:revert timestamp bound anchoring that overflows decimals",
+          "title:andyzzhao:strip totimezone from timestamp bounds nested in calls"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -42135,9 +42276,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "6a8aacc7f1e9ad5898326f26055b5bb242e218855c7c453585e4d87f322d3d50"
+    },
+    "title:arthurdedeus:add personal account view editor": {
+      "id": "title:arthurdedeus:add personal account view editor",
+      "prs": [
+        107160
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5b3ce7bcd1c22b4728b2f3143fd7b032f2ab12c80cd1a8825493b181d94c7dcd"
+    },
+    "title:arthurdedeus:add source scoped account property sync": {
+      "id": "title:arthurdedeus:add source scoped account property sync",
+      "prs": [
+        119579
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "465405885fdc1e62c3a8b9c37bf02ed992f82e256685c4f9be00284e6477eddc"
+    },
+    "title:andrewm4894:teach scout skills the structured output measurement channel": {
+      "id": "title:andrewm4894:teach scout skills the structured output measurement channel",
+      "prs": [
+        78962
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7fe52c63b957e3097378705714b0198e898a7d80814974764eb9d136f5b686ce"
+    },
+    "title:andyzzhao:strip totimezone from timestamp bounds nested in calls": {
+      "id": "title:andyzzhao:strip totimezone from timestamp bounds nested in calls",
+      "prs": [
+        106420
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "24817cc4a41676b93734e9d84ea2c2945b1a6cfe4e3c60d8cf98f8e4e97bd933"
+    },
+    "title:arthurdedeus:add feature request mcp tools": {
+      "id": "title:arthurdedeus:add feature request mcp tools",
+      "prs": [
+        85910
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3755e9204f3bbd64a41ac62c43d8819a72ef385cbeb897a834a3cff6cba437f1"
+    },
+    "title:arthurdedeus:default accounts to all assignment statuses": {
+      "id": "title:arthurdedeus:default accounts to all assignment statuses",
+      "prs": [
+        95311
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "874fc4b3e73b009e760cbc8ee66bfe4123c7650ce428666e8ca06c6613218b8f"
+    },
+    "title:arnohillen:add frozen dataclass helper and defaults ratchet": {
+      "id": "title:arnohillen:add frozen dataclass helper and defaults ratchet",
+      "prs": [
+        76144
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "03b3d5c8c51a1cff21442e481dcff2a84bcde06e35b123db57d7daf5c190dab1"
+    },
+    "title:andyzzhao:revert timestamp bound anchoring that overflows decimals": {
+      "id": "title:andyzzhao:revert timestamp bound anchoring that overflows decimals",
+      "prs": [
+        108874
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "bb30e3eb1865985a899a082f591b93786917ff2f5d6628cdb259ea8fc1ad8fd2"
+    },
+    "title:andyzzhao:drop the http level query coalescer": {
+      "id": "title:andyzzhao:drop the http level query coalescer",
+      "prs": [
+        100667
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "baa897a7c53913ada019cd936b5a5ffd9a7f2f97c8f505c418c03c322687da64"
+    },
+    "title:arthurdedeus:display and edit pinned account properties": {
+      "id": "title:arthurdedeus:display and edit pinned account properties",
+      "prs": [
+        95542
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "661ad2d350d646e0ff016d723e69715ba20cf2bf0cfdc8b37d54d4649000bde6"
+    },
+    "title:arthurdedeus:add customer analytics billing and usage scout for per account product shifts": {
+      "id": "title:arthurdedeus:add customer analytics billing and usage scout for per account product shifts",
+      "prs": [
+        76837
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f674368614b2f2cc5ae58b3b2810b913062eccc18eb155ff6017ac71bb2a8cdc"
+    },
+    "title:arnohillen:add golden dataset eval loop for scanner prompts": {
+      "id": "title:arnohillen:add golden dataset eval loop for scanner prompts",
+      "prs": [
+        75128
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "915f95089024d6651686383e8a72c581d4d71a05ee54af540c6e7f1c97030a43"
+    },
+    "title:arnohillen:goal based ai scanner creation flow": {
+      "id": "title:arnohillen:goal based ai scanner creation flow",
+      "prs": [
+        78624
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "271122b4bb2ea4ccfdf0c61b58ea5945aa1278746e1b8022c69345857f81a671"
+    },
+    "title:arthurdedeus:backfill slack summaries when an account opts in": {
+      "id": "title:arthurdedeus:backfill slack summaries when an account opts in",
+      "prs": [
+        79157
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d5942cc34aa0497cbba6a210dc043bf737ab2e3050db09feb3b0309e6a199b4a"
+    },
+    "title:andyzzhao:compare date bounds in the project time zone at 6 decimals": {
+      "id": "title:andyzzhao:compare date bounds in the project time zone at 6 decimals",
+      "prs": [
+        109625
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "39b8dead5ad34ff1f388733eafe72ab88deed8e3e144f9f4fcfe384afc8b2544"
+    },
+    "title:andrewm4894:validate predictions online once horizons mature 12 22": {
+      "id": "title:andrewm4894:validate predictions online once horizons mature 12 22",
+      "prs": [
+        89142
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3d76d708e9b9c5aad67edb524c8c0a63af34463e65a00ada63c3619cbe963e37"
+    },
+    "title:andyzzhao:compare date bounds in the project time zone": {
+      "id": "title:andyzzhao:compare date bounds in the project time zone",
+      "prs": [
+        106419
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4f50e5412172d22991d18ff0e46c18cd6e9e0ec2d2a0523e335f2a6651687fef"
+    },
+    "title:andyzzhao:promote events in subqueries to global in": {
+      "id": "title:andyzzhao:promote events in subqueries to global in",
+      "prs": [
+        80817
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "e1944bbb88dbd95f9e326c0e7be1307fe7184e034e290d67992ec4099f1bf683"
+    },
+    "title:arnohillen:add organizational tags to scanners": {
+      "id": "title:arnohillen:add organizational tags to scanners",
+      "prs": [
+        81454
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4cb9485e586fd11b54aadef993792bcba5636f26a8473f73ef472433a5584eb2"
+    },
+    "title:arthurdedeus:google calendar sync engine on temporal": {
+      "id": "title:arthurdedeus:google calendar sync engine on temporal",
+      "prs": [
+        78502
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0030",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a795cb5692891c5b8ad7dab2a4dbfc4d57a1c0daea35459fca4a7886ffbc919b"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "24f4c44d2b693078627592461da8115521d8f0320e9ecc8ac962dc9b00251ce3",
-  "sha256": "0dae45a6a04b7322048d9fcef2054e7e108278a256e8836a0d26a782313d5b9f"
+  "inline_publication_sha256": "470e60821e1b598178d20c36e6d3f83f44eb7af5521124a2653e301c5d36b438",
+  "sha256": "39d16969b5109c222e0c776ab8c72305f2c022dca4ddd9dbe54fbc190e02f9d0"
 }
