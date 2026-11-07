@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T12:52:50.913776+00:00",
+  "generated_at": "2026-11-07T13:09:52.847936+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -5981,19 +5981,95 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0075": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
-    "scored": 668,
+    "scored": 688,
     "abstained": 7,
     "failed": 953,
     "reserved": 60,
-    "pending": 15532,
-    "mean_tier": 1.5479041916167664,
+    "pending": 15512,
+    "mean_tier": 1.558139534883721,
     "tiers": {
-      "1": 302,
-      "2": 366,
+      "1": 304,
+      "2": 384,
       "3": 0
     },
     "review_ids": [
@@ -6980,9 +7056,29 @@
       "title:DanielVisca:load metrics tables with many label values and show query errors",
       "title:DanielVisca:make discovery reachable by agents and people",
       "title:DanielVisca:make the alpha gate enrollment toggle reachable",
+      "title:DanielVisca:name the nesting mistake when a required object param is flattened",
+      "title:DanielVisca:omit non finite sparkline buckets",
+      "title:DanielVisca:open the metrics alpha to self serve enrollment",
+      "title:DanielVisca:paint the overview layout while its data loads",
+      "title:DanielVisca:pick metrics table columns from a metric search",
+      "title:DanielVisca:pivot from a metric to its logs and traces",
       "title:DanielVisca:put intent cluster detail beside the list",
       "title:DanielVisca:ranked mcp server registry built on mcp analytics signal",
+      "title:DanielVisca:record a product intent when an agent snippet is copied",
+      "title:DanielVisca:reject infinite numbers in formulas",
+      "title:DanielVisca:release the agent chart with sharding and persistence",
+      "title:DanielVisca:resolve calendar relative dates at local midnight across dst",
+      "title:DanielVisca:serve text embedding 3 small at 256 dimensions",
+      "title:DanielVisca:show overview load errors and align the last datapoint time",
+      "title:DanielVisca:show the sdk install paths in the metrics empty state",
+      "title:DanielVisca:stack the logs and tracing facet rail in a narrow scene",
+      "title:DanielVisca:stop exposing observed timestamp in hogql metrics tables",
+      "title:DanielVisca:stop onboarding marking metrics complete make gated scene a waitlist",
+      "title:DanielVisca:surface insight alerts from the metrics ui",
+      "title:DanielVisca:surface save errors and drop metrics for log transformations",
       "title:DanielVisca:tool centric intent analytics with per call attribution",
+      "title:DanielVisca:use locked dependencies for nextest source installs",
+      "title:DanielVisca:wait for the feature preview before loading metric names",
       "title:DanielVisca:wire hog log transformations into logs ingestion default off",
       "title:EDsCODE:extract ducklake into its own product",
       "title:EDsCODE:use service credentials for trino",
@@ -15926,15 +16022,15 @@
       "periods": [
         {
           "groups": 16,
-          "scored": 2,
+          "scored": 5,
           "abstained": 0,
           "failed": 4,
           "reserved": 1,
-          "pending": 9,
-          "mean_tier": 2.0,
+          "pending": 6,
+          "mean_tier": 1.8,
           "tiers": {
-            "1": 0,
-            "2": 2,
+            "1": 1,
+            "2": 4,
             "3": 0
           },
           "review_ids": [
@@ -15942,6 +16038,9 @@
             "pr:75141",
             "title:DanielVisca:fail open on infra errors and harden transformation globals",
             "title:DanielVisca:link person logs via built in distinct id conventions",
+            "title:DanielVisca:record a product intent when an agent snippet is copied",
+            "title:DanielVisca:release the agent chart with sharding and persistence",
+            "title:DanielVisca:surface save errors and drop metrics for log transformations",
             "title:DanielVisca:tool centric intent analytics with per call attribution",
             "title:DanielVisca:wire hog log transformations into logs ingestion default off"
           ],
@@ -15949,36 +16048,37 @@
         },
         {
           "groups": 9,
-          "scored": 2,
+          "scored": 3,
           "abstained": 0,
           "failed": 2,
           "reserved": 0,
-          "pending": 5,
+          "pending": 4,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 2,
+            "2": 3,
             "3": 0
           },
           "review_ids": [
             "title:DanielVisca:charge decompressed bytes on remote write ingestion",
             "title:DanielVisca:decode attribute values in drop and metric rule matching",
             "title:DanielVisca:ingest prometheus remote write v1 into metrics",
-            "title:DanielVisca:put intent cluster detail beside the list"
+            "title:DanielVisca:put intent cluster detail beside the list",
+            "title:DanielVisca:show the sdk install paths in the metrics empty state"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 20,
-          "scored": 4,
+          "scored": 10,
           "abstained": 0,
           "failed": 1,
           "reserved": 0,
-          "pending": 15,
-          "mean_tier": 1.75,
+          "pending": 9,
+          "mean_tier": 1.9,
           "tiers": {
             "1": 1,
-            "2": 3,
+            "2": 9,
             "3": 0
           },
           "review_ids": [
@@ -15986,7 +16086,13 @@
             "title:DanielVisca:add source column to logs metric rule migration",
             "title:DanielVisca:correct how to count skill loads from the body offset",
             "title:DanielVisca:gate log based metrics on the metrics flag",
-            "title:DanielVisca:ranked mcp server registry built on mcp analytics signal"
+            "title:DanielVisca:name the nesting mistake when a required object param is flattened",
+            "title:DanielVisca:open the metrics alpha to self serve enrollment",
+            "title:DanielVisca:paint the overview layout while its data loads",
+            "title:DanielVisca:pivot from a metric to its logs and traces",
+            "title:DanielVisca:ranked mcp server registry built on mcp analytics signal",
+            "title:DanielVisca:stop onboarding marking metrics complete make gated scene a waitlist",
+            "title:DanielVisca:surface insight alerts from the metrics ui"
           ],
           "unmapped_prs": 0
         },
@@ -16012,34 +16118,37 @@
         },
         {
           "groups": 7,
-          "scored": 2,
+          "scored": 5,
           "abstained": 0,
           "failed": 0,
           "reserved": 0,
-          "pending": 5,
+          "pending": 2,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 2,
+            "2": 5,
             "3": 0
           },
           "review_ids": [
             "title:DanielVisca:handle invalid saved view filter shapes",
-            "title:DanielVisca:list service name once in attribute keys"
+            "title:DanielVisca:list service name once in attribute keys",
+            "title:DanielVisca:omit non finite sparkline buckets",
+            "title:DanielVisca:reject infinite numbers in formulas",
+            "title:DanielVisca:resolve calendar relative dates at local midnight across dst"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 18,
-          "scored": 5,
+          "scored": 8,
           "abstained": 0,
           "failed": 3,
           "reserved": 0,
-          "pending": 10,
-          "mean_tier": 1.8,
+          "pending": 7,
+          "mean_tier": 1.75,
           "tiers": {
-            "1": 1,
-            "2": 4,
+            "1": 2,
+            "2": 6,
             "3": 0
           },
           "review_ids": [
@@ -16050,21 +16159,24 @@
             "title:DanielVisca:add canvas app widget type resolved as the viewer",
             "title:DanielVisca:count metric records capture produces to kafka",
             "title:DanielVisca:filter the change feed by kind",
-            "title:DanielVisca:link backend logs and spans to the frontend session"
+            "title:DanielVisca:link backend logs and spans to the frontend session",
+            "title:DanielVisca:show overview load errors and align the last datapoint time",
+            "title:DanielVisca:use locked dependencies for nextest source installs",
+            "title:DanielVisca:wait for the feature preview before loading metric names"
           ],
           "unmapped_prs": 0
         },
         {
           "groups": 21,
-          "scored": 4,
+          "scored": 8,
           "abstained": 1,
           "failed": 2,
           "reserved": 1,
-          "pending": 13,
+          "pending": 9,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
-            "2": 4,
+            "2": 8,
             "3": 0
           },
           "review_ids": [
@@ -16074,22 +16186,26 @@
             "title:DanielVisca:evaluate the product flag for the requesting user",
             "title:DanielVisca:gate the facet rail on the metrics flag",
             "title:DanielVisca:list service name once in project wide attribute keys",
-            "title:DanielVisca:load metrics tables with many label values and show query errors"
+            "title:DanielVisca:load metrics tables with many label values and show query errors",
+            "title:DanielVisca:pick metrics table columns from a metric search",
+            "title:DanielVisca:serve text embedding 3 small at 256 dimensions",
+            "title:DanielVisca:stack the logs and tracing facet rail in a narrow scene",
+            "title:DanielVisca:stop exposing observed timestamp in hogql metrics tables"
           ],
           "unmapped_prs": 0
         }
       ],
       "total": {
         "groups": 105,
-        "scored": 20,
+        "scored": 40,
         "abstained": 1,
         "failed": 14,
         "reserved": 2,
-        "pending": 68,
+        "pending": 48,
         "mean_tier": 1.9,
         "tiers": {
-          "1": 2,
-          "2": 18,
+          "1": 4,
+          "2": 36,
           "3": 0
         },
         "review_ids": [
@@ -16124,9 +16240,29 @@
           "title:DanielVisca:load metrics tables with many label values and show query errors",
           "title:DanielVisca:make discovery reachable by agents and people",
           "title:DanielVisca:make the alpha gate enrollment toggle reachable",
+          "title:DanielVisca:name the nesting mistake when a required object param is flattened",
+          "title:DanielVisca:omit non finite sparkline buckets",
+          "title:DanielVisca:open the metrics alpha to self serve enrollment",
+          "title:DanielVisca:paint the overview layout while its data loads",
+          "title:DanielVisca:pick metrics table columns from a metric search",
+          "title:DanielVisca:pivot from a metric to its logs and traces",
           "title:DanielVisca:put intent cluster detail beside the list",
           "title:DanielVisca:ranked mcp server registry built on mcp analytics signal",
+          "title:DanielVisca:record a product intent when an agent snippet is copied",
+          "title:DanielVisca:reject infinite numbers in formulas",
+          "title:DanielVisca:release the agent chart with sharding and persistence",
+          "title:DanielVisca:resolve calendar relative dates at local midnight across dst",
+          "title:DanielVisca:serve text embedding 3 small at 256 dimensions",
+          "title:DanielVisca:show overview load errors and align the last datapoint time",
+          "title:DanielVisca:show the sdk install paths in the metrics empty state",
+          "title:DanielVisca:stack the logs and tracing facet rail in a narrow scene",
+          "title:DanielVisca:stop exposing observed timestamp in hogql metrics tables",
+          "title:DanielVisca:stop onboarding marking metrics complete make gated scene a waitlist",
+          "title:DanielVisca:surface insight alerts from the metrics ui",
+          "title:DanielVisca:surface save errors and drop metrics for log transformations",
           "title:DanielVisca:tool centric intent analytics with per call attribution",
+          "title:DanielVisca:use locked dependencies for nextest source installs",
+          "title:DanielVisca:wait for the feature preview before loading metric names",
           "title:DanielVisca:wire hog log transformations into logs ingestion default off"
         ],
         "unmapped_prs": 0
@@ -59311,9 +59447,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "c0e78021b5b60e4ba08f3171f9b84892b074d2bc4e98bd8cd5b92f7ee29d450c"
+    },
+    "title:DanielVisca:paint the overview layout while its data loads": {
+      "id": "title:DanielVisca:paint the overview layout while its data loads",
+      "prs": [
+        88862
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "47e79de269d4b4eea83878d7459c6a8126d72323fc80a37078032da3d3f4aa38"
+    },
+    "title:DanielVisca:omit non finite sparkline buckets": {
+      "id": "title:DanielVisca:omit non finite sparkline buckets",
+      "prs": [
+        112742
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "2134764d0406f4dd5c9769662110313374f43d5af08daa6f4d345e50146d516f"
+    },
+    "title:DanielVisca:show the sdk install paths in the metrics empty state": {
+      "id": "title:DanielVisca:show the sdk install paths in the metrics empty state",
+      "prs": [
+        88590
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ebff5b738856ea049c91dd2fe79de93002900a629aaa0d6f2870fad7b6189c60"
+    },
+    "title:DanielVisca:stop exposing observed timestamp in hogql metrics tables": {
+      "id": "title:DanielVisca:stop exposing observed timestamp in hogql metrics tables",
+      "prs": [
+        126540
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3cfee2402ae68ad13c1aee3c420093e331d9d7bc513e0df6bf626b2dec514b89"
+    },
+    "title:DanielVisca:resolve calendar relative dates at local midnight across dst": {
+      "id": "title:DanielVisca:resolve calendar relative dates at local midnight across dst",
+      "prs": [
+        109167
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1f41497b33bd286ece1830b5d3d9c5cf2a6ec8771a811849ea48bf6107b1f5f9"
+    },
+    "title:DanielVisca:use locked dependencies for nextest source installs": {
+      "id": "title:DanielVisca:use locked dependencies for nextest source installs",
+      "prs": [
+        112801
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ec441e3335dca99b0e02ac9dfef9bb1004e9890b938cbf35185b493738aff3c1"
+    },
+    "title:DanielVisca:release the agent chart with sharding and persistence": {
+      "id": "title:DanielVisca:release the agent chart with sharding and persistence",
+      "prs": [
+        75828
+      ],
+      "status": "ok",
+      "tier": 1,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "44dc2dd37f17d4ff262c2eabfb3f8b8d0c5bd079328359ee803b560666cc6378"
+    },
+    "title:DanielVisca:stop onboarding marking metrics complete make gated scene a waitlist": {
+      "id": "title:DanielVisca:stop onboarding marking metrics complete make gated scene a waitlist",
+      "prs": [
+        95225
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "add182b83944a420634d355a8390c9bce38cb506e2eef6de12896ce2648614b0"
+    },
+    "title:DanielVisca:name the nesting mistake when a required object param is flattened": {
+      "id": "title:DanielVisca:name the nesting mistake when a required object param is flattened",
+      "prs": [
+        90496
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b21900a0e83d4833225d7197c47b0a499d777c523f2058da18d236e8a729ff09"
+    },
+    "title:DanielVisca:wait for the feature preview before loading metric names": {
+      "id": "title:DanielVisca:wait for the feature preview before loading metric names",
+      "prs": [
+        113960
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3e6c8f2e3a36a30690465de9f265fe8860ec81f1ba6b213660a3b6692232b6ea"
+    },
+    "title:DanielVisca:surface save errors and drop metrics for log transformations": {
+      "id": "title:DanielVisca:surface save errors and drop metrics for log transformations",
+      "prs": [
+        76030
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6b5cb5edd390e083f48cf26bf3aea26f8dd4cb24c6521e8f11850b817456cbe4"
+    },
+    "title:DanielVisca:surface insight alerts from the metrics ui": {
+      "id": "title:DanielVisca:surface insight alerts from the metrics ui",
+      "prs": [
+        94325
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "ee60d288c3ff160749c4597117151516f0b6688f0a3e901da74e3a9499976ae8"
+    },
+    "title:DanielVisca:open the metrics alpha to self serve enrollment": {
+      "id": "title:DanielVisca:open the metrics alpha to self serve enrollment",
+      "prs": [
+        95280
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "50671e9e197f52f20f9b0b6f03e385f5485ef48332fa71106726b08cc0d090c4"
+    },
+    "title:DanielVisca:stack the logs and tracing facet rail in a narrow scene": {
+      "id": "title:DanielVisca:stack the logs and tracing facet rail in a narrow scene",
+      "prs": [
+        120750
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "196e1d37f34d0001b5243b5c00672e41642eae26fca07618335a46ff0fd55326"
+    },
+    "title:DanielVisca:show overview load errors and align the last datapoint time": {
+      "id": "title:DanielVisca:show overview load errors and align the last datapoint time",
+      "prs": [
+        116671
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fe5642614c404cc9fb5fe9b33adf84b95fdd1032d90133751f85b0443e8c6add"
+    },
+    "title:DanielVisca:serve text embedding 3 small at 256 dimensions": {
+      "id": "title:DanielVisca:serve text embedding 3 small at 256 dimensions",
+      "prs": [
+        121286
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c4243bd8426d395c0d361765cc0eb20823da6f375d097ebcd81343868472e796"
+    },
+    "title:DanielVisca:reject infinite numbers in formulas": {
+      "id": "title:DanielVisca:reject infinite numbers in formulas",
+      "prs": [
+        112716
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "63f4bdae60da8584fae8500727bea504d5995479ee98a7e0bb6176156e7e07f1"
+    },
+    "title:DanielVisca:record a product intent when an agent snippet is copied": {
+      "id": "title:DanielVisca:record a product intent when an agent snippet is copied",
+      "prs": [
+        75200
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1aa182507e2a6a9431bcae9fb7cf038270df8da03f8775ec50c53e5c25fb65e4"
+    },
+    "title:DanielVisca:pivot from a metric to its logs and traces": {
+      "id": "title:DanielVisca:pivot from a metric to its logs and traces",
+      "prs": [
+        89770
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8c14eb30642964379f4915799c864078febc8cb435d6083e5f48d34ed76fa88b"
+    },
+    "title:DanielVisca:pick metrics table columns from a metric search": {
+      "id": "title:DanielVisca:pick metrics table columns from a metric search",
+      "prs": [
+        122892
+      ],
+      "status": "ok",
+      "tier": 2,
+      "run": "qwen-overnight-v1-0075",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "165fadd28290dfebf05820e9f4d78755a928a829c2b0d6cb1b190268a189d00c"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "0608ab63c9526bd13bcdcaa63eb005046f0b6e503fd01f8a20a2399f4cb28ffa",
-  "sha256": "3629c805478df87f52265d847b65cd5b412a3e318d5636471ee9fb3b8825ab24"
+  "inline_publication_sha256": "2982224d0bd5013e5c6dca417cef12a431bf0fdfe9a534d5a3b8f989491f7549",
+  "sha256": "adacc128e86d9eb60e6eec373c6761432c654d102c5551cb499632cd3e1889fe"
 }
