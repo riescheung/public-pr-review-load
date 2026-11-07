@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:24:51.163056+00:00",
+  "generated_at": "2026-11-07T04:25:17.976929+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -1649,15 +1649,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0018": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 371,
+    "failed": 391,
     "reserved": 60,
-    "pending": 16672,
+    "pending": 16652,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -2149,8 +2225,28 @@
       "title:Gilbert09:implement the aws systems manager import source",
       "title:Gilbert09:implement the browse ai import source",
       "title:Gilbert09:implement the fintoc import source",
+      "title:Gilbert09:implement the growthbook import source",
+      "title:Gilbert09:implement the heygen import source",
+      "title:Gilbert09:implement the kafka import source",
+      "title:Gilbert09:implement the kapa ai import source",
+      "title:Gilbert09:implement the mintlify import source",
+      "title:Gilbert09:implement the mono import source",
+      "title:Gilbert09:implement the pinecone import source",
+      "title:Gilbert09:implement the qdrant import source",
+      "title:Gilbert09:implement the retell ai import source",
+      "title:Gilbert09:implement the sim import source",
+      "title:Gilbert09:implement the slash import source",
+      "title:Gilbert09:implement the synthesia import source",
+      "title:Gilbert09:implement the telli import source",
+      "title:Gilbert09:implement the the prompting company import source",
+      "title:Gilbert09:implement the triple whale import source",
+      "title:Gilbert09:implement the turso import source",
+      "title:Gilbert09:import csv and excel file contents from sharepoint",
+      "title:Gilbert09:import file uploads through a managed source",
       "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
       "title:Gilbert09:make row tracking survive redis and billing blips",
+      "title:Gilbert09:migrate self managed tables into object storage sources",
+      "title:Gilbert09:mobile refund action for signal reports",
       "title:Gilbert09:point source test guidance at the shared driver",
       "title:Piccirello:name the posthog hosts in style src and font src"
     ],
@@ -2163,9 +2259,9 @@
           "groups": 453,
           "scored": 1,
           "abstained": 0,
-          "failed": 40,
+          "failed": 41,
           "reserved": 0,
-          "pending": 412,
+          "pending": 411,
           "mean_tier": 1.0,
           "tiers": {
             "1": 1,
@@ -2213,7 +2309,8 @@
             "title:Gilbert09:deltalite shadow verification and publish workflow",
             "title:Gilbert09:heal delta tables with an empty log segment",
             "title:Gilbert09:implement app store connect source",
-            "title:Gilbert09:implement aws cost explorer source"
+            "title:Gilbert09:implement aws cost explorer source",
+            "title:Gilbert09:mobile refund action for signal reports"
           ],
           "unmapped_prs": 0
         },
@@ -2313,9 +2410,9 @@
           "groups": 584,
           "scored": 1,
           "abstained": 0,
-          "failed": 20,
+          "failed": 35,
           "reserved": 0,
-          "pending": 563,
+          "pending": 548,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2343,6 +2440,21 @@
             "title:Gilbert09:implement the aws systems manager import source",
             "title:Gilbert09:implement the browse ai import source",
             "title:Gilbert09:implement the fintoc import source",
+            "title:Gilbert09:implement the growthbook import source",
+            "title:Gilbert09:implement the heygen import source",
+            "title:Gilbert09:implement the kafka import source",
+            "title:Gilbert09:implement the kapa ai import source",
+            "title:Gilbert09:implement the mintlify import source",
+            "title:Gilbert09:implement the mono import source",
+            "title:Gilbert09:implement the pinecone import source",
+            "title:Gilbert09:implement the qdrant import source",
+            "title:Gilbert09:implement the retell ai import source",
+            "title:Gilbert09:implement the sim import source",
+            "title:Gilbert09:implement the slash import source",
+            "title:Gilbert09:implement the synthesia import source",
+            "title:Gilbert09:implement the telli import source",
+            "title:Gilbert09:implement the the prompting company import source",
+            "title:Gilbert09:implement the turso import source",
             "title:Gilbert09:make row tracking survive redis and billing blips"
           ],
           "unmapped_prs": 0
@@ -2351,9 +2463,9 @@
           "groups": 665,
           "scored": 4,
           "abstained": 0,
-          "failed": 8,
+          "failed": 10,
           "reserved": 1,
-          "pending": 652,
+          "pending": 650,
           "mean_tier": 1.25,
           "tiers": {
             "1": 3,
@@ -2372,6 +2484,8 @@
             "title:Gilbert09:continue an import only when the source proves its row order",
             "title:Gilbert09:give every source request a default timeout",
             "title:Gilbert09:implement the auth0 import source",
+            "title:Gilbert09:implement the triple whale import source",
+            "title:Gilbert09:import csv and excel file contents from sharepoint",
             "title:Gilbert09:point source test guidance at the shared driver"
           ],
           "unmapped_prs": 0
@@ -2380,9 +2494,9 @@
           "groups": 539,
           "scored": 1,
           "abstained": 0,
-          "failed": 9,
+          "failed": 11,
           "reserved": 5,
-          "pending": 524,
+          "pending": 522,
           "mean_tier": 2.0,
           "tiers": {
             "1": 0,
@@ -2399,7 +2513,9 @@
             "title:Gilbert09:add warehouse sync alerts to the alerts platform",
             "title:Gilbert09:cache deltalite probe keys per data file",
             "title:Gilbert09:classify source fields as connection or sync setting",
-            "title:Gilbert09:dual write source connection fields to an integration"
+            "title:Gilbert09:dual write source connection fields to an integration",
+            "title:Gilbert09:import file uploads through a managed source",
+            "title:Gilbert09:migrate self managed tables into object storage sources"
           ],
           "unmapped_prs": 0
         }
@@ -2408,9 +2524,9 @@
         "groups": 3127,
         "scored": 9,
         "abstained": 0,
-        "failed": 116,
+        "failed": 136,
         "reserved": 7,
-        "pending": 2995,
+        "pending": 2975,
         "mean_tier": 1.4444444444444444,
         "tiers": {
           "1": 5,
@@ -2540,8 +2656,28 @@
           "title:Gilbert09:implement the aws systems manager import source",
           "title:Gilbert09:implement the browse ai import source",
           "title:Gilbert09:implement the fintoc import source",
+          "title:Gilbert09:implement the growthbook import source",
+          "title:Gilbert09:implement the heygen import source",
+          "title:Gilbert09:implement the kafka import source",
+          "title:Gilbert09:implement the kapa ai import source",
+          "title:Gilbert09:implement the mintlify import source",
+          "title:Gilbert09:implement the mono import source",
+          "title:Gilbert09:implement the pinecone import source",
+          "title:Gilbert09:implement the qdrant import source",
+          "title:Gilbert09:implement the retell ai import source",
+          "title:Gilbert09:implement the sim import source",
+          "title:Gilbert09:implement the slash import source",
+          "title:Gilbert09:implement the synthesia import source",
+          "title:Gilbert09:implement the telli import source",
+          "title:Gilbert09:implement the the prompting company import source",
+          "title:Gilbert09:implement the triple whale import source",
+          "title:Gilbert09:implement the turso import source",
+          "title:Gilbert09:import csv and excel file contents from sharepoint",
+          "title:Gilbert09:import file uploads through a managed source",
           "title:Gilbert09:keep exhausted read timeout errors out of error tracking",
           "title:Gilbert09:make row tracking survive redis and billing blips",
+          "title:Gilbert09:migrate self managed tables into object storage sources",
+          "title:Gilbert09:mobile refund action for signal reports",
           "title:Gilbert09:point source test guidance at the shared driver"
         ],
         "unmapped_prs": 0
@@ -37543,9 +37679,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "b951a9546619e97d6df91a35b2503b64b25d6021c727643944998bab413b8436"
+    },
+    "title:Gilbert09:implement the mintlify import source": {
+      "id": "title:Gilbert09:implement the mintlify import source",
+      "prs": [
+        111846
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c5527315146adcfc4933c9d71c4277b3554f833f96dc1a0562ed333881004c33"
+    },
+    "title:Gilbert09:implement the turso import source": {
+      "id": "title:Gilbert09:implement the turso import source",
+      "prs": [
+        108566
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d89afc00d1b8d950ddb0a31ac4c8fb47c71902b51013ee7f89304c75fe44efd9"
+    },
+    "title:Gilbert09:implement the slash import source": {
+      "id": "title:Gilbert09:implement the slash import source",
+      "prs": [
+        111864
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a738af50d0765527271dc65a99905e65697efef3b6e1bd353cc8c3d1317c8669"
+    },
+    "title:Gilbert09:implement the qdrant import source": {
+      "id": "title:Gilbert09:implement the qdrant import source",
+      "prs": [
+        111851
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "66d8dd3c722068ddf42f15d385e3d95400175d277b5846dd95153ec77bbe1ffa"
+    },
+    "title:Gilbert09:implement the the prompting company import source": {
+      "id": "title:Gilbert09:implement the the prompting company import source",
+      "prs": [
+        111850
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "16864f5af694332c5bd85b064c53eaa65a3bbb44fb307e0ba8071a7122506a7b"
+    },
+    "title:Gilbert09:implement the mono import source": {
+      "id": "title:Gilbert09:implement the mono import source",
+      "prs": [
+        111847
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "6c2655d21f2cd174f0f58902734d940678428283ba4b3f855f913bc65fc44def"
+    },
+    "title:Gilbert09:implement the sim import source": {
+      "id": "title:Gilbert09:implement the sim import source",
+      "prs": [
+        108674
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d6ae31751ccd45286c76ccd84b8c721363fe071447f51297e0c94a1f0e6bffef"
+    },
+    "title:Gilbert09:implement the pinecone import source": {
+      "id": "title:Gilbert09:implement the pinecone import source",
+      "prs": [
+        108685
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f58838e99384fd6aaf49e892c6fb0544c2011655080e9482083a2fa6a64e6c29"
+    },
+    "title:Gilbert09:import csv and excel file contents from sharepoint": {
+      "id": "title:Gilbert09:import csv and excel file contents from sharepoint",
+      "prs": [
+        114496
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "713bed3bd1abfefe2c8e585f2f13d20bd8fd19fd1066301fe8b46d89a758eb4e"
+    },
+    "title:Gilbert09:implement the synthesia import source": {
+      "id": "title:Gilbert09:implement the synthesia import source",
+      "prs": [
+        111866
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "c6450e9063d84133e444cecca2b00f8f97d2e8cc01496a440ba2e4d5c2088585"
+    },
+    "title:Gilbert09:mobile refund action for signal reports": {
+      "id": "title:Gilbert09:mobile refund action for signal reports",
+      "prs": [
+        81117
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "032c265676e7e174a5824485abafc1ee3ad7d5a5556daac545c95447e7c8f1fc"
+    },
+    "title:Gilbert09:import file uploads through a managed source": {
+      "id": "title:Gilbert09:import file uploads through a managed source",
+      "prs": [
+        120473
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "766c5cd82a9354f88b948ddd2f6cd1500a8a986aa1012ad474bb0a84bbb40e15"
+    },
+    "title:Gilbert09:implement the growthbook import source": {
+      "id": "title:Gilbert09:implement the growthbook import source",
+      "prs": [
+        108648
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cea13eb1c03579b4112f44044fa4fe1387d6a09b3ae1c9c1570e49edfdd176d9"
+    },
+    "title:Gilbert09:migrate self managed tables into object storage sources": {
+      "id": "title:Gilbert09:migrate self managed tables into object storage sources",
+      "prs": [
+        120353
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "23d1092426a590b32a2885e3c17ff3e5fb4114fbd9d3411e72187972228caf02"
+    },
+    "title:Gilbert09:implement the kapa ai import source": {
+      "id": "title:Gilbert09:implement the kapa ai import source",
+      "prs": [
+        108635
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "242a7f1f320e7dbc936c74b369fc0623d90f54446d7c59c1ba2f3485bd7bc209"
+    },
+    "title:Gilbert09:implement the retell ai import source": {
+      "id": "title:Gilbert09:implement the retell ai import source",
+      "prs": [
+        108689
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8a16234cbc57ca54e747ffe1ae776c7ad6da836e450bff23f5b040c4cd669cfc"
+    },
+    "title:Gilbert09:implement the triple whale import source": {
+      "id": "title:Gilbert09:implement the triple whale import source",
+      "prs": [
+        115746
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "01fe8747d6b61de19a9aafec8ac5846bb9fc54bd986c3d6fdbef2e2d0aadfe92"
+    },
+    "title:Gilbert09:implement the kafka import source": {
+      "id": "title:Gilbert09:implement the kafka import source",
+      "prs": [
+        108391
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "27020a386c9d83fe828f959652e30337d88fd51ed1550d94cc03d5139d476add"
+    },
+    "title:Gilbert09:implement the heygen import source": {
+      "id": "title:Gilbert09:implement the heygen import source",
+      "prs": [
+        108670
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "d32cd721682fa01e7a65eea036af52a295c8cf2a7ebbe3148ebfe9b83e854b80"
+    },
+    "title:Gilbert09:implement the telli import source": {
+      "id": "title:Gilbert09:implement the telli import source",
+      "prs": [
+        108620
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0018",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a564589e92b5463d7d30ffc014e42976fdc7ccef7033f3637435c36aec10109e"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "14fc826703a7a232eda442752e10f355a2b65318e5494041772f96115c88dea2",
-  "sha256": "cf93b31e12eb8090870d0f4d5adefcdcb7f880f3391d4f15633bd3c2a14c3dc2"
+  "inline_publication_sha256": "dc454b5214f1bebcb613922afd22eac65430822dcb5193378e765bf61cb003ac",
+  "sha256": "ba4eca1e79c9b25ddfcff4c89d8a9c962d3c4e750562e7459a775c3e28877d13"
 }
