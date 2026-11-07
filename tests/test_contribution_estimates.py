@@ -36,6 +36,15 @@ def record(g, score=2, status="ok"):
 
 
 class ContributionTests(unittest.TestCase):
+    def test_interrupted_snapshot_does_not_truncate_prior_publication(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "publication.json"
+            path.write_text('{"scored":113}\n')
+            with patch("review_artifacts.os.fsync", side_effect=KeyboardInterrupt), \
+                    self.assertRaises(KeyboardInterrupt):
+                estimates.write_snapshot(path, {"scored": 114})
+            self.assertEqual(path.read_text(), '{"scored":113}\n')
+
     def test_snapshot_hash_and_data_come_from_one_file_version(self):
         first = b'[{"id":"first"}]'
         path = Mock()

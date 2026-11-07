@@ -35,6 +35,10 @@ class ByteTokenizer:
 
 @unittest.skipIf(mx is None, "Requires optional MLX and outlines-core dependencies")
 class JSONDecoderTests(unittest.TestCase):
+    def test_persistent_tokenizer_reuses_immutable_vocabulary(self):
+        tokenizer = ByteTokenizer()
+        self.assertTrue(local_vocabulary(tokenizer) is local_vocabulary(tokenizer))
+
     def test_byte_vocabulary_keeps_newlines_and_partial_utf8_and_excludes_specials(self):
         vocab = local_vocabulary(ByteTokenizer())
         self.assertEqual(vocab.get(b"\n"), [10])

@@ -1,5 +1,6 @@
 """Apply a local JSON grammar to MLX logits without rewriting model answers."""
 
+from functools import lru_cache
 import json
 
 from mlx_lm.tokenizer_utils import _byte_decoder
@@ -10,6 +11,8 @@ from outlines_core.kernels.mlx import (
 )
 
 
+# Share immutable token bytes, never the per-review grammar state.
+@lru_cache(maxsize=1)
 def local_vocabulary(tokenizer):
     backend = json.loads(tokenizer.backend_tokenizer.to_str())
     if backend["model"]["type"] != "BPE" or backend["decoder"]["type"] != "ByteLevel":

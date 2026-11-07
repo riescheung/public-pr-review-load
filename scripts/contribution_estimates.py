@@ -10,9 +10,14 @@ import re
 from benchmark_data import BENCHMARK, digest, load_manifest, timestamp, write_new
 from pr_benchmark import predictions
 from review_contract import FULL, ROOT
+from review_artifacts import write_bytes
 
 
 PUBLICATION_MANIFESTS = FULL / "harness" / "publication_manifests"
+
+
+def write_snapshot(path, body):
+    write_bytes(path, (json.dumps(body, indent=2) + "\n").encode(), replace=True)
 
 
 def json_snapshot(path):
@@ -206,7 +211,7 @@ def publish(benchmark, runs, destination, publication_manifest=None, publication
         "models": models, "overall": overall, "people": people, "reviews": records,
     }
     # This file is a generated publication, not an immutable experiment receipt.
-    destination.write_text(json.dumps({**body, "sha256": digest(body)}, indent=2) + "\n")
+    write_snapshot(destination, {**body, "sha256": digest(body)})
     print(f"Published {overall['scored']}/{overall['groups']} scored change groups; "
           f"{overall['reserved']} reserved groups remain excluded.")
 

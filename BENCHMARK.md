@@ -517,6 +517,45 @@ check, not an isolated training comparison or an accuracy measurement.
 That check brought publication to 44 scored groups before the larger rollout.
 The full-snapshot rollout is still incomplete.
 
+### Persistent-worker diagnostics
+
+The 100-group publication pilot finished with 68 accepted reviews, 15
+errors, nine deferred groups and eight evidence-preflight rejections.
+Failures remain in their original run directories. They do not replace an
+earlier valid review.
+
+The persistent worker adds raw-response capture and independently checks
+the base, adapter, implementation files and per-request model identity.
+Runtime sources are archived by model digest before generation. Receipt
+creation and mutable publication replacement are atomic.
+
+An initial two-case native-batch probe recovered one case and timed out on
+the other. Its raw response repeated hunk IDs inside a description until
+the response budget was exhausted. The next protocol applies a 1.15
+repetition penalty over a 256-token window only while generating descriptive
+JSON string values. It never adjusts tier, confidence, citation or literal
+quote selection. The previously failing case then passed the contract.
+This is a protocol diagnostic, not a judgement-accuracy result.
+
+`qwen-native-smoke-v1` accepted three of the five original publication
+cases; the other two exceeded the call deadline. Concurrent generation
+therefore remains experimental. The default uses a persistent scalar
+`mlx_lm.generate` worker with the same base, adapter, grammar and validators.
+`qwen-persistent-smoke-v1` accepted all five cases, including one explicit
+abstention. Such an abstention may replace an earlier numeric estimate.
+
+`qwen-persistent-base-cal-v1` and `qwen-persistent-reference-cal-v1` both
+accepted all three historical calibration cases and predicted 2, 2, 2.
+They each match one historical reference decision. This does not demonstrate
+better tier judgement, and literal citations still do not establish that
+the descriptions are factually correct. No final-test family was opened.
+
+`continue_mlx_reviews.py` resumes immutable cohorts, excludes completed
+scores, abstentions and preflights, and avoids retrying failures under the
+same model/protocol identity. It pauses at 20% battery and waits for 35%
+before resuming. The optional publication step tests and builds each
+checkpoint before pushing only generated data to `main`.
+
 After choosing one candidate, run the baseline and candidate against the
 same reserved test cases with `--unlock-test`, then independently label and
 audit the predictions. Give the candidate a new run ID and retain its base,

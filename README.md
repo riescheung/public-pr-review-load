@@ -309,6 +309,56 @@ order in which contributor groups happen to appear.
 `AI_RUBRIC.md` retains its frozen pilot wording because changing its prompt
 prefix would invalidate existing packet and prediction hashes.
 
+### Persistent local scoring
+
+`run_mlx_batch_reviews.py` keeps the verified Qwen base and adapter loaded
+between requests. Its default is serial generation through `mlx_lm.generate`,
+not concurrent batching. The five original publication cases all passed the
+format and literal-citation checks under this path. A concurrent five-case
+probe timed out on two cases, so `--batch-size` values above one remain
+experimental.
+
+The worker uses a 2,048-token response budget and a maximum of 32 complete
+chunks per group. A repetition penalty of 1.15 over the recent 256 tokens
+applies only inside descriptive JSON strings. Tier selection, categorical
+fields, evidence IDs and literal code quotes are not penalised. Each request
+gets fresh grammar state; the immutable tokenizer vocabulary is shared.
+These controls address malformed or repetitive output, not factual accuracy.
+The paired persistent base/adapter calibration runs both predicted 2, 2, 2
+and matched one of three historical references. The adapter stays unpromoted.
+
+Use an environment containing the pinned local MLX runtime and Node 22:
+
+```bash
+python3 scripts/run_contribution_reviews.py prepare \
+  --manifest data/ai_review/harness/contribution-manifest-v4.json
+python3 scripts/continue_mlx_reviews.py \
+  --manifest data/ai_review/harness/contribution-manifest-v4.json \
+  --run-prefix qwen-rollout-v1 --cohort-size 20 --max-cohorts 1000 \
+  --execute --deploy
+```
+
+The continuation command attempts a finite set of cached, non-reserved
+groups in resumable cohorts. Completed scores, abstentions and evidence
+preflights are not selected again. Failed or deferred groups are retried
+only under a different recorded protocol. `--deploy` runs Python tests,
+JavaScript tests and the production build, then commits only the generated
+estimate/catalogue files and pushes to `main`. Without it, no push occurs.
+
+At the 20% battery floor, GPU work stops, completed receipts are published,
+and the controller waits to resume at 35% or higher. AC-status changes alone
+do not cancel work. Re-run the same command to resume; changed code,
+weights, manifest or budgets require a new prefix. Runtime source copies,
+raw replies and immutable receipts remain in the ignored local harness.
+Publication snapshots are replaced atomically, so an interrupted write
+cannot truncate the previous snapshot.
+
+Attempting every cached group does not mean every group gets a number.
+Invalid responses, insufficient evidence and oversized groups remain
+unassessed. A valid later abstention can lower numeric coverage; a failed
+retry cannot erase a valid prior review. The 60 reserved test families stay
+excluded from publication and tuning.
+
 Interrupted training can warm-start from a numbered checkpoint using
 `--warm-start PATH`. The checkpoint must match its preserved failure receipt,
 base, dataset and LoRA configuration. The new run records prior and new
