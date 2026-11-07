@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generated_at": "2026-11-07T04:32:42.643971+00:00",
+  "generated_at": "2026-11-07T04:33:12.866159+00:00",
   "label": "AI-estimated contribution",
   "meaning": "Mean 1-3 scope tier among scored change groups; not measured outcomes or individual performance",
   "aggregation": "One group per contributor, assigned to the latest interval containing that contributor's member PR",
@@ -2865,15 +2865,91 @@
         }
       },
       "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
+    },
+    "qwen-overnight-v1-0034": {
+      "name": "mlx-qwen3.5-9b+experimental-lora+persistent-scalar",
+      "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+      "implementation_sha256": "252a87a5dda4bbff2322f99a14acbd434681d2f802282e0545a16afde8a09b1a",
+      "contract_attempts": 3,
+      "structured_decoding": "schema-hunk-quote-v1",
+      "runtime_environment": {
+        "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+        "MLX_MAX_OPS_PER_BUFFER": null,
+        "MLX_MAX_MB_PER_BUFFER": null
+      },
+      "experimental_ai_labels": true,
+      "versions": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.22.1",
+        "outlines-core": "0.2.14"
+      },
+      "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+      "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+      "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+      "native_batch": {
+        "batch_size": 1,
+        "prefill_batch_size": 1,
+        "engine": "mlx-generate",
+        "prefill_step_size": 1024,
+        "max_tokens": 2048,
+        "repetition_penalty": 1.15,
+        "repetition_context_size": 256,
+        "repetition_scope": "descriptive-json-strings-only",
+        "max_chunks": 32,
+        "memory_limit_bytes": 25769803776,
+        "parent_identity": {
+          "name": "mlx-qwen3.5-9b+experimental-lora",
+          "base_ollama_digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+          "base_receipt_sha256": "f147701d03bcb6618eb60031d964dce0d8d533c30ca9afb2ba41c013aec60b63",
+          "implementation_sha256": "a720cb108cc351ac148b84045bf43fcc052ab594acf735a16ffd641dd6363a63",
+          "contract_attempts": 3,
+          "structured_decoding": "schema-hunk-quote-v1",
+          "runtime_environment": {
+            "AGX_RELAX_CDM_CTXSTORE_TIMEOUT": "1",
+            "MLX_MAX_OPS_PER_BUFFER": null,
+            "MLX_MAX_MB_PER_BUFFER": null
+          },
+          "experimental_ai_labels": true,
+          "versions": {
+            "mlx": "0.32.4",
+            "mlx-lm": "0.32.2",
+            "transformers": "5.22.1",
+            "outlines-core": "0.2.14"
+          },
+          "adapter_sha256": "574a6a884d244973724b8938927ab13f6f64a89c980b263040e8027d74843a48",
+          "adapter_config_sha256": "78e5f661f5893df8642cd162026b99efe5c7029100e9b6d94ea2fc7f29a489e6",
+          "experiment_sha256": "967e14d2041262ecc1b91edc797aafa3f19e9dcaab3b37f49c79efdc948f6cba",
+          "digest": "f418a0f0dc9e57337fe3c95f1387e10409f877f1f21f666304ac94040f1d3bb4"
+        },
+        "files": {
+          "mlx_review_adapter.py": "f431c247c6cc3c415542b9828da84ef67856799ca19afe34226fc0b69c3b23fe",
+          "mlx_qwen_loader.py": "73c409fc3e553cd5661a0a3eb34c57c1250e8411f5ece12661716e0fd6641960",
+          "local_review_protocol.py": "60788e7fe0ade70caaeae87e690708d12bd25bbc810e4e6ce44ed7fe20ab3d66",
+          "mlx_json_decoder.py": "70345f47ceb1c2e49cf09e6909879677cc3c1ad9aec50d4d3be4d9c9a3cfdf42",
+          "mlx_review_schema.py": "3babde988cf2df087702564824718aef712f042e1ca5d08a48838f9d3ced6920",
+          "score_harness.py": "789ef2b878b0771d717b20c6a429fef184cf6c39547b94388723406b8da94787",
+          "review_contract.py": "e0f85f4f26590b052ed78b9795eb2df00762fd0bc39df25ab3c2d3101e7733b8",
+          "benchmark_data.py": "c352be423a9ad8fc18afcbb7ea82a8d4daaa0351938dc8b87990fa69cc2df980",
+          "contribution_estimates.py": "0e4d750b08ac2a21363d4e0bb20435d9078dfd22fce044c4682655b3d885d796",
+          "mlx_batch_client.py": "699ced2a4255c22d2ba5b6bb6a9bede98123c6bfc5ba7e717dbf471cf19c4736",
+          "mlx_batch_server.py": "d1702947e0f38c45d3e824d6d21a0765b84a05ba4ce0bd06433144b1e86b5484",
+          "mlx_prose_penalty.py": "9c2860c38367a1b2861818838e493663f8ca0875f70081691b779d162b18369a",
+          "run_mlx_batch_reviews.py": "592cffc5d29efc2baf9736714469dc6e226abe53a724348f9ec8b2950811ec98",
+          "review_artifacts.py": "aa1a95cc38709736b6abd37ac0b88b3f79b573d090338d4d967480630ebd9d56"
+        }
+      },
+      "digest": "7ca07d899000ceb7e01bd0ecd99c278fbf622bd8863d6d32b88607e1312f4149"
     }
   },
   "overall": {
     "groups": 17220,
     "scored": 115,
     "abstained": 2,
-    "failed": 691,
+    "failed": 711,
     "reserved": 60,
-    "pending": 16352,
+    "pending": 16332,
     "mean_tier": 1.4695652173913043,
     "tiers": {
       "1": 61,
@@ -3688,7 +3764,27 @@
       "title:carlos-marchal-ph:end to end coverage for multimodal ai ingestion",
       "title:carlos-marchal-ph:export a trace as a json file",
       "title:carlos-marchal-ph:move normalizer engine cases to a shared json file",
-      "title:carlos-marchal-ph:open traces in a drawer from the traces list"
+      "title:carlos-marchal-ph:open traces in a drawer from the traces list",
+      "title:carlos-marchal-ph:open traces in the drawer from every trace list",
+      "title:carlos-marchal-ph:report boolean evaluation outcomes by declared polarity",
+      "title:carlos-marchal-ph:serve the redesigned trace view from a trace resource",
+      "title:carlos-marchal-ph:tell projects which ai instrumentation is missing",
+      "title:cat-ph:cover android ndk shared objects in the native path",
+      "title:cat-ph:deliver alert notifications as slack threads",
+      "title:charlesvien:add a dark appearance to the app icon",
+      "title:charlesvien:clean up standalone repo leftovers after monorepo move",
+      "title:charlesvien:implement clear and advertise it as a capability",
+      "title:charlesvien:keep file references in copied chat text",
+      "title:charlesvien:move agent shadow to packages",
+      "title:charlesvien:remove the legacy loops backend",
+      "title:charlesvien:remove the legacy loops tools",
+      "title:charlesvien:remove the task automations feature",
+      "title:charlesvien:rename user facing posthog code to posthog desktop",
+      "title:charlesvien:replace the loading gif with an animated svg logo",
+      "title:charlesvien:split agent contracts out of shared",
+      "title:charlesvien:track roblox sdk events in usage report",
+      "title:christiaan-ph:summarize ticket from customer evidence",
+      "title:cohenroy:bind payment flows to the selected organization"
     ],
     "unmapped_prs": 14
   },
@@ -8852,48 +8948,58 @@
           "groups": 27,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 27,
+          "pending": 26,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:charlesvien:rename user facing posthog code to posthog desktop"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 36,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 36,
+          "pending": 33,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:charlesvien:clean up standalone repo leftovers after monorepo move",
+            "title:charlesvien:implement clear and advertise it as a capability",
+            "title:charlesvien:remove the task automations feature"
+          ],
           "unmapped_prs": 0
         },
         {
           "groups": 27,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 3,
           "reserved": 0,
-          "pending": 27,
+          "pending": 24,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:charlesvien:add a dark appearance to the app icon",
+            "title:charlesvien:keep file references in copied chat text",
+            "title:charlesvien:replace the loading gif with an animated svg logo"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -8916,25 +9022,9 @@
           "groups": 10,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 10,
-          "mean_tier": null,
-          "tiers": {
-            "1": 0,
-            "2": 0,
-            "3": 0
-          },
-          "review_ids": [],
-          "unmapped_prs": 0
-        },
-        {
-          "groups": 20,
-          "scored": 0,
-          "abstained": 0,
-          "failed": 1,
-          "reserved": 0,
-          "pending": 19,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -8942,7 +9032,29 @@
             "3": 0
           },
           "review_ids": [
-            "pr:114445"
+            "title:charlesvien:move agent shadow to packages",
+            "title:charlesvien:split agent contracts out of shared"
+          ],
+          "unmapped_prs": 0
+        },
+        {
+          "groups": 20,
+          "scored": 0,
+          "abstained": 0,
+          "failed": 4,
+          "reserved": 0,
+          "pending": 16,
+          "mean_tier": null,
+          "tiers": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "review_ids": [
+            "pr:114445",
+            "title:charlesvien:remove the legacy loops backend",
+            "title:charlesvien:remove the legacy loops tools",
+            "title:charlesvien:track roblox sdk events in usage report"
           ],
           "unmapped_prs": 0
         },
@@ -8969,9 +9081,9 @@
         "groups": 173,
         "scored": 0,
         "abstained": 0,
-        "failed": 2,
+        "failed": 14,
         "reserved": 0,
-        "pending": 171,
+        "pending": 159,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -8980,7 +9092,19 @@
         },
         "review_ids": [
           "pr:114445",
-          "pr:123757"
+          "pr:123757",
+          "title:charlesvien:add a dark appearance to the app icon",
+          "title:charlesvien:clean up standalone repo leftovers after monorepo move",
+          "title:charlesvien:implement clear and advertise it as a capability",
+          "title:charlesvien:keep file references in copied chat text",
+          "title:charlesvien:move agent shadow to packages",
+          "title:charlesvien:remove the legacy loops backend",
+          "title:charlesvien:remove the legacy loops tools",
+          "title:charlesvien:remove the task automations feature",
+          "title:charlesvien:rename user facing posthog code to posthog desktop",
+          "title:charlesvien:replace the loading gif with an animated svg logo",
+          "title:charlesvien:split agent contracts out of shared",
+          "title:charlesvien:track roblox sdk events in usage report"
         ],
         "unmapped_prs": 0
       }
@@ -12279,16 +12403,19 @@
           "groups": 11,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 2,
           "reserved": 0,
-          "pending": 11,
+          "pending": 9,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:carlos-marchal-ph:report boolean evaluation outcomes by declared polarity",
+            "title:carlos-marchal-ph:tell projects which ai instrumentation is missing"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -12311,9 +12438,9 @@
           "groups": 12,
           "scored": 0,
           "abstained": 0,
-          "failed": 3,
+          "failed": 4,
           "reserved": 0,
-          "pending": 9,
+          "pending": 8,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -12323,7 +12450,8 @@
           "review_ids": [
             "pr:107516",
             "pr:108227",
-            "pr:108228"
+            "pr:108228",
+            "title:carlos-marchal-ph:serve the redesigned trace view from a trace resource"
           ],
           "unmapped_prs": 0
         },
@@ -12349,9 +12477,9 @@
           "groups": 28,
           "scored": 0,
           "abstained": 0,
-          "failed": 4,
+          "failed": 5,
           "reserved": 0,
-          "pending": 24,
+          "pending": 23,
           "mean_tier": null,
           "tiers": {
             "1": 0,
@@ -12362,7 +12490,8 @@
             "pr:124365",
             "title:carlos-marchal-ph:export a trace as a json file",
             "title:carlos-marchal-ph:move normalizer engine cases to a shared json file",
-            "title:carlos-marchal-ph:open traces in a drawer from the traces list"
+            "title:carlos-marchal-ph:open traces in a drawer from the traces list",
+            "title:carlos-marchal-ph:open traces in the drawer from every trace list"
           ],
           "unmapped_prs": 0
         }
@@ -12371,9 +12500,9 @@
         "groups": 91,
         "scored": 0,
         "abstained": 0,
-        "failed": 12,
+        "failed": 16,
         "reserved": 0,
-        "pending": 79,
+        "pending": 75,
         "mean_tier": null,
         "tiers": {
           "1": 0,
@@ -12392,7 +12521,11 @@
           "title:carlos-marchal-ph:end to end coverage for multimodal ai ingestion",
           "title:carlos-marchal-ph:export a trace as a json file",
           "title:carlos-marchal-ph:move normalizer engine cases to a shared json file",
-          "title:carlos-marchal-ph:open traces in a drawer from the traces list"
+          "title:carlos-marchal-ph:open traces in a drawer from the traces list",
+          "title:carlos-marchal-ph:open traces in the drawer from every trace list",
+          "title:carlos-marchal-ph:report boolean evaluation outcomes by declared polarity",
+          "title:carlos-marchal-ph:serve the redesigned trace view from a trace resource",
+          "title:carlos-marchal-ph:tell projects which ai instrumentation is missing"
         ],
         "unmapped_prs": 0
       }
@@ -16505,16 +16638,18 @@
           "groups": 21,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 21,
+          "pending": 20,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:christiaan-ph:summarize ticket from customer evidence"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -16618,16 +16753,18 @@
         "groups": 50,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 50,
+        "pending": 49,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:christiaan-ph:summarize ticket from customer evidence"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -18403,16 +18540,18 @@
           "groups": 7,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 7,
+          "pending": 6,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cat-ph:cover android ndk shared objects in the native path"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18451,16 +18590,18 @@
           "groups": 4,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 4,
+          "pending": 3,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cat-ph:deliver alert notifications as slack threads"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -18516,16 +18657,19 @@
         "groups": 24,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 2,
         "reserved": 0,
-        "pending": 24,
+        "pending": 22,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:cat-ph:cover android ndk shared objects in the native path",
+          "title:cat-ph:deliver alert notifications as slack threads"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -20373,16 +20517,18 @@
           "groups": 4,
           "scored": 0,
           "abstained": 0,
-          "failed": 0,
+          "failed": 1,
           "reserved": 0,
-          "pending": 4,
+          "pending": 3,
           "mean_tier": null,
           "tiers": {
             "1": 0,
             "2": 0,
             "3": 0
           },
-          "review_ids": [],
+          "review_ids": [
+            "title:cohenroy:bind payment flows to the selected organization"
+          ],
           "unmapped_prs": 0
         },
         {
@@ -20406,16 +20552,18 @@
         "groups": 18,
         "scored": 0,
         "abstained": 0,
-        "failed": 0,
+        "failed": 1,
         "reserved": 0,
-        "pending": 18,
+        "pending": 17,
         "mean_tier": null,
         "tiers": {
           "1": 0,
           "2": 0,
           "3": 0
         },
-        "review_ids": [],
+        "review_ids": [
+          "title:cohenroy:bind payment flows to the selected organization"
+        ],
         "unmapped_prs": 0
       }
     },
@@ -43673,9 +43821,249 @@
       "source": "publication",
       "known_calibration": false,
       "evidence_sha256": "f6d708f9525aad1bf4444fcc6965bda66ea454fef9da8cb730d5242e14f3084a"
+    },
+    "title:carlos-marchal-ph:serve the redesigned trace view from a trace resource": {
+      "id": "title:carlos-marchal-ph:serve the redesigned trace view from a trace resource",
+      "prs": [
+        110123
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "a5655a41b070991bc7348f5ae94643c2137b5b8fba928899f41a7954e145ed3b"
+    },
+    "title:charlesvien:replace the loading gif with an animated svg logo": {
+      "id": "title:charlesvien:replace the loading gif with an animated svg logo",
+      "prs": [
+        90618
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "0cc78f46fcfcdbced28ba3d60cf707fb57d4ed3f0cbb46d8b0c99164a50837ea"
+    },
+    "title:charlesvien:move agent shadow to packages": {
+      "id": "title:charlesvien:move agent shadow to packages",
+      "prs": [
+        104121
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "924de8c03fe6f84b5c7995d69328651b9be6e70745b960964c54e992a97b6c22"
+    },
+    "title:christiaan-ph:summarize ticket from customer evidence": {
+      "id": "title:christiaan-ph:summarize ticket from customer evidence",
+      "prs": [
+        78371
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b138270377c2fafd3978f67013e631fd461795cf0ba6cf55df403f24b535d2e8"
+    },
+    "title:charlesvien:track roblox sdk events in usage report": {
+      "id": "title:charlesvien:track roblox sdk events in usage report",
+      "prs": [
+        118209
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "cf709daddb1f0c561cced7796b73ca75efb8ca854286b309058cf364f53fcf09"
+    },
+    "title:charlesvien:split agent contracts out of shared": {
+      "id": "title:charlesvien:split agent contracts out of shared",
+      "prs": [
+        104122
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8c77a3daf43ccdb428ab020f671ee6163cacf41525c5d07f2a549b4739128f29"
+    },
+    "title:charlesvien:clean up standalone repo leftovers after monorepo move": {
+      "id": "title:charlesvien:clean up standalone repo leftovers after monorepo move",
+      "prs": [
+        82392
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "f1086e3724bd5ece437d8c3cc26bc265df20457e285883175620df0cad3b8d62"
+    },
+    "title:cat-ph:cover android ndk shared objects in the native path": {
+      "id": "title:cat-ph:cover android ndk shared objects in the native path",
+      "prs": [
+        74430
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "fd4629ad2c9bbcb41956578a5f56a14ccb4f2f450cc44e4c12977dd4157e9b3a"
+    },
+    "title:carlos-marchal-ph:open traces in the drawer from every trace list": {
+      "id": "title:carlos-marchal-ph:open traces in the drawer from every trace list",
+      "prs": [
+        128163
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b3aaa467a863f478e5993bbdc973e3d01266425f0cda996636b17314214b5f31"
+    },
+    "title:charlesvien:remove the legacy loops tools": {
+      "id": "title:charlesvien:remove the legacy loops tools",
+      "prs": [
+        114446
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "3e6cbedc95d1e91bc5211048e35d15cc404876884cb3e34870bfa8f898a5e53c"
+    },
+    "title:charlesvien:keep file references in copied chat text": {
+      "id": "title:charlesvien:keep file references in copied chat text",
+      "prs": [
+        96274
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "8bdac9bd2514e7e826393d00b23d4adc2ec055b95c6cdd3f0225523c0e54ae9f"
+    },
+    "title:cat-ph:deliver alert notifications as slack threads": {
+      "id": "title:cat-ph:deliver alert notifications as slack threads",
+      "prs": [
+        92051
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "042a44c49e040c5b744157a5c200f5d6d56d62caa61d286b17b2e92276da9c83"
+    },
+    "title:charlesvien:rename user facing posthog code to posthog desktop": {
+      "id": "title:charlesvien:rename user facing posthog code to posthog desktop",
+      "prs": [
+        80973
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "1fd1d72260ca521cd71bf96f2b1b171df0855dc741550919221f1d8ef12b8b57"
+    },
+    "title:charlesvien:remove the legacy loops backend": {
+      "id": "title:charlesvien:remove the legacy loops backend",
+      "prs": [
+        114448
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "5a031e55368e8131207c2b00826d1094787402d772f98918fd87607fed63373a"
+    },
+    "title:charlesvien:remove the task automations feature": {
+      "id": "title:charlesvien:remove the task automations feature",
+      "prs": [
+        85092
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "7cc936b77b288ddec6ab8684865b365ecd1249a95c10e0714b278ad0c2efa46c"
+    },
+    "title:carlos-marchal-ph:tell projects which ai instrumentation is missing": {
+      "id": "title:carlos-marchal-ph:tell projects which ai instrumentation is missing",
+      "prs": [
+        88511
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "de500670bcb57d5f052b2dea5209389b09fe4b858a16c3fcc54e0346db84b4df"
+    },
+    "title:charlesvien:implement clear and advertise it as a capability": {
+      "id": "title:charlesvien:implement clear and advertise it as a capability",
+      "prs": [
+        76457
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "4dfc0eda6f26aaee9ab2571abeb1e9bf31f1ae1132f98f9335542f92b5e81098"
+    },
+    "title:cohenroy:bind payment flows to the selected organization": {
+      "id": "title:cohenroy:bind payment flows to the selected organization",
+      "prs": [
+        112506
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "b02fcf20ef231b40f0607957de3fb91ac90f37d5974f8f3bc397ba7bcf15e0a2"
+    },
+    "title:charlesvien:add a dark appearance to the app icon": {
+      "id": "title:charlesvien:add a dark appearance to the app icon",
+      "prs": [
+        90636
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "40d8db59a1ba46d0db0cdaccc98cc89c119f1244d20fdbd302b7aff516fc8279"
+    },
+    "title:carlos-marchal-ph:report boolean evaluation outcomes by declared polarity": {
+      "id": "title:carlos-marchal-ph:report boolean evaluation outcomes by declared polarity",
+      "prs": [
+        92753
+      ],
+      "status": "preflight",
+      "tier": null,
+      "run": "qwen-overnight-v1-0034",
+      "source": "publication",
+      "known_calibration": false,
+      "evidence_sha256": "86ba06a6ff595af06c566dde46a2dec2297519efba32e298d106c6c103831eab"
     }
   },
   "evidence_storage": "sha256-json-v1",
-  "inline_publication_sha256": "295b9b3f30413167f4b5a4d3f77ddead2e97c723a7fb40cba2fa651d8232e2e4",
-  "sha256": "e0c48eeeef8e5eb0d5e171eb70a1d97169530b7a5cc785813d06a3e0ce195245"
+  "inline_publication_sha256": "6198cdac351e2cf16cf4760e108d4b312deddd56fbc682983d7aee1e9393b2b1",
+  "sha256": "0e639fee27dc47bb1e9b57c5a490c106bc526282bd649302e7c705b070525696"
 }
