@@ -1,0 +1,1 @@
+{"id":"title:MattPua:remove redundant text from slack reports","prs":[122741],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0074","source":"publication","known_calibration":false,"packet_sha256":"d514e84e19b971b1a9759f834d4e07bcb62b6656ce2165f1f938ec62fd656969","prediction_sha256":"ca1b51aca56d2bf036a167b784b8cf91371622e5b693c774eb5119aa630c4e44"}

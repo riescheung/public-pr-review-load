@@ -1,0 +1,1 @@
+{"id":"title:annaszell:use dbt datediff macro in fct retention","prs":[76344],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0116","source":"publication","known_calibration":false,"packet_sha256":"2ac37dbc2c472ff1e6a5a19817ac62851ab6f64e05f97b2f15e11aadf6f8bf32","prediction_sha256":"75d47f7b6f99a0ba6f4f9e9004814c5e6a5582a30a004e240442c21269b4d864"}

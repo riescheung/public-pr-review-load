@@ -1,0 +1,1 @@
+{"id":"title:bill-ph:prewarm sources before granian readiness","prs":[83283],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0127","source":"publication","known_calibration":false,"packet_sha256":"6fd6bae3b1110c82587e6115a71a564cd2003f1e15f508cca2a203ec3c32b9fc","prediction_sha256":"aa1b7eb23346b3ac096c13f404c65db9cc1b6032b6decc2c040229b3a9010401"}

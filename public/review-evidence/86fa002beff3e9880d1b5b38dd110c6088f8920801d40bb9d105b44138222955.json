@@ -1,0 +1,1 @@
+{"id":"title:MattBro:score signup enrichment on first attempt","prs":[79064],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0071","source":"publication","known_calibration":false,"packet_sha256":"4de9f6833917a411432565b91f140c5c48fef10bfa44678834f6b332ec5d8d26","prediction_sha256":"9dd73756c2ce1c59e39c17a0dff2791cc83491d39e939b4dea021d046e6424f2"}

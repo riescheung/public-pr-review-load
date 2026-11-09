@@ -1,0 +1,1 @@
+{"id":"title:bernatixer:run the llm tagger as a sync activity","prs":[109748],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0126","source":"publication","known_calibration":false,"packet_sha256":"20b6859697485ab399d381063f41cdf29e7b364b32f8a77cd158482be2f4c5f8","prediction_sha256":"624108171d4b8442287af6260044331d4fdbe82e0e031dd61ef7bcc331b23770"}

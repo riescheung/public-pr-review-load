@@ -1,0 +1,1 @@
+{"id":"title:JakeRuth:run issue validation on claude opus 5","prs":[81458],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0068","source":"publication","known_calibration":false,"packet_sha256":"4cfab56185db5241a2c3e9b036d7706b007e1d3285e61fade43d892be623c3d9","prediction_sha256":"4e825b6a96e5930a184d6416b57fe594293fc53758cf261f986d759c79eb4c04"}

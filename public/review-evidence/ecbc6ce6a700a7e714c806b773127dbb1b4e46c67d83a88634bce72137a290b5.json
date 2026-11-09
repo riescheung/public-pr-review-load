@@ -1,0 +1,1 @@
+{"id":"title:Radu-Raicea:show mcp prompt for evaluation setup","prs":[80721],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0082","source":"publication","known_calibration":false,"packet_sha256":"c1b51636fca8ce870abe8ed50695012d8c705b2d2cf9186f6cb7d6123d5e9abe","prediction_sha256":"df962f7c87036bde9c3893bf1eb5d86ac9764ee85f2b73872da340eaab3c5352"}

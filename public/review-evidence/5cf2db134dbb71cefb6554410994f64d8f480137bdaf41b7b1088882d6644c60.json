@@ -1,0 +1,1 @@
+{"id":"title:adamleithp:remove per channel task lookup fan out","prs":[84986],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0103","source":"publication","known_calibration":false,"packet_sha256":"df38bc3d1c51648f6f8361c694727b73b64703301255225c248d1a169b1a8ec8","prediction_sha256":"0ea123d1ab137fd1128a5e6140a79feb7e42c0aaff6a4cd99bde2a94c5b2a307"}

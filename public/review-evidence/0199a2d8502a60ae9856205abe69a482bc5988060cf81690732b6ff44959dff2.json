@@ -1,0 +1,1 @@
+{"id":"title:arnohillen:drop nvidia nccl cu12 from xgboost","prs":[100971],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0117","source":"publication","known_calibration":false,"packet_sha256":"00986ed79c3f1c710268025f5fab7798c19b2340a927574d51576d08f983b363","prediction_sha256":"9b0229b3f22e01ffbc99549e99fe0e4f5f4b822c3ef617eb520e2a9e162374cb"}

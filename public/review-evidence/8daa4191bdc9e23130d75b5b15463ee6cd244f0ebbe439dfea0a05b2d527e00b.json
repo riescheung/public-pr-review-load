@@ -1,0 +1,1 @@
+{"id":"title:Piccirello:tell agents the csp is enforced","prs":[101380],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0080","source":"publication","known_calibration":false,"packet_sha256":"45c7e214c12c5d4cde00edd9dfcd0cca0d14b933335254a26934296066bb30fc","prediction_sha256":"96f6b672ed408ef8fca8ac7e4f5558bc70b4b2753d06d58d55188933a519aa8c"}

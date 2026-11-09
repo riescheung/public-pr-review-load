@@ -1,0 +1,1 @@
+{"id":"title:Gilbert09:promote openrouter source to beta","prs":[88200],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0017","source":"publication","known_calibration":false,"packet_sha256":"c3ce13447db8953ad054fe51ccb9f01cc8d74219e073b4cf4d9d2ad6c2d91528","prediction_sha256":"d6196026cd1b361b9856c70a8844e01ab861074b7b0497bbf3b8123f90803689"}

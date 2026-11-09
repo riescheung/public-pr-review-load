@@ -1,0 +1,1 @@
+{"id":"title:Piccirello:bump posthog hedgehog mode to 0 0 57","prs":[98641],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0077","source":"publication","known_calibration":false,"packet_sha256":"941f2ff08ba1c3e68c0862a3ea59fbd5cf9559341f58df9ace146bbd757f84e3","prediction_sha256":"1da0df1c8a668c0c51fa377c2ccf760b0efebb483544f6d5b2b4f79c934fa555"}

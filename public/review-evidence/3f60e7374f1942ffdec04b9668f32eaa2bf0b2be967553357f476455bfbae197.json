@@ -1,0 +1,1 @@
+{"id":"title:Gilbert09:promote amplitude source to ga","prs":[109613],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0016","source":"publication","known_calibration":false,"packet_sha256":"0b7ed4be9ca6fe345c0e6a040277aba64721711ac69fae920feba8a2ee4d6137","prediction_sha256":"0a3695eb9ef95e07ae5e74c1f45b26524bf10f4925a159ce7520133840903494"}

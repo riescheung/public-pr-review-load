@@ -1,0 +1,1 @@
+{"id":"title:frankh:serve static assets from caddy","prs":[113092],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v5-guard-p6-0020","source":"publication","known_calibration":false,"packet_sha256":"a32b45612221bf457d67489154f722c60d9e3b87106af845f15e362fd21fc913","prediction_sha256":"13ef68eafda4d506c5f6fe86d96d8bb800ee8c5e37868928a166df5f439140f5"}

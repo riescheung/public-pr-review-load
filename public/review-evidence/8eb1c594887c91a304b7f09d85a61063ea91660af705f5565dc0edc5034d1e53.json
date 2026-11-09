@@ -1,0 +1,1 @@
+{"id":"title:andyzzhao:process each event batch on all cores","prs":[124337],"status":"error","tier":null,"review":null,"run":"cuda-trained-overnight-v4-p6-0115","source":"publication","known_calibration":false,"packet_sha256":"ceb1842acc5a57c69b7b22abf5c38feb896e35c6c353dd3bd51bb1b4703673b6","prediction_sha256":"170e24007ffef3f6b9ec8e1638ba2ab1eaac07b775f3d5f659f48d30679556e6"}
