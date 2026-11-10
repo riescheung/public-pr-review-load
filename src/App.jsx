@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import report from '../data/report.json'
 import ReviewQueue from './ReviewQueue.jsx'
+import ScoreExplainers from './ScoreExplainers.jsx'
 import referenceProgress from '../data/reference_progress.json'
 import { ContributionCell, ContributionEvidence, contributionSummary, estimates } from './ContributionEstimate.jsx'
 import { estimateValue } from './contributionEstimates.js'
@@ -81,6 +82,7 @@ function ReviewDesk() {
         </div>
         <span className="review-desk-state">Partial coverage</span>
       </div>
+      <ScoreExplainers />
       <details className="review-plan"><summary>Models, training and reference agreement</summary>
         <strong>Frontier estimates first · corrections improve later versions</strong>
         <p>Qwen processed all 40 development cases: 38 reviews passed validation, one case failed evidence preflight and one response violated the review contract. A matching-base LoRA experiment completed 40 training steps on historical AI proposals, not human-approved labels.</p>
