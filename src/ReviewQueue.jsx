@@ -157,11 +157,11 @@ export default function ReviewQueue() {
   return (
     <section className="review-desk review-queue" id="review-queue" aria-labelledby="queue-title">
       <div className="review-desk-header">
-        <div><h2 id="queue-title">Improve Qwen’s estimates</h2><p>Frontier-model references first. Your code-checked corrections feed later tuning rounds.</p></div>
+        <div><h2 id="queue-title">Review queue</h2><p>Compare Qwen with Sol and save corrections for future training.</p></div>
         <button type="button" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? 'Hide review queue' : 'Open review queue'}</button>
       </div>
       {(open || queue) && <div hidden={!open}>
-        <p className="queue-help">Corrections stay in this browser until exported. This static site cannot retrain Qwen itself. Export, import locally, train a new version, then compare it before rollout. The 60 final-test cases never enter this queue.</p>
+        <p className="queue-help">Corrections stay in this browser until you export them. Retraining is a separate, local step, not automatic. The 60 final-test cases are excluded.</p>
         {error ? <p role="alert">{error} <button type="button" onClick={() => setAttempt(attempt + 1)}>Retry loading</button></p>
           : queue ? <QueueEditor queue={queue} /> : <p role="status">Loading development references and code diffs…</p>}
       </div>}

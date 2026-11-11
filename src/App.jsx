@@ -10,6 +10,7 @@ const PAGE_SIZE = 5
 const people = [...report.people].sort((a, b) => b.wpr - a.wpr || a.login.localeCompare(b.login))
 const periods = report.periods
 const number = new Intl.NumberFormat('en-US')
+const compactNumber = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 })
 
 function RankInsignia({ rank }) {
   if (rank > 5) return <span className="plain-rank">{String(rank).padStart(2, '0')}</span>
@@ -77,20 +78,19 @@ function ReviewDesk() {
     <section className="review-desk" aria-labelledby="review-desk-title">
       <div className="review-desk-header">
         <div>
-          <h2 id="review-desk-title">AI-estimated contribution</h2>
-          <p>{number.format(estimates.overall.scored)} of {number.format(estimates.overall.groups)} change groups have scored Qwen reviews. Coverage is partial; unreviewed work is not zero.</p>
+          <h2 id="review-desk-title">AI-estimated change scope</h2>
+          <p title={`${number.format(estimates.overall.scored)} of ${number.format(estimates.overall.groups)} change groups scored`}>{compactNumber.format(estimates.overall.scored)} of {compactNumber.format(estimates.overall.groups)} changes scored. Unreviewed work is not zero.</p>
         </div>
         <span className="review-desk-state">Partial coverage</span>
       </div>
       <ScoreExplainers />
-      <details className="review-plan"><summary>Models, training and reference agreement</summary>
-        <strong>Frontier estimates first · corrections improve later versions</strong>
-        <p>Qwen processed all 40 development cases: 38 reviews passed validation, one case failed evidence preflight and one response violated the review contract. A matching-base LoRA experiment completed 40 training steps on historical AI proposals, not human-approved labels.</p>
-        {referenceProgress.adapter_training?.completed && <p>The newer Qwen adapter is now trained on Sol's reference answers: {referenceProgress.adapter_training.previous_iterations} saved updates plus {referenceProgress.adapter_training.new_iterations} new updates, with a fresh optimiser for the continuation. All {referenceProgress.adapter_training.calibration_cases} calibration reviews passed format and citation checks. Their tiers matched {referenceProgress.adapter_training.calibration_exact_matches} of {referenceProgress.adapter_training.calibration_cases} historical reference decisions, the same as the base model. The adapter remains experimental.</p>}
-        <p>Sol supplied {referenceProgress.reference_labels} valid development references; {referenceProgress.reference_errors} responses failed the review contract and {referenceProgress.reference_preflight} case failed evidence preflight. Qwen agreed with {Math.round(referenceProgress.metrics_against_frontier_estimates.model_exact_accuracy * referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts)} of {referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts} reference decisions. This measures agreement with Sol, not objective accuracy. The 60 reserved final-test cases remain untouched.</p>
-        <p>GPT-6.1 Sol High now supplies estimated reference answers for development. The queue compares those estimates with Qwen and accepts your code-checked corrections for later tuning rounds. A disagreement never changes a score automatically. <a href="https://github.com/riescheung/public-pr-review-load/blob/main/BENCHMARK.md" target="_blank" rel="noopener noreferrer">Review method and measured results</a>.</p>
+      <details className="review-plan"><summary>Model and validation</summary>
+        <p>Qwen was fine-tuned with LoRA on Sol's AI-generated examples, not human-approved labels. It remains experimental.</p>
+        <p>Before fine-tuning, Qwen matched {Math.round(referenceProgress.metrics_against_frontier_estimates.model_exact_accuracy * referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts)} of {referenceProgress.metrics_against_frontier_estimates.model_labelled_attempts} valid Sol decisions from 40 development cases. This is agreement, not accuracy.</p>
+        {referenceProgress.adapter_training?.completed && <p>After {referenceProgress.adapter_training.total_iterations} training updates, it matched {referenceProgress.adapter_training.calibration_exact_matches} of {referenceProgress.adapter_training.calibration_cases} historical calibration decisions, the same as the comparable base model. No judgment improvement has been demonstrated.</p>}
+        <p>The 60 final-test cases remain locked. <a href="https://github.com/riescheung/public-pr-review-load/blob/qwen-dashboard-results-20261109/BENCHMARK.md" target="_blank" rel="noopener noreferrer">Full method and results</a>.</p>
       </details>
-      <p className="review-desk-caveat">The table now shows the mean 1–3 tier among scored groups, with coverage and cited evidence. Saved base-Qwen reviews and experimental fine-tuned reviews are identified separately in the evidence panel. These are estimates, not verified customer outcomes or a performance ranking.</p>
+      <p className="review-desk-caveat">AI estimate = mean tier (1–3) among scored groups, not verified impact. Open a cell for the explanation, code quotes and model used.</p>
     </section>
   )
 }
@@ -174,8 +174,8 @@ export default function App() {
       <main>
         <section className="intro" aria-label="Report overview">
           <div className="intro-copy">
-            <h1>Review load, estimated.</h1>
-            <p>Public-code review load and AI-estimated contribution, with source evidence and review coverage.</p>
+            <h1>PostHog review load</h1>
+            <p>Review load and AI change estimates, linked to the code.</p>
           </div>
           <div className="snapshot">
             <span className="snapshot-indicator" />
@@ -184,14 +184,14 @@ export default function App() {
         </section>
 
         <div className="coverage">
-          <div><strong>{number.format(report.manifest.merged_prs)}</strong> merged PRs audited</div>
+          <div title={`${number.format(report.manifest.merged_prs)} merged PRs`}><strong>{compactNumber.format(report.manifest.merged_prs)}</strong> merged PRs</div>
           <span className="coverage-separator" />
-          <div><strong>{number.format(people.length)}</strong> observed human contributors</div>
+          <div><strong>{number.format(people.length)}</strong> human contributors</div>
           <span className="coverage-separator" />
-          <div><strong>{number.format(report.manifest.human_prs)}</strong> human-authored PRs with WPR</div>
+          <div title={`${number.format(report.manifest.human_prs)} human-authored PRs with WPR`}><strong>{compactNumber.format(report.manifest.human_prs)}</strong> human-authored PRs</div>
           <button className="method-trigger" onClick={() => setMethodOpen(!methodOpen)} aria-expanded={methodOpen}>How WPR works <span aria-hidden="true">{methodOpen ? '−' : '+'}</span></button>
         </div>
-        <p className="coverage-warning"><strong>WPR is not an outcome score.</strong> It estimates review load, grows with PR volume, and cannot establish author effort, adoption or customer benefit. The order below is not a performance ranking.</p>
+        <p className="coverage-warning"><strong>WPR estimates review load, not impact.</strong> More PRs can raise the total; it does not measure effort or customer benefit.</p>
 
         {methodOpen && <section className="method-panel" aria-label="WPR methodology">
           <div><h2>What is WPR?</h2><p>Each merged PR gets a 0–10 weighted review-load estimate from its changed files. Trivial and generated files are discounted; a net revert receives zero. The table sums PR WPR by author and merge period.</p></div>
@@ -204,7 +204,7 @@ export default function App() {
 
         <section className="contributor-board" aria-label="Contributor review-load index">
           <div className="board-heading">
-            <div><h2>Public review-load index</h2><p>Highest WPR totals first. Top-five symbols mark rank by this proxy, not impact.</p></div>
+            <div><h2>Contributors</h2><p>Sorted by WPR, not impact. Badges mark the five highest totals.</p></div>
             <div className="board-actions">
               <label className="search-wrap">
                 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.9"/><path d="m13.4 13.4 4.3 4.3"/></svg>
@@ -216,7 +216,7 @@ export default function App() {
           </div>
           <div className="board-filterbar">
             <span>Showing {filtered.length} of {people.length} contributors</span>
-            <span>{number.format(estimates.overall.scored)}/{number.format(estimates.overall.groups)} changes scored by Qwen</span>
+            <span title={`${number.format(estimates.overall.scored)} of ${number.format(estimates.overall.groups)} change groups scored`}>{compactNumber.format(estimates.overall.scored)}/{compactNumber.format(estimates.overall.groups)} changes scored</span>
           </div>
 
           <div className="table-scroll" role="region" aria-label="Review load and AI estimates by period" tabIndex={0}>

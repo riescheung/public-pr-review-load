@@ -18,8 +18,8 @@ export default function ScoreExplainers() {
     <div className="score-guides">
       <details className="score-guide" id="weighted-pr-guide">
         <GuideHeading
-          title="What does weighted PR mean?"
-          description="WPR estimates review load from changed files. It is not an impact score."
+          title="What is WPR?"
+          description="File-change weights, added up by period."
         />
         <div className="score-guide-body">
           <h3>Not every PR contains the same amount of review work.</h3>
@@ -52,8 +52,8 @@ export default function ScoreExplainers() {
 
       <details className="score-guide" id="ai-reviewer-guide">
         <GuideHeading
-          title="What does the AI reviewer mean?"
-          description="Qwen reads changed code and estimates a scope tier, with an explanation and quotes."
+          title="How does Qwen review code?"
+          description="From changed code to a tier and explanation."
         />
         <div className="score-guide-body">
           <h3>Qwen asks: what change does this code demonstrate?</h3>
